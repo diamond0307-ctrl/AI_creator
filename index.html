@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Release Yourself into the World. | AI×WEB集客クリエイター養成講座</title>
+<meta name="description" content="AIとウェブ集客で、旅も体験も人生の選択肢も自分で選べる未来へ。AI×WEB集客クリエイター養成講座。">
+<meta name="theme-color" content="#f8f3ea">
+<style>
+  :root{
+    --ink:#13110f;
+    --muted:#6f675f;
+    --line:rgba(19,17,15,.13);
+    --paper:#fbf8f1;
+    --ivory:#fffdf7;
+    --sand:#eee4d2;
+    --cyan:#12c8de;
+    --pink:#ed5c8a;
+    --orange:#f18b3d;
+    --red:#c81720;
+    --radius:18px;
+    --ease:cubic-bezier(.19,1,.22,1);
+    --serif:Georgia,"Times New Roman","Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;background:var(--paper);}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 4%, rgba(18,200,222,.14), transparent 24rem),
+      radial-gradient(circle at 86% 18%, rgba(237,92,138,.12), transparent 22rem),
+      linear-gradient(180deg,var(--ivory),var(--paper) 38%,#f5ecdd);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  body.is-locked{overflow:hidden;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;color:inherit;}
+  section{position:relative;}
+  ::selection{background:rgba(237,92,138,.25);}
+
+  .noise{
+    position:fixed;
+    inset:0;
+    z-index:900;
+    pointer-events:none;
+    opacity:.18;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+  }
+
+  .loader{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:grid;
+    place-items:center;
+    background:#faf7ef;
+    color:var(--ink);
+    transition:opacity .8s var(--ease), visibility .8s var(--ease);
+  }
+  .loader.is-hidden{opacity:0;visibility:hidden;}
+  .loader-inner{
+    width:min(82vw,380px);
+    display:grid;
+    gap:18px;
+  }
+  .loader-kicker{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  .loader-word{
+    font-family:var(--serif);
+    font-size:clamp(42px,16vw,94px);
+    line-height:.86;
+    letter-spacing:-.04em;
+  }
+  .loader-bar{
+    position:relative;
+    height:2px;
+    background:rgba(19,17,15,.14);
+    overflow:hidden;
+  }
+  .loader-bar span{
+    position:absolute;
+    inset:0 auto 0 0;
+    width:42%;
+    background:var(--ink);
+    animation:loadline 1.35s var(--ease) infinite;
+  }
+  @keyframes loadline{
+    0%{transform:translateX(-120%);}
+    100%{transform:translateX(260%);}
+  }
+
+  .site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:120;
+    padding:14px max(18px,env(safe-area-inset-left)) 0;
+    pointer-events:none;
+  }
+  .nav-shell{
+    pointer-events:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    max-width:1260px;
+    margin:0 auto;
+    padding:10px;
+    border:1px solid rgba(19,17,15,.13);
+    border-radius:999px;
+    background:rgba(255,253,247,.7);
+    backdrop-filter:blur(18px) saturate(145%);
+    box-shadow:0 18px 55px rgba(54,43,29,.08);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding-left:8px;
+    min-width:0;
+  }
+  .brand-mark{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:conic-gradient(from 210deg,var(--cyan),var(--pink),var(--orange),var(--cyan));
+    position:relative;
+    flex:0 0 auto;
+  }
+  .brand-mark::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    background:var(--ivory);
+  }
+  .brand-text{
+    font-size:11px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .nav-actions{display:flex;align-items:center;gap:6px;}
+  .pill-button{
+    border:1px solid rgba(19,17,15,.14);
+    background:rgba(255,253,247,.78);
+    border-radius:999px;
+    min-height:42px;
+    padding:0 15px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    cursor:pointer;
+    transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  }
+  .pill-button:hover{transform:translateY(-2px);background:var(--ink);color:var(--ivory);}
+  .pill-button .arrow{font-size:16px;line-height:1;}
+  .menu-button{width:42px;padding:0;}
+  .menu-lines{
+    width:16px;
+    height:10px;
+    position:relative;
+  }
+  .menu-lines::before,.menu-lines::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:100%;
+    height:1px;
+    background:currentColor;
+    transition:transform .35s var(--ease), top .35s var(--ease);
+  }
+  .menu-lines::before{top:1px;}
+  .menu-lines::after{top:8px;}
+  .menu-open .menu-lines::before{top:5px;transform:rotate(35deg);}
+  .menu-open .menu-lines::after{top:5px;transform:rotate(-35deg);}
+
+  .menu-panel{
+    position:fixed;
+    inset:0;
+    z-index:110;
+    display:grid;
+    align-items:end;
+    padding:86px 16px 16px;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .45s var(--ease);
+  }
+  .menu-panel.is-open{opacity:1;pointer-events:auto;}
+  .menu-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(19,17,15,.32);
+    backdrop-filter:blur(8px);
+  }
+  .menu-card{
+    position:relative;
+    max-width:760px;
+    width:100%;
+    margin:0 auto;
+    border-radius:26px;
+    background:var(--ivory);
+    border:1px solid rgba(19,17,15,.14);
+    padding:26px;
+    transform:translateY(24px) scale(.98);
+    transition:transform .55s var(--ease);
+    box-shadow:0 34px 80px rgba(43,31,21,.22);
+  }
+  .menu-panel.is-open .menu-card{transform:translateY(0) scale(1);}
+  .menu-card p{
+    margin:0 0 24px;
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .menu-links{
+    display:grid;
+    gap:2px;
+    counter-reset:menu;
+  }
+  .menu-links a{
+    counter-increment:menu;
+    border-top:1px solid var(--line);
+    padding:15px 0;
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    font-family:var(--serif);
+    font-size:clamp(26px,9vw,58px);
+    line-height:.96;
+    letter-spacing:-.05em;
+  }
+  .menu-links a::before{
+    content:"0" counter(menu);
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.18em;
+    color:var(--muted);
+    padding-top:.45em;
+  }
+
+  .hero{
+    min-height:100svh;
+    padding:92px 14px 24px;
+    display:grid;
+    align-items:center;
+    overflow:hidden;
+  }
+  .hero-grid{
+    width:min(100%,1260px);
+    margin:0 auto;
+    position:relative;
+    display:block;
+    min-height:calc(100svh - 116px);
+  }
+  .hero-type{
+    position:absolute;
+    inset:0;
+    z-index:4;
+    display:block;
+    max-width:none;
+    padding:16px;
+    pointer-events:none;
+  }
+  .edition-row{
+    position:absolute;
+    left:16px;
+    right:16px;
+    top:16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .edition-row span{
+    border:1px solid rgba(19,17,15,.13);
+    border-radius:999px;
+    padding:7px 10px;
+    background:rgba(255,253,247,.42);
+  }
+  .hero-title{
+    position:absolute;
+    z-index:2;
+    left:-16vw;
+    top:47%;
+    transform:translateY(-50%);
+    align-self:center;
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(74px,23vw,190px);
+    line-height:.78;
+    letter-spacing:-.082em;
+    max-width:7.2ch;
+    color:var(--ink);
+    text-shadow:0 1px 0 rgba(255,253,247,.2);
+    mix-blend-mode:multiply;
+    pointer-events:none;
+  }
+  .split-line{
+    display:block;
+    overflow:hidden;
+  }
+  .split-line span{
+    display:block;
+    transform:translateY(110%);
+  }
+  .hero-title .jp{
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    font-size:.58em;
+    letter-spacing:-.12em;
+    line-height:1.05;
+    margin-bottom:.03em;
+  }
+  .hero-title .red{color:var(--red);}
+  .hero-copy{
+    position:absolute;
+    z-index:3;
+    left:16px;
+    right:16px;
+    bottom:0;
+    display:grid;
+    gap:9px;
+    max-width:560px;
+    justify-self:start;
+    align-self:end;
+    padding:0 0 2px;
+    pointer-events:auto;
+  }
+  .hero-copy p{
+    margin:0;
+    font-size:12px;
+    line-height:1.65;
+    letter-spacing:.02em;
+    max-width:34em;
+  }
+  .course-name{
+    display:inline-flex;
+    width:max-content;
+    max-width:100%;
+    border:1px solid rgba(19,17,15,.16);
+    border-radius:999px;
+    padding:10px 14px;
+    background:rgba(255,253,247,.48);
+    font-size:12px;
+    letter-spacing:.08em;
+    white-space:normal;
+  }
+  .hero-media{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    min-height:100%;
+    border-radius:34px;
+    overflow:hidden;
+    isolation:isolate;
+    border:1px solid rgba(19,17,15,.12);
+    box-shadow:0 28px 80px rgba(60,45,25,.14);
+    clip-path:inset(100% 0 0 0 round 34px);
+    background:var(--ivory);
+  }
+  .hero-media img{
+    width:100%;
+    height:100%;
+    min-height:100%;
+    object-fit:cover;
+    object-position:58% 39%;
+    transform:scale(1.08);
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(90deg,rgba(255,253,247,.54),rgba(255,253,247,.08) 42%,rgba(255,253,247,.2)),
+      linear-gradient(180deg,rgba(255,253,247,.18),rgba(251,248,241,.45) 78%,rgba(251,248,241,.82));
+    pointer-events:none;
+  }
+  .hero-note{
+    position:absolute;
+    right:12px;
+    bottom:12px;
+    z-index:2;
+    max-width:240px;
+    padding:12px 14px;
+    border-radius:18px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(16px);
+    font-size:11px;
+    line-height:1.6;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .scroll-cue{
+    display:none;
+    position:absolute;
+    left:24px;
+    bottom:26px;
+    writing-mode:vertical-rl;
+    font-size:10px;
+    letter-spacing:.24em;
+    color:var(--muted);
+  }
+
+  .marquee{
+    overflow:hidden;
+    padding:18px 0;
+    border-block:1px solid var(--line);
+    background:rgba(255,253,247,.52);
+  }
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    animation:marquee 28s linear infinite;
+  }
+  .marquee span{
+    padding-right:28px;
+    font-family:var(--serif);
+    font-size:clamp(34px,12vw,92px);
+    line-height:.9;
+    letter-spacing:-.055em;
+    white-space:nowrap;
+  }
+  .marquee .accent{color:var(--pink);}
+  @keyframes marquee{
+    to{transform:translateX(-50%);}
+  }
+
+  .section{
+    padding:84px 16px;
+  }
+  .section-inner{
+    width:min(100%,1180px);
+    margin:0 auto;
+  }
+  .section-label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+    font-size:11px;
+    letter-spacing:.19em;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+  .section-label::before{
+    content:"";
+    width:34px;
+    height:1px;
+    background:currentColor;
+  }
+  .statement{
+    display:grid;
+    gap:32px;
+  }
+  .statement h2,.editorial-title{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(42px,14vw,128px);
+    line-height:.92;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .statement h2 .jp{
+    display:block;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    font-size:.62em;
+    letter-spacing:-.08em;
+    line-height:1.18;
+  }
+  .large-copy{
+    margin:0;
+    font-size:clamp(18px,4.6vw,32px);
+    line-height:1.7;
+    letter-spacing:.02em;
+  }
+  .body-copy{
+    margin:0;
+    color:var(--muted);
+    font-size:15px;
+    line-height:2;
+  }
+  .accent-rule{
+    width:min(100%,520px);
+    height:2px;
+    margin-top:8px;
+    background:linear-gradient(90deg,var(--cyan),var(--pink),var(--orange));
+  }
+  .proposal-visual{
+    position:relative;
+    margin-top:10px;
+    min-height:min(88vw,560px);
+    border-radius:34px;
+    overflow:hidden;
+    isolation:isolate;
+    background:linear-gradient(135deg,rgba(18,200,222,.2),rgba(237,92,138,.15),rgba(241,139,61,.18));
+    box-shadow:0 26px 70px rgba(62,48,30,.12);
+    clip-path:inset(0 round 34px);
+  }
+  .proposal-visual::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    z-index:2;
+    pointer-events:none;
+    background:
+      linear-gradient(90deg,var(--paper),rgba(251,248,241,0) 18%,rgba(251,248,241,0) 82%,var(--paper)),
+      linear-gradient(180deg,var(--paper),rgba(251,248,241,0) 18%,rgba(251,248,241,0) 72%,var(--paper));
+  }
+  .proposal-visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    border-radius:34px;
+    box-shadow:inset 0 0 0 1px rgba(255,253,247,.56), inset 0 0 42px rgba(251,248,241,.9);
+  }
+  .proposal-visual img{
+    width:100%;
+    height:100%;
+    min-height:min(88vw,560px);
+    object-fit:cover;
+    object-position:center 46%;
+    filter:saturate(.92) contrast(.98) brightness(1.06);
+    transform:scale(1.04);
+  }
+  .proposal-caption{
+    position:absolute;
+    z-index:4;
+    left:18px;
+    right:18px;
+    bottom:18px;
+    margin:0;
+    color:rgba(19,17,15,.72);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+
+  .recommend{
+    padding:76px 16px 82px;
+    background:
+      linear-gradient(90deg,rgba(18,200,222,.11),rgba(255,253,247,.3) 34%,rgba(237,92,138,.1)),
+      var(--ivory);
+    overflow:hidden;
+  }
+  .recommend-paper{
+    width:min(100%,1060px);
+    margin:0 auto;
+    position:relative;
+    display:grid;
+    gap:30px;
+    border-block:1px solid rgba(19,17,15,.14);
+    padding:30px 0;
+  }
+  .recommend-paper::before{
+    content:"";
+    position:absolute;
+    inset:22px -8px auto auto;
+    width:min(46vw,260px);
+    height:18px;
+    background:rgba(237,92,138,.38);
+    transform:rotate(-3deg);
+    border-radius:999px;
+    filter:blur(.2px);
+  }
+  .recommend-title{
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(38px,12vw,118px);
+    line-height:.98;
+    letter-spacing:-.08em;
+    font-weight:400;
+  }
+  .recommend-title span{
+    position:relative;
+    display:inline-block;
+  }
+  .recommend-title span::after{
+    content:"";
+    position:absolute;
+    left:-.06em;
+    right:-.05em;
+    bottom:.04em;
+    height:.22em;
+    background:linear-gradient(90deg,rgba(18,200,222,.34),rgba(241,139,61,.34));
+    z-index:-1;
+    transform:rotate(-1.6deg);
+  }
+  .recommend-list{
+    display:grid;
+    gap:15px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .recommend-list li{
+    position:relative;
+    display:grid;
+    grid-template-columns:34px 1fr;
+    gap:12px;
+    align-items:start;
+    padding:8px 0 13px;
+    border-bottom:1px dashed rgba(19,17,15,.22);
+    font-size:clamp(18px,5.2vw,34px);
+    line-height:1.45;
+    letter-spacing:-.02em;
+  }
+  .recommend-list li::before{
+    content:"✓";
+    color:var(--pink);
+    font-family:"Comic Sans MS","Bradley Hand",cursive;
+    font-size:1.25em;
+    line-height:1;
+    transform:rotate(-9deg);
+  }
+  .recommend-list mark{
+    color:inherit;
+    background:linear-gradient(transparent 58%,rgba(241,139,61,.32) 0);
+    padding:0 .05em;
+  }
+  .scribble-note{
+    margin:2px 0 0;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  .duo{
+    display:grid;
+    gap:32px;
+    align-items:center;
+  }
+  .image-frame{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(19,17,15,.12);
+    background:var(--sand);
+    box-shadow:0 24px 62px rgba(62,48,30,.11);
+    clip-path:inset(18% 0 18% 0 round 24px);
+  }
+  .image-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.12);
+  }
+  .image-tall img{
+    object-position:62% 26%;
+    filter:saturate(.82) contrast(1.06) brightness(1.03);
+  }
+  .image-wide img{
+    object-position:72% 36%;
+    filter:saturate(1.18) contrast(.96) brightness(1.04);
+  }
+  .image-tall{height:min(118vw,680px);border-radius:30px;}
+  .image-wide{height:min(82vw,520px);border-radius:28px;}
+  .float-caption{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    z-index:2;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:10px 12px;
+    border-radius:999px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(14px);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .text-stack{
+    display:grid;
+    gap:22px;
+  }
+  .text-stack .num{
+    font-family:var(--serif);
+    font-size:clamp(64px,21vw,156px);
+    line-height:.76;
+    letter-spacing:-.09em;
+    color:rgba(19,17,15,.18);
+  }
+  .mini-grid{
+    display:grid;
+    gap:12px;
+    margin-top:10px;
+  }
+  .mini-card{
+    border-top:1px solid var(--line);
+    padding:18px 0 4px;
+  }
+  .mini-card h3{
+    margin:0 0 10px;
+    font-family:var(--serif);
+    font-size:clamp(25px,7vw,44px);
+    line-height:1;
+    letter-spacing:-.045em;
+    font-weight:400;
+  }
+  .mini-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:14px;
+  }
+
+  .empathy{
+    padding-block:98px;
+    background:
+      linear-gradient(90deg,rgba(18,200,222,.13),transparent 28%,rgba(237,92,138,.11) 72%,transparent),
+      rgba(255,253,247,.58);
+  }
+  .question-list{
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .question-list p{
+    margin:0;
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+    font-family:var(--serif);
+    font-size:clamp(28px,8vw,74px);
+    line-height:1.04;
+    letter-spacing:-.055em;
+  }
+  .question-list p:nth-child(even){text-align:right;}
+  .question-list small{
+    display:block;
+    margin-top:10px;
+    font-family:var(--sans);
+    font-size:13px;
+    line-height:1.8;
+    letter-spacing:.03em;
+    color:var(--muted);
+  }
+
+  .creator{
+    overflow:hidden;
+  }
+  .creator-grid{
+    display:grid;
+    gap:30px;
+  }
+  .creator-title{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(44px,16vw,160px);
+    line-height:.86;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .creator-title .cyan{color:var(--cyan);}
+  .creator-title .pink{color:var(--pink);}
+  .creator-title .orange{color:var(--orange);}
+  .creator-copy{
+    display:grid;
+    gap:18px;
+  }
+  .creator-copy p{
+    margin:0;
+    color:var(--muted);
+    line-height:2;
+  }
+  .creator-copy strong{color:var(--ink);font-weight:600;}
+
+  .learning{
+    background:var(--ink);
+    color:var(--ivory);
+  }
+  .learning .section-label,.learning .body-copy{color:rgba(255,253,247,.68);}
+  .lesson-grid{
+    display:grid;
+    gap:14px;
+    margin-top:34px;
+  }
+  .lesson{
+    min-height:220px;
+    border:1px solid rgba(255,253,247,.17);
+    border-radius:24px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background:
+      linear-gradient(135deg,rgba(255,253,247,.08),rgba(255,253,247,.02)),
+      rgba(255,255,255,.02);
+    overflow:hidden;
+    position:relative;
+  }
+  .lesson::after{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    right:-26px;
+    top:-28px;
+    background:var(--tone, var(--cyan));
+    opacity:.72;
+    filter:blur(.2px);
+  }
+  .lesson span{
+    font-family:var(--serif);
+    font-size:58px;
+    letter-spacing:-.08em;
+    opacity:.42;
+  }
+  .lesson h3{
+    margin:34px 0 10px;
+    font-size:22px;
+    line-height:1.35;
+    font-weight:500;
+  }
+  .lesson p{
+    margin:0;
+    color:rgba(255,253,247,.7);
+    line-height:1.8;
+    font-size:14px;
+  }
+
+  .lifestyle-board{
+    display:grid;
+    gap:16px;
+    margin-top:34px;
+  }
+  .life-card{
+    min-height:260px;
+    border-radius:26px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border:1px solid rgba(19,17,15,.12);
+    overflow:hidden;
+    position:relative;
+    background:var(--ivory);
+  }
+  .life-card.image{
+    min-height:360px;
+    padding:0;
+  }
+  .life-card.image img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:42% 52%;
+    transform:scale(1.1);
+    filter:saturate(.72) contrast(1.1) brightness(.9);
+  }
+  .life-card.image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(19,17,15,0),rgba(19,17,15,.38));
+  }
+  .life-card.image .life-text{
+    position:relative;
+    z-index:2;
+    margin-top:auto;
+    color:var(--ivory);
+    padding:22px;
+  }
+  .life-kicker{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .life-card.image .life-kicker{color:rgba(255,253,247,.78);}
+  .life-card h3{
+    margin:28px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(36px,11vw,72px);
+    line-height:.94;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .life-card p{
+    margin:18px 0 0;
+    line-height:1.9;
+    color:var(--muted);
+  }
+  .life-card.image p{color:rgba(255,253,247,.82);}
+  .cyan-bg{background:#dff8fa;}
+  .pink-bg{background:#fbe5ed;}
+  .orange-bg{background:#fae8d4;}
+
+  .fit-list{
+    margin-top:34px;
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .fit-item{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;
+    align-items:start;
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .fit-item span{
+    width:34px;
+    height:34px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--ivory);
+    font-size:12px;
+  }
+  .fit-item p{
+    margin:0;
+    font-size:clamp(19px,5.4vw,36px);
+    line-height:1.35;
+    letter-spacing:-.02em;
+  }
+  .fit-item small{
+    display:block;
+    margin-top:8px;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+
+  .change-grid{
+    display:grid;
+    gap:18px;
+    margin-top:34px;
+  }
+  .change-card{
+    border-left:1px solid var(--line);
+    padding:0 0 0 18px;
+  }
+  .change-card h3{
+    margin:0 0 12px;
+    font-family:var(--serif);
+    font-size:clamp(31px,8vw,58px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .change-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
+  .flow{
+    background:#f0e4d4;
+  }
+  .flow-track{
+    display:grid;
+    gap:18px;
+    margin-top:36px;
+  }
+  .flow-step{
+    display:grid;
+    gap:12px;
+    padding:20px 0;
+    border-top:1px solid rgba(19,17,15,.15);
+  }
+  .flow-step:last-child{border-bottom:1px solid rgba(19,17,15,.15);}
+  .flow-step .week{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .flow-step h3{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(30px,8.4vw,66px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .flow-step p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
+  .message{
+    min-height:86svh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    overflow:hidden;
+  }
+  .message::before{
+    content:"";
+    position:absolute;
+    width:min(86vw,560px);
+    aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(18,200,222,.22),rgba(237,92,138,.16) 52%,transparent 70%);
+    filter:blur(10px);
+  }
+  .message-inner{
+    position:relative;
+    width:min(100%,940px);
+    margin:0 auto;
+    padding:0 16px;
+  }
+  .message h2{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(46px,16vw,154px);
+    line-height:.88;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .message p{
+    margin:30px auto 0;
+    max-width:680px;
+    color:var(--muted);
+    font-size:clamp(16px,4.4vw,24px);
+    line-height:1.9;
+  }
+
+  .program-info{
+    background:
+      linear-gradient(180deg,rgba(255,253,247,.72),rgba(240,228,212,.74)),
+      var(--paper);
+    overflow:hidden;
+  }
+  .program-spread{
+    display:grid;
+    gap:30px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:28px 0;
+  }
+  .program-kicker{
+    margin:0;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .program-title{
+    margin:12px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(46px,14vw,128px);
+    line-height:.9;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .program-title .zero{
+    font-family:var(--sans);
+    letter-spacing:-.12em;
+    font-weight:500;
+  }
+  .program-price{
+    margin:18px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(38px,12vw,96px);
+    line-height:.9;
+    letter-spacing:-.06em;
+    color:var(--red);
+  }
+  .program-list{
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .program-row{
+    display:grid;
+    grid-template-columns:minmax(92px,.32fr) 1fr;
+    gap:18px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .program-row dt{
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .program-row dd{
+    margin:0;
+    font-size:15px;
+    line-height:1.8;
+  }
+  .program-note{
+    margin:18px 0 0;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:13px;
+  }
+
+  .final-cta{
+    min-height:100svh;
+    padding:100px 16px calc(40px + env(safe-area-inset-bottom));
+    display:grid;
+    align-items:end;
+    background:var(--ink);
+    color:var(--ivory);
+    overflow:hidden;
+  }
+  .final-cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg,rgba(19,17,15,.12),var(--ink)),
+      url("hero-visual.png") center 34%/cover no-repeat;
+    opacity:.44;
+    transform:scale(1.06);
+  }
+  .final-inner{
+    position:relative;
+    width:min(100%,1180px);
+    margin:0 auto;
+    display:grid;
+    gap:30px;
+  }
+  .final-cta h2{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(58px,18vw,184px);
+    line-height:.82;
+    letter-spacing:-.075em;
+    font-weight:400;
+  }
+  .final-cta p{
+    margin:0;
+    color:rgba(255,253,247,.76);
+    line-height:1.9;
+    max-width:620px;
+  }
+  .cta-row{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .main-cta{
+    border:1px solid rgba(255,253,247,.24);
+    background:var(--ivory);
+    color:var(--ink);
+    border-radius:999px;
+    padding:17px 24px;
+    min-height:58px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  }
+  .main-cta:hover{transform:translateY(-3px);background:var(--cyan);}
+  .sub-note{
+    font-size:12px;
+    letter-spacing:.04em;
+    color:rgba(255,253,247,.62);
+  }
+
+  .sticky-cta{
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom));
+    z-index:90;
+    display:flex;
+    justify-content:center;
+    pointer-events:none;
+    transform:translateY(120%);
+    transition:transform .55s var(--ease);
+  }
+  .sticky-cta.is-visible{
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .sticky-cta a{
+    width:min(100%,460px);
+    min-height:56px;
+    border-radius:999px;
+    background:rgba(19,17,15,.88);
+    color:var(--ivory);
+    backdrop-filter:blur(16px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    box-shadow:0 18px 48px rgba(19,17,15,.22);
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    padding:24px 16px 96px;
+    background:var(--ink);
+    color:rgba(255,253,247,.58);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(34px);
+  }
+  .char-reveal{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(115%) rotate(2deg);
+  }
+
+  @media (min-width:760px){
+    .hero{padding:124px 28px 42px;}
+    .hero-grid{
+      min-height:calc(100svh - 166px);
+      width:min(100%,1180px);
+      display:block;
+    }
+    .hero-type{
+      position:absolute;
+      inset:0;
+      margin:0;
+      padding:24px;
+      max-width:none;
+    }
+    .edition-row{
+      left:24px;
+      right:24px;
+      top:24px;
+    }
+    .hero-title{
+      left:-6vw;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:clamp(104px,12vw,170px);
+      max-width:8ch;
+    }
+    .hero-copy{
+      left:auto;
+      right:32px;
+      bottom:32px;
+      max-width:380px;
+      padding:14px 0 0;
+      border-top:1px solid rgba(19,17,15,.18);
+    }
+    .hero-copy p{font-size:13px;}
+    .hero-media{
+      position:absolute;
+      inset:0;
+      height:auto;
+      min-height:100%;
+      aspect-ratio:auto;
+      border-radius:42px;
+    }
+    .hero-media img{
+      min-height:100%;
+      object-fit:cover;
+      object-position:61% 39%;
+    }
+    .scroll-cue{display:block;}
+    .section{padding:126px 28px;}
+    .statement{grid-template-columns:1.1fr .75fr;align-items:end;gap:58px;}
+    .proposal-visual{
+      grid-column:1 / -1;
+      min-height:560px;
+      margin-top:8px;
+    }
+    .proposal-visual img{
+      min-height:560px;
+      object-position:center 48%;
+    }
+    .duo{grid-template-columns:.84fr 1fr;gap:64px;}
+    .duo.reverse{grid-template-columns:1fr .86fr;}
+    .duo.reverse .image-frame{order:2;}
+    .mini-grid{grid-template-columns:repeat(3,1fr);gap:18px;}
+    .creator-grid{grid-template-columns:1.18fr .82fr;align-items:end;gap:60px;}
+    .lesson-grid{grid-template-columns:repeat(2,1fr);}
+    .lifestyle-board{grid-template-columns:1fr 1fr;grid-auto-rows:minmax(310px,auto);}
+    .life-card.image{grid-row:span 2;min-height:640px;}
+    .fit-item{grid-template-columns:64px 1fr;gap:24px;padding:28px 0;}
+    .fit-item span{width:42px;height:42px;}
+    .change-grid{grid-template-columns:repeat(3,1fr);gap:26px;}
+    .flow-step{grid-template-columns:150px 1fr minmax(260px,.8fr);gap:28px;align-items:start;padding:30px 0;}
+    .program-spread{grid-template-columns:.9fr 1.1fr;gap:70px;padding:44px 0;}
+    .program-list{align-self:end;}
+    .cta-row{flex-direction:row;align-items:center;}
+    footer{padding:28px 28px 92px;}
+  }
+
+  @media (min-width:1080px){
+    .nav-shell{padding:12px;}
+    .section{padding-block:150px;}
+    .lesson-grid{grid-template-columns:repeat(4,1fr);}
+    .lifestyle-board{grid-template-columns:1.1fr .95fr .95fr;}
+    .life-card.image{grid-row:span 2;}
+    .sticky-cta{left:auto;right:24px;bottom:24px;}
+    .sticky-cta a{width:auto;padding:0 24px;}
+  }
+
+  @media (max-width:430px){
+    .brand-text{max-width:178px;}
+    .pill-button.cta-top{display:none;}
+    .hero{
+      padding-top:88px;
+      align-items:start;
+    }
+    .hero-grid{
+      min-height:calc(100svh - 112px);
+    }
+    .hero-type{
+      padding:14px 2px 14px;
+    }
+    .edition-row{
+      left:10px;
+      right:10px;
+      top:14px;
+    }
+    .hero-title{
+      left:-16vw;
+      top:40%;
+      font-size:clamp(76px,23.5vw,104px);
+      max-width:7.5ch;
+    }
+    .hero-copy p{font-size:12px;}
+    .hero-copy{
+      left:14px;
+      right:14px;
+      bottom:0;
+      margin:0;
+      padding:16px 0 0;
+      border-top:1px solid rgba(19,17,15,.13);
+      background:linear-gradient(180deg,rgba(251,248,241,.9),rgba(251,248,241,.38) 72%,rgba(251,248,241,0));
+    }
+    .course-name{font-size:11px;line-height:1.6;border-radius:18px;}
+    .hero-media{min-height:100%;}
+    .hero-media img{min-height:100%;object-position:61% 42%;}
+    .hero-note{
+      right:-18px;
+      bottom:92px;
+      max-width:230px;
+      font-size:10px;
+      background:rgba(255,253,247,.62);
+    }
+    .program-row{grid-template-columns:1fr;gap:8px;}
+    .menu-card{padding:22px 20px;}
+    .section{padding-block:76px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      scroll-behavior:auto !important;
+      transition-duration:.001ms !important;
+    }
+    .loader{display:none;}
+    .split-line span,.reveal,.char-reveal{
+      opacity:1 !important;
+      transform:none !important;
+    }
+    .hero-media,.image-frame{
+      clip-path:inset(0 round 24px) !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+
+<div class="loader" id="loader" aria-label="読み込み中">
+  <div class="loader-inner">
+    <div class="loader-kicker"><span>AI WEB CREATOR</span><span>JOURNEY 01</span></div>
+    <div class="loader-word">LOADING</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a href="#top" class="brand" aria-label="Release Yourself into the World">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Release / AI Web Creator</span>
+    </a>
+    <div class="nav-actions">
+      <a class="pill-button cta-top" href="#entry">Entry <span class="arrow">↗</span></a>
+      <button class="pill-button menu-button" type="button" id="menuButton" aria-label="メニューを開く" aria-expanded="false">
+        <span class="menu-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true">
+  <div class="menu-backdrop" data-close-menu></div>
+  <nav class="menu-card" aria-label="ページ内メニュー">
+    <p>旅、制作、発信、学び。好きな場所で、自分の表現を世界へ届けるための小さな入口。</p>
+    <div class="menu-links">
+      <a href="#proposal">提案するもの</a>
+      <a href="#creator">Creator</a>
+      <a href="#learn">学べること</a>
+      <a href="#flow">講座の流れ</a>
+      <a href="#entry">Entry</a>
+    </div>
+  </nav>
+</div>
+
+<main id="top">
+  <section class="hero" aria-label="ファーストビュー">
+    <div class="hero-grid">
+      <div class="hero-type">
+        <div class="edition-row reveal">
+          <span>Life edit</span>
+          <span>AI / Web / Journey</span>
+        </div>
+        <h1 class="hero-title" aria-label="世界に、自分を解き放て。 Release Yourself into the World.">
+          <span class="split-line"><span class="jp">世界に、</span></span>
+          <span class="split-line"><span class="jp">自分を解き放て。</span></span>
+          <span class="split-line"><span class="red">Release</span></span>
+          <span class="split-line"><span>Yourself</span></span>
+          <span class="split-line"><span>into the</span></span>
+          <span class="split-line"><span>World.</span></span>
+        </h1>
+        <div class="hero-copy reveal">
+          <p>AIとウェブ集客で、<br>旅も体験も選べる人生へ。</p>
+          <span class="course-name">AI×WEB集客クリエイター養成講座</span>
+          <p>AI初心者がAI活用、LP制作、ウェブ集客導線を学び、旅も、体験も、人生の選択肢も、自分で選べる未来へ。</p>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="hero-visual.png" alt="白い衣装をまとい、世界へ視線を向ける女性のビジュアル">
+      </figure>
+    </div>
+    <div class="scroll-cue">SCROLL TO ENTER</div>
+  </section>
+
+  <section class="recommend" aria-label="こんな方におすすめ">
+    <div class="recommend-paper">
+      <div class="reveal">
+        <div class="section-label">Second view / For you</div>
+        <h2 class="recommend-title"><span>こんな方におすすめ</span></h2>
+        <p class="scribble-note">not a perfect checklist. just a small sign.</p>
+      </div>
+      <ul class="recommend-list reveal">
+        <li><mark>AIを活用した副業に興味がある</mark></li>
+        <li><mark>月5〜10万円の収入源を作りたい</mark></li>
+        <li><mark>自分のサービスや活動を形にしたい</mark></li>
+        <li><mark>未経験から新しいスキルを身につけたい</mark></li>
+        <li><mark>誰かの役に立つ仕事がしたい</mark></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="ステートメント">
+    <div class="marquee-track">
+      <span>旅するように働く。</span><span class="accent">選べる人生をつくる。</span><span>AI / WEB / STORY / FLOW</span><span>世界に、自分を解き放つ。</span>
+      <span>旅するように働く。</span><span class="accent">選べる人生をつくる。</span><span>AI / WEB / STORY / FLOW</span><span>世界に、自分を解き放つ。</span>
+    </div>
+  </section>
+
+  <section class="empathy section">
+    <div class="section-inner">
+      <div class="section-label reveal">01 / Resonance</div>
+      <div class="question-list">
+        <p class="reveal">AIとパソコン1台で、仕事の形を変える。</p>
+        <p class="reveal">場所に縛られず、好きな体験を選べる人生へ。</p>
+        <p class="reveal">AIに置いていかれるより、AIと並んで歩きたい。<small>難しいツールではなく、毎日の選択肢を増やす相棒として使いたい。</small></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proposal">
+    <div class="section-inner statement">
+      <div>
+        <div class="section-label reveal">02 / Proposal</div>
+        <h2 class="reveal"><span class="jp">この講座が<br>提案するもの</span>Life as an<br>open field.</h2>
+      </div>
+      <div class="text-stack reveal">
+        <p class="large-copy">世界中の景色、人、文化、体験に出会いにいく。</p>
+        <p class="body-copy">AI×WEB集客クリエイター養成講座は、ただスキルを学ぶ場所ではありません。<br><br>自分の価値を社会に届けながら、人生の行動範囲を広げていくための講座です。</p>
+        <div class="accent-rule" aria-hidden="true"></div>
+      </div>
+      <figure class="proposal-visual reveal">
+        <img src="proposal-journey.jpg" alt="旅先の空気と体験を感じさせる写真">
+        <figcaption class="proposal-caption">Journey / Culture / Experience</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner duo">
+      <figure class="image-frame image-tall">
+        <img src="hero-visual.png" alt="自由なライフスタイルを象徴するファッションポートレート">
+        <figcaption class="float-caption"><span>Visual note</span><span>Release</span></figcaption>
+      </figure>
+      <div class="text-stack">
+        <div class="section-label reveal">03 / Feeling</div>
+        <span class="num reveal">03</span>
+        <h2 class="editorial-title reveal">You were not made for one small room.</h2>
+        <p class="large-copy reveal">通勤の景色だけで、人生を終わらせたくない。スマホの中で誰かを眺めるだけではなく、自分の物語を動かしたい。</p>
+        <p class="body-copy reveal">そんな静かな違和感を、焦りではなく創造に変える。AIとWEB集客は、場所に縛られず、好きな世界観を仕事や活動へ接続するための実践です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section creator" id="creator">
+    <div class="section-inner creator-grid">
+      <h2 class="creator-title reveal"><span class="cyan">AI</span> × <span class="pink">WEB</span><br>集客<br><span class="orange">Creator</span></h2>
+      <div class="creator-copy reveal">
+        <div class="section-label">04 / Definition</div>
+        <p><strong>AI×WEB集客クリエイター</strong>とは、AIでアイデアと言葉を拡張し、LPや導線で価値を届ける人。</p>
+        <p>ただ投稿する人でも、ただ制作する人でもありません。自分や誰かの魅力を見つけ、体験として編集し、必要な人が自然に出会える流れをつくる人です。</p>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <h3>Think</h3>
+            <p>AIで思考を広げ、言葉の輪郭を見つける。</p>
+          </div>
+          <div class="mini-card">
+            <h3>Make</h3>
+            <p>LPやビジュアルで世界観を見える形にする。</p>
+          </div>
+          <div class="mini-card">
+            <h3>Flow</h3>
+            <p>届けたい人へ届くウェブ導線を設計する。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section learning" id="learn">
+    <div class="section-inner">
+      <div class="section-label reveal">05 / Curriculum</div>
+      <div class="statement">
+        <h2 class="reveal">What you<br>learn is<br>how to move.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">学ぶのは、ツールの使い方だけではありません。自分の世界を言葉にし、形にし、必要な人へ届ける一連の動きです。</p>
+          <p class="body-copy">AI初心者でも、手を動かしながら、未来の活動に使える実制作へ落とし込みます。</p>
+        </div>
+      </div>
+      <div class="lesson-grid">
+        <article class="lesson reveal" style="--tone:var(--cyan)">
+          <span>01</span>
+          <div><h3>AI活用とアイデア編集</h3><p>ChatGPTを使い、コンセプト、コピー、講座やサービスの見せ方を整える。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--pink)">
+          <span>02</span>
+          <div><h3>LP制作の基本</h3><p>世界観、構成、ファーストビュー、セクション設計を実際のページへ落とす。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--orange)">
+          <span>03</span>
+          <div><h3>WEB集客導線</h3><p>SNS、LINE、フォーム、LPをつなぎ、出会いから申込みまでを滑らかにする。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:#fff3b0">
+          <span>04</span>
+          <div><h3>自分らしい発信設計</h3><p>売り込みではなく、価値観や体験が伝わる発信の軸をつくる。</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="ライフスタイルステートメント">
+    <div class="marquee-track">
+      <span>Work from anywhere.</span><span class="accent">Design your days.</span><span>Choose your experience.</span><span>Release yourself.</span>
+      <span>Work from anywhere.</span><span class="accent">Design your days.</span><span>Choose your experience.</span><span>Release yourself.</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">06 / Lifestyle</div>
+      <h2 class="editorial-title reveal">未来のライフスタイル提案</h2>
+      <div class="lifestyle-board">
+        <article class="life-card image reveal">
+          <img src="hero-visual.png" alt="旅と表現を選ぶライフスタイルのビジュアル">
+          <div class="life-text">
+            <span class="life-kicker">Scene 01</span>
+            <h3>朝の光で、仕事を始める。</h3>
+            <p>場所に合わせて働くのではなく、行きたい場所に合わせて働き方をつくる。</p>
+          </div>
+        </article>
+        <article class="life-card cyan-bg reveal">
+          <span class="life-kicker">Scene 02</span>
+          <div><h3>旅先で、LPを更新する。</h3><p>思いついた言葉をAIで整え、その日の熱をページに残す。</p></div>
+        </article>
+        <article class="life-card pink-bg reveal">
+          <span class="life-kicker">Scene 03</span>
+          <div><h3>体験が、次の仕事になる。</h3><p>学び、出会い、好きなものが、あなたの価値として届き始める。</p></div>
+        </article>
+        <article class="life-card orange-bg reveal">
+          <span class="life-kicker">Scene 04</span>
+          <div><h3>自分の名前で、選ばれる。</h3><p>テンプレートの言葉ではなく、自分の世界観で信頼をつくる。</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner duo reverse">
+      <figure class="image-frame image-wide">
+        <img src="hero-visual.png" alt="AIとウェブ制作の先にある自由を表すビジュアル">
+        <figcaption class="float-caption"><span>For whom</span><span>Life choice</span></figcaption>
+      </figure>
+      <div>
+        <div class="section-label reveal">07 / Fit</div>
+        <h2 class="editorial-title reveal">こんな人に向いています</h2>
+        <div class="fit-list">
+          <div class="fit-item reveal"><span>1</span><p>AIを、自分の可能性を広げるために使いたい。<small>専門用語よりも、日常で使える実践から始めたい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>2</span><p>旅や体験を諦めない働き方をつくりたい。<small>時間や場所の自由を、憧れではなく設計に変えたい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>3</span><p>誰かの魅力を、言葉とページで届けたい。<small>制作や発信を通じて、人の想いを形にしたい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>4</span><p>自分らしい表現を、仕事や活動につなげたい。<small>売り込むより、世界観で自然に選ばれる流れをつくりたい人へ。</small></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">08 / After</div>
+      <div class="statement">
+        <h2 class="reveal">受講後の<br>変化</h2>
+        <p class="large-copy reveal">自分の中にあった曖昧な願いが、言葉になり、ページになり、人と出会う導線になる。</p>
+      </div>
+      <div class="change-grid">
+        <article class="change-card reveal"><h3>Choice</h3><p>やりたいことを、ただ夢で終わらせず、小さな行動へ変えられる。</p></article>
+        <article class="change-card reveal"><h3>Voice</h3><p>自分の価値観やサービスを、借り物ではない言葉で伝えられる。</p></article>
+        <article class="change-card reveal"><h3>Flow</h3><p>SNSやLP、LINEなどをつなぎ、自然に申し込みへ進む流れが見える。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section flow" id="flow">
+    <div class="section-inner">
+      <div class="section-label reveal">09 / Program flow</div>
+      <h2 class="editorial-title reveal">講座の流れ</h2>
+      <div class="flow-track">
+        <article class="flow-step reveal"><span class="week">Week 01</span><h3>世界観をほどく</h3><p>自分の価値観、届けたい人、未来の暮らしを言葉にする。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 02-03</span><h3>AIで編集する</h3><p>コピー、構成、企画、発信案をAIと一緒に磨く。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 04-05</span><h3>LPにする</h3><p>ファーストビュー、ストーリー、CTAを持つページを制作する。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 06-07</span><h3>導線をつなぐ</h3><p>SNS、LINE、フォーム、案内までの流れを設計する。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 08</span><h3>世界へ出す</h3><p>自分の名前で見せられる形に仕上げ、次の一歩を決める。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="message section">
+    <div class="message-inner">
+      <div class="section-label reveal">10 / Last message</div>
+      <h2 class="reveal">人生は、<br>もっと<br>編集できる。</h2>
+      <p class="reveal">何者かになってから始めるのではなく、始めながら、自分の輪郭を見つけていく。AIとWEBは、そのための軽やかな翼になる。</p>
+    </div>
+  </section>
+
+  <section class="section program-info" aria-label="Program Information">
+    <div class="section-inner">
+      <div class="program-spread">
+        <div class="reveal">
+          <p class="program-kicker">Program Information</p>
+          <h2 class="program-title"><span class="zero">0</span>期生募集</h2>
+          <p class="program-price">¥55,000</p>
+          <p class="program-note">0期特別価格。申込後、Zoom面談にて講座の詳細と参加方法をご案内します。</p>
+        </div>
+        <dl class="program-list reveal">
+          <div class="program-row">
+            <dt>Style</dt>
+            <dd>少人数制 / AI初心者歓迎</dd>
+          </div>
+          <div class="program-row">
+            <dt>Contents</dt>
+            <dd>AI活用 / LP制作 / WEB集客導線 / SNS発信 / LINE導線</dd>
+          </div>
+          <div class="program-row">
+            <dt>Guide</dt>
+            <dd>申込後、Zoom面談にてご案内</dd>
+          </div>
+          <div class="program-row">
+            <dt>Entry</dt>
+            <dd>事前エントリー受付中</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="entry">
+    <div class="final-inner">
+      <div class="section-label reveal">11 / Invitation</div>
+      <h2 class="reveal">Release<br>Yourself<br>Now.</h2>
+      <p class="reveal">AI×WEB集客クリエイター養成講座は、自分の世界観を言葉とページと導線に変え、人生の選択肢を増やしていくためのプログラムです。</p>
+      <div class="cta-row reveal">
+        <a class="main-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfgbjt5oJ72oh8rpteWzyZlyjBvvvfk0o2l_2gtpAi6w48_BQ/viewform?usp=header" target="_blank" rel="noopener">事前エントリーへ <span>↗</span></a>
+        <span class="sub-note">少人数制 / 詳細はエントリー後にご案内します</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="#entry">事前エントリーへ <span>↗</span></a>
+</div>
+
+<footer>
+  <span>AI×WEB集客クリエイター養成講座</span>
+  <span>© 2026 Release Yourself into the World.</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const loader = document.getElementById("loader");
+  const menuButton = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
+  const stickyCta = document.getElementById("stickyCta");
+  const hero = document.querySelector(".hero");
+  const finalCta = document.getElementById("entry");
+
+  const closeMenu = () => {
+    document.body.classList.remove("is-locked", "menu-open");
+    menuPanel.classList.remove("is-open");
+    menuPanel.setAttribute("aria-hidden", "true");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "メニューを開く");
+  };
+
+  const openMenu = () => {
+    document.body.classList.add("is-locked", "menu-open");
+    menuPanel.classList.add("is-open");
+    menuPanel.setAttribute("aria-hidden", "false");
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "メニューを閉じる");
+  };
+
+  menuButton.addEventListener("click", () => {
+    menuPanel.classList.contains("is-open") ? closeMenu() : openMenu();
+  });
+  menuPanel.addEventListener("click", (event) => {
+    if (event.target.matches("[data-close-menu], .menu-links a")) closeMenu();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  const revealWithoutGsap = () => {
+    document.querySelectorAll(".split-line span, .reveal, .char-reveal").forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+    document.querySelectorAll(".hero-media, .image-frame").forEach((el) => {
+      el.style.clipPath = "inset(0% 0% 0% 0% round 24px)";
+    });
+  };
+
+  const hideLoader = () => {
+    loader.classList.add("is-hidden");
+    window.setTimeout(() => loader.remove(), 900);
+  };
+
+  window.addEventListener("load", () => {
+    window.setTimeout(hideLoader, reduceMotion ? 0 : 900);
+  });
+  window.setTimeout(hideLoader, 2600);
+
+  if (!reduceMotion && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroTl = gsap.timeline({defaults:{ease:"power4.out"}});
+    heroTl
+      .to(".hero-media", {clipPath:"inset(0% 0% 0% 0% round 34px)", duration:1.4, delay:.35})
+      .to(".hero-media img", {scale:1, duration:1.8}, "<")
+      .to(".split-line span", {y:0, duration:1.1, stagger:.1}, "-=.95")
+      .to(".hero .reveal", {autoAlpha:1, y:0, duration:.95, stagger:.12}, "-=.68");
+
+    gsap.utils.toArray(".reveal").forEach((el) => {
+      if (el.closest(".hero")) return;
+      gsap.to(el, {
+        autoAlpha:1,
+        y:0,
+        duration:1,
+        ease:"power3.out",
+        scrollTrigger:{
+          trigger:el,
+          start:"top 84%",
+          once:true
+        }
+      });
+    });
+
+    gsap.utils.toArray(".image-frame").forEach((frame) => {
+      const image = frame.querySelector("img");
+      gsap.to(frame, {
+        clipPath:"inset(0% 0% 0% 0% round 24px)",
+        duration:1.1,
+        ease:"power4.out",
+        scrollTrigger:{trigger:frame,start:"top 78%",once:true}
+      });
+      gsap.to(image, {
+        yPercent:-8,
+        scale:1.03,
+        ease:"none",
+        scrollTrigger:{trigger:frame,start:"top bottom",end:"bottom top",scrub:.55}
+      });
+    });
+
+    gsap.to(".life-card.image img", {
+      yPercent:-7,
+      scale:1.03,
+      ease:"none",
+      scrollTrigger:{trigger:".lifestyle-board",start:"top bottom",end:"bottom top",scrub:.6}
+    });
+  } else {
+    revealWithoutGsap();
+  }
+
+  const stickyObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.target === hero) {
+        stickyCta.classList.toggle("is-visible", !entry.isIntersecting);
+      }
+      if (entry.target === finalCta && entry.isIntersecting) {
+        stickyCta.classList.remove("is-visible");
+      }
+    });
+  }, {threshold:.08});
+  stickyObserver.observe(hero);
+  stickyObserver.observe(finalCta);
+})();
+</script>
+</body>
+</html>
