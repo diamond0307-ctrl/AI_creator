@@ -604,6 +604,7 @@
   .recommend-title span{
     position:relative;
     display:inline-block;
+    white-space:nowrap;
   }
   .recommend-title span::after{
     content:"";
@@ -647,6 +648,8 @@
     color:inherit;
     background:linear-gradient(transparent 58%,rgba(241,139,61,.32) 0);
     padding:0 .05em;
+    box-decoration-break:clone;
+    -webkit-box-decoration-break:clone;
   }
   .scribble-note{
     margin:2px 0 0;
@@ -1541,6 +1544,12 @@
     .program-row{grid-template-columns:1fr;gap:8px;}
     .menu-card{padding:22px 20px;}
     .section{padding-block:76px;}
+    .recommend{padding-inline:14px;}
+    .recommend-paper{gap:26px;padding:28px 0;}
+    .recommend-title{
+      font-size:clamp(31px,8.9vw,38px);
+      letter-spacing:-.075em;
+    }
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -1608,7 +1617,8 @@
         <div class="hero-bg-type" aria-hidden="true">Release Yourself<br>Into The World</div>
         <h1 class="hero-title" aria-label="世界に、自分を解き放て。 Release Yourself into the World.">
           <span class="split-line"><span class="jp">世界に、</span></span>
-          <span class="split-line"><span class="jp">自分を解き放て。</span></span>
+          <span class="split-line"><span class="jp">自分を</span></span>
+          <span class="split-line"><span class="jp">解き放て。</span></span>
         </h1>
         <div class="hero-copy reveal">
           <p>AIとウェブ集客で、<br>旅も体験も選べる人生へ。</p>
@@ -1633,7 +1643,7 @@
         <li><mark>AIを活用した副業に興味がある</mark></li>
         <li><mark>月5〜10万円の収入源を作りたい</mark></li>
         <li><mark>自分のサービスや活動を形にしたい</mark></li>
-        <li><mark>未経験から新しいスキルを身につけたい</mark></li>
+        <li><mark>未経験から新しいスキルを<br>身につけたい</mark></li>
         <li><mark>海外にいてもできる仕事がしたい</mark></li>
       </ul>
     </div>
@@ -1651,8 +1661,8 @@
       <div class="section-label reveal">01 / Resonance</div>
       <div class="question-list">
         <p class="reveal">AIとパソコン1台で、仕事の形を変える。</p>
-        <p class="reveal">場所に縛られず、好きな体験を選べる人生へ。</p>
-        <p class="reveal">AIに置いていかれるより、AIと並んで歩きたい。<small>難しいツールではなく、毎日の選択肢を増やす相棒として使いたい。</small></p>
+        <p class="reveal">場所に縛られず、好きな体験<br>を選べる人生へ。</p>
+        <p class="reveal">AIは手段、大事なのは<br>価値を届ける仕組み</p>
       </div>
     </div>
   </section>
