@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Release Yourself into the World. | AI×WEB集客クリエイター養成講座</title>
-<meta name="description" content="AIとウェブ集客で、旅も体験も人生の選択肢も自分で選べる未来へ。AI×WEB集客クリエイター養成講座。">
+<meta name="description" content="AIとWEB集客で、世界中で遊べる働き方を実装する。LP制作、SNS発信、LINE・フォーム導線まで学ぶAI×WEB集客クリエイター養成講座0期生募集。">
 <meta name="theme-color" content="#f8f3ea">
 <style>
   :root{
@@ -745,6 +745,49 @@
     font-size:14px;
   }
 
+  .future{
+    background:
+      linear-gradient(90deg,rgba(18,200,222,.1),rgba(255,253,247,.42) 42%,rgba(241,139,61,.12)),
+      var(--ivory);
+    overflow:hidden;
+  }
+  .future-grid{
+    display:grid;
+    gap:0;
+    margin-top:34px;
+    border-top:1px solid var(--line);
+  }
+  .future-item{
+    display:grid;
+    gap:12px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .future-item span{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+    color:var(--ivory);
+    font-size:12px;
+    letter-spacing:.08em;
+  }
+  .future-item h3{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(31px,8.2vw,64px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .future-item p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
   .empathy{
     position:relative;
     padding-block:98px;
@@ -821,6 +864,54 @@
     line-height:2;
   }
   .creator-copy strong{color:var(--ink);font-weight:600;}
+
+  .difference{
+    background:
+      radial-gradient(circle at 10% 12%,rgba(18,200,222,.12),transparent 26rem),
+      radial-gradient(circle at 92% 18%,rgba(237,92,138,.12),transparent 24rem),
+      var(--ivory);
+  }
+  .compare-grid{
+    display:grid;
+    gap:18px;
+    margin-top:36px;
+  }
+  .compare-card{
+    border:1px solid var(--line);
+    border-radius:26px;
+    padding:22px;
+    background:rgba(255,253,247,.58);
+  }
+  .compare-card.featured{
+    background:var(--ink);
+    color:var(--ivory);
+    border-color:rgba(19,17,15,.06);
+  }
+  .compare-card h3{
+    margin:0 0 20px;
+    font-family:var(--serif);
+    font-size:clamp(35px,9vw,78px);
+    line-height:.95;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .compare-list{
+    display:grid;
+    gap:0;
+    margin:0;
+    padding:0;
+    list-style:none;
+    border-top:1px solid currentColor;
+  }
+  .compare-list li{
+    padding:14px 0;
+    border-bottom:1px solid currentColor;
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .compare-card.featured .compare-list li{color:rgba(255,253,247,.76);}
+  .compare-card.featured .compare-list{border-color:rgba(255,253,247,.2);}
+  .compare-card.featured .compare-list li{border-color:rgba(255,253,247,.2);}
 
   .learning{
     background:var(--ink);
@@ -1218,6 +1309,41 @@
       var(--paper);
     overflow:hidden;
   }
+
+  .goal-grid{
+    display:grid;
+    gap:14px;
+    margin-top:34px;
+  }
+  .goal-card{
+    position:relative;
+    padding:20px;
+    border-radius:24px;
+    border:1px solid var(--line);
+    background:rgba(255,253,247,.62);
+    overflow:hidden;
+  }
+  .goal-card::before{
+    content:"";
+    position:absolute;
+    inset:0 auto auto 0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,var(--cyan),var(--pink),var(--orange));
+  }
+  .goal-card h3{
+    margin:16px 0 10px;
+    font-family:var(--serif);
+    font-size:clamp(27px,7vw,54px);
+    line-height:1;
+    letter-spacing:-.05em;
+    font-weight:400;
+  }
+  .goal-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
   .program-spread{
     display:grid;
     gap:30px;
@@ -1455,6 +1581,9 @@
     .scroll-cue{display:block;}
     .section{padding:126px 28px;}
     .statement{grid-template-columns:1.1fr .75fr;align-items:end;gap:58px;}
+    .future-grid{grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);}
+    .future-item{padding:26px 22px 28px;border-right:1px solid var(--line);border-bottom:0;}
+    .future-item:last-child{border-right:0;}
     .proposal-visual{
       grid-column:1 / -1;
       min-height:560px;
@@ -1469,6 +1598,7 @@
     .duo.reverse .image-frame{order:2;}
     .mini-grid{grid-template-columns:repeat(3,1fr);gap:18px;}
     .creator-grid{grid-template-columns:1.18fr .82fr;align-items:end;gap:60px;}
+    .compare-grid{grid-template-columns:1fr 1.08fr;gap:22px;}
     .lesson-grid{grid-template-columns:repeat(2,1fr);}
     .lifestyle-board{grid-template-columns:1fr 1fr;grid-auto-rows:minmax(310px,auto);}
     .life-card.image{grid-row:span 2;min-height:640px;}
@@ -1482,6 +1612,7 @@
     .host-photo img{min-height:620px;}
     .program-spread{grid-template-columns:.9fr 1.1fr;gap:70px;padding:44px 0;}
     .program-list{align-self:end;}
+    .goal-grid{grid-template-columns:repeat(4,1fr);gap:18px;}
     .cta-row{flex-direction:row;align-items:center;}
     footer{padding:28px 28px 92px;}
   }
@@ -1605,6 +1736,7 @@
       <a href="#creator">Creator</a>
       <a href="#learn">学べること</a>
       <a href="#flow">講座の流れ</a>
+      <a href="#program">0期生募集</a>
       <a href="#entry">Entry</a>
     </div>
   </nav>
@@ -1621,8 +1753,8 @@
           <span class="split-line"><span class="jp">解き放て。</span></span>
         </h1>
         <div class="hero-copy reveal">
-          <p>AIとウェブ集客で、<br>旅も体験も選べる人生へ。</p>
-          <a class="hero-cta" href="#entry">0期生募集を見る <span aria-hidden="true">↗</span></a>
+          <p>AIとWEB集客で、<br>世界中で遊べる働き方を<br>実装する講座</p>
+          <a class="hero-cta" href="#entry">0期生にエントリーする <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <figure class="hero-media">
@@ -1632,19 +1764,38 @@
     <div class="scroll-cue">SCROLL TO ENTER</div>
   </section>
 
+  <section class="section future" id="future">
+    <div class="section-inner">
+      <div class="section-label reveal">01 / Future</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">この講座で<br>手に入る未来</span>Build your<br>next route.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">AIを学ぶためではなく、収入源と人生の選択肢をつくるために。</p>
+          <p class="body-copy">言葉、ページ、SNS、LINE、フォーム。点だった発信を、申し込みにつながる流れへ変えていきます。</p>
+        </div>
+      </div>
+      <div class="future-grid">
+        <article class="future-item reveal"><span>01</span><div><h3>副業の一歩をつくる</h3><p>AIを毎日の相棒にして、最初の商品・サービス・提案を形にする。</p></div></article>
+        <article class="future-item reveal"><span>02</span><div><h3>自分のLPを持つ</h3><p>あなた自身や誰かの価値が伝わる、申し込みにつながるページを作る。</p></div></article>
+        <article class="future-item reveal"><span>03</span><div><h3>導線までつなぐ</h3><p>SNS、LINE、Googleフォームまで設計し、見てもらうだけで終わらせない。</p></div></article>
+        <article class="future-item reveal"><span>04</span><div><h3>場所に縛られない働き方へ</h3><p>旅も体験も選べる人生を、憧れではなく小さな実装へ変える。</p></div></article>
+      </div>
+    </div>
+  </section>
+
   <section class="recommend" aria-label="こんな方におすすめ">
     <div class="recommend-paper">
       <div class="reveal">
-        <div class="section-label">Second view / For you</div>
+        <div class="section-label">02 / Real questions</div>
         <h2 class="recommend-title"><span>こんな方におすすめ</span></h2>
         <p class="scribble-note">not a perfect checklist. just a small sign.</p>
       </div>
       <ul class="recommend-list reveal">
-        <li><mark>AIを活用した副業に興味がある</mark></li>
-        <li><mark>月5〜10万円の収入源を作りたい</mark></li>
-        <li><mark>自分のサービスや活動を形にしたい</mark></li>
-        <li><mark>未経験から新しいスキルを<br>身につけたい</mark></li>
-        <li><mark>海外にいてもできる仕事がしたい</mark></li>
+        <li><mark>AIに興味はあるけど、何から始めればいいかわからない</mark></li>
+        <li><mark>副業を始めたいけど、自分に何ができるかわからない</mark></li>
+        <li><mark>LPやSNSを作っても、申し込みにつながる導線がない</mark></li>
+        <li><mark>場所に縛られない働き方に憧れている</mark></li>
+        <li><mark>自分のサービスや誰かの想いを形にしたい</mark></li>
       </ul>
     </div>
   </section>
@@ -1658,7 +1809,7 @@
 
   <section class="empathy section">
     <div class="section-inner">
-      <div class="section-label reveal">01 / Resonance</div>
+      <div class="section-label reveal">03 / Resonance</div>
       <div class="question-list">
         <p class="reveal">AIとパソコン1台で、仕事の形を変える。</p>
         <p class="reveal">場所に縛られず、好きな体験<br>を選べる人生へ。</p>
@@ -1670,12 +1821,12 @@
   <section class="section" id="proposal">
     <div class="section-inner statement">
       <div>
-        <div class="section-label reveal">02 / Proposal</div>
-        <h2 class="reveal"><span class="jp">この講座が<br>提案するもの</span>Life as an<br>open field.</h2>
+        <div class="section-label reveal">04 / Why now</div>
+        <h2 class="reveal"><span class="jp">なぜ今<br>AI×WEB集客なのか</span>Tools are<br>not enough.</h2>
       </div>
       <div class="text-stack reveal">
-        <p class="large-copy">世界中の景色、人、文化、体験に出会いにいく。</p>
-        <p class="body-copy">AI×WEB集客クリエイター養成講座は、ただスキルを学ぶ場所ではありません。<br><br>自分の価値を社会に届けながら、人生の行動範囲を広げていくための講座です。</p>
+        <p class="large-copy">AIは文章作成だけでなく、企画、構成、LP制作、SNS発信、顧客導線づくりまで使える時代になりました。</p>
+        <p class="body-copy">でも、ツールを触るだけでは収益にはなりません。必要なのは、価値を見つける力、伝わる言葉へ変える力、そして申し込みまでつなぐ導線です。</p>
         <div class="accent-rule" aria-hidden="true"></div>
       </div>
     </div>
@@ -1688,11 +1839,11 @@
         <figcaption class="float-caption"><span>Work anywhere</span><span>Life edit</span></figcaption>
       </figure>
       <div class="text-stack">
-        <div class="section-label reveal">03 / Feeling</div>
+        <div class="section-label reveal">05 / Future result</div>
         <span class="num reveal">03</span>
         <h2 class="editorial-title reveal">You were not made for one small room.</h2>
-        <p class="large-copy reveal">通勤の景色だけで、人生を終わらせたくない。スマホの中で誰かを眺めるだけではなく、自分の物語を動かしたい。</p>
-        <p class="body-copy reveal">そんな静かな違和感を、焦りではなく創造に変える。AIとWEB集客は、場所に縛られず、好きな世界観を仕事や活動へ接続するための実践です。</p>
+        <p class="large-copy reveal">自分や誰かの価値を、必要な人へ届けるページを作れるようになる。</p>
+        <p class="body-copy reveal">LP制作はゴールではなく入口です。SNSで出会い、LPで信頼をつくり、LINEやフォームで申し込みへ進む。学んで終わりではなく、最初のお客さん獲得に向けて動き出すことを目指します。</p>
       </div>
     </div>
   </section>
@@ -1701,7 +1852,7 @@
     <div class="section-inner creator-grid">
       <h2 class="creator-title reveal"><span class="cyan">AI</span> × <span class="pink">WEB</span><br>集客<br><span class="orange">Creator</span></h2>
       <div class="creator-copy reveal">
-        <div class="section-label">04 / Definition</div>
+        <div class="section-label">06 / Definition</div>
         <p><strong>AI×WEB集客クリエイター</strong>とは、AIでアイデアと言葉を拡張し、LPや導線で価値を届ける人。</p>
         <p>ただ投稿する人でも、ただ制作する人でもありません。自分や誰かの魅力を見つけ、体験として編集し、必要な人が自然に出会える流れをつくる人です。</p>
         <div class="mini-grid">
@@ -1724,30 +1875,79 @@
 
   <section class="section learning" id="learn">
     <div class="section-inner">
-      <div class="section-label reveal">05 / Curriculum</div>
+      <div class="section-label reveal">07 / Curriculum</div>
       <div class="statement">
-        <h2 class="reveal">What you<br>learn is<br>how to move.</h2>
+        <h2 class="reveal">Make it,<br>connect it,<br>move it.</h2>
         <div class="text-stack reveal">
-          <p class="large-copy">学ぶのは、ツールの使い方だけではありません。自分の世界を言葉にし、形にし、必要な人へ届ける一連の動きです。</p>
-          <p class="body-copy">AI初心者でも、手を動かしながら、未来の活動に使える実制作へ落とし込みます。</p>
+          <p class="large-copy">カリキュラムは「知識」ではなく、実際に使える成果物を作る順番で進みます。</p>
+          <p class="body-copy">AI初心者でも、強みの整理からLP公開、SNS・LINE・フォーム導線、提案文まで、最初のお客さん獲得に向けて一つずつ形にします。</p>
         </div>
       </div>
       <div class="lesson-grid">
         <article class="lesson reveal" style="--tone:var(--cyan)">
           <span>01</span>
-          <div><h3>AI活用とアイデア編集</h3><p>ChatGPTを使い、コンセプト、コピー、講座やサービスの見せ方を整える。</p></div>
+          <div><h3>AI基礎・ChatGPT活用</h3><p>毎日の仕事道具としてAIを使い、企画、文章、改善の速度を上げる。</p></div>
         </article>
         <article class="lesson reveal" style="--tone:var(--pink)">
           <span>02</span>
-          <div><h3>LP制作の基本</h3><p>世界観、構成、ファーストビュー、セクション設計を実際のページへ落とす。</p></div>
+          <div><h3>強み・サービス設計</h3><p>自分やクライアントの価値を掘り起こし、誰に何を届けるかを決める。</p></div>
         </article>
         <article class="lesson reveal" style="--tone:var(--orange)">
           <span>03</span>
-          <div><h3>WEB集客導線</h3><p>SNS、LINE、フォーム、LPをつなぎ、出会いから申込みまでを滑らかにする。</p></div>
+          <div><h3>LP構成・コピー設計</h3><p>共感、信頼、提案、CTAまで、申し込みにつながるページ構成を作る。</p></div>
         </article>
         <article class="lesson reveal" style="--tone:#fff3b0">
           <span>04</span>
-          <div><h3>自分らしい発信設計</h3><p>売り込みではなく、価値観や体験が伝わる発信の軸をつくる。</p></div>
+          <div><h3>Claude Code等でLP制作</h3><p>AIと一緒にHTML/CSSを扱い、編集できる自分のLPを形にする。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--cyan)">
+          <span>05</span>
+          <div><h3>SNS発信導線</h3><p>Threads、InstagramなどからLPへつながる発信テーマを設計する。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--pink)">
+          <span>06</span>
+          <div><h3>LINE・フォーム導線</h3><p>LINE、Googleフォーム、案内文を整え、申し込みまでの流れをつくる。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--orange)">
+          <span>07</span>
+          <div><h3>案件獲得・提案文作成</h3><p>営業文、ヒアリング文、提案文を作り、最初の仕事に向けて動く。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:#fff3b0">
+          <span>08</span>
+          <div><h3>公開・改善・次の収益化</h3><p>公開後の見直しと改善を行い、次の収益化ステップを設計する。</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section difference">
+    <div class="section-inner">
+      <div class="section-label reveal">08 / Difference</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">他のAI講座との違い</span>Not just<br>prompting.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">AIの使い方で終わらせず、価値を見つけ、ページにし、導線で届けるところまで。</p>
+          <p class="body-copy">この講座は、AIスクールではなく、AIを使って仕事の形を変えるための実践プログラムです。</p>
+        </div>
+      </div>
+      <div class="compare-grid">
+        <article class="compare-card reveal">
+          <h3>一般的な<br>AI講座</h3>
+          <ul class="compare-list">
+            <li>ツールの使い方が中心</li>
+            <li>学んで終わりになりやすい</li>
+            <li>発信やLP制作は別で学ぶ必要がある</li>
+            <li>実案件化・収益化まで距離がある</li>
+          </ul>
+        </article>
+        <article class="compare-card featured reveal">
+          <h3>AI×WEB集客<br>クリエイター<br>養成講座</h3>
+          <ul class="compare-list">
+            <li>AI活用、LP制作、SNS発信を一つの流れで学ぶ</li>
+            <li>LINE・フォームまで申し込み導線をつくる</li>
+            <li>自分や誰かの世界観を仕事に変える</li>
+            <li>案件化・収益化に向けて伴走する</li>
+          </ul>
         </article>
       </div>
     </div>
@@ -1762,7 +1962,7 @@
 
   <section class="section">
     <div class="section-inner">
-      <div class="section-label reveal">06 / Lifestyle</div>
+      <div class="section-label reveal">09 / Lifestyle</div>
       <h2 class="editorial-title reveal">未来のライフスタイル提案</h2>
       <div class="lifestyle-board">
         <article class="life-card image reveal">
@@ -1796,7 +1996,7 @@
         <figcaption class="float-caption"><span>For whom</span><span>Life choice</span></figcaption>
       </figure>
       <div>
-        <div class="section-label reveal">07 / Fit</div>
+        <div class="section-label reveal">10 / Fit</div>
         <h2 class="editorial-title reveal">こんな人に向いています</h2>
         <div class="fit-list">
           <div class="fit-item reveal"><span>1</span><p>AIを、自分の可能性を広げるために使いたい。<small>専門用語よりも、日常で使える実践から始めたい人へ。</small></p></div>
@@ -1810,7 +2010,7 @@
 
   <section class="section">
     <div class="section-inner">
-      <div class="section-label reveal">08 / After</div>
+      <div class="section-label reveal">11 / After</div>
       <div class="statement">
         <h2 class="reveal">受講後の<br>変化</h2>
         <p class="large-copy reveal">自分の中にあった曖昧な願いが、言葉になり、ページになり、人と出会う導線になる。</p>
@@ -1825,7 +2025,7 @@
 
   <section class="section flow" id="flow">
     <div class="section-inner">
-      <div class="section-label reveal">09 / Program flow</div>
+      <div class="section-label reveal">12 / Program flow</div>
       <h2 class="editorial-title reveal">講座の流れ</h2>
       <div class="flow-track">
         <article class="flow-step reveal"><span class="week">Week 01</span><h3>世界観をほどく</h3><p>自分の価値観、届けたい人、未来の暮らしを言葉にする。</p></article>
@@ -1839,7 +2039,7 @@
 
   <section class="message section">
     <div class="message-inner">
-      <div class="section-label reveal">10 / Last message</div>
+      <div class="section-label reveal">13 / Last message</div>
       <h2 class="reveal">人生は、<br>もっと<br>編集できる。</h2>
       <p class="reveal">何者かになってから始めるのではなく、始めながら、自分の輪郭を見つけていく。AIとWEBは、そのための軽やかな翼になる。</p>
     </div>
@@ -1847,13 +2047,23 @@
 
   <section class="section host-profile" aria-label="主催者プロフィール・実績">
     <div class="section-inner host-layout">
+      <div class="statement">
+        <div>
+          <div class="section-label reveal">14 / Story proof</div>
+          <h2 class="reveal"><span class="jp">数字ではなく、<br>人生そのものが証明になる。</span>Story as<br>trust.</h2>
+        </div>
+        <div class="text-stack reveal">
+          <p class="large-copy">旅、事業、表現、AI。その交差点から生まれた講座。</p>
+          <p class="body-copy">派手な売上実績を並べるのではなく、実際に場所を変え、仕事を作り、人の表現を社会へつなげてきた二人の経験を、講座の土台にしています。</p>
+        </div>
+      </div>
       <article class="host-card">
         <figure class="host-photo reveal">
           <img src="kunio.JPG" alt="主催者 五十嵐邦夫のプロフィール写真">
           <figcaption><span>Host profile</span><span>Kunio Igarashi</span></figcaption>
         </figure>
         <div class="host-copy">
-          <div class="section-label reveal">11 / Host</div>
+          <div class="section-label reveal">Host / Business and life design</div>
           <p class="host-eyebrow reveal">主催者プロフィール・実績</p>
           <h2 class="host-name reveal">五十嵐邦夫</h2>
           <p class="host-lead reveal">日本の建築会社で25年間、デザイン・営業に携わった後、海外へ移住。現在はバリ島・ウブドを拠点に、AIを活用したWeb戦略、オンライン教育、不動産、飲食事業を展開しています。</p>
@@ -1881,7 +2091,7 @@
           <figcaption><span>AI LP Creator</span><span>Atsushi Ishimaru</span></figcaption>
         </figure>
         <div class="host-copy">
-          <div class="section-label reveal">Co-host</div>
+          <div class="section-label reveal">Co-host / Story and LP design</div>
           <p class="host-eyebrow reveal">AI×LPクリエイター / ART for BEING代表</p>
           <h2 class="host-name reveal">石丸 篤史</h2>
           <p class="host-lead reveal">AIを活用したLP制作・ブランディング・アート活動を行うクリエイター。</p>
@@ -1895,7 +2105,15 @@
     </div>
   </section>
 
-  <section class="section program-info" aria-label="Program Information">
+  <section class="message section">
+    <div class="message-inner">
+      <div class="section-label reveal">15 / Why zero class</div>
+      <h2 class="reveal">0期は、<br>一緒に<br>育てる期。</h2>
+      <p class="reveal">本格開講前に、少人数で実践しながら講座を磨いていくための特別募集です。完成された教材を受け取るだけではなく、手を動かし、自分のLPと導線を形にする人を募集します。だからこそ、0期は特別価格55,000円でご案内します。</p>
+    </div>
+  </section>
+
+  <section class="section program-info" id="program" aria-label="Program Information">
     <div class="section-inner">
       <div class="program-spread">
         <div class="reveal">
@@ -1919,28 +2137,44 @@
           </div>
           <div class="program-row">
             <dt>Entry</dt>
-            <dd>事前エントリー受付中</dd>
+            <dd>Zoom面談・事前エントリー受付中</dd>
           </div>
         </dl>
       </div>
     </div>
   </section>
 
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">16 / Goals</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">この講座で<br>目指すゴール</span>Your first<br>real route.</h2>
+        <p class="large-copy reveal">学んだ気がする、で終わらせない。自分の価値を届けるための道筋を持って、次の一歩へ進む。</p>
+      </div>
+      <div class="goal-grid">
+        <article class="goal-card reveal"><h3>自分のLPを持つ</h3><p>サービスや想いが伝わるページを、自分で更新できる状態にする。</p></article>
+        <article class="goal-card reveal"><h3>SNSから申し込みまでつなぐ</h3><p>投稿、LP、LINE、フォームをつなぎ、迷わず申し込める導線を作る。</p></article>
+        <article class="goal-card reveal"><h3>AIを仕事道具にする</h3><p>企画、コピー、改善、提案をAIと一緒に進める習慣を身につける。</p></article>
+        <article class="goal-card reveal"><h3>最初のお客さんへ動き出す</h3><p>営業文や提案文を整え、案件獲得・収益化に向けた行動を始める。</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="final-cta" id="entry">
     <div class="final-inner">
-      <div class="section-label reveal">12 / Invitation</div>
+      <div class="section-label reveal">17 / Invitation</div>
       <h2 class="reveal">Release<br>Yourself<br>Now.</h2>
-      <p class="reveal">AI×WEB集客クリエイター養成講座は、自分の世界観を言葉とページと導線に変え、人生の選択肢を増やしていくためのプログラムです。</p>
+      <p class="reveal">少しでも気になったら、まずはZoom面談で相談してください。現在地ややりたいことを聞いたうえで、0期が合うかどうかをご案内します。</p>
       <div class="cta-row reveal">
-        <a class="main-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfgbjt5oJ72oh8rpteWzyZlyjBvvvfk0o2l_2gtpAi6w48_BQ/viewform?usp=header" target="_blank" rel="noopener">事前エントリーへ <span>↗</span></a>
-        <span class="sub-note">少人数制 / 詳細はエントリー後にご案内します</span>
+        <a class="main-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfgbjt5oJ72oh8rpteWzyZlyjBvvvfk0o2l_2gtpAi6w48_BQ/viewform?usp=header" target="_blank" rel="noopener">Zoom面談に申し込む <span>↗</span></a>
+        <span class="sub-note">0期生限定 / 詳細は面談でご案内します</span>
       </div>
     </div>
   </section>
 </main>
 
 <div class="sticky-cta" id="stickyCta">
-  <a href="#entry">事前エントリーへ <span>↗</span></a>
+  <a href="#entry">まずは面談で相談する <span>↗</span></a>
 </div>
 
 <footer>
