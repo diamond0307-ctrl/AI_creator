@@ -310,7 +310,7 @@
     font-size:clamp(42px,11vw,72px);
     line-height:1.08;
     letter-spacing:-.08em;
-    max-width:7.5ch;
+    max-width:10.2ch;
     color:var(--ink);
     text-shadow:0 1px 16px rgba(255,253,247,.42);
     pointer-events:none;
@@ -328,6 +328,7 @@
     font-size:1em;
     letter-spacing:-.1em;
     line-height:1.05;
+    white-space:nowrap;
   }
   .hero-title .en-line{display:none;}
   .hero-title .red{color:inherit;}
@@ -786,6 +787,78 @@
     margin:0;
     color:var(--muted);
     line-height:1.9;
+  }
+
+  .photo-river{
+    overflow:hidden;
+    padding-inline:0;
+    background:
+      radial-gradient(circle at 14% 10%, rgba(18,200,222,.12), transparent 22rem),
+      radial-gradient(circle at 88% 34%, rgba(237,92,138,.1), transparent 20rem),
+      linear-gradient(180deg,var(--ivory),var(--paper) 52%,#f7efe2);
+  }
+  .photo-river-head{
+    padding-inline:16px;
+  }
+  .photo-river-wrap{
+    width:100%;
+    max-width:100vw;
+    overflow:hidden;
+    display:grid;
+    gap:18px;
+    margin-top:42px;
+    padding-block:8px 10px;
+  }
+  .photo-lane{
+    width:100%;
+    overflow:hidden;
+    transform:translateZ(0);
+  }
+  .photo-lane-offset{
+    transform:translateX(9vw) translateZ(0);
+  }
+  .photo-track{
+    --photo-gap:14px;
+    display:flex;
+    width:max-content;
+    will-change:transform;
+  }
+  .photo-track.to-left{
+    animation:photoFlowLeft 60s linear infinite;
+  }
+  .photo-track.to-right{
+    animation:photoFlowRight 70s linear infinite;
+  }
+  .photo-set{
+    flex:0 0 auto;
+    display:flex;
+    gap:var(--photo-gap);
+    padding-right:var(--photo-gap);
+  }
+  .photo-card{
+    flex:0 0 clamp(158px,48vw,228px);
+    width:clamp(158px,48vw,228px);
+    aspect-ratio:4 / 5;
+    margin:0;
+    overflow:hidden;
+    border-radius:26px;
+    background:var(--sand);
+    box-shadow:0 18px 44px rgba(62,48,30,.12);
+  }
+  .photo-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    filter:saturate(.96) contrast(.98) brightness(1.03);
+  }
+  @keyframes photoFlowLeft{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @keyframes photoFlowRight{
+    from{transform:translateX(-50%);}
+    to{transform:translateX(0);}
   }
 
   .empathy{
@@ -1553,7 +1626,7 @@
       top:47%;
       transform:translateY(-50%);
       font-size:clamp(62px,7vw,112px);
-      max-width:7ch;
+      max-width:10.2ch;
     }
     .hero-copy{
       left:8vw;
@@ -1584,6 +1657,15 @@
     .future-grid{grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);}
     .future-item{padding:26px 22px 28px;border-right:1px solid var(--line);border-bottom:0;}
     .future-item:last-child{border-right:0;}
+    .photo-river-head{padding-inline:28px;}
+    .photo-river-wrap{gap:24px;margin-top:58px;}
+    .photo-track{--photo-gap:22px;}
+    .photo-lane-offset{transform:translateX(7vw) translateZ(0);}
+    .photo-card{
+      flex-basis:clamp(260px,24vw,340px);
+      width:clamp(260px,24vw,340px);
+      border-radius:30px;
+    }
     .proposal-visual{
       grid-column:1 / -1;
       min-height:560px;
@@ -1651,7 +1733,7 @@
       right:22px;
       top:42%;
       font-size:clamp(42px,11vw,72px);
-      max-width:7.2ch;
+      max-width:calc(100vw - 44px);
     }
     .hero-copy p{font-size:18px;line-height:1.8;}
     .hero-copy{
@@ -1675,6 +1757,16 @@
     .program-row{grid-template-columns:1fr;gap:8px;}
     .menu-card{padding:22px 20px;}
     .section{padding-block:76px;}
+    .photo-river{padding-block:82px;}
+    .photo-river-head{padding-inline:16px;}
+    .photo-river-wrap{gap:15px;margin-top:34px;}
+    .photo-track{--photo-gap:12px;}
+    .photo-lane-offset{transform:translateX(10vw) translateZ(0);}
+    .photo-card{
+      flex-basis:clamp(152px,46vw,196px);
+      width:clamp(152px,46vw,196px);
+      border-radius:24px;
+    }
     .recommend{padding-inline:14px;}
     .recommend-paper{gap:26px;padding:28px 0;}
     .recommend-title{
@@ -1749,8 +1841,7 @@
         <div class="hero-bg-type" aria-hidden="true">Release Yourself<br>Into The World</div>
         <h1 class="hero-title" aria-label="世界に、自分を解き放て。 Release Yourself into the World.">
           <span class="split-line"><span class="jp">世界に、</span></span>
-          <span class="split-line"><span class="jp">自分を</span></span>
-          <span class="split-line"><span class="jp">解き放て。</span></span>
+          <span class="split-line"><span class="jp">自分を解き放て。</span></span>
         </h1>
         <div class="hero-copy reveal">
           <p>AIとWEB集客で、<br>世界中で遊べる働き方を<br>実装する講座</p>
@@ -1783,10 +1874,99 @@
     </div>
   </section>
 
+  <section class="photo-river section" aria-label="旅するように働く景色">
+    <div class="section-inner photo-river-head">
+      <div class="section-label reveal">02 / Scenes</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">旅するように、<br>働く景色。</span>Scenes from<br>the next route.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">AIとWEB集客を学ぶ先にあるのは、ただの副業ではなく、場所や時間に縛られない新しい日常です。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-river-wrap reveal">
+      <div class="photo-lane" aria-hidden="true">
+        <div class="photo-track to-left">
+          <div class="photo-set">
+            <figure class="photo-card"><img src="スライド/slide-01.jpg" alt="講座のライフスタイルイメージ 01" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-02.jpg" alt="講座のライフスタイルイメージ 02" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-03.jpg" alt="講座のライフスタイルイメージ 03" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-04.jpg" alt="講座のライフスタイルイメージ 04" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-05.jpg" alt="講座のライフスタイルイメージ 05" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-06.jpg" alt="講座のライフスタイルイメージ 06" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-07.jpg" alt="講座のライフスタイルイメージ 07" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-08.jpg" alt="講座のライフスタイルイメージ 08" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-09.jpg" alt="講座のライフスタイルイメージ 09" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-10.jpg" alt="講座のライフスタイルイメージ 10" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-11.jpg" alt="講座のライフスタイルイメージ 11" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-12.jpg" alt="講座のライフスタイルイメージ 12" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-13.jpg" alt="講座のライフスタイルイメージ 13" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-14.jpg" alt="講座のライフスタイルイメージ 14" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-15.jpg" alt="講座のライフスタイルイメージ 15" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="photo-set">
+            <figure class="photo-card"><img src="スライド/slide-01.jpg" alt="講座のライフスタイルイメージ 01" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-02.jpg" alt="講座のライフスタイルイメージ 02" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-03.jpg" alt="講座のライフスタイルイメージ 03" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-04.jpg" alt="講座のライフスタイルイメージ 04" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-05.jpg" alt="講座のライフスタイルイメージ 05" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-06.jpg" alt="講座のライフスタイルイメージ 06" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-07.jpg" alt="講座のライフスタイルイメージ 07" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-08.jpg" alt="講座のライフスタイルイメージ 08" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-09.jpg" alt="講座のライフスタイルイメージ 09" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-10.jpg" alt="講座のライフスタイルイメージ 10" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-11.jpg" alt="講座のライフスタイルイメージ 11" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-12.jpg" alt="講座のライフスタイルイメージ 12" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-13.jpg" alt="講座のライフスタイルイメージ 13" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-14.jpg" alt="講座のライフスタイルイメージ 14" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-15.jpg" alt="講座のライフスタイルイメージ 15" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+      </div>
+      <div class="photo-lane photo-lane-offset" aria-hidden="true">
+        <div class="photo-track to-right">
+          <div class="photo-set">
+            <figure class="photo-card"><img src="スライド/slide-16.jpg" alt="講座のライフスタイルイメージ 16" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-17.jpg" alt="講座のライフスタイルイメージ 17" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-18.jpg" alt="講座のライフスタイルイメージ 18" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-19.jpg" alt="講座のライフスタイルイメージ 19" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-20.jpg" alt="講座のライフスタイルイメージ 20" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-21.jpg" alt="講座のライフスタイルイメージ 21" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-22.jpg" alt="講座のライフスタイルイメージ 22" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-23.jpg" alt="講座のライフスタイルイメージ 23" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-24.jpg" alt="講座のライフスタイルイメージ 24" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-25.jpg" alt="講座のライフスタイルイメージ 25" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-26.jpg" alt="講座のライフスタイルイメージ 26" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-27.jpg" alt="講座のライフスタイルイメージ 27" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-28.jpg" alt="講座のライフスタイルイメージ 28" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-29.jpg" alt="講座のライフスタイルイメージ 29" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="photo-set">
+            <figure class="photo-card"><img src="スライド/slide-16.jpg" alt="講座のライフスタイルイメージ 16" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-17.jpg" alt="講座のライフスタイルイメージ 17" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-18.jpg" alt="講座のライフスタイルイメージ 18" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-19.jpg" alt="講座のライフスタイルイメージ 19" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-20.jpg" alt="講座のライフスタイルイメージ 20" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-21.jpg" alt="講座のライフスタイルイメージ 21" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-22.jpg" alt="講座のライフスタイルイメージ 22" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-23.jpg" alt="講座のライフスタイルイメージ 23" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-24.jpg" alt="講座のライフスタイルイメージ 24" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-25.jpg" alt="講座のライフスタイルイメージ 25" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-26.jpg" alt="講座のライフスタイルイメージ 26" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-27.jpg" alt="講座のライフスタイルイメージ 27" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-28.jpg" alt="講座のライフスタイルイメージ 28" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="スライド/slide-29.jpg" alt="講座のライフスタイルイメージ 29" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="recommend" aria-label="こんな方におすすめ">
     <div class="recommend-paper">
       <div class="reveal">
-        <div class="section-label">02 / Real questions</div>
+        <div class="section-label">03 / Real questions</div>
         <h2 class="recommend-title"><span>こんな方におすすめ</span></h2>
         <p class="scribble-note">not a perfect checklist. just a small sign.</p>
       </div>
@@ -1809,7 +1989,7 @@
 
   <section class="empathy section">
     <div class="section-inner">
-      <div class="section-label reveal">03 / Resonance</div>
+      <div class="section-label reveal">04 / Resonance</div>
       <div class="question-list">
         <p class="reveal">AIとパソコン1台で、仕事の形を変える。</p>
         <p class="reveal">場所に縛られず、好きな体験<br>を選べる人生へ。</p>
@@ -1821,7 +2001,7 @@
   <section class="section" id="proposal">
     <div class="section-inner statement">
       <div>
-        <div class="section-label reveal">04 / Why now</div>
+        <div class="section-label reveal">05 / Why now</div>
         <h2 class="reveal"><span class="jp">なぜ今<br>AI×WEB集客なのか</span>Tools are<br>not enough.</h2>
       </div>
       <div class="text-stack reveal">
@@ -1839,7 +2019,7 @@
         <figcaption class="float-caption"><span>Work anywhere</span><span>Life edit</span></figcaption>
       </figure>
       <div class="text-stack">
-        <div class="section-label reveal">05 / Future result</div>
+        <div class="section-label reveal">06 / Future result</div>
         <span class="num reveal">03</span>
         <h2 class="editorial-title reveal">You were not made for one small room.</h2>
         <p class="large-copy reveal">自分や誰かの価値を、必要な人へ届けるページを作れるようになる。</p>
@@ -1852,7 +2032,7 @@
     <div class="section-inner creator-grid">
       <h2 class="creator-title reveal"><span class="cyan">AI</span> × <span class="pink">WEB</span><br>集客<br><span class="orange">Creator</span></h2>
       <div class="creator-copy reveal">
-        <div class="section-label">06 / Definition</div>
+        <div class="section-label">07 / Definition</div>
         <p><strong>AI×WEB集客クリエイター</strong>とは、AIでアイデアと言葉を拡張し、LPや導線で価値を届ける人。</p>
         <p>ただ投稿する人でも、ただ制作する人でもありません。自分や誰かの魅力を見つけ、体験として編集し、必要な人が自然に出会える流れをつくる人です。</p>
         <div class="mini-grid">
@@ -1875,7 +2055,7 @@
 
   <section class="section learning" id="learn">
     <div class="section-inner">
-      <div class="section-label reveal">07 / Curriculum</div>
+      <div class="section-label reveal">08 / Curriculum</div>
       <div class="statement">
         <h2 class="reveal">Make it,<br>connect it,<br>move it.</h2>
         <div class="text-stack reveal">
@@ -1922,7 +2102,7 @@
 
   <section class="section difference">
     <div class="section-inner">
-      <div class="section-label reveal">08 / Difference</div>
+      <div class="section-label reveal">09 / Difference</div>
       <div class="statement">
         <h2 class="reveal"><span class="jp">他のAI講座との違い</span>Not just<br>prompting.</h2>
         <div class="text-stack reveal">
@@ -1962,7 +2142,7 @@
 
   <section class="section">
     <div class="section-inner">
-      <div class="section-label reveal">09 / Lifestyle</div>
+      <div class="section-label reveal">10 / Lifestyle</div>
       <h2 class="editorial-title reveal">未来のライフスタイル提案</h2>
       <div class="lifestyle-board">
         <article class="life-card image reveal">
@@ -1996,7 +2176,7 @@
         <figcaption class="float-caption"><span>For whom</span><span>Life choice</span></figcaption>
       </figure>
       <div>
-        <div class="section-label reveal">10 / Fit</div>
+        <div class="section-label reveal">11 / Fit</div>
         <h2 class="editorial-title reveal">こんな人に向いています</h2>
         <div class="fit-list">
           <div class="fit-item reveal"><span>1</span><p>AIを、自分の可能性を広げるために使いたい。<small>専門用語よりも、日常で使える実践から始めたい人へ。</small></p></div>
@@ -2010,7 +2190,7 @@
 
   <section class="section">
     <div class="section-inner">
-      <div class="section-label reveal">11 / After</div>
+      <div class="section-label reveal">12 / After</div>
       <div class="statement">
         <h2 class="reveal">受講後の<br>変化</h2>
         <p class="large-copy reveal">自分の中にあった曖昧な願いが、言葉になり、ページになり、人と出会う導線になる。</p>
@@ -2025,7 +2205,7 @@
 
   <section class="section flow" id="flow">
     <div class="section-inner">
-      <div class="section-label reveal">12 / Program flow</div>
+      <div class="section-label reveal">13 / Program flow</div>
       <h2 class="editorial-title reveal">講座の流れ</h2>
       <div class="flow-track">
         <article class="flow-step reveal"><span class="week">Week 01</span><h3>世界観をほどく</h3><p>自分の価値観、届けたい人、未来の暮らしを言葉にする。</p></article>
@@ -2039,7 +2219,7 @@
 
   <section class="message section">
     <div class="message-inner">
-      <div class="section-label reveal">13 / Last message</div>
+      <div class="section-label reveal">14 / Last message</div>
       <h2 class="reveal">人生は、<br>もっと<br>編集できる。</h2>
       <p class="reveal">何者かになってから始めるのではなく、始めながら、自分の輪郭を見つけていく。AIとWEBは、そのための軽やかな翼になる。</p>
     </div>
@@ -2049,7 +2229,7 @@
     <div class="section-inner host-layout">
       <div class="statement">
         <div>
-          <div class="section-label reveal">14 / Story proof</div>
+          <div class="section-label reveal">15 / Story proof</div>
           <h2 class="reveal"><span class="jp">数字ではなく、<br>人生そのものが証明になる。</span>Story as<br>trust.</h2>
         </div>
         <div class="text-stack reveal">
@@ -2107,7 +2287,7 @@
 
   <section class="message section">
     <div class="message-inner">
-      <div class="section-label reveal">15 / Why zero class</div>
+      <div class="section-label reveal">16 / Why zero class</div>
       <h2 class="reveal">0期は、<br>一緒に<br>育てる期。</h2>
       <p class="reveal">本格開講前に、少人数で実践しながら講座を磨いていくための特別募集です。完成された教材を受け取るだけではなく、手を動かし、自分のLPと導線を形にする人を募集します。だからこそ、0期は特別価格55,000円でご案内します。</p>
     </div>
@@ -2146,7 +2326,7 @@
 
   <section class="section">
     <div class="section-inner">
-      <div class="section-label reveal">16 / Goals</div>
+      <div class="section-label reveal">17 / Goals</div>
       <div class="statement">
         <h2 class="reveal"><span class="jp">この講座で<br>目指すゴール</span>Your first<br>real route.</h2>
         <p class="large-copy reveal">学んだ気がする、で終わらせない。自分の価値を届けるための道筋を持って、次の一歩へ進む。</p>
@@ -2162,7 +2342,7 @@
 
   <section class="final-cta" id="entry">
     <div class="final-inner">
-      <div class="section-label reveal">17 / Invitation</div>
+      <div class="section-label reveal">18 / Invitation</div>
       <h2 class="reveal">Release<br>Yourself<br>Now.</h2>
       <p class="reveal">少しでも気になったら、まずはZoom面談で相談してください。現在地ややりたいことを聞いたうえで、0期が合うかどうかをご案内します。</p>
       <div class="cta-row reveal">
