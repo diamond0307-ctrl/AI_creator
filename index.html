@@ -680,6 +680,10 @@
     object-position:62% 26%;
     filter:saturate(.82) contrast(1.06) brightness(1.03);
   }
+  .image-tall.feeling-workstyle img{
+    object-position:43% center;
+    filter:saturate(.92) contrast(1.02) brightness(1.04);
+  }
   .image-wide img{
     object-position:72% 36%;
     filter:saturate(1.18) contrast(.96) brightness(1.04);
@@ -739,10 +743,27 @@
   }
 
   .empathy{
+    position:relative;
     padding-block:98px;
+    overflow:hidden;
     background:
-      linear-gradient(90deg,rgba(18,200,222,.13),transparent 28%,rgba(237,92,138,.11) 72%,transparent),
-      rgba(255,253,247,.58);
+      linear-gradient(90deg,rgba(251,248,241,.95),rgba(251,248,241,.78) 42%,rgba(251,248,241,.9)),
+      linear-gradient(180deg,rgba(251,248,241,.95),rgba(251,248,241,.7) 42%,rgba(251,248,241,.96)),
+      url("resonance-airport.png") center center/cover no-repeat;
+  }
+  .empathy::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 8% 28%,rgba(18,200,222,.16),transparent 28rem),
+      radial-gradient(circle at 88% 22%,rgba(237,92,138,.13),transparent 24rem);
+    mix-blend-mode:multiply;
+  }
+  .empathy .section-inner{
+    position:relative;
+    z-index:1;
   }
   .question-list{
     display:grid;
@@ -1057,6 +1078,137 @@
     line-height:1.9;
   }
 
+  .host-profile{
+    background:
+      radial-gradient(circle at 16% 18%,rgba(18,200,222,.11),transparent 26rem),
+      radial-gradient(circle at 86% 0%,rgba(237,92,138,.1),transparent 24rem),
+      var(--ivory);
+  }
+  .host-layout{
+    display:grid;
+    gap:74px;
+  }
+  .host-card{
+    display:grid;
+    gap:34px;
+  }
+  .host-photo{
+    position:relative;
+    margin:0;
+    overflow:hidden;
+    border-radius:30px;
+    min-height:min(118vw,620px);
+    background:var(--sand);
+    border:1px solid rgba(19,17,15,.12);
+    box-shadow:0 28px 70px rgba(62,48,30,.1);
+  }
+  .host-photo img{
+    width:100%;
+    height:100%;
+    min-height:min(118vw,620px);
+    object-fit:cover;
+    object-position:center 22%;
+    filter:saturate(.9) contrast(1.02) brightness(1.03);
+  }
+  .host-photo::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(180deg,rgba(255,253,247,0) 58%,rgba(251,248,241,.78));
+  }
+  .host-photo figcaption{
+    position:absolute;
+    z-index:2;
+    left:16px;
+    right:16px;
+    bottom:16px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:11px 14px;
+    border-radius:999px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(14px);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .host-photo.art-photo{
+    background:
+      radial-gradient(circle at 16% 20%,rgba(18,200,222,.18),transparent 18rem),
+      radial-gradient(circle at 74% 18%,rgba(237,92,138,.18),transparent 18rem),
+      var(--ivory);
+  }
+  .host-photo.art-photo img{
+    object-position:center center;
+    filter:saturate(.84) contrast(1.02) brightness(1.08);
+  }
+  .host-photo.art-photo::after{
+    background:
+      linear-gradient(180deg,rgba(255,253,247,0) 52%,rgba(251,248,241,.82)),
+      linear-gradient(90deg,rgba(255,253,247,.18),rgba(255,253,247,0) 42%,rgba(255,253,247,.14));
+  }
+  .host-copy{
+    display:grid;
+    gap:24px;
+  }
+  .host-eyebrow{
+    margin:0;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .host-name{
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(46px,14vw,118px);
+    line-height:.95;
+    letter-spacing:-.08em;
+    font-weight:400;
+  }
+  .host-lead{
+    margin:0;
+    font-size:clamp(16px,4.5vw,22px);
+    line-height:2;
+  }
+  .host-body{
+    margin:0;
+    color:var(--muted);
+    line-height:2;
+  }
+  .host-body strong{
+    color:var(--ink);
+    font-weight:600;
+    background:linear-gradient(180deg,transparent 58%,rgba(237,92,138,.18) 0);
+  }
+  .achievement-list{
+    display:grid;
+    gap:0;
+    margin:8px 0 0;
+    padding:0;
+    list-style:none;
+    border-top:1px solid var(--line);
+  }
+  .achievement-list li{
+    position:relative;
+    padding:15px 0 15px 28px;
+    border-bottom:1px solid var(--line);
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .achievement-list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:1.4em;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+  }
+
   .program-info{
     background:
       linear-gradient(180deg,rgba(255,253,247,.72),rgba(240,228,212,.74)),
@@ -1321,6 +1473,10 @@
     .fit-item span{width:42px;height:42px;}
     .change-grid{grid-template-columns:repeat(3,1fr);gap:26px;}
     .flow-step{grid-template-columns:150px 1fr minmax(260px,.8fr);gap:28px;align-items:start;padding:30px 0;}
+    .host-layout{gap:120px;}
+    .host-card{grid-template-columns:.82fr 1.18fr;gap:70px;align-items:start;}
+    .host-photo{position:sticky;top:120px;min-height:620px;}
+    .host-photo img{min-height:620px;}
     .program-spread{grid-template-columns:.9fr 1.1fr;gap:70px;padding:44px 0;}
     .program-list{align-self:end;}
     .cta-row{flex-direction:row;align-items:center;}
@@ -1478,7 +1634,7 @@
         <li><mark>月5〜10万円の収入源を作りたい</mark></li>
         <li><mark>自分のサービスや活動を形にしたい</mark></li>
         <li><mark>未経験から新しいスキルを身につけたい</mark></li>
-        <li><mark>誰かの役に立つ仕事がしたい</mark></li>
+        <li><mark>海外にいてもできる仕事がしたい</mark></li>
       </ul>
     </div>
   </section>
@@ -1512,18 +1668,14 @@
         <p class="body-copy">AI×WEB集客クリエイター養成講座は、ただスキルを学ぶ場所ではありません。<br><br>自分の価値を社会に届けながら、人生の行動範囲を広げていくための講座です。</p>
         <div class="accent-rule" aria-hidden="true"></div>
       </div>
-      <figure class="proposal-visual reveal">
-        <img src="proposal-journey.jpg" alt="旅先の空気と体験を感じさせる写真">
-        <figcaption class="proposal-caption">Journey / Culture / Experience</figcaption>
-      </figure>
     </div>
   </section>
 
   <section class="section">
     <div class="section-inner duo">
-      <figure class="image-frame image-tall">
-        <img src="hero-visual.png" alt="自由なライフスタイルを象徴するファッションポートレート">
-        <figcaption class="float-caption"><span>Visual note</span><span>Release</span></figcaption>
+      <figure class="image-frame image-tall feeling-workstyle">
+        <img src="feeling-workstyle.png" alt="街を見渡す窓辺でパソコンに向かう女性">
+        <figcaption class="float-caption"><span>Work anywhere</span><span>Life edit</span></figcaption>
       </figure>
       <div class="text-stack">
         <div class="section-label reveal">03 / Feeling</div>
@@ -1683,6 +1835,56 @@
     </div>
   </section>
 
+  <section class="section host-profile" aria-label="主催者プロフィール・実績">
+    <div class="section-inner host-layout">
+      <article class="host-card">
+        <figure class="host-photo reveal">
+          <img src="kunio.JPG" alt="主催者 五十嵐邦夫のプロフィール写真">
+          <figcaption><span>Host profile</span><span>Kunio Igarashi</span></figcaption>
+        </figure>
+        <div class="host-copy">
+          <div class="section-label reveal">11 / Host</div>
+          <p class="host-eyebrow reveal">主催者プロフィール・実績</p>
+          <h2 class="host-name reveal">五十嵐邦夫</h2>
+          <p class="host-lead reveal">日本の建築会社で25年間、デザイン・営業に携わった後、海外へ移住。現在はバリ島・ウブドを拠点に、AIを活用したWeb戦略、オンライン教育、不動産、飲食事業を展開しています。</p>
+          <div class="reveal">
+            <div class="section-label">Main achievements</div>
+            <ul class="achievement-list">
+              <li>AIを活用し、バリ島での不動産事業およびヴィラ開発を展開</li>
+              <li>AIの活用で日本食レストランを運営し、Googleビジネスプロフィールにて高評価を獲得</li>
+              <li>Instagram構築、Googleビジネスプロフィール、Airbnb運用などをAIで仕組み化</li>
+              <li>複数の事業にAIを取り入れ、収益化を実現</li>
+              <li>バリ島ウブドにて、利用者から愛されるヴィラとしてベスト2に選出</li>
+              <li>飲食事業では、Googleビジネスプロフィールにおいて星5評価を獲得</li>
+              <li>開業から1年足らずで黒字化を達成</li>
+              <li>人間関係改善講座を主宰し、前に進むことを恐れている人たちをサポート</li>
+              <li>受講生の中から、現在第一線で活躍する人材を多数輩出</li>
+            </ul>
+          </div>
+          <p class="host-body reveal">現在はAIマーケティングの講師としてスタートしました。AIを単なる便利なツールとしてではなく、自分らしい人生を切り拓くための力として活用。誰もが自分の可能性を広げ、人生を前向きに進めるようサポートすることを大切にしています。</p>
+        </div>
+      </article>
+
+      <article class="host-card">
+        <figure class="host-photo art-photo reveal">
+          <img src="atsushi-face.png" alt="主催者 石丸篤史のプロフィール写真">
+          <figcaption><span>AI LP Creator</span><span>Atsushi Ishimaru</span></figcaption>
+        </figure>
+        <div class="host-copy">
+          <div class="section-label reveal">Co-host</div>
+          <p class="host-eyebrow reveal">AI×LPクリエイター / ART for BEING代表</p>
+          <h2 class="host-name reveal">石丸 篤史</h2>
+          <p class="host-lead reveal">AIを活用したLP制作・ブランディング・アート活動を行うクリエイター。</p>
+          <p class="host-body reveal">これまで世界約30カ国を旅し、国や文化、価値観の違いに触れる中で、「人はそれぞれ異なる物語を持っている」という感覚を深めてきました。</p>
+          <p class="host-body reveal">個人事業主、サロン、スクール、アーティストなど、想いや世界観を持つ人のサービスを、<strong>「伝わる言葉」と「申し込みにつながるLP」</strong>として形にしています。</p>
+          <p class="host-body reveal">制作では、表面的なデザインだけでなく、その人の人生、価値観、事業の背景まで丁寧に掘り起こし、“なぜこの人から買うのか”が伝わる構成を重視。</p>
+          <p class="host-body reveal">また、一般社団法人 ART for BEING 代表として、「100人のアーティスト展」など、人の表現を社会につなげる活動も主催しています。</p>
+          <p class="host-body reveal">AIを使えば、経験やスキルがゼロでも、自分の感性や言葉を活かして、LP制作を仕事にできる。本講座では、AIを相棒にしながら、ヒアリング、構成、コピー、デザイン、公開までを実践的に学び、<strong>“想いを形にできるAI×LPクリエイター”</strong>を育成しています。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section class="section program-info" aria-label="Program Information">
     <div class="section-inner">
       <div class="program-spread">
@@ -1716,7 +1918,7 @@
 
   <section class="final-cta" id="entry">
     <div class="final-inner">
-      <div class="section-label reveal">11 / Invitation</div>
+      <div class="section-label reveal">12 / Invitation</div>
       <h2 class="reveal">Release<br>Yourself<br>Now.</h2>
       <p class="reveal">AI×WEB集客クリエイター養成講座は、自分の世界観を言葉とページと導線に変え、人生の選択肢を増やしていくためのプログラムです。</p>
       <div class="cta-row reveal">
