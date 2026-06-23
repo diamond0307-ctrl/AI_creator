@@ -1106,6 +1106,61 @@
     color:var(--muted);
   }
   .life-card.image p{color:rgba(255,253,247,.82);}
+  .life-card.with-photo{
+    min-height:420px;
+    padding:0;
+    background:var(--life-photo-bg,#dff8fa);
+  }
+  .life-card.with-photo .life-copy{
+    position:relative;
+    z-index:2;
+    min-height:100%;
+    padding:22px;
+    padding-bottom:188px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .life-photo{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:172px;
+    margin:0;
+    border-radius:0 0 26px 26px;
+    overflow:hidden;
+    opacity:.94;
+    box-shadow:0 -18px 40px rgba(18,200,222,.15);
+  }
+  .life-photo::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(180deg,var(--life-photo-bg,#dff8fa) 0%,var(--life-photo-fade,rgba(223,248,250,.34)) 36%,rgba(223,248,250,0) 76%);
+  }
+  .life-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:34% 32%;
+    display:block;
+  }
+  .life-card.pink-bg.with-photo{
+    --life-photo-bg:#fbe5ed;
+    --life-photo-fade:rgba(251,229,237,.38);
+  }
+  .life-card.experience-photo .life-photo img{
+    object-position:50% 18%;
+  }
+  .life-card.orange-bg.with-photo{
+    --life-photo-bg:#fae8d4;
+    --life-photo-fade:rgba(250,232,212,.4);
+  }
+  .life-card.name-photo .life-photo img{
+    object-position:58% 18%;
+  }
   .cyan-bg{background:#dff8fa;}
   .pink-bg{background:#fbe5ed;}
   .orange-bg{background:#fae8d4;}
@@ -1308,7 +1363,7 @@
       var(--ivory);
   }
   .host-photo.art-photo img{
-    object-position:center center;
+    object-position:center 30%;
     filter:saturate(.84) contrast(1.02) brightness(1.08);
   }
   .host-photo.art-photo::after{
@@ -1861,7 +1916,7 @@
       <div class="statement">
         <h2 class="reveal"><span class="jp">旅するように、<br>働く景色。</span>Scenes from<br>the next route.</h2>
         <div class="text-stack reveal">
-          <p class="large-copy">AIとWEB集客を学ぶ先にあるのは、ただの副業ではなく、場所や時間に縛られない新しい日常です。</p>
+          <p class="large-copy">旅をすること。<br>挑戦すること。<br>誰かと語り合うこと。<br><br>人間にしかできない経験を、<br>もっと増やしていくために。</p>
         </div>
       </div>
     </div>
@@ -2153,17 +2208,32 @@
             <p>場所に合わせて働くのではなく、行きたい場所に合わせて働き方をつくる。</p>
           </div>
         </article>
-        <article class="life-card cyan-bg reveal">
-          <span class="life-kicker">Scene 02</span>
-          <div><h3>旅先で、LPを更新する。</h3><p>思いついた言葉をAIで整え、その日の熱をページに残す。</p></div>
+        <article class="life-card cyan-bg with-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-lp-update.png" alt="" loading="lazy" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 02</span>
+            <div><h3>旅先で、LPを更新する。</h3><p>思いついた言葉をAIで整え、その日の熱をページに残す。</p></div>
+          </div>
         </article>
-        <article class="life-card pink-bg reveal">
-          <span class="life-kicker">Scene 03</span>
-          <div><h3>体験が、次の仕事になる。</h3><p>学び、出会い、好きなものが、あなたの価値として届き始める。</p></div>
+        <article class="life-card pink-bg with-photo experience-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-experience-work.png" alt="" loading="lazy" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 03</span>
+            <div><h3>体験が、次の仕事になる。</h3><p>学び、出会い、好きなものが、あなたの価値として届き始める。</p></div>
+          </div>
         </article>
-        <article class="life-card orange-bg reveal">
-          <span class="life-kicker">Scene 04</span>
-          <div><h3>自分の名前で、選ばれる。</h3><p>テンプレートの言葉ではなく、自分の世界観で信頼をつくる。</p></div>
+        <article class="life-card orange-bg with-photo name-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-chosen-name.png" alt="" loading="eager" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 04</span>
+            <div><h3>自分の名前で、選ばれる。</h3><p>テンプレートの言葉ではなく、自分の世界観で信頼をつくる。</p></div>
+          </div>
         </article>
       </div>
     </div>
@@ -2267,7 +2337,7 @@
 
       <article class="host-card">
         <figure class="host-photo art-photo reveal">
-          <img src="atsushi-face.png" alt="主催者 石丸篤史のプロフィール写真">
+          <img src="atsushi.PNG" alt="主催者 石丸篤史のプロフィール写真">
           <figcaption><span>AI LP Creator</span><span>Atsushi Ishimaru</span></figcaption>
         </figure>
         <div class="host-copy">
@@ -2289,7 +2359,7 @@
     <div class="message-inner">
       <div class="section-label reveal">16 / Why zero class</div>
       <h2 class="reveal">0期は、<br>一緒に<br>育てる期。</h2>
-      <p class="reveal">本格開講前に、少人数で実践しながら講座を磨いていくための特別募集です。完成された教材を受け取るだけではなく、手を動かし、自分のLPと導線を形にする人を募集します。だからこそ、0期は特別価格55,000円でご案内します。</p>
+      <p class="reveal">本格開講前に、少人数で実践しながら講座を磨いていくための特別募集です。完成された教材を受け取るだけではなく、手を動かし、自分のLPと導線を形にする人を募集します。だからこそ、通常198,000円のところ、0期は特別価格98,000円でご案内します。</p>
     </div>
   </section>
 
@@ -2299,8 +2369,8 @@
         <div class="reveal">
           <p class="program-kicker">Program Information</p>
           <h2 class="program-title"><span class="zero">0</span>期生募集</h2>
-          <p class="program-price">¥55,000</p>
-          <p class="program-note">0期特別価格。申込後、Zoom面談にて講座の詳細と参加方法をご案内します。</p>
+          <p class="program-price">¥98,000</p>
+          <p class="program-note">通常198,000円のところ、0期特別価格。申込後、Zoom面談にて講座の詳細と参加方法をご案内します。</p>
         </div>
         <dl class="program-list reveal">
           <div class="program-row">
