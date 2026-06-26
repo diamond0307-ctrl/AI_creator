@@ -281,37 +281,6 @@
     padding:120px 22px 34px;
     pointer-events:none;
   }
-  .hero-zero-scroll{
-    position:absolute;
-    inset:0;
-    z-index:2;
-    display:grid;
-    place-items:center;
-    pointer-events:none;
-    overflow:hidden;
-    user-select:none;
-  }
-  .hero-zero-inner{
-    width:100%;
-    padding:0 6vw;
-    display:grid;
-    gap:clamp(10px,2vw,24px);
-    color:rgba(19,17,15,.12);
-    transform-origin:center center;
-    mix-blend-mode:normal;
-  }
-  .zero-line{
-    display:block;
-    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
-    font-weight:400;
-    line-height:.88;
-    letter-spacing:-.09em;
-    white-space:nowrap;
-    text-shadow:0 1px 18px rgba(255,253,247,.3);
-  }
-  .zero-main{
-    font-size:clamp(72px,15vw,220px);
-  }
   .hero-program-badge{
     position:absolute;
     z-index:5;
@@ -2046,13 +2015,6 @@
       font-size:clamp(62px,7vw,112px);
       max-width:10.2ch;
     }
-    .hero-zero-inner{
-      padding:0 5vw 0 12vw;
-      color:rgba(19,17,15,.1);
-    }
-    .zero-main{
-      font-size:clamp(120px,12.4vw,220px);
-    }
     .hero-program-badge{
       left:8vw;
       top:15vh;
@@ -2151,10 +2113,6 @@
       border-radius:18px;
       letter-spacing:.1em;
     }
-    .hero-zero-inner{
-      color:rgba(19,17,15,.08);
-      mix-blend-mode:normal;
-    }
     .hero-copy{
       gap:12px;
     }
@@ -2233,23 +2191,6 @@
       top:40%;
       font-size:clamp(42px,11vw,72px);
       max-width:calc(100vw - 44px);
-    }
-    .hero-zero-scroll{
-      place-items:center;
-    }
-    .hero-zero-inner{
-      padding:0 20px;
-      gap:14px;
-      color:rgba(19,17,15,.08);
-      mix-blend-mode:normal;
-    }
-    .zero-line{
-      white-space:normal;
-      letter-spacing:-.08em;
-    }
-    .zero-main{
-      font-size:clamp(62px,18vw,88px);
-      max-width:5.2em;
     }
     .hero-program-badge{
       left:20px;
@@ -2334,10 +2275,6 @@
     .hero-media,.image-frame{
       clip-path:inset(0 round 24px) !important;
     }
-    .hero-zero-inner{
-      opacity:.16 !important;
-      transform:none !important;
-    }
   }
 </style>
 </head>
@@ -2411,11 +2348,6 @@
             <span>少人数制</span>
             <span>0期生限定価格</span>
           </div>
-        </div>
-      </div>
-      <div class="hero-zero-scroll" aria-hidden="true">
-        <div class="hero-zero-inner">
-          <span class="zero-line zero-main">ゼロ期生募集</span>
         </div>
       </div>
       <figure class="hero-media">
@@ -3091,31 +3023,10 @@
       .to(".hero-media img", {scale:1, duration:1.8}, "<")
       .from(".hero-bg-type", {autoAlpha:0, y:24, duration:1.1}, "-=.9")
       .to(".split-line span", {y:0, duration:1.05, stagger:.12}, "-=.7")
-      .to(".hero .reveal", {autoAlpha:1, y:0, duration:.9, stagger:.16}, "-=.42")
-      .from(".zero-line", {
-        autoAlpha:0,
-        yPercent:80,
-        rotate:1.5,
-        duration:1.05,
-        stagger:.12
-      }, "-=.25");
+      .to(".hero .reveal", {autoAlpha:1, y:0, duration:.9, stagger:.16}, "-=.42");
 
     gsap.to(".hero-bg-type", {
       yPercent:-30,
-      ease:"none",
-      scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}
-    });
-
-    gsap.to(".hero-zero-inner", {
-      scale:1.18,
-      yPercent:-18,
-      autoAlpha:.22,
-      ease:"none",
-      scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}
-    });
-
-    gsap.to(".zero-main", {
-      xPercent:-4,
       ease:"none",
       scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}
     });
