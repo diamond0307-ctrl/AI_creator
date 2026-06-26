@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Release Yourself into the World. | AI×WEB集客クリエイター養成講座</title>
+<meta name="description" content="AIとWEB集客で、世界中で遊べる働き方を実装する。LP制作、SNS発信、LINE・フォーム導線まで学ぶAI×WEB集客クリエイター養成講座0期生募集。">
+<meta name="theme-color" content="#f8f3ea">
+<style>
+  :root{
+    --ink:#13110f;
+    --muted:#6f675f;
+    --line:rgba(19,17,15,.13);
+    --paper:#fbf8f1;
+    --ivory:#fffdf7;
+    --sand:#eee4d2;
+    --cyan:#12c8de;
+    --pink:#ed5c8a;
+    --orange:#f18b3d;
+    --red:#c81720;
+    --radius:18px;
+    --ease:cubic-bezier(.19,1,.22,1);
+    --serif:Georgia,"Times New Roman","Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;background:var(--paper);}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 4%, rgba(18,200,222,.14), transparent 24rem),
+      radial-gradient(circle at 86% 18%, rgba(237,92,138,.12), transparent 22rem),
+      linear-gradient(180deg,var(--ivory),var(--paper) 38%,#f5ecdd);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  body.is-locked{overflow:hidden;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;color:inherit;}
+  section{position:relative;}
+  ::selection{background:rgba(237,92,138,.25);}
+
+  .noise{
+    position:fixed;
+    inset:0;
+    z-index:900;
+    pointer-events:none;
+    opacity:.18;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+  }
+
+  .loader{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:grid;
+    place-items:center;
+    background:#faf7ef;
+    color:var(--ink);
+    transition:opacity .8s var(--ease), visibility .8s var(--ease);
+  }
+  .loader.is-hidden{opacity:0;visibility:hidden;}
+  .loader-inner{
+    width:min(82vw,380px);
+    display:grid;
+    gap:18px;
+  }
+  .loader-kicker{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  .loader-word{
+    font-family:var(--serif);
+    font-size:clamp(42px,16vw,94px);
+    line-height:.86;
+    letter-spacing:-.04em;
+  }
+  .loader-bar{
+    position:relative;
+    height:2px;
+    background:rgba(19,17,15,.14);
+    overflow:hidden;
+  }
+  .loader-bar span{
+    position:absolute;
+    inset:0 auto 0 0;
+    width:42%;
+    background:var(--ink);
+    animation:loadline 1.35s var(--ease) infinite;
+  }
+  @keyframes loadline{
+    0%{transform:translateX(-120%);}
+    100%{transform:translateX(260%);}
+  }
+
+  .site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:120;
+    padding:14px max(18px,env(safe-area-inset-left)) 0;
+    pointer-events:none;
+  }
+  .nav-shell{
+    pointer-events:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    max-width:1260px;
+    margin:0 auto;
+    padding:10px;
+    border:1px solid rgba(19,17,15,.13);
+    border-radius:999px;
+    background:rgba(255,253,247,.7);
+    backdrop-filter:blur(18px) saturate(145%);
+    box-shadow:0 18px 55px rgba(54,43,29,.08);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding-left:8px;
+    min-width:0;
+  }
+  .brand-mark{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:conic-gradient(from 210deg,var(--cyan),var(--pink),var(--orange),var(--cyan));
+    position:relative;
+    flex:0 0 auto;
+  }
+  .brand-mark::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    background:var(--ivory);
+  }
+  .brand-text{
+    font-size:11px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .nav-actions{display:flex;align-items:center;gap:6px;}
+  .pill-button{
+    border:1px solid rgba(19,17,15,.14);
+    background:rgba(255,253,247,.78);
+    border-radius:999px;
+    min-height:42px;
+    padding:0 15px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    cursor:pointer;
+    transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  }
+  .pill-button:hover{transform:translateY(-2px);background:var(--ink);color:var(--ivory);}
+  .pill-button .arrow{font-size:16px;line-height:1;}
+  .menu-button{width:42px;padding:0;}
+  .menu-lines{
+    width:16px;
+    height:10px;
+    position:relative;
+  }
+  .menu-lines::before,.menu-lines::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:100%;
+    height:1px;
+    background:currentColor;
+    transition:transform .35s var(--ease), top .35s var(--ease);
+  }
+  .menu-lines::before{top:1px;}
+  .menu-lines::after{top:8px;}
+  .menu-open .menu-lines::before{top:5px;transform:rotate(35deg);}
+  .menu-open .menu-lines::after{top:5px;transform:rotate(-35deg);}
+
+  .menu-panel{
+    position:fixed;
+    inset:0;
+    z-index:110;
+    display:grid;
+    align-items:end;
+    padding:86px 16px 16px;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .45s var(--ease);
+  }
+  .menu-panel.is-open{opacity:1;pointer-events:auto;}
+  .menu-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(19,17,15,.32);
+    backdrop-filter:blur(8px);
+  }
+  .menu-card{
+    position:relative;
+    max-width:760px;
+    width:100%;
+    margin:0 auto;
+    border-radius:26px;
+    background:var(--ivory);
+    border:1px solid rgba(19,17,15,.14);
+    padding:26px;
+    transform:translateY(24px) scale(.98);
+    transition:transform .55s var(--ease);
+    box-shadow:0 34px 80px rgba(43,31,21,.22);
+  }
+  .menu-panel.is-open .menu-card{transform:translateY(0) scale(1);}
+  .menu-card p{
+    margin:0 0 24px;
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .menu-links{
+    display:grid;
+    gap:2px;
+    counter-reset:menu;
+  }
+  .menu-links a{
+    counter-increment:menu;
+    border-top:1px solid var(--line);
+    padding:15px 0;
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    font-family:var(--serif);
+    font-size:clamp(26px,9vw,58px);
+    line-height:.96;
+    letter-spacing:-.05em;
+  }
+  .menu-links a::before{
+    content:"0" counter(menu);
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.18em;
+    color:var(--muted);
+    padding-top:.45em;
+  }
+
+  .hero{
+    min-height:100svh;
+    height:100svh;
+    padding:0;
+    display:block;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    width:100%;
+    height:100%;
+    margin:0;
+    position:relative;
+    display:block;
+    min-height:100svh;
+  }
+  .hero-type{
+    position:absolute;
+    inset:0;
+    z-index:4;
+    display:block;
+    max-width:none;
+    padding:120px 22px 34px;
+    pointer-events:none;
+  }
+  .hero-zero-scroll{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    display:grid;
+    place-items:center;
+    pointer-events:none;
+    overflow:hidden;
+    user-select:none;
+  }
+  .hero-zero-inner{
+    width:100%;
+    padding:0 6vw;
+    display:grid;
+    gap:clamp(10px,2vw,24px);
+    color:rgba(19,17,15,.12);
+    transform-origin:center center;
+    mix-blend-mode:normal;
+  }
+  .zero-line{
+    display:block;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-weight:400;
+    line-height:.88;
+    letter-spacing:-.09em;
+    white-space:nowrap;
+    text-shadow:0 1px 18px rgba(255,253,247,.3);
+  }
+  .zero-main{
+    font-size:clamp(72px,15vw,220px);
+  }
+  .hero-program-badge{
+    position:absolute;
+    z-index:5;
+    left:22px;
+    top:88px;
+    display:inline-flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    max-width:calc(100vw - 44px);
+    padding:8px 10px;
+    border:1px solid rgba(19,17,15,.14);
+    border-radius:999px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(14px) saturate(145%);
+    color:rgba(19,17,15,.78);
+    font-size:10px;
+    line-height:1.2;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    box-shadow:0 14px 38px rgba(54,43,29,.08);
+  }
+  .hero-program-badge span{
+    display:inline-flex;
+    align-items:center;
+    min-height:22px;
+  }
+  .hero-program-badge .badge-dot{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+  }
+  .edition-row{
+    display:none;
+  }
+  .hero-bg-type{
+    position:absolute;
+    left:-.08em;
+    right:auto;
+    bottom:10svh;
+    z-index:1;
+    max-width:8ch;
+    font-family:var(--serif);
+    font-size:clamp(96px,28vw,220px);
+    line-height:.76;
+    letter-spacing:-.08em;
+    color:rgba(19,17,15,.07);
+    pointer-events:none;
+    user-select:none;
+  }
+  .hero-title{
+    position:absolute;
+    z-index:2;
+    left:22px;
+    top:45%;
+    transform:translateY(-50%);
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(42px,11vw,72px);
+    line-height:1.08;
+    letter-spacing:-.08em;
+    max-width:10.2ch;
+    color:var(--ink);
+    text-shadow:0 1px 16px rgba(255,253,247,.42);
+    pointer-events:none;
+  }
+  .split-line{
+    display:block;
+    overflow:hidden;
+  }
+  .split-line span{
+    display:block;
+    transform:translateY(110%);
+  }
+  .hero-title .jp{
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    font-size:1em;
+    letter-spacing:-.1em;
+    line-height:1.05;
+    white-space:nowrap;
+  }
+  .hero-title .en-line{display:none;}
+  .hero-title .red{color:inherit;}
+  .hero-copy{
+    position:absolute;
+    z-index:3;
+    left:22px;
+    right:22px;
+    bottom:34px;
+    display:grid;
+    gap:16px;
+    max-width:520px;
+    justify-self:start;
+    align-self:end;
+    padding:0;
+    pointer-events:auto;
+  }
+  .hero-copy p{
+    margin:0;
+    font-size:clamp(16px,4.4vw,20px);
+    line-height:1.75;
+    letter-spacing:.02em;
+    max-width:24em;
+    color:rgba(19,17,15,.8);
+  }
+  .hero-copy .hero-subcopy{
+    max-width:27em;
+  }
+  .hero-copy .hero-subcopy strong{
+    color:var(--ink);
+    font-weight:600;
+  }
+  .hero-copy .hero-support{
+    color:rgba(19,17,15,.6);
+    font-size:clamp(13px,3.2vw,15px);
+    line-height:1.8;
+  }
+  .hero-cta{
+    width:min(100%,560px);
+    min-height:72px;
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr) auto auto;
+    align-items:center;
+    gap:12px;
+    border:1px solid rgba(255,255,255,.48);
+    border-radius:999px;
+    padding:10px 12px 10px 14px;
+    background:
+      linear-gradient(135deg,rgba(237,92,138,.96),rgba(241,139,61,.96)),
+      var(--pink);
+    color:var(--ivory);
+    box-shadow:
+      0 22px 48px rgba(237,92,138,.28),
+      0 12px 24px rgba(54,43,29,.14),
+      inset 0 1px 0 rgba(255,255,255,.35);
+    font-size:14px;
+    letter-spacing:.04em;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s var(--ease);
+  }
+  .hero-cta:hover{
+    transform:translateY(-3px);
+    filter:saturate(1.04) brightness(1.02);
+    box-shadow:
+      0 28px 58px rgba(237,92,138,.32),
+      0 16px 28px rgba(54,43,29,.16),
+      inset 0 1px 0 rgba(255,255,255,.4);
+  }
+  .hero-cta-limit{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(255,253,247,.22);
+    border:1px solid rgba(255,255,255,.42);
+    color:rgba(255,253,247,.94);
+    font-size:11px;
+    line-height:1.25;
+    letter-spacing:.04em;
+    text-align:center;
+    flex:0 0 auto;
+  }
+  .hero-cta-main{
+    font-size:clamp(25px,4.2vw,42px);
+    line-height:1;
+    letter-spacing:-.06em;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .hero-cta-start{
+    padding:8px 12px;
+    border-radius:999px;
+    background:rgba(255,253,247,.18);
+    border:1px solid rgba(255,255,255,.28);
+    font-size:clamp(13px,1.7vw,17px);
+    line-height:1;
+    white-space:nowrap;
+  }
+  .hero-cta-arrow{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:rgba(255,253,247,.92);
+    color:var(--pink);
+    font-size:18px;
+    line-height:1;
+    flex:0 0 auto;
+  }
+  .hero-cta-note{
+    margin-top:-4px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    color:rgba(19,17,15,.64);
+    font-size:11px;
+    letter-spacing:.04em;
+  }
+  .hero-cta-note span{
+    display:inline-flex;
+    align-items:center;
+    min-height:26px;
+    padding:0 10px;
+    border:1px solid rgba(19,17,15,.13);
+    border-radius:999px;
+    background:rgba(255,253,247,.58);
+    backdrop-filter:blur(10px);
+  }
+  .hero-media{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    min-height:100%;
+    border-radius:0;
+    overflow:hidden;
+    isolation:isolate;
+    border:none;
+    box-shadow:none;
+    opacity:0;
+    background:var(--ivory);
+  }
+  .hero-media img{
+    width:100%;
+    height:100%;
+    min-height:100%;
+    object-fit:cover;
+    object-position:right center;
+    transform:scale(1.04);
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(90deg,rgba(255,253,247,.95) 0%,rgba(250,247,240,.82) 34%,rgba(244,236,223,.42) 68%,rgba(244,236,223,.18) 100%),
+      linear-gradient(180deg,rgba(255,253,247,.48),rgba(238,232,222,.22) 48%,rgba(244,236,223,.62));
+    pointer-events:none;
+  }
+  .hero-note{
+    position:absolute;
+    right:12px;
+    bottom:12px;
+    z-index:2;
+    max-width:240px;
+    padding:12px 14px;
+    border-radius:18px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(16px);
+    font-size:11px;
+    line-height:1.6;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .scroll-cue{
+    display:none;
+    position:absolute;
+    left:24px;
+    bottom:26px;
+    writing-mode:vertical-rl;
+    font-size:10px;
+    letter-spacing:.24em;
+    color:var(--muted);
+  }
+
+  .marquee{
+    overflow:hidden;
+    padding:18px 0;
+    border-block:1px solid var(--line);
+    background:rgba(255,253,247,.52);
+  }
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    animation:marquee 28s linear infinite;
+  }
+  .marquee span{
+    padding-right:28px;
+    font-family:var(--serif);
+    font-size:clamp(34px,12vw,92px);
+    line-height:.9;
+    letter-spacing:-.055em;
+    white-space:nowrap;
+  }
+  .marquee .accent{color:var(--pink);}
+  @keyframes marquee{
+    to{transform:translateX(-50%);}
+  }
+
+  .section{
+    padding:84px 16px;
+  }
+  .section-inner{
+    width:min(100%,1180px);
+    margin:0 auto;
+  }
+  .section-label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+    font-size:11px;
+    letter-spacing:.19em;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+  .section-label::before{
+    content:"";
+    width:34px;
+    height:1px;
+    background:currentColor;
+  }
+  .statement{
+    display:grid;
+    gap:32px;
+  }
+  .statement h2,.editorial-title{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(42px,14vw,128px);
+    line-height:.92;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .statement h2 .jp{
+    display:block;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    font-size:.62em;
+    letter-spacing:-.08em;
+    line-height:1.18;
+  }
+  .large-copy{
+    margin:0;
+    font-size:clamp(18px,4.6vw,32px);
+    line-height:1.7;
+    letter-spacing:.02em;
+  }
+  .body-copy{
+    margin:0;
+    color:var(--muted);
+    font-size:15px;
+    line-height:2;
+  }
+  .accent-rule{
+    width:min(100%,520px);
+    height:2px;
+    margin-top:8px;
+    background:linear-gradient(90deg,var(--cyan),var(--pink),var(--orange));
+  }
+  .proposal-visual{
+    position:relative;
+    margin-top:10px;
+    min-height:min(88vw,560px);
+    border-radius:34px;
+    overflow:hidden;
+    isolation:isolate;
+    background:linear-gradient(135deg,rgba(18,200,222,.2),rgba(237,92,138,.15),rgba(241,139,61,.18));
+    box-shadow:0 26px 70px rgba(62,48,30,.12);
+    clip-path:inset(0 round 34px);
+  }
+  .proposal-visual::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    z-index:2;
+    pointer-events:none;
+    background:
+      linear-gradient(90deg,var(--paper),rgba(251,248,241,0) 18%,rgba(251,248,241,0) 82%,var(--paper)),
+      linear-gradient(180deg,var(--paper),rgba(251,248,241,0) 18%,rgba(251,248,241,0) 72%,var(--paper));
+  }
+  .proposal-visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    border-radius:34px;
+    box-shadow:inset 0 0 0 1px rgba(255,253,247,.56), inset 0 0 42px rgba(251,248,241,.9);
+  }
+  .proposal-visual img{
+    width:100%;
+    height:100%;
+    min-height:min(88vw,560px);
+    object-fit:cover;
+    object-position:center 46%;
+    filter:saturate(.92) contrast(.98) brightness(1.06);
+    transform:scale(1.04);
+  }
+  .proposal-caption{
+    position:absolute;
+    z-index:4;
+    left:18px;
+    right:18px;
+    bottom:18px;
+    margin:0;
+    color:rgba(19,17,15,.72);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+
+  .recommend{
+    padding:76px 16px 82px;
+    background:
+      linear-gradient(90deg,rgba(18,200,222,.11),rgba(255,253,247,.3) 34%,rgba(237,92,138,.1)),
+      var(--ivory);
+    overflow:hidden;
+  }
+  .recommend-paper{
+    width:min(100%,1060px);
+    margin:0 auto;
+    position:relative;
+    display:grid;
+    gap:30px;
+    border-block:1px solid rgba(19,17,15,.14);
+    padding:30px 0;
+  }
+  .recommend-paper::before{
+    content:"";
+    position:absolute;
+    inset:22px -8px auto auto;
+    width:min(46vw,260px);
+    height:18px;
+    background:rgba(237,92,138,.38);
+    transform:rotate(-3deg);
+    border-radius:999px;
+    filter:blur(.2px);
+  }
+  .recommend-title{
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(38px,12vw,118px);
+    line-height:.98;
+    letter-spacing:-.08em;
+    font-weight:400;
+  }
+  .recommend-title span{
+    position:relative;
+    display:inline-block;
+    white-space:nowrap;
+  }
+  .recommend-title span::after{
+    content:"";
+    position:absolute;
+    left:-.06em;
+    right:-.05em;
+    bottom:.04em;
+    height:.22em;
+    background:linear-gradient(90deg,rgba(18,200,222,.34),rgba(241,139,61,.34));
+    z-index:-1;
+    transform:rotate(-1.6deg);
+  }
+  .recommend-list{
+    display:grid;
+    gap:15px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .recommend-list li{
+    position:relative;
+    display:grid;
+    grid-template-columns:34px 1fr;
+    gap:12px;
+    align-items:start;
+    padding:8px 0 13px;
+    border-bottom:1px dashed rgba(19,17,15,.22);
+    font-size:clamp(18px,5.2vw,34px);
+    line-height:1.45;
+    letter-spacing:-.02em;
+  }
+  .recommend-list li::before{
+    content:"✓";
+    color:var(--pink);
+    font-family:"Comic Sans MS","Bradley Hand",cursive;
+    font-size:1.25em;
+    line-height:1;
+    transform:rotate(-9deg);
+  }
+  .recommend-list mark{
+    color:inherit;
+    background:linear-gradient(transparent 58%,rgba(241,139,61,.32) 0);
+    padding:0 .05em;
+    box-decoration-break:clone;
+    -webkit-box-decoration-break:clone;
+  }
+  .scribble-note{
+    margin:2px 0 0;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  .duo{
+    display:grid;
+    gap:32px;
+    align-items:center;
+  }
+  .image-frame{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(19,17,15,.12);
+    background:var(--sand);
+    box-shadow:0 24px 62px rgba(62,48,30,.11);
+    clip-path:inset(18% 0 18% 0 round 24px);
+  }
+  .image-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.12);
+  }
+  .image-tall img{
+    object-position:62% 26%;
+    filter:saturate(.82) contrast(1.06) brightness(1.03);
+  }
+  .image-tall.feeling-workstyle img{
+    object-position:43% center;
+    filter:saturate(.92) contrast(1.02) brightness(1.04);
+  }
+  .image-wide img{
+    object-position:72% 36%;
+    filter:saturate(1.18) contrast(.96) brightness(1.04);
+  }
+  .image-tall{height:min(118vw,680px);border-radius:30px;}
+  .image-wide{height:min(82vw,520px);border-radius:28px;}
+  .float-caption{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    z-index:2;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:10px 12px;
+    border-radius:999px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(14px);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .text-stack{
+    display:grid;
+    gap:22px;
+  }
+  .text-stack .num{
+    font-family:var(--serif);
+    font-size:clamp(64px,21vw,156px);
+    line-height:.76;
+    letter-spacing:-.09em;
+    color:rgba(19,17,15,.18);
+  }
+  .mini-grid{
+    display:grid;
+    gap:12px;
+    margin-top:10px;
+  }
+  .mini-card{
+    border-top:1px solid var(--line);
+    padding:18px 0 4px;
+  }
+  .mini-card h3{
+    margin:0 0 10px;
+    font-family:var(--serif);
+    font-size:clamp(25px,7vw,44px);
+    line-height:1;
+    letter-spacing:-.045em;
+    font-weight:400;
+  }
+  .mini-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:14px;
+  }
+
+  .future{
+    background:
+      linear-gradient(90deg,rgba(18,200,222,.1),rgba(255,253,247,.42) 42%,rgba(241,139,61,.12)),
+      var(--ivory);
+    overflow:hidden;
+  }
+  .future-grid{
+    display:grid;
+    gap:0;
+    margin-top:34px;
+    border-top:1px solid var(--line);
+  }
+  .future-item{
+    display:grid;
+    gap:12px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .future-item span{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+    color:var(--ivory);
+    font-size:12px;
+    letter-spacing:.08em;
+  }
+  .future-item h3{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(31px,8.2vw,64px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .future-item p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
+  .photo-river{
+    overflow:hidden;
+    padding-inline:0;
+    background:
+      radial-gradient(circle at 14% 10%, rgba(18,200,222,.12), transparent 22rem),
+      radial-gradient(circle at 88% 34%, rgba(237,92,138,.1), transparent 20rem),
+      linear-gradient(180deg,var(--ivory),var(--paper) 52%,#f7efe2);
+  }
+  .photo-river-head{
+    padding-inline:16px;
+  }
+  .photo-river-wrap{
+    width:100%;
+    max-width:100vw;
+    overflow:hidden;
+    display:grid;
+    gap:18px;
+    margin-top:42px;
+    padding-block:8px 10px;
+  }
+  .photo-lane{
+    width:100%;
+    overflow:hidden;
+    transform:translateZ(0);
+  }
+  .photo-lane-offset{
+    transform:translateX(9vw) translateZ(0);
+  }
+  .photo-track{
+    --photo-gap:14px;
+    display:flex;
+    width:max-content;
+    will-change:transform;
+  }
+  .photo-track.to-left{
+    animation:photoFlowLeft 60s linear infinite;
+  }
+  .photo-track.to-right{
+    animation:photoFlowRight 70s linear infinite;
+  }
+  .photo-set{
+    flex:0 0 auto;
+    display:flex;
+    gap:var(--photo-gap);
+    padding-right:var(--photo-gap);
+  }
+  .photo-card{
+    flex:0 0 clamp(158px,48vw,228px);
+    width:clamp(158px,48vw,228px);
+    aspect-ratio:4 / 5;
+    margin:0;
+    overflow:hidden;
+    border-radius:26px;
+    background:var(--sand);
+    box-shadow:0 18px 44px rgba(62,48,30,.12);
+  }
+  .photo-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    filter:saturate(.96) contrast(.98) brightness(1.03);
+  }
+  @keyframes photoFlowLeft{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @keyframes photoFlowRight{
+    from{transform:translateX(-50%);}
+    to{transform:translateX(0);}
+  }
+
+  .empathy{
+    position:relative;
+    padding-block:98px;
+    overflow:hidden;
+    background:
+      linear-gradient(90deg,rgba(251,248,241,.95),rgba(251,248,241,.78) 42%,rgba(251,248,241,.9)),
+      linear-gradient(180deg,rgba(251,248,241,.95),rgba(251,248,241,.7) 42%,rgba(251,248,241,.96)),
+      url("resonance-airport.png") center center/cover no-repeat;
+  }
+  .empathy::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 8% 28%,rgba(18,200,222,.16),transparent 28rem),
+      radial-gradient(circle at 88% 22%,rgba(237,92,138,.13),transparent 24rem);
+    mix-blend-mode:multiply;
+  }
+  .empathy .section-inner{
+    position:relative;
+    z-index:1;
+  }
+  .question-list{
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .question-list p{
+    margin:0;
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+    font-family:var(--serif);
+    font-size:clamp(28px,8vw,74px);
+    line-height:1.04;
+    letter-spacing:-.055em;
+  }
+  .question-list p:nth-child(even){text-align:right;}
+  .question-list small{
+    display:block;
+    margin-top:10px;
+    font-family:var(--sans);
+    font-size:13px;
+    line-height:1.8;
+    letter-spacing:.03em;
+    color:var(--muted);
+  }
+
+  .creator{
+    overflow:hidden;
+  }
+  .creator-grid{
+    display:grid;
+    gap:30px;
+  }
+  .creator-title{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(44px,16vw,160px);
+    line-height:.86;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .creator-title .cyan{color:var(--cyan);}
+  .creator-title .pink{color:var(--pink);}
+  .creator-title .orange{color:var(--orange);}
+  .creator-copy{
+    display:grid;
+    gap:18px;
+  }
+  .creator-copy p{
+    margin:0;
+    color:var(--muted);
+    line-height:2;
+  }
+  .creator-copy strong{color:var(--ink);font-weight:600;}
+
+  .difference{
+    background:
+      radial-gradient(circle at 10% 12%,rgba(18,200,222,.12),transparent 26rem),
+      radial-gradient(circle at 92% 18%,rgba(237,92,138,.12),transparent 24rem),
+      var(--ivory);
+  }
+  .compare-grid{
+    display:grid;
+    gap:18px;
+    margin-top:36px;
+  }
+  .compare-card{
+    border:1px solid var(--line);
+    border-radius:26px;
+    padding:22px;
+    background:rgba(255,253,247,.58);
+  }
+  .compare-card.featured{
+    background:var(--ink);
+    color:var(--ivory);
+    border-color:rgba(19,17,15,.06);
+  }
+  .compare-card h3{
+    margin:0 0 20px;
+    font-family:var(--serif);
+    font-size:clamp(35px,9vw,78px);
+    line-height:.95;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .compare-list{
+    display:grid;
+    gap:0;
+    margin:0;
+    padding:0;
+    list-style:none;
+    border-top:1px solid currentColor;
+  }
+  .compare-list li{
+    padding:14px 0;
+    border-bottom:1px solid currentColor;
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .compare-card.featured .compare-list li{color:rgba(255,253,247,.76);}
+  .compare-card.featured .compare-list{border-color:rgba(255,253,247,.2);}
+  .compare-card.featured .compare-list li{border-color:rgba(255,253,247,.2);}
+
+  .learning{
+    background:var(--ink);
+    color:var(--ivory);
+  }
+  .learning .section-label,.learning .body-copy{color:rgba(255,253,247,.68);}
+  .lesson-grid{
+    display:grid;
+    gap:14px;
+    margin-top:34px;
+  }
+  .lesson{
+    min-height:220px;
+    border:1px solid rgba(255,253,247,.17);
+    border-radius:24px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background:
+      linear-gradient(135deg,rgba(255,253,247,.08),rgba(255,253,247,.02)),
+      rgba(255,255,255,.02);
+    overflow:hidden;
+    position:relative;
+  }
+  .lesson::after{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    right:-26px;
+    top:-28px;
+    background:var(--tone, var(--cyan));
+    opacity:.72;
+    filter:blur(.2px);
+  }
+  .lesson span{
+    font-family:var(--serif);
+    font-size:58px;
+    letter-spacing:-.08em;
+    opacity:.42;
+  }
+  .lesson h3{
+    margin:34px 0 10px;
+    font-size:22px;
+    line-height:1.35;
+    font-weight:500;
+  }
+  .lesson p{
+    margin:0;
+    color:rgba(255,253,247,.7);
+    line-height:1.8;
+    font-size:14px;
+  }
+
+  .lifestyle-board{
+    display:grid;
+    gap:16px;
+    margin-top:34px;
+  }
+  .life-card{
+    min-height:260px;
+    border-radius:26px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border:1px solid rgba(19,17,15,.12);
+    overflow:hidden;
+    position:relative;
+    background:var(--ivory);
+  }
+  .life-card.image{
+    min-height:360px;
+    padding:0;
+  }
+  .life-card.image img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:42% 52%;
+    transform:scale(1.1);
+    filter:saturate(.72) contrast(1.1) brightness(.9);
+  }
+  .life-card.image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(19,17,15,0),rgba(19,17,15,.38));
+  }
+  .life-card.image .life-text{
+    position:relative;
+    z-index:2;
+    margin-top:auto;
+    color:var(--ivory);
+    padding:22px;
+  }
+  .life-kicker{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .life-card.image .life-kicker{color:rgba(255,253,247,.78);}
+  .life-card h3{
+    margin:28px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(36px,11vw,72px);
+    line-height:.94;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .life-card p{
+    margin:18px 0 0;
+    line-height:1.9;
+    color:var(--muted);
+  }
+  .life-card.image p{color:rgba(255,253,247,.82);}
+  .life-card.with-photo{
+    min-height:420px;
+    padding:0;
+    background:var(--life-photo-bg,#dff8fa);
+  }
+  .life-card.with-photo .life-copy{
+    position:relative;
+    z-index:2;
+    min-height:100%;
+    padding:22px;
+    padding-bottom:188px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .life-photo{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:172px;
+    margin:0;
+    border-radius:0 0 26px 26px;
+    overflow:hidden;
+    opacity:.94;
+    box-shadow:0 -18px 40px rgba(18,200,222,.15);
+  }
+  .life-photo::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(180deg,var(--life-photo-bg,#dff8fa) 0%,var(--life-photo-fade,rgba(223,248,250,.34)) 36%,rgba(223,248,250,0) 76%);
+  }
+  .life-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:34% 32%;
+    display:block;
+  }
+  .life-card.pink-bg.with-photo{
+    --life-photo-bg:#fbe5ed;
+    --life-photo-fade:rgba(251,229,237,.38);
+  }
+  .life-card.experience-photo .life-photo img{
+    object-position:50% 18%;
+  }
+  .life-card.orange-bg.with-photo{
+    --life-photo-bg:#fae8d4;
+    --life-photo-fade:rgba(250,232,212,.4);
+  }
+  .life-card.name-photo .life-photo img{
+    object-position:58% 18%;
+  }
+  .cyan-bg{background:#dff8fa;}
+  .pink-bg{background:#fbe5ed;}
+  .orange-bg{background:#fae8d4;}
+
+  .fit-list{
+    margin-top:34px;
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .fit-item{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;
+    align-items:start;
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .fit-item span{
+    width:34px;
+    height:34px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--ivory);
+    font-size:12px;
+  }
+  .fit-item p{
+    margin:0;
+    font-size:clamp(19px,5.4vw,36px);
+    line-height:1.35;
+    letter-spacing:-.02em;
+  }
+  .fit-item small{
+    display:block;
+    margin-top:8px;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+
+  .change-grid{
+    display:grid;
+    gap:18px;
+    margin-top:34px;
+  }
+  .change-card{
+    border-left:1px solid var(--line);
+    padding:0 0 0 18px;
+  }
+  .change-card h3{
+    margin:0 0 12px;
+    font-family:var(--serif);
+    font-size:clamp(31px,8vw,58px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .change-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
+  .work-cycle{
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 12% 10%,rgba(18,200,222,.13),transparent 24rem),
+      radial-gradient(circle at 88% 82%,rgba(241,139,61,.16),transparent 24rem),
+      linear-gradient(180deg,#fffdf7,#f4eadc 78%,#f0e4d4);
+  }
+  .work-cycle-layout{
+    display:grid;
+    gap:38px;
+    align-items:center;
+  }
+  .work-cycle-copy .body-copy + .body-copy{
+    margin-top:18px;
+  }
+  .cycle-points{
+    display:grid;
+    gap:12px;
+    margin-top:28px;
+  }
+  .cycle-point{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin:0;
+    color:var(--muted);
+    line-height:1.85;
+  }
+  .cycle-point::before{
+    content:"";
+    width:9px;
+    height:9px;
+    margin-top:.72em;
+    border-radius:50%;
+    background:var(--orange);
+    box-shadow:0 0 0 7px rgba(241,139,61,.13);
+    flex:0 0 auto;
+  }
+  .work-cycle-board{
+    position:relative;
+    padding:22px;
+    border:2px solid rgba(19,17,15,.76);
+    border-radius:28px 34px 24px 32px;
+    background:
+      linear-gradient(rgba(19,17,15,.036) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(19,17,15,.028) 1px,transparent 1px),
+      rgba(255,253,247,.9);
+    background-size:28px 28px;
+    box-shadow:
+      16px 18px 0 rgba(19,17,15,.065),
+      0 22px 62px rgba(54,43,29,.12);
+    transform:rotate(-.35deg);
+  }
+  .work-cycle-board::before{
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:11%;
+    width:76px;
+    height:19px;
+    border-radius:999px;
+    background:rgba(241,139,61,.22);
+    transform:rotate(-7deg);
+  }
+  .work-cycle-board::after{
+    content:"";
+    position:absolute;
+    right:22px;
+    top:24px;
+    width:14px;
+    height:14px;
+    border:2px solid var(--cyan);
+    border-radius:50%;
+    opacity:.72;
+  }
+  .board-title{
+    margin:0 0 18px;
+    max-width:13em;
+    font-family:var(--serif);
+    font-size:clamp(27px,7vw,46px);
+    line-height:.98;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .board-route{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:20px;
+  }
+  .route-pill{
+    display:inline-flex;
+    align-items:center;
+    min-height:34px;
+    padding:7px 12px;
+    border:1px solid rgba(19,17,15,.16);
+    border-radius:999px;
+    background:rgba(255,253,247,.78);
+    color:rgba(19,17,15,.72);
+    font-size:12px;
+    line-height:1;
+  }
+  .route-arrow{
+    display:inline-flex;
+    align-items:center;
+    color:var(--orange);
+    font-size:18px;
+  }
+  .cycle-steps{
+    display:grid;
+    gap:10px;
+  }
+  .cycle-step{
+    position:relative;
+    display:grid;
+    gap:10px;
+    padding:18px;
+    border:1.7px solid rgba(19,17,15,.72);
+    border-radius:20px 16px 22px 18px;
+    background:rgba(255,255,255,.66);
+    box-shadow:6px 7px 0 rgba(19,17,15,.055);
+  }
+  .cycle-step.highlight{
+    border-color:rgba(241,139,61,.92);
+    background:
+      linear-gradient(135deg,rgba(241,139,61,.14),rgba(255,255,255,.74) 55%),
+      rgba(255,255,255,.7);
+  }
+  .cycle-step-label{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:max-content;
+    min-height:25px;
+    padding:0 11px;
+    border-radius:999px;
+    background:var(--ink);
+    color:var(--ivory);
+    font-size:10px;
+    letter-spacing:.14em;
+  }
+  .cycle-step h3{
+    margin:0;
+    font-size:clamp(18px,4.8vw,24px);
+    line-height:1.42;
+    letter-spacing:-.03em;
+    font-weight:600;
+  }
+  .cycle-step p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.75;
+    font-size:14px;
+  }
+  .cycle-arrow{
+    display:grid;
+    place-items:center;
+    color:var(--orange);
+    font-size:24px;
+    line-height:1;
+  }
+  .work-kind{
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid rgba(19,17,15,.14);
+  }
+  .work-kind-title{
+    margin:0 0 12px;
+    color:var(--cyan);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+  .work-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .work-tag{
+    padding:8px 11px;
+    border:1px solid rgba(19,17,15,.16);
+    border-radius:999px 999px 999px 12px;
+    background:rgba(255,253,247,.72);
+    color:rgba(19,17,15,.72);
+    font-size:12px;
+    line-height:1;
+  }
+  .cycle-loop{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:9px;
+    align-items:center;
+    margin-top:14px;
+    padding:14px;
+    border:1.5px dashed rgba(18,200,222,.7);
+    border-radius:18px;
+    background:rgba(18,200,222,.06);
+  }
+  .loop-pill{
+    min-height:42px;
+    display:grid;
+    place-items:center;
+    padding:8px 10px;
+    border-radius:999px;
+    background:rgba(255,253,247,.82);
+    border:1px solid rgba(19,17,15,.15);
+    text-align:center;
+    font-weight:600;
+    font-size:13px;
+  }
+  .loop-arrow{
+    color:var(--orange);
+    font-size:20px;
+  }
+
+  .flow{
+    background:#f0e4d4;
+  }
+  .flow-track{
+    display:grid;
+    gap:18px;
+    margin-top:36px;
+  }
+  .flow-step{
+    display:grid;
+    gap:12px;
+    padding:20px 0;
+    border-top:1px solid rgba(19,17,15,.15);
+  }
+  .flow-step:last-child{border-bottom:1px solid rgba(19,17,15,.15);}
+  .flow-step .week{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .flow-step h3{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(30px,8.4vw,66px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .flow-step p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
+  .message{
+    min-height:86svh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    overflow:hidden;
+  }
+  .message::before{
+    content:"";
+    position:absolute;
+    width:min(86vw,560px);
+    aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(18,200,222,.22),rgba(237,92,138,.16) 52%,transparent 70%);
+    filter:blur(10px);
+  }
+  .message-inner{
+    position:relative;
+    width:min(100%,940px);
+    margin:0 auto;
+    padding:0 16px;
+  }
+  .message h2{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(46px,16vw,154px);
+    line-height:.88;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .message p{
+    margin:30px auto 0;
+    max-width:680px;
+    color:var(--muted);
+    font-size:clamp(16px,4.4vw,24px);
+    line-height:1.9;
+  }
+
+  .host-profile{
+    background:
+      radial-gradient(circle at 16% 18%,rgba(18,200,222,.11),transparent 26rem),
+      radial-gradient(circle at 86% 0%,rgba(237,92,138,.1),transparent 24rem),
+      var(--ivory);
+  }
+  .host-layout{
+    display:grid;
+    gap:74px;
+  }
+  .host-card{
+    display:grid;
+    gap:34px;
+  }
+  .host-photo{
+    position:relative;
+    margin:0;
+    overflow:hidden;
+    border-radius:30px;
+    min-height:min(118vw,620px);
+    background:var(--sand);
+    border:1px solid rgba(19,17,15,.12);
+    box-shadow:0 28px 70px rgba(62,48,30,.1);
+  }
+  .host-photo img{
+    width:100%;
+    height:100%;
+    min-height:min(118vw,620px);
+    object-fit:cover;
+    object-position:center 22%;
+    filter:saturate(.9) contrast(1.02) brightness(1.03);
+  }
+  .host-photo::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(180deg,rgba(255,253,247,0) 58%,rgba(251,248,241,.78));
+  }
+  .host-photo figcaption{
+    position:absolute;
+    z-index:2;
+    left:16px;
+    right:16px;
+    bottom:16px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:11px 14px;
+    border-radius:999px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(14px);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .host-photo.art-photo{
+    background:
+      radial-gradient(circle at 16% 20%,rgba(18,200,222,.18),transparent 18rem),
+      radial-gradient(circle at 74% 18%,rgba(237,92,138,.18),transparent 18rem),
+      var(--ivory);
+  }
+  .host-photo.art-photo img{
+    object-position:center 30%;
+    filter:saturate(.84) contrast(1.02) brightness(1.08);
+  }
+  .host-photo.art-photo::after{
+    background:
+      linear-gradient(180deg,rgba(255,253,247,0) 52%,rgba(251,248,241,.82)),
+      linear-gradient(90deg,rgba(255,253,247,.18),rgba(255,253,247,0) 42%,rgba(255,253,247,.14));
+  }
+  .host-copy{
+    display:grid;
+    gap:24px;
+  }
+  .host-eyebrow{
+    margin:0;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .host-name{
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(46px,14vw,118px);
+    line-height:.95;
+    letter-spacing:-.08em;
+    font-weight:400;
+  }
+  .host-lead{
+    margin:0;
+    font-size:clamp(16px,4.5vw,22px);
+    line-height:2;
+  }
+  .host-body{
+    margin:0;
+    color:var(--muted);
+    line-height:2;
+  }
+  .host-body strong{
+    color:var(--ink);
+    font-weight:600;
+    background:linear-gradient(180deg,transparent 58%,rgba(237,92,138,.18) 0);
+  }
+  .achievement-list{
+    display:grid;
+    gap:0;
+    margin:8px 0 0;
+    padding:0;
+    list-style:none;
+    border-top:1px solid var(--line);
+  }
+  .achievement-list li{
+    position:relative;
+    padding:15px 0 15px 28px;
+    border-bottom:1px solid var(--line);
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .achievement-list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:1.4em;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+  }
+
+  .program-info{
+    background:
+      linear-gradient(180deg,rgba(255,253,247,.72),rgba(240,228,212,.74)),
+      var(--paper);
+    overflow:hidden;
+  }
+
+  .goal-grid{
+    display:grid;
+    gap:14px;
+    margin-top:34px;
+  }
+  .goal-card{
+    position:relative;
+    padding:20px;
+    border-radius:24px;
+    border:1px solid var(--line);
+    background:rgba(255,253,247,.62);
+    overflow:hidden;
+  }
+  .goal-card::before{
+    content:"";
+    position:absolute;
+    inset:0 auto auto 0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,var(--cyan),var(--pink),var(--orange));
+  }
+  .goal-card h3{
+    margin:16px 0 10px;
+    font-family:var(--serif);
+    font-size:clamp(27px,7vw,54px);
+    line-height:1;
+    letter-spacing:-.05em;
+    font-weight:400;
+  }
+  .goal-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+  .program-spread{
+    display:grid;
+    gap:30px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:28px 0;
+  }
+  .program-kicker{
+    margin:0;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .program-title{
+    margin:12px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(46px,14vw,128px);
+    line-height:.9;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .program-title .zero{
+    font-family:var(--sans);
+    letter-spacing:-.12em;
+    font-weight:500;
+  }
+  .program-price{
+    margin:18px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(38px,12vw,96px);
+    line-height:.9;
+    letter-spacing:-.06em;
+    color:var(--red);
+  }
+  .program-list{
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .program-row{
+    display:grid;
+    grid-template-columns:minmax(92px,.32fr) 1fr;
+    gap:18px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .program-row dt{
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .program-row dd{
+    margin:0;
+    font-size:15px;
+    line-height:1.8;
+  }
+  .program-note{
+    margin:18px 0 0;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:13px;
+  }
+
+  .final-cta{
+    min-height:100svh;
+    padding:100px 16px calc(40px + env(safe-area-inset-bottom));
+    display:grid;
+    align-items:end;
+    background:var(--ink);
+    color:var(--ivory);
+    overflow:hidden;
+  }
+  .final-cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg,rgba(19,17,15,.12),var(--ink)),
+      url("hero-visual.png") center 34%/cover no-repeat;
+    opacity:.44;
+    transform:scale(1.06);
+  }
+  .final-inner{
+    position:relative;
+    width:min(100%,1180px);
+    margin:0 auto;
+    display:grid;
+    gap:30px;
+  }
+  .final-cta h2{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(58px,18vw,184px);
+    line-height:.82;
+    letter-spacing:-.075em;
+    font-weight:400;
+  }
+  .final-cta p{
+    margin:0;
+    color:rgba(255,253,247,.76);
+    line-height:1.9;
+    max-width:620px;
+  }
+  .cta-row{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .main-cta{
+    border:1px solid rgba(255,253,247,.24);
+    background:var(--ivory);
+    color:var(--ink);
+    border-radius:999px;
+    padding:17px 24px;
+    min-height:58px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  }
+  .main-cta:hover{transform:translateY(-3px);background:var(--cyan);}
+  .sub-note{
+    font-size:12px;
+    letter-spacing:.04em;
+    color:rgba(255,253,247,.62);
+  }
+
+  .sticky-cta{
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom));
+    z-index:90;
+    display:flex;
+    justify-content:center;
+    pointer-events:none;
+    transform:translateY(120%);
+    transition:transform .55s var(--ease);
+  }
+  .sticky-cta.is-visible{
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .sticky-cta a{
+    width:min(100%,460px);
+    min-height:56px;
+    border-radius:999px;
+    background:rgba(19,17,15,.88);
+    color:var(--ivory);
+    backdrop-filter:blur(16px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    box-shadow:0 18px 48px rgba(19,17,15,.22);
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    padding:24px 16px 96px;
+    background:var(--ink);
+    color:rgba(255,253,247,.58);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(34px);
+  }
+  .char-reveal{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(115%) rotate(2deg);
+  }
+
+  @media (min-width:760px){
+    .hero{height:100svh;min-height:720px;}
+    .hero-grid{
+      min-height:100%;
+      width:100%;
+      display:block;
+    }
+    .hero-type{
+      position:absolute;
+      inset:0;
+      margin:0;
+      padding:0;
+      max-width:none;
+    }
+    .hero-bg-type{
+      left:5vw;
+      bottom:4vh;
+      font-size:clamp(170px,18vw,280px);
+      opacity:1;
+    }
+    .hero-title{
+      left:8vw;
+      top:44%;
+      transform:translateY(-50%);
+      font-size:clamp(62px,7vw,112px);
+      max-width:10.2ch;
+    }
+    .hero-zero-inner{
+      padding:0 5vw 0 12vw;
+      color:rgba(19,17,15,.1);
+    }
+    .zero-main{
+      font-size:clamp(120px,12.4vw,220px);
+    }
+    .hero-program-badge{
+      left:8vw;
+      top:15vh;
+    }
+    .hero-copy{
+      left:8vw;
+      right:auto;
+      bottom:7vh;
+      max-width:560px;
+      gap:16px;
+      padding:0;
+      border-top:0;
+    }
+    .hero-copy p{font-size:18px;}
+    .hero-media{
+      position:absolute;
+      inset:0;
+      height:auto;
+      min-height:100%;
+      aspect-ratio:auto;
+      border-radius:0;
+    }
+    .hero-media img{
+      min-height:100%;
+      object-fit:cover;
+      object-position:right center;
+    }
+    .scroll-cue{display:block;}
+    .section{padding:126px 28px;}
+    .statement{grid-template-columns:1.1fr .75fr;align-items:end;gap:58px;}
+    .future-grid{grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);}
+    .future-item{padding:26px 22px 28px;border-right:1px solid var(--line);border-bottom:0;}
+    .future-item:last-child{border-right:0;}
+    .photo-river-head{padding-inline:28px;}
+    .photo-river-wrap{gap:24px;margin-top:58px;}
+    .photo-track{--photo-gap:22px;}
+    .photo-lane-offset{transform:translateX(7vw) translateZ(0);}
+    .photo-card{
+      flex-basis:clamp(260px,24vw,340px);
+      width:clamp(260px,24vw,340px);
+      border-radius:30px;
+    }
+    .proposal-visual{
+      grid-column:1 / -1;
+      min-height:560px;
+      margin-top:8px;
+    }
+    .proposal-visual img{
+      min-height:560px;
+      object-position:center 48%;
+    }
+    .duo{grid-template-columns:.84fr 1fr;gap:64px;}
+    .duo.reverse{grid-template-columns:1fr .86fr;}
+    .duo.reverse .image-frame{order:2;}
+    .mini-grid{grid-template-columns:repeat(3,1fr);gap:18px;}
+    .creator-grid{grid-template-columns:1.18fr .82fr;align-items:end;gap:60px;}
+    .compare-grid{grid-template-columns:1fr 1.08fr;gap:22px;}
+    .lesson-grid{grid-template-columns:repeat(2,1fr);}
+    .lifestyle-board{grid-template-columns:1fr 1fr;grid-auto-rows:minmax(310px,auto);}
+    .life-card.image{grid-row:span 2;min-height:640px;}
+    .fit-item{grid-template-columns:64px 1fr;gap:24px;padding:28px 0;}
+    .fit-item span{width:42px;height:42px;}
+    .change-grid{grid-template-columns:repeat(3,1fr);gap:26px;}
+    .work-cycle-layout{grid-template-columns:.9fr 1.1fr;gap:62px;}
+    .work-cycle-board{padding:30px;}
+    .cycle-step{padding:20px;}
+    .flow-step{grid-template-columns:150px 1fr minmax(260px,.8fr);gap:28px;align-items:start;padding:30px 0;}
+    .host-layout{gap:120px;}
+    .host-card{grid-template-columns:.82fr 1.18fr;gap:70px;align-items:start;}
+    .host-photo{position:sticky;top:120px;min-height:620px;}
+    .host-photo img{min-height:620px;}
+    .program-spread{grid-template-columns:.9fr 1.1fr;gap:70px;padding:44px 0;}
+    .program-list{align-self:end;}
+    .goal-grid{grid-template-columns:repeat(4,1fr);gap:18px;}
+    .cta-row{flex-direction:row;align-items:center;}
+    footer{padding:28px 28px 92px;}
+  }
+
+  @media (min-width:1080px){
+    .nav-shell{padding:12px;}
+    .section{padding-block:150px;}
+    .lesson-grid{grid-template-columns:repeat(4,1fr);}
+    .lifestyle-board{grid-template-columns:1.1fr .95fr .95fr;}
+    .life-card.image{grid-row:span 2;}
+    .sticky-cta{left:auto;right:24px;bottom:24px;}
+    .sticky-cta a{width:auto;padding:0 24px;}
+  }
+
+  @media (max-width:759px){
+    .hero-program-badge{
+      left:20px;
+      top:88px;
+      right:20px;
+      max-width:none;
+      justify-content:flex-start;
+      border-radius:18px;
+      letter-spacing:.1em;
+    }
+    .hero-zero-inner{
+      color:rgba(19,17,15,.08);
+      mix-blend-mode:normal;
+    }
+    .hero-copy{
+      gap:12px;
+    }
+    .hero-copy .hero-support{
+      display:none;
+    }
+    .hero-cta{
+      width:calc(100vw - 44px);
+      max-width:430px;
+      min-height:68px;
+      grid-template-columns:auto minmax(0,1fr) auto;
+      grid-template-areas:
+        "limit main arrow"
+        "limit start arrow";
+      gap:4px 10px;
+      padding:9px 10px 9px 12px;
+      justify-self:start;
+    }
+    .hero-cta-limit{
+      grid-area:limit;
+      width:50px;
+      height:50px;
+      font-size:10px;
+    }
+    .hero-cta-main{
+      grid-area:main;
+      font-size:clamp(24px,7.4vw,32px);
+    }
+    .hero-cta-start{
+      grid-area:start;
+      justify-self:start;
+      padding:0;
+      border:0;
+      background:transparent;
+      font-size:13px;
+      color:rgba(255,253,247,.88);
+    }
+    .hero-cta-arrow{
+      grid-area:arrow;
+      width:38px;
+      height:38px;
+      font-size:17px;
+    }
+    .hero-cta-note{
+      font-size:11px;
+      line-height:1.6;
+    }
+    .hero-cta-note span{
+      min-height:25px;
+      padding:0 9px;
+    }
+  }
+
+  @media (max-width:430px){
+    .brand-text{max-width:178px;}
+    .pill-button.cta-top{display:none;}
+    .hero{
+      height:100svh;
+      min-height:720px;
+    }
+    .hero-grid{
+      min-height:100%;
+    }
+    .hero-type{
+      padding:0;
+    }
+    .hero-bg-type{
+      left:-12vw;
+      bottom:18vh;
+      font-size:clamp(98px,31vw,136px);
+      color:rgba(19,17,15,.06);
+    }
+    .hero-title{
+      left:22px;
+      right:22px;
+      top:40%;
+      font-size:clamp(42px,11vw,72px);
+      max-width:calc(100vw - 44px);
+    }
+    .hero-zero-scroll{
+      place-items:center;
+    }
+    .hero-zero-inner{
+      padding:0 20px;
+      gap:14px;
+      color:rgba(19,17,15,.08);
+      mix-blend-mode:normal;
+    }
+    .zero-line{
+      white-space:normal;
+      letter-spacing:-.08em;
+    }
+    .zero-main{
+      font-size:clamp(62px,18vw,88px);
+      max-width:5.2em;
+    }
+    .hero-program-badge{
+      left:20px;
+      top:88px;
+      right:20px;
+      max-width:none;
+      justify-content:flex-start;
+      border-radius:18px;
+      letter-spacing:.1em;
+    }
+    .hero-copy p{font-size:15px;line-height:1.75;}
+    .hero-copy{
+      left:22px;
+      right:22px;
+      bottom:34px;
+      margin:0;
+      padding:0;
+      border-top:0;
+      background:none;
+      gap:12px;
+    }
+    .hero-copy .hero-support{
+      display:none;
+    }
+    .hero-cta-note{
+      font-size:11px;
+      line-height:1.6;
+    }
+    .hero-media{min-height:100%;}
+    .hero-media img{min-height:100%;object-position:72% center;}
+    .hero-note{
+      right:-18px;
+      bottom:92px;
+      max-width:230px;
+      font-size:10px;
+      background:rgba(255,253,247,.62);
+    }
+    .program-row{grid-template-columns:1fr;gap:8px;}
+    .menu-card{padding:22px 20px;}
+    .section{padding-block:76px;}
+    .work-cycle-board{
+      padding:20px;
+      border-radius:24px 28px 22px 26px;
+      transform:none;
+      box-shadow:10px 12px 0 rgba(19,17,15,.06),0 18px 44px rgba(54,43,29,.1);
+    }
+    .board-title{max-width:11em;}
+    .route-pill{font-size:11px;min-height:32px;padding-inline:10px;}
+    .cycle-step{padding:16px;}
+    .cycle-loop{grid-template-columns:1fr;gap:8px;}
+    .loop-arrow{transform:rotate(90deg);justify-self:center;}
+    .photo-river{padding-block:82px;}
+    .photo-river-head{padding-inline:16px;}
+    .photo-river-wrap{gap:15px;margin-top:34px;}
+    .photo-track{--photo-gap:12px;}
+    .photo-lane-offset{transform:translateX(10vw) translateZ(0);}
+    .photo-card{
+      flex-basis:clamp(152px,46vw,196px);
+      width:clamp(152px,46vw,196px);
+      border-radius:24px;
+    }
+    .recommend{padding-inline:14px;}
+    .recommend-paper{gap:26px;padding:28px 0;}
+    .recommend-title{
+      font-size:clamp(31px,8.9vw,38px);
+      letter-spacing:-.075em;
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      scroll-behavior:auto !important;
+      transition-duration:.001ms !important;
+    }
+    .loader{display:none;}
+    .split-line span,.reveal,.char-reveal{
+      opacity:1 !important;
+      transform:none !important;
+    }
+    .hero-media,.image-frame{
+      clip-path:inset(0 round 24px) !important;
+    }
+    .hero-zero-inner{
+      opacity:.16 !important;
+      transform:none !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+
+<div class="loader" id="loader" aria-label="読み込み中">
+  <div class="loader-inner">
+    <div class="loader-kicker"><span>AI WEB CREATOR</span><span>JOURNEY 01</span></div>
+    <div class="loader-word">LOADING</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a href="#top" class="brand" aria-label="Release Yourself into the World">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Release / AI Web Creator</span>
+    </a>
+    <div class="nav-actions">
+      <a class="pill-button cta-top" href="#entry">Entry <span class="arrow">↗</span></a>
+      <button class="pill-button menu-button" type="button" id="menuButton" aria-label="メニューを開く" aria-expanded="false">
+        <span class="menu-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true">
+  <div class="menu-backdrop" data-close-menu></div>
+  <nav class="menu-card" aria-label="ページ内メニュー">
+    <p>旅、制作、発信、学び。好きな場所で、自分の表現を世界へ届けるための小さな入口。</p>
+    <div class="menu-links">
+      <a href="#proposal">提案するもの</a>
+      <a href="#creator">Creator</a>
+      <a href="#learn">学べること</a>
+      <a href="#flow">講座の流れ</a>
+      <a href="#program">0期生募集</a>
+      <a href="#entry">Entry</a>
+    </div>
+  </nav>
+</div>
+
+<main id="top">
+  <section class="hero" aria-label="ファーストビュー">
+    <div class="hero-grid">
+      <div class="hero-type">
+        <div class="hero-program-badge reveal">
+          <span>AI×WEB CREATOR PROGRAM</span>
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>0期生募集</span>
+        </div>
+        <div class="hero-bg-type" aria-hidden="true">Release Yourself<br>Into The World</div>
+        <h1 class="hero-title" aria-label="世界に、自分を解き放て。 Release Yourself into the World.">
+          <span class="split-line"><span class="jp">世界に、</span></span>
+          <span class="split-line"><span class="jp">自分を解き放て。</span></span>
+        </h1>
+        <div class="hero-copy reveal">
+          <p class="hero-subcopy">AIで、LP・SNS・LINE導線をつくり、<br><strong>“仕事に変える力”</strong>まで育てる講座。</p>
+          <p class="hero-support">学んで終わりではなく、最初の案件化まで伴走。<br>旅も、働き方も、人生も。選べる側へ。</p>
+          <a class="hero-cta" href="#entry" aria-label="0期生募集 8月スタート エントリーする">
+            <span class="hero-cta-limit">限定<br>10名</span>
+            <span class="hero-cta-main">0期生募集</span>
+            <span class="hero-cta-start">8月スタート</span>
+            <span class="hero-cta-arrow" aria-hidden="true">↗</span>
+          </a>
+          <div class="hero-cta-note" aria-label="初心者歓迎、面談制、少人数制、0期生限定価格">
+            <span>初心者歓迎</span>
+            <span>面談制</span>
+            <span>少人数制</span>
+            <span>0期生限定価格</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-zero-scroll" aria-hidden="true">
+        <div class="hero-zero-inner">
+          <span class="zero-line zero-main">ゼロ期生募集</span>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="hero-visual.png" alt="白い衣装をまとい、世界へ視線を向ける女性のビジュアル">
+      </figure>
+    </div>
+    <div class="scroll-cue">SCROLL TO ENTER</div>
+  </section>
+
+  <section class="photo-river section" aria-label="旅するように働く景色">
+    <div class="section-inner photo-river-head">
+      <div class="section-label reveal">01 / Scenes</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">旅するように、<br>働く景色。</span>Scenes from<br>the next route.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">旅をすること。<br>挑戦すること。<br>誰かと語り合うこと。<br><br>人間にしかできない経験を、<br>もっと増やしていくために。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-river-wrap reveal">
+      <div class="photo-lane" aria-hidden="true">
+        <div class="photo-track to-left">
+          <div class="photo-set">
+            <figure class="photo-card"><img src="slide-01.jpg" alt="講座のライフスタイルイメージ 01" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-02.jpg" alt="講座のライフスタイルイメージ 02" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-03.jpg" alt="講座のライフスタイルイメージ 03" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-04.jpg" alt="講座のライフスタイルイメージ 04" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-05.jpg" alt="講座のライフスタイルイメージ 05" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-06.jpg" alt="講座のライフスタイルイメージ 06" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-07.jpg" alt="講座のライフスタイルイメージ 07" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-08.jpg" alt="講座のライフスタイルイメージ 08" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-09.jpg" alt="講座のライフスタイルイメージ 09" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-10.jpg" alt="講座のライフスタイルイメージ 10" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-11.jpg" alt="講座のライフスタイルイメージ 11" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-12.jpg" alt="講座のライフスタイルイメージ 12" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-13.jpg" alt="講座のライフスタイルイメージ 13" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-14.jpg" alt="講座のライフスタイルイメージ 14" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-15.jpg" alt="講座のライフスタイルイメージ 15" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="photo-set">
+            <figure class="photo-card"><img src="slide-01.jpg" alt="講座のライフスタイルイメージ 01" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-02.jpg" alt="講座のライフスタイルイメージ 02" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-03.jpg" alt="講座のライフスタイルイメージ 03" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-04.jpg" alt="講座のライフスタイルイメージ 04" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-05.jpg" alt="講座のライフスタイルイメージ 05" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-06.jpg" alt="講座のライフスタイルイメージ 06" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-07.jpg" alt="講座のライフスタイルイメージ 07" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-08.jpg" alt="講座のライフスタイルイメージ 08" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-09.jpg" alt="講座のライフスタイルイメージ 09" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-10.jpg" alt="講座のライフスタイルイメージ 10" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-11.jpg" alt="講座のライフスタイルイメージ 11" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-12.jpg" alt="講座のライフスタイルイメージ 12" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-13.jpg" alt="講座のライフスタイルイメージ 13" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-14.jpg" alt="講座のライフスタイルイメージ 14" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-15.jpg" alt="講座のライフスタイルイメージ 15" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+      </div>
+      <div class="photo-lane photo-lane-offset" aria-hidden="true">
+        <div class="photo-track to-right">
+          <div class="photo-set">
+            <figure class="photo-card"><img src="slide-16.jpg" alt="講座のライフスタイルイメージ 16" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-17.jpg" alt="講座のライフスタイルイメージ 17" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-18.jpg" alt="講座のライフスタイルイメージ 18" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-19.jpg" alt="講座のライフスタイルイメージ 19" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-20.jpg" alt="講座のライフスタイルイメージ 20" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-21.jpg" alt="講座のライフスタイルイメージ 21" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-22.jpg" alt="講座のライフスタイルイメージ 22" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-23.jpg" alt="講座のライフスタイルイメージ 23" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-24.jpg" alt="講座のライフスタイルイメージ 24" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-25.jpg" alt="講座のライフスタイルイメージ 25" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-26.jpg" alt="講座のライフスタイルイメージ 26" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-27.jpg" alt="講座のライフスタイルイメージ 27" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-28.jpg" alt="講座のライフスタイルイメージ 28" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-29.jpg" alt="講座のライフスタイルイメージ 29" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="photo-set">
+            <figure class="photo-card"><img src="slide-16.jpg" alt="講座のライフスタイルイメージ 16" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-17.jpg" alt="講座のライフスタイルイメージ 17" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-18.jpg" alt="講座のライフスタイルイメージ 18" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-19.jpg" alt="講座のライフスタイルイメージ 19" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-20.jpg" alt="講座のライフスタイルイメージ 20" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-21.jpg" alt="講座のライフスタイルイメージ 21" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-22.jpg" alt="講座のライフスタイルイメージ 22" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-23.jpg" alt="講座のライフスタイルイメージ 23" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-24.jpg" alt="講座のライフスタイルイメージ 24" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-25.jpg" alt="講座のライフスタイルイメージ 25" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-26.jpg" alt="講座のライフスタイルイメージ 26" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-27.jpg" alt="講座のライフスタイルイメージ 27" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-28.jpg" alt="講座のライフスタイルイメージ 28" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-29.jpg" alt="講座のライフスタイルイメージ 29" loading="lazy" decoding="async"></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section future" id="future">
+    <div class="section-inner">
+      <div class="section-label reveal">02 / Future</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">この講座で<br>手に入る未来</span>Build your<br>next route.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">AIを学ぶためではなく、収入源と人生の選択肢をつくるために。</p>
+          <p class="body-copy">言葉、ページ、SNS、LINE、フォーム。点だった発信を、申し込みにつながる流れへ変えていきます。</p>
+        </div>
+      </div>
+      <div class="future-grid">
+        <article class="future-item reveal"><span>01</span><div><h3>副業の一歩をつくる</h3><p>AIを毎日の相棒にして、最初の商品・サービス・提案を形にする。</p></div></article>
+        <article class="future-item reveal"><span>02</span><div><h3>自分のLPを持つ</h3><p>あなた自身や誰かの価値が伝わる、申し込みにつながるページを作る。</p></div></article>
+        <article class="future-item reveal"><span>03</span><div><h3>導線までつなぐ</h3><p>SNS、LINE、Googleフォームまで設計し、見てもらうだけで終わらせない。</p></div></article>
+        <article class="future-item reveal"><span>04</span><div><h3>場所に縛られない働き方へ</h3><p>旅も体験も選べる人生を、憧れではなく小さな実装へ変える。</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="recommend" aria-label="こんな方におすすめ">
+    <div class="recommend-paper">
+      <div class="reveal">
+        <div class="section-label">03 / Real questions</div>
+        <h2 class="recommend-title"><span>こんな方におすすめ</span></h2>
+        <p class="scribble-note">not a perfect checklist. just a small sign.</p>
+      </div>
+      <ul class="recommend-list reveal">
+        <li><mark>AIに興味はあるけど、何から始めればいいかわからない</mark></li>
+        <li><mark>副業を始めたいけど、自分に何ができるかわからない</mark></li>
+        <li><mark>LPやSNSを作っても、申し込みにつながる導線がない</mark></li>
+        <li><mark>場所に縛られない働き方に憧れている</mark></li>
+        <li><mark>自分のサービスや誰かの想いを形にしたい</mark></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="ステートメント">
+    <div class="marquee-track">
+      <span>旅するように働く。</span><span class="accent">選べる人生をつくる。</span><span>AI / WEB / STORY / FLOW</span><span>世界に、自分を解き放つ。</span>
+      <span>旅するように働く。</span><span class="accent">選べる人生をつくる。</span><span>AI / WEB / STORY / FLOW</span><span>世界に、自分を解き放つ。</span>
+    </div>
+  </section>
+
+  <section class="empathy section">
+    <div class="section-inner">
+      <div class="section-label reveal">04 / Resonance</div>
+      <div class="question-list">
+        <p class="reveal">AIとパソコン1台で、仕事の形を変える。</p>
+        <p class="reveal">場所に縛られず、好きな体験<br>を選べる人生へ。</p>
+        <p class="reveal">AIは手段、大事なのは<br>価値を届ける仕組み</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proposal">
+    <div class="section-inner statement">
+      <div>
+        <div class="section-label reveal">05 / Why now</div>
+        <h2 class="reveal"><span class="jp">なぜ今<br>AI×WEB集客なのか</span>Tools are<br>not enough.</h2>
+      </div>
+      <div class="text-stack reveal">
+        <p class="large-copy">AIは文章作成だけでなく、企画、構成、LP制作、SNS発信、顧客導線づくりまで使える時代になりました。</p>
+        <p class="body-copy">でも、ツールを触るだけでは収益にはなりません。必要なのは、価値を見つける力、伝わる言葉へ変える力、そして申し込みまでつなぐ導線です。</p>
+        <div class="accent-rule" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner duo">
+      <figure class="image-frame image-tall feeling-workstyle">
+        <img src="feeling-workstyle.png" alt="街を見渡す窓辺でパソコンに向かう女性">
+        <figcaption class="float-caption"><span>Work anywhere</span><span>Life edit</span></figcaption>
+      </figure>
+      <div class="text-stack">
+        <div class="section-label reveal">06 / Future result</div>
+        <span class="num reveal">03</span>
+        <h2 class="editorial-title reveal">You were not made for one small room.</h2>
+        <p class="large-copy reveal">自分や誰かの価値を、必要な人へ届けるページを作れるようになる。</p>
+        <p class="body-copy reveal">LP制作はゴールではなく入口です。SNSで出会い、LPで信頼をつくり、LINEやフォームで申し込みへ進む。学んで終わりではなく、最初のお客さん獲得に向けて動き出すことを目指します。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section creator" id="creator">
+    <div class="section-inner creator-grid">
+      <h2 class="creator-title reveal"><span class="cyan">AI</span> × <span class="pink">WEB</span><br>集客<br><span class="orange">Creator</span></h2>
+      <div class="creator-copy reveal">
+        <div class="section-label">07 / Definition</div>
+        <p><strong>AI×WEB集客クリエイター</strong>とは、AIでアイデアと言葉を拡張し、LPや導線で価値を届ける人。</p>
+        <p>ただ投稿する人でも、ただ制作する人でもありません。自分や誰かの魅力を見つけ、体験として編集し、必要な人が自然に出会える流れをつくる人です。</p>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <h3>Think</h3>
+            <p>AIで思考を広げ、言葉の輪郭を見つける。</p>
+          </div>
+          <div class="mini-card">
+            <h3>Make</h3>
+            <p>LPやビジュアルで世界観を見える形にする。</p>
+          </div>
+          <div class="mini-card">
+            <h3>Flow</h3>
+            <p>届けたい人へ届くウェブ導線を設計する。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section learning" id="learn">
+    <div class="section-inner">
+      <div class="section-label reveal">08 / Curriculum</div>
+      <div class="statement">
+        <h2 class="reveal">Make it,<br>connect it,<br>move it.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">カリキュラムは「知識」ではなく、実際に使える成果物を作る順番で進みます。</p>
+          <p class="body-copy">AI初心者でも、強みの整理からLP公開、SNS・LINE・フォーム導線、提案文まで、最初のお客さん獲得に向けて一つずつ形にします。</p>
+        </div>
+      </div>
+      <div class="lesson-grid">
+        <article class="lesson reveal" style="--tone:var(--cyan)">
+          <span>01</span>
+          <div><h3>AI基礎・ChatGPT活用</h3><p>毎日の仕事道具としてAIを使い、企画、文章、改善の速度を上げる。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--pink)">
+          <span>02</span>
+          <div><h3>強み・サービス設計</h3><p>自分やクライアントの価値を掘り起こし、誰に何を届けるかを決める。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--orange)">
+          <span>03</span>
+          <div><h3>LP構成・コピー設計</h3><p>共感、信頼、提案、CTAまで、申し込みにつながるページ構成を作る。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:#fff3b0">
+          <span>04</span>
+          <div><h3>Claude Code等でLP制作</h3><p>AIと一緒にHTML/CSSを扱い、編集できる自分のLPを形にする。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--cyan)">
+          <span>05</span>
+          <div><h3>SNS発信導線</h3><p>Threads、InstagramなどからLPへつながる発信テーマを設計する。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--pink)">
+          <span>06</span>
+          <div><h3>LINE・フォーム導線</h3><p>LINE、Googleフォーム、案内文を整え、申し込みまでの流れをつくる。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--orange)">
+          <span>07</span>
+          <div><h3>案件獲得・提案文作成</h3><p>営業文、ヒアリング文、提案文を作り、最初の仕事に向けて動く。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:#fff3b0">
+          <span>08</span>
+          <div><h3>公開・改善・次の収益化</h3><p>公開後の見直しと改善を行い、次の収益化ステップを設計する。</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section difference">
+    <div class="section-inner">
+      <div class="section-label reveal">09 / Difference</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">他のAI講座との違い</span>Not just<br>prompting.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">AIの使い方で終わらせず、価値を見つけ、ページにし、導線で届けるところまで。</p>
+          <p class="body-copy">この講座は、AIスクールではなく、AIを使って仕事の形を変えるための実践プログラムです。</p>
+        </div>
+      </div>
+      <div class="compare-grid">
+        <article class="compare-card reveal">
+          <h3>一般的な<br>AI講座</h3>
+          <ul class="compare-list">
+            <li>ツールの使い方が中心</li>
+            <li>学んで終わりになりやすい</li>
+            <li>発信やLP制作は別で学ぶ必要がある</li>
+            <li>実案件化・収益化まで距離がある</li>
+          </ul>
+        </article>
+        <article class="compare-card featured reveal">
+          <h3>AI×WEB集客<br>クリエイター<br>養成講座</h3>
+          <ul class="compare-list">
+            <li>AI活用、LP制作、SNS発信を一つの流れで学ぶ</li>
+            <li>LINE・フォームまで申し込み導線をつくる</li>
+            <li>自分や誰かの世界観を仕事に変える</li>
+            <li>案件化・収益化に向けて伴走する</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="ライフスタイルステートメント">
+    <div class="marquee-track">
+      <span>Work from anywhere.</span><span class="accent">Design your days.</span><span>Choose your experience.</span><span>Release yourself.</span>
+      <span>Work from anywhere.</span><span class="accent">Design your days.</span><span>Choose your experience.</span><span>Release yourself.</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">10 / Lifestyle</div>
+      <h2 class="editorial-title reveal">未来のライフスタイル提案</h2>
+      <div class="lifestyle-board">
+        <article class="life-card image reveal">
+          <img src="hero-visual.png" alt="旅と表現を選ぶライフスタイルのビジュアル">
+          <div class="life-text">
+            <span class="life-kicker">Scene 01</span>
+            <h3>朝の光で、仕事を始める。</h3>
+            <p>場所に合わせて働くのではなく、行きたい場所に合わせて働き方をつくる。</p>
+          </div>
+        </article>
+        <article class="life-card cyan-bg with-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-lp-update.png" alt="" loading="lazy" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 02</span>
+            <div><h3>旅先で、LPを更新する。</h3><p>思いついた言葉をAIで整え、その日の熱をページに残す。</p></div>
+          </div>
+        </article>
+        <article class="life-card pink-bg with-photo experience-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-experience-work.png" alt="" loading="lazy" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 03</span>
+            <div><h3>体験が、次の仕事になる。</h3><p>学び、出会い、好きなものが、あなたの価値として届き始める。</p></div>
+          </div>
+        </article>
+        <article class="life-card orange-bg with-photo name-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-chosen-name.png" alt="" loading="eager" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 04</span>
+            <div><h3>自分の名前で、選ばれる。</h3><p>テンプレートの言葉ではなく、自分の世界観で信頼をつくる。</p></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner duo reverse">
+      <figure class="image-frame image-wide">
+        <img src="hero-visual.png" alt="AIとウェブ制作の先にある自由を表すビジュアル">
+        <figcaption class="float-caption"><span>For whom</span><span>Life choice</span></figcaption>
+      </figure>
+      <div>
+        <div class="section-label reveal">11 / Fit</div>
+        <h2 class="editorial-title reveal">こんな人に向いています</h2>
+        <div class="fit-list">
+          <div class="fit-item reveal"><span>1</span><p>AIを、自分の可能性を広げるために使いたい。<small>専門用語よりも、日常で使える実践から始めたい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>2</span><p>旅や体験を諦めない働き方をつくりたい。<small>時間や場所の自由を、憧れではなく設計に変えたい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>3</span><p>誰かの魅力を、言葉とページで届けたい。<small>制作や発信を通じて、人の想いを形にしたい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>4</span><p>自分らしい表現を、仕事や活動につなげたい。<small>売り込むより、世界観で自然に選ばれる流れをつくりたい人へ。</small></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">12 / After</div>
+      <div class="statement">
+        <h2 class="reveal">受講後の<br>変化</h2>
+        <p class="large-copy reveal">自分の中にあった曖昧な願いが、言葉になり、ページになり、人と出会う導線になる。</p>
+      </div>
+      <div class="change-grid">
+        <article class="change-card reveal"><h3>Choice</h3><p>やりたいことを、ただ夢で終わらせず、小さな行動へ変えられる。</p></article>
+        <article class="change-card reveal"><h3>Voice</h3><p>自分の価値観やサービスを、借り物ではない言葉で伝えられる。</p></article>
+        <article class="change-card reveal"><h3>Flow</h3><p>SNSやLP、LINEなどをつなぎ、自然に申し込みへ進む流れが見える。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section work-cycle" id="work-cycle">
+    <div class="section-inner work-cycle-layout">
+      <div class="work-cycle-copy">
+        <div class="section-label reveal">13 / Work cycle</div>
+        <h2 class="editorial-title reveal">学んで終わりじゃない。<br>仕事につながる仕組みまで。</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">この講座は、AIやLP制作を学んで終わりの講座ではありません。</p>
+          <p class="body-copy">AIを使って価値を形にし、必要な人へ届け、実際の案件につなげていくところまで伴走します。</p>
+          <p class="body-copy">卒業後も、案件獲得や制作の相談ができる環境を用意し、養成講座に集まる仕事を卒業生にも依頼していく流れを作っていきます。</p>
+        </div>
+        <div class="cycle-points reveal">
+          <p class="cycle-point">講座内で実践しながら、案件につなげる力を育てる。</p>
+          <p class="cycle-point">案件獲得後も、制作中の相談や進行をサポートする。</p>
+          <p class="cycle-point">実績が増えることで、次の案件につながる循環を作る。</p>
+        </div>
+      </div>
+
+      <div class="work-cycle-board" aria-label="AIとWEB集客クリエイター養成講座の仕事につながる流れ">
+        <h3 class="board-title reveal">AI×WEB集客クリエイター養成講座</h3>
+        <div class="board-route reveal">
+          <span class="route-pill">学ぶ</span>
+          <span class="route-arrow" aria-hidden="true">→</span>
+          <span class="route-pill">実践する</span>
+          <span class="route-arrow" aria-hidden="true">→</span>
+          <span class="route-pill">案件につなげる</span>
+          <span class="route-arrow" aria-hidden="true">→</span>
+          <span class="route-pill">卒業後もサポート</span>
+        </div>
+
+        <div class="cycle-steps">
+          <article class="cycle-step reveal">
+            <span class="cycle-step-label">STEP 1</span>
+            <h3>講座で学ぶ・実践する</h3>
+            <p>AI活用 / LP制作 / 集客導線づくり</p>
+          </article>
+          <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
+          <article class="cycle-step reveal">
+            <span class="cycle-step-label">STEP 2</span>
+            <h3>案件獲得まで伴走</h3>
+            <p>提案・導線設計・営業サポート</p>
+          </article>
+          <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
+          <article class="cycle-step reveal">
+            <span class="cycle-step-label">STEP 3</span>
+            <h3>案件獲得後もサポート</h3>
+            <p>制作中の相談もできるから安心</p>
+          </article>
+          <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
+          <article class="cycle-step highlight reveal">
+            <span class="cycle-step-label">STEP 4</span>
+            <h3>養成講座に集まる仕事を<br>卒業生にも依頼していく</h3>
+            <p>学びを実績へ。実績を、次のチャンスへ。</p>
+          </article>
+        </div>
+
+        <div class="cycle-loop reveal">
+          <span class="loop-pill">実績が増える</span>
+          <span class="loop-arrow" aria-hidden="true">→</span>
+          <span class="loop-pill">次の案件へ</span>
+        </div>
+
+        <div class="work-kind reveal">
+          <p class="work-kind-title">こんな仕事につながる</p>
+          <div class="work-tags">
+            <span class="work-tag">LP制作</span>
+            <span class="work-tag">Lステップ構築</span>
+            <span class="work-tag">HP制作</span>
+            <span class="work-tag">SNS集客導線の構築</span>
+            <span class="work-tag">LINE導線設計</span>
+            <span class="work-tag">コピー・ライティング</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section flow" id="flow">
+    <div class="section-inner">
+      <div class="section-label reveal">14 / Program flow</div>
+      <h2 class="editorial-title reveal">講座の流れ</h2>
+      <div class="flow-track">
+        <article class="flow-step reveal"><span class="week">Week 01</span><h3>世界観をほどく</h3><p>自分の価値観、届けたい人、未来の暮らしを言葉にする。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 02-03</span><h3>AIで編集する</h3><p>コピー、構成、企画、発信案をAIと一緒に磨く。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 04-05</span><h3>LPにする</h3><p>ファーストビュー、ストーリー、CTAを持つページを制作する。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 06-07</span><h3>導線をつなぐ</h3><p>SNS、LINE、フォーム、案内までの流れを設計する。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 08</span><h3>世界へ出す</h3><p>自分の名前で見せられる形に仕上げ、次の一歩を決める。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="message section">
+    <div class="message-inner">
+      <div class="section-label reveal">15 / Last message</div>
+      <h2 class="reveal">人生は、<br>もっと<br>編集できる。</h2>
+      <p class="reveal">何者かになってから始めるのではなく、始めながら、自分の輪郭を見つけていく。AIとWEBは、そのための軽やかな翼になる。</p>
+    </div>
+  </section>
+
+  <section class="section host-profile" aria-label="主催者プロフィール・実績">
+    <div class="section-inner host-layout">
+      <div class="statement">
+        <div>
+          <div class="section-label reveal">16 / Story proof</div>
+          <h2 class="reveal"><span class="jp">数字ではなく、<br>人生そのものが証明になる。</span>Story as<br>trust.</h2>
+        </div>
+        <div class="text-stack reveal">
+          <p class="large-copy">旅、事業、表現、AI。その交差点から生まれた講座。</p>
+          <p class="body-copy">派手な売上実績を並べるのではなく、実際に場所を変え、仕事を作り、人の表現を社会へつなげてきた二人の経験を、講座の土台にしています。</p>
+        </div>
+      </div>
+      <article class="host-card">
+        <figure class="host-photo reveal">
+          <img src="kunio.JPG" alt="主催者 五十嵐邦夫のプロフィール写真">
+          <figcaption><span>Host profile</span><span>Kunio Igarashi</span></figcaption>
+        </figure>
+        <div class="host-copy">
+          <div class="section-label reveal">Host / Business and life design</div>
+          <p class="host-eyebrow reveal">主催者プロフィール・実績</p>
+          <h2 class="host-name reveal">五十嵐邦夫</h2>
+          <p class="host-lead reveal">日本の建築会社で25年間、デザイン・営業に携わった後、海外へ移住。現在はバリ島・ウブドを拠点に、AIを活用したWeb戦略、オンライン教育、不動産、飲食事業を展開しています。</p>
+          <div class="reveal">
+            <div class="section-label">Main achievements</div>
+            <ul class="achievement-list">
+              <li>AIを活用し、バリ島での不動産事業およびヴィラ開発を展開</li>
+              <li>AIの活用で日本食レストランを運営し、Googleビジネスプロフィールにて高評価を獲得</li>
+              <li>Instagram構築、Googleビジネスプロフィール、Airbnb運用などをAIで仕組み化</li>
+              <li>複数の事業にAIを取り入れ、収益化を実現</li>
+              <li>バリ島ウブドにて、利用者から愛されるヴィラとしてベスト2に選出</li>
+              <li>飲食事業では、Googleビジネスプロフィールにおいて星5評価を獲得</li>
+              <li>開業から1年足らずで黒字化を達成</li>
+              <li>人間関係改善講座を主宰し、前に進むことを恐れている人たちをサポート</li>
+              <li>受講生の中から、現在第一線で活躍する人材を多数輩出</li>
+            </ul>
+          </div>
+          <p class="host-body reveal">現在はAIマーケティングの講師としてスタートしました。AIを単なる便利なツールとしてではなく、自分らしい人生を切り拓くための力として活用。誰もが自分の可能性を広げ、人生を前向きに進めるようサポートすることを大切にしています。</p>
+        </div>
+      </article>
+
+      <article class="host-card">
+        <figure class="host-photo art-photo reveal">
+          <img src="atsushi.PNG" alt="主催者 石丸篤史のプロフィール写真">
+          <figcaption><span>AI LP Creator</span><span>Atsushi Ishimaru</span></figcaption>
+        </figure>
+        <div class="host-copy">
+          <div class="section-label reveal">Co-host / Story and LP design</div>
+          <p class="host-eyebrow reveal">AI×LPクリエイター / ART for BEING代表</p>
+          <h2 class="host-name reveal">石丸 篤史</h2>
+          <p class="host-lead reveal">AIを活用したLP制作・ブランディング・アート活動を行うクリエイター。</p>
+          <p class="host-body reveal">これまで世界約30カ国を旅し、国や文化、価値観の違いに触れる中で、「人はそれぞれ異なる物語を持っている」という感覚を深めてきました。</p>
+          <p class="host-body reveal">個人事業主、サロン、スクール、アーティストなど、想いや世界観を持つ人のサービスを、<strong>「伝わる言葉」と「申し込みにつながるLP」</strong>として形にしています。</p>
+          <p class="host-body reveal">制作では、表面的なデザインだけでなく、その人の人生、価値観、事業の背景まで丁寧に掘り起こし、“なぜこの人から買うのか”が伝わる構成を重視。</p>
+          <p class="host-body reveal">また、一般社団法人 ART for BEING 代表として、「100人のアーティスト展」など、人の表現を社会につなげる活動も主催しています。</p>
+          <p class="host-body reveal">AIを使えば、経験やスキルがゼロでも、自分の感性や言葉を活かして、LP制作を仕事にできる。本講座では、AIを相棒にしながら、ヒアリング、構成、コピー、デザイン、公開までを実践的に学び、<strong>“想いを形にできるAI×LPクリエイター”</strong>を育成しています。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="message section">
+    <div class="message-inner">
+      <div class="section-label reveal">17 / Why zero class</div>
+      <h2 class="reveal">0期は、<br>一緒に<br>育てる期。</h2>
+      <p class="reveal">本格開講前に、少人数で実践しながら講座を磨いていくための特別募集です。完成された教材を受け取るだけではなく、手を動かし、自分のLPと導線を形にする人を募集します。だからこそ、通常198,000円のところ、0期は特別価格98,000円でご案内します。</p>
+    </div>
+  </section>
+
+  <section class="section program-info" id="program" aria-label="Program Information">
+    <div class="section-inner">
+      <div class="program-spread">
+        <div class="reveal">
+          <p class="program-kicker">Program Information</p>
+          <h2 class="program-title"><span class="zero">0</span>期生募集</h2>
+          <p class="program-price">¥98,000</p>
+          <p class="program-note">通常198,000円のところ、0期特別価格。申込後、Zoom面談にて講座の詳細と参加方法をご案内します。</p>
+        </div>
+        <dl class="program-list reveal">
+          <div class="program-row">
+            <dt>Style</dt>
+            <dd>少人数制 / AI初心者歓迎</dd>
+          </div>
+          <div class="program-row">
+            <dt>Contents</dt>
+            <dd>AI活用 / LP制作 / WEB集客導線 / SNS発信 / LINE導線</dd>
+          </div>
+          <div class="program-row">
+            <dt>Guide</dt>
+            <dd>申込後、Zoom面談にてご案内</dd>
+          </div>
+          <div class="program-row">
+            <dt>Entry</dt>
+            <dd>Zoom面談・事前エントリー受付中</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">18 / Goals</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">この講座で<br>目指すゴール</span>Your first<br>real route.</h2>
+        <p class="large-copy reveal">学んだ気がする、で終わらせない。自分の価値を届けるための道筋を持って、次の一歩へ進む。</p>
+      </div>
+      <div class="goal-grid">
+        <article class="goal-card reveal"><h3>自分のLPを持つ</h3><p>サービスや想いが伝わるページを、自分で更新できる状態にする。</p></article>
+        <article class="goal-card reveal"><h3>SNSから申し込みまでつなぐ</h3><p>投稿、LP、LINE、フォームをつなぎ、迷わず申し込める導線を作る。</p></article>
+        <article class="goal-card reveal"><h3>AIを仕事道具にする</h3><p>企画、コピー、改善、提案をAIと一緒に進める習慣を身につける。</p></article>
+        <article class="goal-card reveal"><h3>最初のお客さんへ動き出す</h3><p>営業文や提案文を整え、案件獲得・収益化に向けた行動を始める。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="entry">
+    <div class="final-inner">
+      <div class="section-label reveal">19 / Invitation</div>
+      <h2 class="reveal">Release<br>Yourself<br>Now.</h2>
+      <p class="reveal">少しでも気になったら、まずはZoom面談で相談してください。現在地ややりたいことを聞いたうえで、0期が合うかどうかをご案内します。</p>
+      <div class="cta-row reveal">
+        <a class="main-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfgbjt5oJ72oh8rpteWzyZlyjBvvvfk0o2l_2gtpAi6w48_BQ/viewform?usp=header" target="_blank" rel="noopener">Zoom面談に申し込む <span>↗</span></a>
+        <span class="sub-note">0期生限定 / 詳細は面談でご案内します</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="#entry">まずは面談で相談する <span>↗</span></a>
+</div>
+
+<footer>
+  <span>AI×WEB集客クリエイター養成講座</span>
+  <span>© 2026 Release Yourself into the World.</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const loader = document.getElementById("loader");
+  const menuButton = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
+  const stickyCta = document.getElementById("stickyCta");
+  const hero = document.querySelector(".hero");
+  const finalCta = document.getElementById("entry");
+
+  const closeMenu = () => {
+    document.body.classList.remove("is-locked", "menu-open");
+    menuPanel.classList.remove("is-open");
+    menuPanel.setAttribute("aria-hidden", "true");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "メニューを開く");
+  };
+
+  const openMenu = () => {
+    document.body.classList.add("is-locked", "menu-open");
+    menuPanel.classList.add("is-open");
+    menuPanel.setAttribute("aria-hidden", "false");
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "メニューを閉じる");
+  };
+
+  menuButton.addEventListener("click", () => {
+    menuPanel.classList.contains("is-open") ? closeMenu() : openMenu();
+  });
+  menuPanel.addEventListener("click", (event) => {
+    if (event.target.matches("[data-close-menu], .menu-links a")) closeMenu();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  const revealWithoutGsap = () => {
+    document.querySelectorAll(".split-line span, .reveal, .char-reveal").forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+    document.querySelectorAll(".hero-media, .image-frame").forEach((el) => {
+      el.style.clipPath = "inset(0% 0% 0% 0% round 24px)";
+      el.style.opacity = "1";
+    });
+  };
+
+  const hideLoader = () => {
+    loader.classList.add("is-hidden");
+    window.setTimeout(() => loader.remove(), 900);
+  };
+
+  window.addEventListener("load", () => {
+    window.setTimeout(hideLoader, reduceMotion ? 0 : 900);
+  });
+  window.setTimeout(hideLoader, 2600);
+
+  if (!reduceMotion && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroTl = gsap.timeline({defaults:{ease:"power4.out"}});
+    heroTl
+      .to(".hero-media", {autoAlpha:1, duration:1.25, delay:.25})
+      .to(".hero-media img", {scale:1, duration:1.8}, "<")
+      .from(".hero-bg-type", {autoAlpha:0, y:24, duration:1.1}, "-=.9")
+      .to(".split-line span", {y:0, duration:1.05, stagger:.12}, "-=.7")
+      .to(".hero .reveal", {autoAlpha:1, y:0, duration:.9, stagger:.16}, "-=.42")
+      .from(".zero-line", {
+        autoAlpha:0,
+        yPercent:80,
+        rotate:1.5,
+        duration:1.05,
+        stagger:.12
+      }, "-=.25");
+
+    gsap.to(".hero-bg-type", {
+      yPercent:-30,
+      ease:"none",
+      scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}
+    });
+
+    gsap.to(".hero-zero-inner", {
+      scale:1.18,
+      yPercent:-18,
+      autoAlpha:.22,
+      ease:"none",
+      scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}
+    });
+
+    gsap.to(".zero-main", {
+      xPercent:-4,
+      ease:"none",
+      scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}
+    });
+
+    gsap.utils.toArray(".reveal").forEach((el) => {
+      if (el.closest(".hero")) return;
+      if (el.closest(".work-cycle-board")) return;
+      gsap.to(el, {
+        autoAlpha:1,
+        y:0,
+        duration:1,
+        ease:"power3.out",
+        scrollTrigger:{
+          trigger:el,
+          start:"top 84%",
+          once:true
+        }
+      });
+    });
+
+    const cycleBoard = document.querySelector(".work-cycle-board");
+    if (cycleBoard) {
+      const cycleTl = gsap.timeline({
+        scrollTrigger:{
+          trigger:cycleBoard,
+          start:"top 78%",
+          once:true
+        }
+      });
+
+      cycleTl
+        .to(cycleBoard.querySelectorAll(".board-title, .board-route"), {
+          autoAlpha:1,
+          y:0,
+          duration:.75,
+          ease:"power3.out",
+          stagger:.12
+        })
+        .to(cycleBoard.querySelectorAll(".cycle-step"), {
+          autoAlpha:1,
+          y:0,
+          duration:.7,
+          ease:"power3.out",
+          stagger:.18
+        }, "-=.22")
+        .to(cycleBoard.querySelectorAll(".cycle-arrow"), {
+          autoAlpha:1,
+          y:0,
+          duration:.45,
+          ease:"power3.out",
+          stagger:.18
+        }, "-=.54")
+        .fromTo(cycleBoard.querySelector(".cycle-step.highlight"), {
+          scale:.96
+        }, {
+          scale:1,
+          duration:.75,
+          ease:"back.out(1.4)"
+        }, "-=.44")
+        .to(cycleBoard.querySelectorAll(".cycle-loop, .work-kind"), {
+          autoAlpha:1,
+          y:0,
+          duration:.75,
+          ease:"power3.out",
+          stagger:.12
+        }, "-=.2");
+    }
+
+    gsap.utils.toArray(".image-frame").forEach((frame) => {
+      const image = frame.querySelector("img");
+      gsap.to(frame, {
+        clipPath:"inset(0% 0% 0% 0% round 24px)",
+        duration:1.1,
+        ease:"power4.out",
+        scrollTrigger:{trigger:frame,start:"top 78%",once:true}
+      });
+      gsap.to(image, {
+        yPercent:-8,
+        scale:1.03,
+        ease:"none",
+        scrollTrigger:{trigger:frame,start:"top bottom",end:"bottom top",scrub:.55}
+      });
+    });
+
+    gsap.to(".life-card.image img", {
+      yPercent:-7,
+      scale:1.03,
+      ease:"none",
+      scrollTrigger:{trigger:".lifestyle-board",start:"top bottom",end:"bottom top",scrub:.6}
+    });
+  } else {
+    revealWithoutGsap();
+  }
+
+  const stickyObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.target === hero) {
+        stickyCta.classList.toggle("is-visible", !entry.isIntersecting);
+      }
+      if (entry.target === finalCta && entry.isIntersecting) {
+        stickyCta.classList.remove("is-visible");
+      }
+    });
+  }, {threshold:.08});
+  stickyObserver.observe(hero);
+  stickyObserver.observe(finalCta);
+})();
+</script>
+</body>
+</html>
