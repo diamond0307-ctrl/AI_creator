@@ -684,6 +684,124 @@
     text-transform:uppercase;
   }
 
+  .message-video{
+    padding:104px 16px;
+    overflow:hidden;
+  }
+  .message-video-wrap{
+    width:min(100%,1120px);
+    margin:0 auto;
+  }
+  .message-video-head{
+    max-width:640px;
+    margin:0 auto 44px;
+    text-align:center;
+  }
+  .message-video-head .section-label{
+    justify-content:center;
+  }
+  .message-video-title{
+    margin:20px 0 0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(30px,7.6vw,52px);
+    line-height:1.32;
+    letter-spacing:-.03em;
+    font-weight:400;
+  }
+  .message-video-copy{
+    margin-top:26px;
+    display:grid;
+    gap:18px;
+  }
+  .message-video-copy p{
+    margin:0;
+    color:var(--muted);
+    font-size:clamp(15px,4vw,18px);
+    line-height:2;
+  }
+  .message-video-frame{
+    position:relative;
+    margin-top:8px;
+    border-radius:32px;
+    overflow:hidden;
+    isolation:isolate;
+    background:var(--sand);
+    box-shadow:0 30px 80px rgba(62,48,30,.14);
+    opacity:0;
+    transform:scale(.95);
+  }
+  .message-video-frame video{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .message-video-frame::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    border-radius:32px;
+    box-shadow:inset 0 0 0 1px rgba(255,253,247,.34);
+  }
+  .message-video-play{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    padding:0;
+    margin:0;
+    background:rgba(19,17,15,.14);
+    cursor:pointer;
+    opacity:1;
+    transition:opacity .5s var(--ease), background .35s var(--ease);
+  }
+  .message-video-play:hover{background:rgba(19,17,15,.22);}
+  .message-video-play-icon{
+    width:84px;
+    height:84px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(255,253,247,.94);
+    box-shadow:0 20px 50px rgba(19,17,15,.26);
+    transition:transform .35s var(--ease);
+  }
+  .message-video-play:hover .message-video-play-icon{transform:scale(1.05);}
+  .message-video-play-icon::before{
+    content:"";
+    width:0;
+    height:0;
+    margin-left:7px;
+    border-style:solid;
+    border-width:14px 0 14px 22px;
+    border-color:transparent transparent transparent var(--ink);
+  }
+  .message-video-frame.is-playing .message-video-play{
+    opacity:0;
+    pointer-events:none;
+  }
+  .message-video-duration{
+    margin:18px 0 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    letter-spacing:.06em;
+  }
+  @media (min-width:760px){
+    .message-video{padding:168px 24px;}
+    .message-video-head{margin-bottom:56px;}
+    .message-video-play-icon{width:108px;height:108px;}
+    .message-video-play-icon::before{
+      margin-left:9px;
+      border-width:17px 0 17px 27px;
+    }
+    .message-video-duration{margin-top:22px;}
+  }
+
   .recommend{
     padding:76px 16px 82px;
     background:
@@ -2500,6 +2618,27 @@
     </div>
   </section>
 
+  <section class="message-video" aria-label="講座に込めた想い">
+    <div class="message-video-wrap">
+      <div class="message-video-head">
+        <div class="section-label reveal">MESSAGE</div>
+        <h2 class="message-video-title reveal">なぜ、この講座を<br>作ったのか</h2>
+        <div class="message-video-copy reveal">
+          <p>AIを学ぶことが目的ではありません。</p>
+          <p>AIを使って、<br>自分らしい働き方を実現できる人を増やしたい。</p>
+          <p>そんな想いから、この講座は生まれました。</p>
+        </div>
+      </div>
+      <div class="message-video-frame">
+        <video class="message-video-el" src="maruchan-lp-video.mp4" poster="maruchan-lp-video-poster.jpg" playsinline preload="metadata"></video>
+        <button type="button" class="message-video-play" aria-label="動画を再生する">
+          <span class="message-video-play-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="message-video-duration">約1分40秒</p>
+    </div>
+  </section>
+
   <section class="section" id="proposal">
     <div class="section-inner statement">
       <div>
@@ -3002,6 +3141,10 @@
       el.style.clipPath = "inset(0% 0% 0% 0% round 24px)";
       el.style.opacity = "1";
     });
+    document.querySelectorAll(".message-video-frame").forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
   };
 
   const hideLoader = () => {
@@ -3117,9 +3260,37 @@
       ease:"none",
       scrollTrigger:{trigger:".lifestyle-board",start:"top bottom",end:"bottom top",scrub:.6}
     });
+
+    const messageVideoFrame = document.querySelector(".message-video-frame");
+    if (messageVideoFrame) {
+      gsap.to(messageVideoFrame, {
+        autoAlpha:1,
+        scale:1,
+        duration:1.6,
+        ease:"power2.out",
+        scrollTrigger:{trigger:messageVideoFrame,start:"top 82%",once:true}
+      });
+    }
   } else {
     revealWithoutGsap();
   }
+
+  document.querySelectorAll(".message-video-frame").forEach((frame) => {
+    const video = frame.querySelector("video");
+    const playButton = frame.querySelector(".message-video-play");
+    if (!video || !playButton) return;
+    playButton.addEventListener("click", () => {
+      video.setAttribute("controls", "");
+      video.play();
+      frame.classList.add("is-playing");
+    });
+    video.addEventListener("pause", () => {
+      frame.classList.remove("is-playing");
+    });
+    video.addEventListener("play", () => {
+      frame.classList.add("is-playing");
+    });
+  });
 
   const stickyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
