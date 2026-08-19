@@ -403,7 +403,7 @@
     width:min(100%,560px);
     min-height:72px;
     display:grid;
-    grid-template-columns:auto minmax(0,1fr) auto auto;
+    grid-template-columns:minmax(0,1fr) auto;
     align-items:center;
     gap:12px;
     border:1px solid rgba(255,255,255,.48);
@@ -450,6 +450,7 @@
     letter-spacing:-.06em;
     font-weight:700;
     white-space:nowrap;
+    text-align:center;
   }
   .hero-cta-start{
     padding:8px 12px;
@@ -2291,35 +2292,15 @@
       width:calc(100vw - 44px);
       max-width:430px;
       min-height:68px;
-      grid-template-columns:auto minmax(0,1fr) auto;
-      grid-template-areas:
-        "limit main arrow"
-        "limit start arrow";
-      gap:4px 10px;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:10px;
       padding:9px 10px 9px 12px;
       justify-self:start;
     }
-    .hero-cta-limit{
-      grid-area:limit;
-      width:50px;
-      height:50px;
-      font-size:10px;
-    }
     .hero-cta-main{
-      grid-area:main;
       font-size:clamp(24px,7.4vw,32px);
     }
-    .hero-cta-start{
-      grid-area:start;
-      justify-self:start;
-      padding:0;
-      border:0;
-      background:transparent;
-      font-size:13px;
-      color:rgba(255,253,247,.88);
-    }
     .hero-cta-arrow{
-      grid-area:arrow;
       width:38px;
       height:38px;
       font-size:17px;
