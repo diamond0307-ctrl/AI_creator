@@ -331,66 +331,6 @@
             margin-top: 12px;
         }
 
-        /* === 5. CONCEPT / PHILOSOPHY === */
-        .concept-box {
-            background: linear-gradient(135deg, rgba(19, 21, 27, 0.8) 0%, rgba(28, 31, 40, 0.5) 100%);
-            border: 1px solid var(--border-highlight);
-            border-radius: 28px;
-            padding: 60px;
-            position: relative;
-        }
-
-        .concept-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .concept-heading {
-            font-size: 1.8rem;
-            line-height: 1.5;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .concept-desc {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.9;
-        }
-
-        .concept-desc p + p {
-            margin-top: 16px;
-        }
-
-        .concept-metrics {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .metric-card {
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            padding: 28px 24px;
-            border-radius: 18px;
-        }
-
-        .metric-num {
-            font-family: var(--font-en);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-green);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .metric-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
         /* === 6. TARGET / ISSUES === */
         .target-list {
             display: grid;
@@ -645,14 +585,14 @@
 
         /* Responsive */
         @media (max-width: 992px) {
-            .hero-grid, .concept-grid, .features-grid {
+            .hero-grid, .features-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
             .zoom-benefits-grid, .flow-steps {
                 grid-template-columns: 1fr;
             }
-            .concept-box, .entry-section {
+            .entry-section {
                 padding: 32px 24px;
             }
         }
@@ -723,28 +663,67 @@
         </div>
     </section>
 
-    <!-- CONCEPT / PHILOSOPHY -->
-    <section>
+    <!-- PHILOSOPHY / STORY SECTION -->
+    <section style="background: linear-gradient(180deg, rgba(10,11,14,0.6) 0%, rgba(19,21,27,0.9) 100%);">
         <div class="container">
-            <div class="concept-box">
-                <div class="concept-grid">
-                    <div>
-                        <span class="section-number">01 / PHILOSOPHY</span>
-                        <h2 class="concept-heading">
-                            「月100万の追走」より、<br>
-                            自分らしい「月10万の自立」を。
-                        </h2>
-                    </div>
-                    <div class="concept-desc">
-                        <p>
-                            SNSでよく見かける「月100万円」や「100名集客」の煽りに疲れていませんか？<br>
-                            本当に必要なのは、あなたが心から誇れるサービスで、無理のないペースでお客様に喜んでもらえる「持続可能な仕組み」です。
-                        </p>
-                        <p>
-                            ゼロから「毎月+10万円」を無理なく生み出せるようになると、時間と心に大きな余白が生まれます。その確かな第一歩を、WebとAIの最新技術を活かしてプロデュースします。
-                        </p>
-                    </div>
+            <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+                <span class="section-number">01 / PHILOSOPHY</span>
+                <h2 class="section-title">お金だけでは、人は幸せになれない。<br>目指すのは「4つのバランス」が整った人生。</h2>
+                <p class="section-subtitle" style="margin-top: 20px; line-height: 1.9;">
+                    どれだけ収入があっても、時間がなければ体験を楽しむことはできません。<br>
+                    やりたくない仕事で心身をすり減らすのではなく、好きなことで月10万〜20万円を稼ぎ、自由な時間と豊かな人間関係を手に入れる。そのための自立をプロデュースします。
+                </p>
+            </div>
+
+            <!-- 4つのバランス Card Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 50px;">
+                <!-- Health -->
+                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px;">
+                    <div style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--accent-green); font-weight: 700;">BASE 01</span>
+                    <h3 style="font-size: 1.2rem; margin: 8px 0 12px;">土台としての「健康」</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
+                        すべての原点は心と身体の健康です。無理な我慢や消耗する働き方を手放し、心穏やかに続けられるビジネスを育てます。
+                    </p>
                 </div>
+
+                <!-- Time -->
+                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px;">
+                    <div style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--accent-green); font-weight: 700;">BASE 02</span>
+                    <h3 style="font-size: 1.2rem; margin: 8px 0 12px;">自由を生み出す「時間」</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
+                        集客を仕組み化し、自由な時間を生み出す。その時間で旅をし、新しい体験をして、人生の思い出をたくさん増やしていきます。
+                    </p>
+                </div>
+
+                <!-- Relationship -->
+                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px;">
+                    <div style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-people-group"></i></div>
+                    <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--accent-green); font-weight: 700;">BASE 03</span>
+                    <h3 style="font-size: 1.2rem; margin: 8px 0 12px;">共鳴する「人間関係」</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
+                        同じ価値観を持ち、困ったときに本音で相談できる仲間やメンターの存在。孤独にならず、共に高め合える環境を用意しています。
+                    </p>
+                </div>
+
+                <!-- Money / Produce -->
+                <div style="background: var(--bg-card); border: 1px solid var(--border-highlight); border-radius: 20px; padding: 32px 24px;">
+                    <div style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-coins"></i></div>
+                    <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--accent-green); font-weight: 700;">BASE 04</span>
+                    <h3 style="font-size: 1.2rem; margin: 8px 0 12px;">好きを形にする「お金」</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
+                        無理に月100万を追うのではなく、やりたいことで「月10万〜20万円」の安定した自立を作る。そのためのWeb×AI導線を構築します。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 伴走メッセージ -->
+            <div style="background: rgba(209, 243, 102, 0.04); border: 1px dashed var(--border-highlight); border-radius: 20px; padding: 32px; text-align: center; max-width: 860px; margin: 0 auto;">
+                <p style="font-size: 1.05rem; line-height: 1.9; color: var(--text-primary);">
+                    <strong>AIやWeb集客は、自由な時間と豊かな人生を取り戻すための「手段」です。</strong><br>
+                    あなたが心からやりたいサービスを形にし、お申し込みが届く状態まで、私たちが最後まで責任を持って伴走します。
+                </p>
             </div>
         </div>
     </section>
