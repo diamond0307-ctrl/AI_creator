@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release / Web×AI集客プロデュース - やりたいことで月10万円の自立を</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* === 1. RESET & BASE === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-dark: #0a0b0e;
+            --bg-card: #13151b;
+            --bg-card-hover: #1c1f28;
+            --text-primary: #f4f4f6;
+            --text-secondary: #9ea3b0;
+            --accent-green: #d1f366;
+            --accent-lime: #bce33e;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(209, 243, 102, 0.3);
+            --font-en: 'Plus Jakarta Sans', sans-serif;
+            --font-jp: 'Zen Kaku Gothic New', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: var(--font-jp);
+            line-height: 1.7;
+            letter-spacing: 0.03em;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: var(--bg-dark);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* === 2. HEADER === */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(10, 11, 14, 0.75);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-family: var(--font-en);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span.tag {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            background: rgba(209, 243, 102, 0.1);
+            color: var(--accent-green);
+            border-radius: 4px;
+            border: 1px solid rgba(209, 243, 102, 0.2);
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-green);
+            color: #000;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-lime);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(209, 243, 102, 0.3);
+        }
+
+        /* === 3. HERO SECTION === */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(209, 243, 102, 0.08) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-family: var(--font-en);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-green);
+            border: 1px solid var(--border-highlight);
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: rgba(209, 243, 102, 0.03);
+        }
+
+        .badge-sub {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title span.highlight {
+            color: var(--accent-green);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-lead {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.9;
+        }
+
+        .hero-lead strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 480px;
+        }
+
+        .cta-btn-large {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--accent-green);
+            color: #000;
+            padding: 20px 32px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(209, 243, 102, 0.2);
+        }
+
+        .cta-btn-large:hover {
+            background: var(--accent-lime);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(209, 243, 102, 0.35);
+        }
+
+        .cta-btn-large .cta-sub {
+            font-size: 0.8rem;
+            display: block;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        .cta-note-tags {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+            padding-left: 8px;
+        }
+
+        .cta-note-tags span::before {
+            content: '✓ ';
+            color: var(--accent-green);
+        }
+
+        /* Hero Image Area */
+        .hero-visual {
+            position: relative;
+        }
+
+        .visual-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9) contrast(1.05);
+        }
+
+        .visual-floating-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(10, 11, 14, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            padding: 16px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .floating-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(209, 243, 102, 0.15);
+            color: var(--accent-green);
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .floating-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .floating-text strong {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* === 4. SECTION COMMON === */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            font-family: var(--font-en);
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 12px;
+        }
+
+        /* === 5. CONCEPT / PHILOSOPHY === */
+        .concept-box {
+            background: linear-gradient(135deg, rgba(19, 21, 27, 0.8) 0%, rgba(28, 31, 40, 0.5) 100%);
+            border: 1px solid var(--border-highlight);
+            border-radius: 28px;
+            padding: 60px;
+            position: relative;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .concept-heading {
+            font-size: 1.8rem;
+            line-height: 1.5;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .concept-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .concept-desc p + p {
+            margin-top: 16px;
+        }
+
+        .concept-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .metric-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            padding: 28px 24px;
+            border-radius: 18px;
+        }
+
+        .metric-num {
+            font-family: var(--font-en);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* === 6. TARGET / ISSUES === */
+        .target-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .target-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .target-item:hover {
+            border-color: var(--border-highlight);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+        }
+
+        .target-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(209, 243, 102, 0.1);
+            color: var(--accent-green);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .target-text p {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* === 7. PRODUCE FEATURES (4 Pillars) === */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            background: var(--accent-green);
+        }
+
+        .feature-num {
+            font-family: var(--font-en);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* === 8. ZOOM SESSION BENEFITS === */
+        .zoom-box {
+            background: radial-gradient(circle at top right, rgba(209, 243, 102, 0.08), transparent 50%), var(--bg-card);
+            border: 1px solid var(--border-highlight);
+            border-radius: 28px;
+            padding: 50px;
+        }
+
+        .zoom-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .zoom-benefit-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .zoom-benefit-card i {
+            font-size: 1.8rem;
+            color: var(--accent-green);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .zoom-benefit-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .zoom-benefit-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* === 9. FLOW === */
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+
+        .flow-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 28px 20px;
+            position: relative;
+        }
+
+        .step-head {
+            font-family: var(--font-en);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* === 10. ENTRY FORM SECTION === */
+        .entry-section {
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 60px;
+            border: 1px solid var(--border-highlight);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .form-label span.req {
+            color: var(--accent-green);
+            font-size: 0.8rem;
+            margin-left: 6px;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: var(--text-primary);
+            font-family: var(--font-jp);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(209, 243, 102, 0.15);
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            background: var(--accent-green);
+            color: #000;
+            font-weight: 700;
+            font-size: 1.15rem;
+            padding: 20px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(209, 243, 102, 0.2);
+            margin-top: 12px;
+        }
+
+        .form-submit-btn:hover {
+            background: var(--accent-lime);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(209, 243, 102, 0.35);
+        }
+
+        /* === 11. FOOTER === */
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-grid, .concept-grid, .features-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .zoom-benefits-grid, .flow-steps {
+                grid-template-columns: 1fr;
+            }
+            .concept-box, .entry-section {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                RELEASE <span class="tag">Web×AI プロデュース</span>
+            </a>
+            <a href="#entry" class="nav-btn">
+                無料Zoom面談を予約 <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge-group">
+                        <span class="badge">0期生 限定募集</span>
+                        <span class="badge-sub">伴走型 Web×AI 集客プロデュース</span>
+                    </div>
+                    <h1 class="hero-title">
+                        やりたいことで、<br>
+                        <span class="highlight">月10万円</span>の自立を。
+                    </h1>
+                    <p class="hero-lead">
+                        「想いはあるのに、集客の形がつくれない」<br>
+                        あなたの好きなことや強みを言語化し、AIを活用したLP・SNS・集客導線まで一貫してプロデュース。無理な営業から卒業し、ありのまま自分らしく働く仕組みを一緒に構築します。
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#entry" class="cta-btn-large">
+                            <div>
+                                まずは無料Zoomで事業・集客を相談する
+                                <span class="cta-sub">※売り込みなし・あなたの集客設計図をご提案</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                        <div class="cta-note-tags">
+                            <span>個人事業主・フリーランス歓迎</span>
+                            <span>面談制・少人数伴走</span>
+                            <span>未経験OK</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <!-- 雰囲気を与えるダミービジュアル -->
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="伴走型プロデュースイメージ">
+                        <div class="visual-floating-badge">
+                            <div class="floating-icon">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div class="floating-text">
+                                <strong>「教わる」のではなく「一緒に創る」</strong>
+                                <p>あなたのサービスの価値を最大化する伴走支援</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCEPT / PHILOSOPHY -->
+    <section>
+        <div class="container">
+            <div class="concept-box">
+                <div class="concept-grid">
+                    <div>
+                        <span class="section-number">01 / PHILOSOPHY</span>
+                        <h2 class="concept-heading">
+                            「月100万の追走」より、<br>
+                            自分らしい「月10万の自立」を。
+                        </h2>
+                    </div>
+                    <div class="concept-desc">
+                        <p>
+                            SNSでよく見かける「月100万円」や「100名集客」の煽りに疲れていませんか？<br>
+                            本当に必要なのは、あなたが心から誇れるサービスで、無理のないペースでお客様に喜んでもらえる「持続可能な仕組み」です。
+                        </p>
+                        <p>
+                            ゼロから「毎月+10万円」を無理なく生み出せるようになると、時間と心に大きな余白が生まれます。その確かな第一歩を、WebとAIの最新技術を活かしてプロデュースします。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARGET / ISSUES -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02 / TARGET</span>
+                <h2 class="section-title">こんな想いや課題をお持ちではありませんか？</h2>
+                <p class="section-subtitle">ひとつでも当てはまるなら、このプロデュースが力になれます。</p>
+            </div>
+            <div class="target-list">
+                <div class="target-item">
+                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="target-text">
+                        <p>自分のスキルや「好きなこと」で月10万円ほどの収益を作りたい</p>
+                    </div>
+                </div>
+                <div class="target-item">
+                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="target-text">
+                        <p>やりたいサービスはあるが、どう魅せれば伝わるのか分からない</p>
+                    </div>
+                </div>
+                <div class="target-item">
+                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="target-text">
+                        <p>インスタやSNSを更新しているのに、お申し込みにつながらない</p>
+                    </div>
+                </div>
+                <div class="target-item">
+                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="target-text">
+                        <p>ガツガツした強引な営業や、終わりのないSNS追われ生活をやめたい</p>
+                    </div>
+                </div>
+                <div class="target-item">
+                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="target-text">
+                        <p>AIを使ってみたいが、自分のビジネスにどう活かすべきかわからない</p>
+                    </div>
+                </div>
+                <div class="target-item">
+                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="target-text">
+                        <p>PC1台で、場所に縛られずにありのまま自由に働きたい</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCE FEATURES (4 Pillars) -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03 / SOLUTION</span>
+                <h2 class="section-title">Web×AI プロデュース 4つの伴走支援</h2>
+                <p class="section-subtitle">知識を学ぶだけでなく、「実際に仕組みが動く状態」まで一緒につくりあげます。</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div>
+                        <span class="feature-num">PILLAR 01</span>
+                        <h3 class="feature-title">コンセプト・商品言語化</h3>
+                        <p class="feature-desc">
+                            あなたの強みや体験、売っていきたいサービスを深くヒアリング。「誰のどんな悩みを解決するのか」を明確にし、選ばれる高ぶれしないコンセプトを構築します。
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div>
+                        <span class="feature-num">PILLAR 02</span>
+                        <h3 class="feature-title">AIを活用した「伝わるLP」制作</h3>
+                        <p class="feature-desc">
+                            文章執筆やデザイン構想に最新のAIを活用。プロレベルのランディングページ（LP）をスピーディに構築し、あなたの魅力や想いを120%伝えるWebページを形にします。
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div>
+                        <span class="feature-num">PILLAR 03</span>
+                        <h3 class="feature-title">自動でお問合せが届く「集客導線」</h3>
+                        <p class="feature-desc">
+                            Instagram（Meta）広告やSNSから、LP、LINE、予約フォームまでを一本につなぎます。見てもらうだけで終わらず、自然とお申し込みが入る導線を完成させます。
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div>
+                        <span class="feature-num">PILLAR 04</span>
+                        <h3 class="feature-title">成果が出るまで迷わせないマンツーマン伴走</h3>
+                        <p class="feature-desc">
+                            動画教材を渡して終わりではありません。定期的なZoom面談とチャットサポートで、実際の集客・問い合わせが発生するまで二人三脚で伴走します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZOOM SESSION BENEFITS -->
+    <section>
+        <div class="container">
+            <div class="zoom-box">
+                <div class="section-header" style="margin-bottom: 20px;">
+                    <span class="section-number">04 / FREE ZOOM SESSION</span>
+                    <h2 class="section-title">無料Zoom個別相談（60分）で持ち帰れること</h2>
+                    <p class="section-subtitle">強引な売り込みは一切ありません。まずはあなたの「やりたいこと」をお聞かせください。</p>
+                </div>
+                <div class="zoom-benefits-grid">
+                    <div class="zoom-benefit-card">
+                        <i class="fa-solid fa-compass"></i>
+                        <h4>サービスの言語化と診断</h4>
+                        <p>あなたの知識ややりたいことが「商品として成り立つか」「どう見せるべきか」をプロの視点でクリアにします。</p>
+                    </div>
+                    <div class="zoom-benefit-card">
+                        <i class="fa-solid fa-route"></i>
+                        <h4>オーダーメイドの集客ロードマップ</h4>
+                        <p>Meta広告やSNSからZoom面談・お申し込みへ繋げるための、あなた専用の導線設計図をご提案します。</p>
+                    </div>
+                    <div class="zoom-benefit-card">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <h4>AI活用の具体的なイメージ</h4>
+                        <p>「LP制作や発信でどのようにAIを相棒にできるか」実際のデモや事例を交えてお見せします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STEP / FLOW -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05 / FLOW</span>
+                <h2 class="section-title">伴走スタートまでの流れ</h2>
+            </div>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <span class="step-head">STEP 01</span>
+                    <h3 class="step-title">フォームよりお申し込み</h3>
+                    <p class="step-desc">ページ下部のフォームより、簡単なアンケートと希望日時を入力してください。</p>
+                </div>
+                <div class="flow-step">
+                    <span class="step-head">STEP 02</span>
+                    <h3 class="step-title">無料Zoom個別相談（60分）</h3>
+                    <p class="step-desc">現状の課題や販売したい商品について壁打ち。具体的な集客ロードマップをお渡しします。</p>
+                </div>
+                <div class="flow-step">
+                    <span class="step-head">STEP 03</span>
+                    <h3 class="step-title">プロデュース伴走開始</h3>
+                    <p class="step-desc">方向性に納得いただけた場合のみスタート。商品・LP・集客導線を一緒に作り上げます。</p>
+                </div>
+                <div class="flow-step">
+                    <span class="step-head">STEP 04</span>
+                    <h3 class="step-title">集客・お申し込み獲得</h3>
+                    <p class="step-desc">導線をリリースし、やりたいことで月10万円の収益をあげる自立の仕組みを稼働させます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENTRY FORM SECTION -->
+    <section id="entry">
+        <div class="container">
+            <div class="entry-section">
+                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                    <span class="section-number">ENTRY</span>
+                    <h2 class="section-title">無料Zoom個別相談に申し込む</h2>
+                    <p class="section-subtitle">あなたの「やってみたい」「売りたいサービス」について、ぜひお気軽にご相談ください。</p>
+                </div>
+
+                <form onsubmit="event.preventDefault(); alert('お申し込みありがとうございます。確認メールをお送りいたします。');">
+                    <div class="form-group">
+                        <label class="form-label">お名前 <span class="req">必須</span></label>
+                        <input type="text" class="form-input" placeholder="山田 太郎" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス <span class="req">必須</span></label>
+                        <input type="email" class="form-input" placeholder="example@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">現在のお仕事・ご状況 <span class="req">必須</span></label>
+                        <select class="form-select" required>
+                            <option value="">選択してください</option>
+                            <option value="個人事業主・フリーランス">個人事業主・フリーランス</option>
+                            <option value="会社員（副業準備中・副業中）">会社員（副業準備中・副業中）</option>
+                            <option value="主婦・主夫">主婦・主夫</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">形にしたいサービスや、現在のお悩み（任意）</label>
+                        <textarea class="form-textarea" rows="4" placeholder="例：自分のヨガレッスンをオンラインで販売して月10万円目指したいが、集客方法がわからない。"></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit-btn">
+                        無料Zoom個別相談（60分）を予約する <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <p style="text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px;">
+                        ※送信後、自動返信メールにてZoomの日程調整リンクをお送りします。
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; RELEASE All Rights Reserved. | Web×AI 集客プロデュース</p>
+        </div>
+    </footer>
+
+</body>
+</html>
