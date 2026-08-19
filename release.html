@@ -1,947 +1,3365 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Release / Web×AI集客プロデュース - やりたいことで月10万円の自立を</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* === 1. RESET & BASE === */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --bg-dark: #0a0b0e;
-            --bg-card: #13151b;
-            --bg-card-hover: #1c1f28;
-            --text-primary: #f4f4f6;
-            --text-secondary: #9ea3b0;
-            --accent-green: #d1f366;
-            --accent-lime: #bce33e;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-highlight: rgba(209, 243, 102, 0.3);
-            --font-en: 'Plus Jakarta Sans', sans-serif;
-            --font-jp: 'Zen Kaku Gothic New', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            font-family: var(--font-jp);
-            line-height: 1.7;
-            letter-spacing: 0.03em;
-        }
-
-        body {
-            overflow-x: hidden;
-            background-color: var(--bg-dark);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* === 2. HEADER === */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            backdrop-filter: blur(12px);
-            background: rgba(10, 11, 14, 0.75);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 72px;
-        }
-
-        .logo {
-            font-family: var(--font-en);
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo span.tag {
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            background: rgba(209, 243, 102, 0.1);
-            color: var(--accent-green);
-            border-radius: 4px;
-            border: 1px solid rgba(209, 243, 102, 0.2);
-        }
-
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--accent-green);
-            color: #000;
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 10px 20px;
-            border-radius: 100px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: var(--accent-lime);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(209, 243, 102, 0.3);
-        }
-
-        /* === 3. HERO SECTION === */
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 100px;
-            position: relative;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            right: 10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(209, 243, 102, 0.08) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-badge-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            font-family: var(--font-en);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-green);
-            border: 1px solid var(--border-highlight);
-            padding: 6px 14px;
-            border-radius: 100px;
-            background: rgba(209, 243, 102, 0.03);
-        }
-
-        .badge-sub {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4.2rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 28px;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-title span.highlight {
-            color: var(--accent-green);
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-lead {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            line-height: 1.9;
-        }
-
-        .hero-lead strong {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-width: 480px;
-        }
-
-        .cta-btn-large {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--accent-green);
-            color: #000;
-            padding: 20px 32px;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(209, 243, 102, 0.2);
-        }
-
-        .cta-btn-large:hover {
-            background: var(--accent-lime);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(209, 243, 102, 0.35);
-        }
-
-        .cta-btn-large .cta-sub {
-            font-size: 0.8rem;
-            display: block;
-            font-weight: 500;
-            opacity: 0.8;
-            margin-top: 2px;
-        }
-
-        .cta-note-tags {
-            display: flex;
-            gap: 12px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            flex-wrap: wrap;
-            padding-left: 8px;
-        }
-
-        .cta-note-tags span::before {
-            content: '✓ ';
-            color: var(--accent-green);
-        }
-
-        /* Hero Image Area */
-        .hero-visual {
-            position: relative;
-        }
-
-        .visual-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .visual-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.9) contrast(1.05);
-        }
-
-        .visual-floating-badge {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            right: 24px;
-            background: rgba(10, 11, 14, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            padding: 16px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .floating-icon {
-            width: 42px;
-            height: 42px;
-            background: rgba(209, 243, 102, 0.15);
-            color: var(--accent-green);
-            border-radius: 10px;
-            display: grid;
-            place-items: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .floating-text p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .floating-text strong {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-        }
-
-        /* === 4. SECTION COMMON === */
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section-header {
-            margin-bottom: 60px;
-        }
-
-        .section-number {
-            font-family: var(--font-en);
-            color: var(--accent-green);
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .section-title {
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-top: 12px;
-        }
-
-        /* === 6. TARGET / ISSUES === */
-        .target-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        .target-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 18px;
-            padding: 28px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .target-item:hover {
-            border-color: var(--border-highlight);
-            transform: translateY(-4px);
-            background: var(--bg-card-hover);
-        }
-
-        .target-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(209, 243, 102, 0.1);
-            color: var(--accent-green);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            flex-shrink: 0;
-            font-size: 0.9rem;
-        }
-
-        .target-text p {
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        /* === 7. PRODUCE FEATURES (4 Pillars) === */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: transparent;
-            transition: background 0.3s ease;
-        }
-
-        .feature-card:hover::before {
-            background: var(--accent-green);
-        }
-
-        .feature-num {
-            font-family: var(--font-en);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--accent-green);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .feature-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            line-height: 1.4;
-        }
-
-        .feature-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        /* === 8. ZOOM SESSION BENEFITS === */
-        .zoom-box {
-            background: radial-gradient(circle at top right, rgba(209, 243, 102, 0.08), transparent 50%), var(--bg-card);
-            border: 1px solid var(--border-highlight);
-            border-radius: 28px;
-            padding: 50px;
-        }
-
-        .zoom-benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .zoom-benefit-card {
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 28px;
-        }
-
-        .zoom-benefit-card i {
-            font-size: 1.8rem;
-            color: var(--accent-green);
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .zoom-benefit-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .zoom-benefit-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* === 9. FLOW === */
-        .flow-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            position: relative;
-        }
-
-        .flow-step {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 18px;
-            padding: 28px 20px;
-            position: relative;
-        }
-
-        .step-head {
-            font-family: var(--font-en);
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .step-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .step-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* === 10. ENTRY FORM SECTION === */
-        .entry-section {
-            background: var(--bg-card);
-            border-radius: 32px;
-            padding: 60px;
-            border: 1px solid var(--border-highlight);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .form-label span.req {
-            color: var(--accent-green);
-            font-size: 0.8rem;
-            margin-left: 6px;
-        }
-
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px 20px;
-            color: var(--text-primary);
-            font-family: var(--font-jp);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-            outline: none;
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 3px rgba(209, 243, 102, 0.15);
-        }
-
-        .form-submit-btn {
-            width: 100%;
-            background: var(--accent-green);
-            color: #000;
-            font-weight: 700;
-            font-size: 1.15rem;
-            padding: 20px;
-            border: none;
-            border-radius: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(209, 243, 102, 0.2);
-            margin-top: 12px;
-        }
-
-        .form-submit-btn:hover {
-            background: var(--accent-lime);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(209, 243, 102, 0.35);
-        }
-
-        /* === 11. FOOTER === */
-        footer {
-            padding: 50px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-grid, .features-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .zoom-benefits-grid, .flow-steps {
-                grid-template-columns: 1fr;
-            }
-            .entry-section {
-                padding: 32px 24px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Release Yourself into the World. | Web×AI集客プロデュース</title>
+<meta name="description" content="「好きなこと・やりたいこと」を商品化し、Web×AIで月+10万円の仕組みを共創する。伴走型Web×AI集客プロデュース0期生募集。">
+<meta name="theme-color" content="#f8f3ea">
+<style>
+  :root{
+    --ink:#13110f;
+    --muted:#6f675f;
+    --line:rgba(19,17,15,.13);
+    --paper:#fbf8f1;
+    --ivory:#fffdf7;
+    --sand:#eee4d2;
+    --cyan:#12c8de;
+    --pink:#ed5c8a;
+    --orange:#f18b3d;
+    --red:#c81720;
+    --radius:18px;
+    --ease:cubic-bezier(.19,1,.22,1);
+    --serif:Georgia,"Times New Roman","Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;background:var(--paper);}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 4%, rgba(18,200,222,.14), transparent 24rem),
+      radial-gradient(circle at 86% 18%, rgba(237,92,138,.12), transparent 22rem),
+      linear-gradient(180deg,var(--ivory),var(--paper) 38%,#f5ecdd);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  body.is-locked{overflow:hidden;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;color:inherit;}
+  section{position:relative;}
+  ::selection{background:rgba(237,92,138,.25);}
+
+  .noise{
+    position:fixed;
+    inset:0;
+    z-index:900;
+    pointer-events:none;
+    opacity:.18;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+  }
+
+  .loader{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:grid;
+    place-items:center;
+    background:#faf7ef;
+    color:var(--ink);
+    transition:opacity .8s var(--ease), visibility .8s var(--ease);
+  }
+  .loader.is-hidden{opacity:0;visibility:hidden;}
+  .loader-inner{
+    width:min(82vw,380px);
+    display:grid;
+    gap:18px;
+  }
+  .loader-kicker{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  .loader-word{
+    font-family:var(--serif);
+    font-size:clamp(42px,16vw,94px);
+    line-height:.86;
+    letter-spacing:-.04em;
+  }
+  .loader-bar{
+    position:relative;
+    height:2px;
+    background:rgba(19,17,15,.14);
+    overflow:hidden;
+  }
+  .loader-bar span{
+    position:absolute;
+    inset:0 auto 0 0;
+    width:42%;
+    background:var(--ink);
+    animation:loadline 1.35s var(--ease) infinite;
+  }
+  @keyframes loadline{
+    0%{transform:translateX(-120%);}
+    100%{transform:translateX(260%);}
+  }
+
+  .site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:120;
+    padding:14px max(18px,env(safe-area-inset-left)) 0;
+    pointer-events:none;
+  }
+  .nav-shell{
+    pointer-events:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    max-width:1260px;
+    margin:0 auto;
+    padding:10px;
+    border:1px solid rgba(19,17,15,.13);
+    border-radius:999px;
+    background:rgba(255,253,247,.7);
+    backdrop-filter:blur(18px) saturate(145%);
+    box-shadow:0 18px 55px rgba(54,43,29,.08);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding-left:8px;
+    min-width:0;
+  }
+  .brand-mark{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:conic-gradient(from 210deg,var(--cyan),var(--pink),var(--orange),var(--cyan));
+    position:relative;
+    flex:0 0 auto;
+  }
+  .brand-mark::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    background:var(--ivory);
+  }
+  .brand-text{
+    font-size:11px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .nav-actions{display:flex;align-items:center;gap:6px;}
+  .pill-button{
+    border:1px solid rgba(19,17,15,.14);
+    background:rgba(255,253,247,.78);
+    border-radius:999px;
+    min-height:42px;
+    padding:0 15px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    cursor:pointer;
+    transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  }
+  .pill-button:hover{transform:translateY(-2px);background:var(--ink);color:var(--ivory);}
+  .pill-button .arrow{font-size:16px;line-height:1;}
+  .menu-button{width:42px;padding:0;}
+  .menu-lines{
+    width:16px;
+    height:10px;
+    position:relative;
+  }
+  .menu-lines::before,.menu-lines::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:100%;
+    height:1px;
+    background:currentColor;
+    transition:transform .35s var(--ease), top .35s var(--ease);
+  }
+  .menu-lines::before{top:1px;}
+  .menu-lines::after{top:8px;}
+  .menu-open .menu-lines::before{top:5px;transform:rotate(35deg);}
+  .menu-open .menu-lines::after{top:5px;transform:rotate(-35deg);}
+
+  .menu-panel{
+    position:fixed;
+    inset:0;
+    z-index:110;
+    display:grid;
+    align-items:end;
+    padding:86px 16px 16px;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .45s var(--ease);
+  }
+  .menu-panel.is-open{opacity:1;pointer-events:auto;}
+  .menu-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(19,17,15,.32);
+    backdrop-filter:blur(8px);
+  }
+  .menu-card{
+    position:relative;
+    max-width:760px;
+    width:100%;
+    margin:0 auto;
+    border-radius:26px;
+    background:var(--ivory);
+    border:1px solid rgba(19,17,15,.14);
+    padding:26px;
+    transform:translateY(24px) scale(.98);
+    transition:transform .55s var(--ease);
+    box-shadow:0 34px 80px rgba(43,31,21,.22);
+  }
+  .menu-panel.is-open .menu-card{transform:translateY(0) scale(1);}
+  .menu-card p{
+    margin:0 0 24px;
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .menu-links{
+    display:grid;
+    gap:2px;
+    counter-reset:menu;
+  }
+  .menu-links a{
+    counter-increment:menu;
+    border-top:1px solid var(--line);
+    padding:15px 0;
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    font-family:var(--serif);
+    font-size:clamp(26px,9vw,58px);
+    line-height:.96;
+    letter-spacing:-.05em;
+  }
+  .menu-links a::before{
+    content:"0" counter(menu);
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.18em;
+    color:var(--muted);
+    padding-top:.45em;
+  }
+
+  .hero{
+    min-height:100svh;
+    height:100svh;
+    padding:0;
+    display:block;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    width:100%;
+    height:100%;
+    margin:0;
+    position:relative;
+    display:block;
+    min-height:100svh;
+  }
+  .hero-type{
+    position:absolute;
+    inset:0;
+    z-index:4;
+    display:block;
+    max-width:none;
+    padding:120px 22px 34px;
+    pointer-events:none;
+  }
+  .hero-program-badge{
+    position:absolute;
+    z-index:5;
+    left:22px;
+    top:88px;
+    display:inline-flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    max-width:calc(100vw - 44px);
+    padding:8px 10px;
+    border:1px solid rgba(19,17,15,.14);
+    border-radius:999px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(14px) saturate(145%);
+    color:rgba(19,17,15,.78);
+    font-size:10px;
+    line-height:1.2;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    box-shadow:0 14px 38px rgba(54,43,29,.08);
+  }
+  .hero-program-badge span{
+    display:inline-flex;
+    align-items:center;
+    min-height:22px;
+  }
+  .hero-program-badge .badge-dot{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+  }
+  .edition-row{
+    display:none;
+  }
+  .hero-bg-type{
+    position:absolute;
+    left:-.08em;
+    right:auto;
+    bottom:10svh;
+    z-index:1;
+    max-width:8ch;
+    font-family:var(--serif);
+    font-size:clamp(96px,28vw,220px);
+    line-height:.76;
+    letter-spacing:-.08em;
+    color:rgba(19,17,15,.07);
+    pointer-events:none;
+    user-select:none;
+  }
+  .hero-title{
+    position:absolute;
+    z-index:2;
+    left:22px;
+    top:45%;
+    transform:translateY(-50%);
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(24px,7vw,36px);
+    line-height:1.22;
+    letter-spacing:-.04em;
+    max-width:11em;
+    color:var(--ink);
+    text-shadow:0 1px 16px rgba(255,253,247,.42);
+    pointer-events:none;
+  }
+  .split-line{
+    display:block;
+    overflow:hidden;
+  }
+  .split-line span{
+    display:block;
+    transform:translateY(110%);
+  }
+  .hero-title .jp{
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    font-size:1em;
+    letter-spacing:-.03em;
+    line-height:1.22;
+    white-space:normal;
+  }
+  .hero-title .en-line{display:none;}
+  .hero-title .red{color:inherit;}
+  .hero-copy{
+    position:absolute;
+    z-index:3;
+    left:22px;
+    right:22px;
+    bottom:34px;
+    display:grid;
+    gap:16px;
+    max-width:520px;
+    justify-self:start;
+    align-self:end;
+    padding:0;
+    pointer-events:auto;
+  }
+  .hero-copy p{
+    margin:0;
+    font-size:clamp(16px,4.4vw,20px);
+    line-height:1.75;
+    letter-spacing:.02em;
+    max-width:24em;
+    color:rgba(19,17,15,.8);
+  }
+  .hero-copy .hero-subcopy{
+    max-width:27em;
+  }
+  .hero-copy .hero-subcopy strong{
+    color:var(--ink);
+    font-weight:600;
+  }
+  .hero-copy .hero-support{
+    color:rgba(19,17,15,.6);
+    font-size:clamp(13px,3.2vw,15px);
+    line-height:1.8;
+  }
+  .hero-cta{
+    width:min(100%,560px);
+    min-height:72px;
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr) auto auto;
+    align-items:center;
+    gap:12px;
+    border:1px solid rgba(255,255,255,.48);
+    border-radius:999px;
+    padding:10px 12px 10px 14px;
+    background:
+      linear-gradient(135deg,rgba(237,92,138,.96),rgba(241,139,61,.96)),
+      var(--pink);
+    color:var(--ivory);
+    box-shadow:
+      0 22px 48px rgba(237,92,138,.28),
+      0 12px 24px rgba(54,43,29,.14),
+      inset 0 1px 0 rgba(255,255,255,.35);
+    font-size:14px;
+    letter-spacing:.04em;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s var(--ease);
+  }
+  .hero-cta:hover{
+    transform:translateY(-3px);
+    filter:saturate(1.04) brightness(1.02);
+    box-shadow:
+      0 28px 58px rgba(237,92,138,.32),
+      0 16px 28px rgba(54,43,29,.16),
+      inset 0 1px 0 rgba(255,255,255,.4);
+  }
+  .hero-cta-limit{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(255,253,247,.22);
+    border:1px solid rgba(255,255,255,.42);
+    color:rgba(255,253,247,.94);
+    font-size:11px;
+    line-height:1.25;
+    letter-spacing:.04em;
+    text-align:center;
+    flex:0 0 auto;
+  }
+  .hero-cta-main{
+    font-size:clamp(25px,4.2vw,42px);
+    line-height:1;
+    letter-spacing:-.06em;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .hero-cta-start{
+    padding:8px 12px;
+    border-radius:999px;
+    background:rgba(255,253,247,.18);
+    border:1px solid rgba(255,255,255,.28);
+    font-size:clamp(13px,1.7vw,17px);
+    line-height:1;
+    white-space:nowrap;
+  }
+  .hero-cta-arrow{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:rgba(255,253,247,.92);
+    color:var(--pink);
+    font-size:18px;
+    line-height:1;
+    flex:0 0 auto;
+  }
+  .hero-cta-note{
+    margin-top:-4px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    color:rgba(19,17,15,.64);
+    font-size:11px;
+    letter-spacing:.04em;
+  }
+  .hero-cta-note span{
+    display:inline-flex;
+    align-items:center;
+    min-height:26px;
+    padding:0 10px;
+    border:1px solid rgba(19,17,15,.13);
+    border-radius:999px;
+    background:rgba(255,253,247,.58);
+    backdrop-filter:blur(10px);
+  }
+  .hero-media{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    min-height:100%;
+    border-radius:0;
+    overflow:hidden;
+    isolation:isolate;
+    border:none;
+    box-shadow:none;
+    opacity:0;
+    background:var(--ivory);
+  }
+  .hero-media img{
+    width:100%;
+    height:100%;
+    min-height:100%;
+    object-fit:cover;
+    object-position:right center;
+    transform:scale(1.04);
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(90deg,rgba(255,253,247,.95) 0%,rgba(250,247,240,.82) 34%,rgba(244,236,223,.42) 68%,rgba(244,236,223,.18) 100%),
+      linear-gradient(180deg,rgba(255,253,247,.48),rgba(238,232,222,.22) 48%,rgba(244,236,223,.62));
+    pointer-events:none;
+  }
+  .hero-note{
+    position:absolute;
+    right:12px;
+    bottom:12px;
+    z-index:2;
+    max-width:240px;
+    padding:12px 14px;
+    border-radius:18px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(16px);
+    font-size:11px;
+    line-height:1.6;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .scroll-cue{
+    display:none;
+    position:absolute;
+    left:24px;
+    bottom:26px;
+    writing-mode:vertical-rl;
+    font-size:10px;
+    letter-spacing:.24em;
+    color:var(--muted);
+  }
+
+  .marquee{
+    overflow:hidden;
+    padding:18px 0;
+    border-block:1px solid var(--line);
+    background:rgba(255,253,247,.52);
+  }
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    animation:marquee 28s linear infinite;
+  }
+  .marquee span{
+    padding-right:28px;
+    font-family:var(--serif);
+    font-size:clamp(34px,12vw,92px);
+    line-height:.9;
+    letter-spacing:-.055em;
+    white-space:nowrap;
+  }
+  .marquee .accent{color:var(--pink);}
+  @keyframes marquee{
+    to{transform:translateX(-50%);}
+  }
+
+  .section{
+    padding:84px 16px;
+  }
+  .section-inner{
+    width:min(100%,1180px);
+    margin:0 auto;
+  }
+  .section-label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+    font-size:11px;
+    letter-spacing:.19em;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+  .section-label::before{
+    content:"";
+    width:34px;
+    height:1px;
+    background:currentColor;
+  }
+  .statement{
+    display:grid;
+    gap:32px;
+  }
+  .statement h2,.editorial-title{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(42px,14vw,128px);
+    line-height:.92;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .statement h2 .jp{
+    display:block;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+    font-size:.62em;
+    letter-spacing:-.08em;
+    line-height:1.18;
+  }
+  .large-copy{
+    margin:0;
+    font-size:clamp(18px,4.6vw,32px);
+    line-height:1.7;
+    letter-spacing:.02em;
+  }
+  .body-copy{
+    margin:0;
+    color:var(--muted);
+    font-size:15px;
+    line-height:2;
+  }
+  .accent-rule{
+    width:min(100%,520px);
+    height:2px;
+    margin-top:8px;
+    background:linear-gradient(90deg,var(--cyan),var(--pink),var(--orange));
+  }
+  .proposal-visual{
+    position:relative;
+    margin-top:10px;
+    min-height:min(88vw,560px);
+    border-radius:34px;
+    overflow:hidden;
+    isolation:isolate;
+    background:linear-gradient(135deg,rgba(18,200,222,.2),rgba(237,92,138,.15),rgba(241,139,61,.18));
+    box-shadow:0 26px 70px rgba(62,48,30,.12);
+    clip-path:inset(0 round 34px);
+  }
+  .proposal-visual::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    z-index:2;
+    pointer-events:none;
+    background:
+      linear-gradient(90deg,var(--paper),rgba(251,248,241,0) 18%,rgba(251,248,241,0) 82%,var(--paper)),
+      linear-gradient(180deg,var(--paper),rgba(251,248,241,0) 18%,rgba(251,248,241,0) 72%,var(--paper));
+  }
+  .proposal-visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    border-radius:34px;
+    box-shadow:inset 0 0 0 1px rgba(255,253,247,.56), inset 0 0 42px rgba(251,248,241,.9);
+  }
+  .proposal-visual img{
+    width:100%;
+    height:100%;
+    min-height:min(88vw,560px);
+    object-fit:cover;
+    object-position:center 46%;
+    filter:saturate(.92) contrast(.98) brightness(1.06);
+    transform:scale(1.04);
+  }
+  .proposal-caption{
+    position:absolute;
+    z-index:4;
+    left:18px;
+    right:18px;
+    bottom:18px;
+    margin:0;
+    color:rgba(19,17,15,.72);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+
+  .message-video{
+    padding:104px 16px;
+    overflow:hidden;
+  }
+  .message-video-wrap{
+    width:min(100%,1120px);
+    margin:0 auto;
+  }
+  .message-video-head{
+    max-width:640px;
+    margin:0 auto 44px;
+    text-align:center;
+  }
+  .message-video-head .section-label{
+    justify-content:center;
+  }
+  .message-video-title{
+    margin:20px 0 0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(30px,7.6vw,52px);
+    line-height:1.32;
+    letter-spacing:-.03em;
+    font-weight:400;
+  }
+  .message-video-copy{
+    margin-top:26px;
+    display:grid;
+    gap:18px;
+  }
+  .message-video-copy p{
+    margin:0;
+    color:var(--muted);
+    font-size:clamp(15px,4vw,18px);
+    line-height:2;
+  }
+  .message-video-frame{
+    position:relative;
+    margin-top:8px;
+    border-radius:32px;
+    overflow:hidden;
+    isolation:isolate;
+    background:var(--sand);
+    box-shadow:0 30px 80px rgba(62,48,30,.14);
+    opacity:0;
+    transform:scale(.95);
+  }
+  .message-video-frame video{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .message-video-frame::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    border-radius:32px;
+    box-shadow:inset 0 0 0 1px rgba(255,253,247,.34);
+  }
+  .message-video-play{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    border:none;
+    padding:0;
+    margin:0;
+    background:rgba(19,17,15,.14);
+    cursor:pointer;
+    opacity:1;
+    transition:opacity .5s var(--ease), background .35s var(--ease);
+  }
+  .message-video-play:hover{background:rgba(19,17,15,.22);}
+  .message-video-play-icon{
+    position:absolute;
+    top:78%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(255,253,247,.94);
+    box-shadow:0 14px 34px rgba(19,17,15,.26);
+    transition:transform .35s var(--ease);
+  }
+  .message-video-play:hover .message-video-play-icon{transform:translate(-50%,-50%) scale(1.05);}
+  .message-video-play-icon::before{
+    content:"";
+    width:0;
+    height:0;
+    margin-left:5px;
+    border-style:solid;
+    border-width:10px 0 10px 16px;
+    border-color:transparent transparent transparent var(--ink);
+  }
+  .message-video-frame.is-playing .message-video-play{
+    opacity:0;
+    pointer-events:none;
+  }
+  .message-video-duration{
+    margin:18px 0 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    letter-spacing:.06em;
+  }
+  @media (min-width:760px){
+    .message-video{padding:168px 24px;}
+    .message-video-head{margin-bottom:56px;}
+    .message-video-play-icon{width:72px;height:72px;}
+    .message-video-play-icon::before{
+      margin-left:7px;
+      border-width:14px 0 14px 22px;
+    }
+    .message-video-duration{margin-top:22px;}
+  }
+
+  .recommend{
+    padding:76px 16px 82px;
+    background:
+      linear-gradient(90deg,rgba(18,200,222,.11),rgba(255,253,247,.3) 34%,rgba(237,92,138,.1)),
+      var(--ivory);
+    overflow:hidden;
+  }
+  .recommend-paper{
+    width:min(100%,1060px);
+    margin:0 auto;
+    position:relative;
+    display:grid;
+    gap:30px;
+    border-block:1px solid rgba(19,17,15,.14);
+    padding:30px 0;
+  }
+  .recommend-paper::before{
+    content:"";
+    position:absolute;
+    inset:22px -8px auto auto;
+    width:min(46vw,260px);
+    height:18px;
+    background:rgba(237,92,138,.38);
+    transform:rotate(-3deg);
+    border-radius:999px;
+    filter:blur(.2px);
+  }
+  .recommend-title{
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(38px,12vw,118px);
+    line-height:.98;
+    letter-spacing:-.08em;
+    font-weight:400;
+  }
+  .recommend-title span{
+    position:relative;
+    display:inline-block;
+    white-space:nowrap;
+  }
+  .recommend-title span::after{
+    content:"";
+    position:absolute;
+    left:-.06em;
+    right:-.05em;
+    bottom:.04em;
+    height:.22em;
+    background:linear-gradient(90deg,rgba(18,200,222,.34),rgba(241,139,61,.34));
+    z-index:-1;
+    transform:rotate(-1.6deg);
+  }
+  .recommend-list{
+    display:grid;
+    gap:15px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .recommend-list li{
+    position:relative;
+    display:grid;
+    grid-template-columns:34px 1fr;
+    gap:12px;
+    align-items:start;
+    padding:8px 0 13px;
+    border-bottom:1px dashed rgba(19,17,15,.22);
+    font-size:clamp(18px,5.2vw,34px);
+    line-height:1.45;
+    letter-spacing:-.02em;
+  }
+  .recommend-list li::before{
+    content:"✓";
+    color:var(--pink);
+    font-family:"Comic Sans MS","Bradley Hand",cursive;
+    font-size:1.25em;
+    line-height:1;
+    transform:rotate(-9deg);
+  }
+  .recommend-list mark{
+    color:inherit;
+    background:linear-gradient(transparent 58%,rgba(241,139,61,.32) 0);
+    padding:0 .05em;
+    box-decoration-break:clone;
+    -webkit-box-decoration-break:clone;
+  }
+  .scribble-note{
+    margin:2px 0 0;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  .duo{
+    display:grid;
+    gap:32px;
+    align-items:center;
+  }
+  .image-frame{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(19,17,15,.12);
+    background:var(--sand);
+    box-shadow:0 24px 62px rgba(62,48,30,.11);
+    clip-path:inset(18% 0 18% 0 round 24px);
+  }
+  .image-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.12);
+  }
+  .image-tall img{
+    object-position:62% 26%;
+    filter:saturate(.82) contrast(1.06) brightness(1.03);
+  }
+  .image-tall.feeling-workstyle img{
+    object-position:43% center;
+    filter:saturate(.92) contrast(1.02) brightness(1.04);
+  }
+  .image-wide img{
+    object-position:72% 36%;
+    filter:saturate(1.18) contrast(.96) brightness(1.04);
+  }
+  .image-tall{height:min(118vw,680px);border-radius:30px;}
+  .image-wide{height:min(82vw,520px);border-radius:28px;}
+  .float-caption{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    z-index:2;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:10px 12px;
+    border-radius:999px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(14px);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .text-stack{
+    display:grid;
+    gap:22px;
+  }
+  .text-stack .num{
+    font-family:var(--serif);
+    font-size:clamp(64px,21vw,156px);
+    line-height:.76;
+    letter-spacing:-.09em;
+    color:rgba(19,17,15,.18);
+  }
+  .mini-grid{
+    display:grid;
+    gap:12px;
+    margin-top:10px;
+  }
+  .mini-card{
+    border-top:1px solid var(--line);
+    padding:18px 0 4px;
+  }
+  .mini-card h3{
+    margin:0 0 10px;
+    font-family:var(--serif);
+    font-size:clamp(25px,7vw,44px);
+    line-height:1;
+    letter-spacing:-.045em;
+    font-weight:400;
+  }
+  .mini-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:14px;
+  }
+
+  .future{
+    background:
+      linear-gradient(90deg,rgba(18,200,222,.1),rgba(255,253,247,.42) 42%,rgba(241,139,61,.12)),
+      var(--ivory);
+    overflow:hidden;
+  }
+  .future-grid{
+    display:grid;
+    gap:0;
+    margin-top:34px;
+    border-top:1px solid var(--line);
+  }
+  .future-item{
+    display:grid;
+    gap:12px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .future-item span{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+    color:var(--ivory);
+    font-size:12px;
+    letter-spacing:.08em;
+  }
+  .future-item h3{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(31px,8.2vw,64px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .future-item p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
+  .photo-river{
+    overflow:hidden;
+    padding-inline:0;
+    background:
+      radial-gradient(circle at 14% 10%, rgba(18,200,222,.12), transparent 22rem),
+      radial-gradient(circle at 88% 34%, rgba(237,92,138,.1), transparent 20rem),
+      linear-gradient(180deg,var(--ivory),var(--paper) 52%,#f7efe2);
+  }
+  .photo-river-head{
+    padding-inline:16px;
+  }
+  .photo-river-wrap{
+    width:100%;
+    max-width:100vw;
+    overflow:hidden;
+    display:grid;
+    gap:18px;
+    margin-top:42px;
+    padding-block:8px 10px;
+  }
+  .photo-lane{
+    width:100%;
+    overflow:hidden;
+    transform:translateZ(0);
+  }
+  .photo-lane-offset{
+    transform:translateX(9vw) translateZ(0);
+  }
+  .photo-track{
+    --photo-gap:14px;
+    display:flex;
+    width:max-content;
+    will-change:transform;
+  }
+  .photo-track.to-left{
+    animation:photoFlowLeft 60s linear infinite;
+  }
+  .photo-track.to-right{
+    animation:photoFlowRight 70s linear infinite;
+  }
+  .photo-set{
+    flex:0 0 auto;
+    display:flex;
+    gap:var(--photo-gap);
+    padding-right:var(--photo-gap);
+  }
+  .photo-card{
+    flex:0 0 clamp(158px,48vw,228px);
+    width:clamp(158px,48vw,228px);
+    aspect-ratio:4 / 5;
+    margin:0;
+    overflow:hidden;
+    border-radius:26px;
+    background:var(--sand);
+    box-shadow:0 18px 44px rgba(62,48,30,.12);
+  }
+  .photo-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    filter:saturate(.96) contrast(.98) brightness(1.03);
+  }
+  @keyframes photoFlowLeft{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @keyframes photoFlowRight{
+    from{transform:translateX(-50%);}
+    to{transform:translateX(0);}
+  }
+
+  .empathy{
+    position:relative;
+    padding-block:98px;
+    overflow:hidden;
+    background:
+      linear-gradient(90deg,rgba(251,248,241,.95),rgba(251,248,241,.78) 42%,rgba(251,248,241,.9)),
+      linear-gradient(180deg,rgba(251,248,241,.95),rgba(251,248,241,.7) 42%,rgba(251,248,241,.96)),
+      url("resonance-airport.png") center center/cover no-repeat;
+  }
+  .empathy::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 8% 28%,rgba(18,200,222,.16),transparent 28rem),
+      radial-gradient(circle at 88% 22%,rgba(237,92,138,.13),transparent 24rem);
+    mix-blend-mode:multiply;
+  }
+  .empathy .section-inner{
+    position:relative;
+    z-index:1;
+  }
+  .question-list{
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .question-list p{
+    margin:0;
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+    font-family:var(--serif);
+    font-size:clamp(28px,8vw,74px);
+    line-height:1.04;
+    letter-spacing:-.055em;
+  }
+  .question-list p:nth-child(even){text-align:right;}
+  .question-list small{
+    display:block;
+    margin-top:10px;
+    font-family:var(--sans);
+    font-size:13px;
+    line-height:1.8;
+    letter-spacing:.03em;
+    color:var(--muted);
+  }
+
+  .creator{
+    overflow:hidden;
+  }
+  .creator-grid{
+    display:grid;
+    gap:30px;
+  }
+  .creator-title{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(44px,16vw,160px);
+    line-height:.86;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .creator-title .cyan{color:var(--cyan);}
+  .creator-title .pink{color:var(--pink);}
+  .creator-title .orange{color:var(--orange);}
+  .creator-copy{
+    display:grid;
+    gap:18px;
+  }
+  .creator-copy p{
+    margin:0;
+    color:var(--muted);
+    line-height:2;
+  }
+  .creator-copy strong{color:var(--ink);font-weight:600;}
+
+  .difference{
+    background:
+      radial-gradient(circle at 10% 12%,rgba(18,200,222,.12),transparent 26rem),
+      radial-gradient(circle at 92% 18%,rgba(237,92,138,.12),transparent 24rem),
+      var(--ivory);
+  }
+  .compare-grid{
+    display:grid;
+    gap:18px;
+    margin-top:36px;
+  }
+  .compare-card{
+    border:1px solid var(--line);
+    border-radius:26px;
+    padding:22px;
+    background:rgba(255,253,247,.58);
+  }
+  .compare-card.featured{
+    background:var(--ink);
+    color:var(--ivory);
+    border-color:rgba(19,17,15,.06);
+  }
+  .compare-card h3{
+    margin:0 0 20px;
+    font-family:var(--serif);
+    font-size:clamp(35px,9vw,78px);
+    line-height:.95;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .compare-list{
+    display:grid;
+    gap:0;
+    margin:0;
+    padding:0;
+    list-style:none;
+    border-top:1px solid currentColor;
+  }
+  .compare-list li{
+    padding:14px 0;
+    border-bottom:1px solid currentColor;
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .compare-card.featured .compare-list li{color:rgba(255,253,247,.76);}
+  .compare-card.featured .compare-list{border-color:rgba(255,253,247,.2);}
+  .compare-card.featured .compare-list li{border-color:rgba(255,253,247,.2);}
+
+  .learning{
+    background:var(--ink);
+    color:var(--ivory);
+  }
+  .learning .section-label,.learning .body-copy{color:rgba(255,253,247,.68);}
+  .lesson-grid{
+    display:grid;
+    gap:14px;
+    margin-top:34px;
+  }
+  .lesson{
+    min-height:220px;
+    border:1px solid rgba(255,253,247,.17);
+    border-radius:24px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background:
+      linear-gradient(135deg,rgba(255,253,247,.08),rgba(255,253,247,.02)),
+      rgba(255,255,255,.02);
+    overflow:hidden;
+    position:relative;
+  }
+  .lesson::after{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    right:-26px;
+    top:-28px;
+    background:var(--tone, var(--cyan));
+    opacity:.72;
+    filter:blur(.2px);
+  }
+  .lesson span{
+    font-family:var(--serif);
+    font-size:58px;
+    letter-spacing:-.08em;
+    opacity:.42;
+  }
+  .lesson h3{
+    margin:34px 0 10px;
+    font-size:22px;
+    line-height:1.35;
+    font-weight:500;
+  }
+  .lesson p{
+    margin:0;
+    color:rgba(255,253,247,.7);
+    line-height:1.8;
+    font-size:14px;
+  }
+
+  .lifestyle-board{
+    display:grid;
+    gap:16px;
+    margin-top:34px;
+  }
+  .life-card{
+    min-height:260px;
+    border-radius:26px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border:1px solid rgba(19,17,15,.12);
+    overflow:hidden;
+    position:relative;
+    background:var(--ivory);
+  }
+  .life-card.image{
+    min-height:360px;
+    padding:0;
+  }
+  .life-card.image img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:42% 52%;
+    transform:scale(1.1);
+    filter:saturate(.72) contrast(1.1) brightness(.9);
+  }
+  .life-card.image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(19,17,15,0),rgba(19,17,15,.38));
+  }
+  .life-card.image .life-text{
+    position:relative;
+    z-index:2;
+    margin-top:auto;
+    color:var(--ivory);
+    padding:22px;
+  }
+  .life-kicker{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .life-card.image .life-kicker{color:rgba(255,253,247,.78);}
+  .life-card h3{
+    margin:28px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(36px,11vw,72px);
+    line-height:.94;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .life-card p{
+    margin:18px 0 0;
+    line-height:1.9;
+    color:var(--muted);
+  }
+  .life-card.image p{color:rgba(255,253,247,.82);}
+  .life-card.with-photo{
+    min-height:420px;
+    padding:0;
+    background:var(--life-photo-bg,#dff8fa);
+  }
+  .life-card.with-photo .life-copy{
+    position:relative;
+    z-index:2;
+    min-height:100%;
+    padding:22px;
+    padding-bottom:188px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .life-photo{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:172px;
+    margin:0;
+    border-radius:0 0 26px 26px;
+    overflow:hidden;
+    opacity:.94;
+    box-shadow:0 -18px 40px rgba(18,200,222,.15);
+  }
+  .life-photo::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(180deg,var(--life-photo-bg,#dff8fa) 0%,var(--life-photo-fade,rgba(223,248,250,.34)) 36%,rgba(223,248,250,0) 76%);
+  }
+  .life-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:34% 32%;
+    display:block;
+  }
+  .life-card.pink-bg.with-photo{
+    --life-photo-bg:#fbe5ed;
+    --life-photo-fade:rgba(251,229,237,.38);
+  }
+  .life-card.experience-photo .life-photo img{
+    object-position:50% 18%;
+  }
+  .life-card.orange-bg.with-photo{
+    --life-photo-bg:#fae8d4;
+    --life-photo-fade:rgba(250,232,212,.4);
+  }
+  .life-card.name-photo .life-photo img{
+    object-position:58% 18%;
+  }
+  .cyan-bg{background:#dff8fa;}
+  .pink-bg{background:#fbe5ed;}
+  .orange-bg{background:#fae8d4;}
+
+  .fit-list{
+    margin-top:34px;
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .fit-item{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;
+    align-items:start;
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .fit-item span{
+    width:34px;
+    height:34px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--ivory);
+    font-size:12px;
+  }
+  .fit-item p{
+    margin:0;
+    font-size:clamp(19px,5.4vw,36px);
+    line-height:1.35;
+    letter-spacing:-.02em;
+  }
+  .fit-item small{
+    display:block;
+    margin-top:8px;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+
+  .change-grid{
+    display:grid;
+    gap:18px;
+    margin-top:34px;
+  }
+  .change-card{
+    border-left:1px solid var(--line);
+    padding:0 0 0 18px;
+  }
+  .change-card h3{
+    margin:0 0 12px;
+    font-family:var(--serif);
+    font-size:clamp(31px,8vw,58px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .change-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
+  .work-cycle{
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 12% 10%,rgba(18,200,222,.13),transparent 24rem),
+      radial-gradient(circle at 88% 82%,rgba(241,139,61,.16),transparent 24rem),
+      linear-gradient(180deg,#fffdf7,#f4eadc 78%,#f0e4d4);
+  }
+  .work-cycle-layout{
+    display:grid;
+    gap:38px;
+    align-items:center;
+  }
+  .work-cycle-copy .body-copy + .body-copy{
+    margin-top:18px;
+  }
+  .cycle-points{
+    display:grid;
+    gap:12px;
+    margin-top:28px;
+  }
+  .cycle-point{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin:0;
+    color:var(--muted);
+    line-height:1.85;
+  }
+  .cycle-point::before{
+    content:"";
+    width:9px;
+    height:9px;
+    margin-top:.72em;
+    border-radius:50%;
+    background:var(--orange);
+    box-shadow:0 0 0 7px rgba(241,139,61,.13);
+    flex:0 0 auto;
+  }
+  .work-cycle-board{
+    position:relative;
+    padding:22px;
+    border:2px solid rgba(19,17,15,.76);
+    border-radius:28px 34px 24px 32px;
+    background:
+      linear-gradient(rgba(19,17,15,.036) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(19,17,15,.028) 1px,transparent 1px),
+      rgba(255,253,247,.9);
+    background-size:28px 28px;
+    box-shadow:
+      16px 18px 0 rgba(19,17,15,.065),
+      0 22px 62px rgba(54,43,29,.12);
+    transform:rotate(-.35deg);
+  }
+  .work-cycle-board::before{
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:11%;
+    width:76px;
+    height:19px;
+    border-radius:999px;
+    background:rgba(241,139,61,.22);
+    transform:rotate(-7deg);
+  }
+  .work-cycle-board::after{
+    content:"";
+    position:absolute;
+    right:22px;
+    top:24px;
+    width:14px;
+    height:14px;
+    border:2px solid var(--cyan);
+    border-radius:50%;
+    opacity:.72;
+  }
+  .board-title{
+    margin:0 0 18px;
+    max-width:13em;
+    font-family:var(--serif);
+    font-size:clamp(27px,7vw,46px);
+    line-height:.98;
+    letter-spacing:-.06em;
+    font-weight:400;
+  }
+  .board-route{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:20px;
+  }
+  .route-pill{
+    display:inline-flex;
+    align-items:center;
+    min-height:34px;
+    padding:7px 12px;
+    border:1px solid rgba(19,17,15,.16);
+    border-radius:999px;
+    background:rgba(255,253,247,.78);
+    color:rgba(19,17,15,.72);
+    font-size:12px;
+    line-height:1;
+  }
+  .route-arrow{
+    display:inline-flex;
+    align-items:center;
+    color:var(--orange);
+    font-size:18px;
+  }
+  .cycle-steps{
+    display:grid;
+    gap:10px;
+  }
+  .cycle-step{
+    position:relative;
+    display:grid;
+    gap:10px;
+    padding:18px;
+    border:1.7px solid rgba(19,17,15,.72);
+    border-radius:20px 16px 22px 18px;
+    background:rgba(255,255,255,.66);
+    box-shadow:6px 7px 0 rgba(19,17,15,.055);
+  }
+  .cycle-step.highlight{
+    border-color:rgba(241,139,61,.92);
+    background:
+      linear-gradient(135deg,rgba(241,139,61,.14),rgba(255,255,255,.74) 55%),
+      rgba(255,255,255,.7);
+  }
+  .cycle-step-label{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:max-content;
+    min-height:25px;
+    padding:0 11px;
+    border-radius:999px;
+    background:var(--ink);
+    color:var(--ivory);
+    font-size:10px;
+    letter-spacing:.14em;
+  }
+  .cycle-step h3{
+    margin:0;
+    font-size:clamp(18px,4.8vw,24px);
+    line-height:1.42;
+    letter-spacing:-.03em;
+    font-weight:600;
+  }
+  .cycle-step p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.75;
+    font-size:14px;
+  }
+  .cycle-arrow{
+    display:grid;
+    place-items:center;
+    color:var(--orange);
+    font-size:24px;
+    line-height:1;
+  }
+  .work-kind{
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid rgba(19,17,15,.14);
+  }
+  .work-kind-title{
+    margin:0 0 12px;
+    color:var(--cyan);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+  .work-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .work-tag{
+    padding:8px 11px;
+    border:1px solid rgba(19,17,15,.16);
+    border-radius:999px 999px 999px 12px;
+    background:rgba(255,253,247,.72);
+    color:rgba(19,17,15,.72);
+    font-size:12px;
+    line-height:1;
+  }
+  .cycle-loop{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:9px;
+    align-items:center;
+    margin-top:14px;
+    padding:14px;
+    border:1.5px dashed rgba(18,200,222,.7);
+    border-radius:18px;
+    background:rgba(18,200,222,.06);
+  }
+  .loop-pill{
+    min-height:42px;
+    display:grid;
+    place-items:center;
+    padding:8px 10px;
+    border-radius:999px;
+    background:rgba(255,253,247,.82);
+    border:1px solid rgba(19,17,15,.15);
+    text-align:center;
+    font-weight:600;
+    font-size:13px;
+  }
+  .loop-arrow{
+    color:var(--orange);
+    font-size:20px;
+  }
+
+  .flow{
+    background:#f0e4d4;
+  }
+  .flow-track{
+    display:grid;
+    gap:18px;
+    margin-top:36px;
+  }
+  .flow-step{
+    display:grid;
+    gap:12px;
+    padding:20px 0;
+    border-top:1px solid rgba(19,17,15,.15);
+  }
+  .flow-step:last-child{border-bottom:1px solid rgba(19,17,15,.15);}
+  .flow-step .week{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .flow-step h3{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(30px,8.4vw,66px);
+    line-height:1;
+    letter-spacing:-.055em;
+    font-weight:400;
+  }
+  .flow-step p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+
+  .message{
+    min-height:86svh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    overflow:hidden;
+  }
+  .message::before{
+    content:"";
+    position:absolute;
+    width:min(86vw,560px);
+    aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(18,200,222,.22),rgba(237,92,138,.16) 52%,transparent 70%);
+    filter:blur(10px);
+  }
+  .message-inner{
+    position:relative;
+    width:min(100%,940px);
+    margin:0 auto;
+    padding:0 16px;
+  }
+  .message h2{
+    margin:0;
+    font-family:var(--serif);
+    font-size:clamp(46px,16vw,154px);
+    line-height:.88;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .message p{
+    margin:30px auto 0;
+    max-width:680px;
+    color:var(--muted);
+    font-size:clamp(16px,4.4vw,24px);
+    line-height:1.9;
+  }
+
+  .host-profile{
+    background:
+      radial-gradient(circle at 16% 18%,rgba(18,200,222,.11),transparent 26rem),
+      radial-gradient(circle at 86% 0%,rgba(237,92,138,.1),transparent 24rem),
+      var(--ivory);
+  }
+  .host-layout{
+    display:grid;
+    gap:74px;
+  }
+  .host-card{
+    display:grid;
+    gap:34px;
+  }
+  .host-photo{
+    position:relative;
+    margin:0;
+    overflow:hidden;
+    border-radius:30px;
+    min-height:min(118vw,620px);
+    background:var(--sand);
+    border:1px solid rgba(19,17,15,.12);
+    box-shadow:0 28px 70px rgba(62,48,30,.1);
+  }
+  .host-photo img{
+    width:100%;
+    height:100%;
+    min-height:min(118vw,620px);
+    object-fit:cover;
+    object-position:center 22%;
+    filter:saturate(.9) contrast(1.02) brightness(1.03);
+  }
+  .host-photo::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(180deg,rgba(255,253,247,0) 58%,rgba(251,248,241,.78));
+  }
+  .host-photo figcaption{
+    position:absolute;
+    z-index:2;
+    left:16px;
+    right:16px;
+    bottom:16px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:11px 14px;
+    border-radius:999px;
+    background:rgba(255,253,247,.72);
+    backdrop-filter:blur(14px);
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .host-photo.art-photo{
+    background:
+      radial-gradient(circle at 16% 20%,rgba(18,200,222,.18),transparent 18rem),
+      radial-gradient(circle at 74% 18%,rgba(237,92,138,.18),transparent 18rem),
+      var(--ivory);
+  }
+  .host-photo.art-photo img{
+    object-position:center 30%;
+    filter:saturate(.84) contrast(1.02) brightness(1.08);
+  }
+  .host-photo.art-photo::after{
+    background:
+      linear-gradient(180deg,rgba(255,253,247,0) 52%,rgba(251,248,241,.82)),
+      linear-gradient(90deg,rgba(255,253,247,.18),rgba(255,253,247,0) 42%,rgba(255,253,247,.14));
+  }
+  .host-copy{
+    display:grid;
+    gap:24px;
+  }
+  .host-eyebrow{
+    margin:0;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .host-name{
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(46px,14vw,118px);
+    line-height:.95;
+    letter-spacing:-.08em;
+    font-weight:400;
+  }
+  .host-lead{
+    margin:0;
+    font-size:clamp(16px,4.5vw,22px);
+    line-height:2;
+  }
+  .host-body{
+    margin:0;
+    color:var(--muted);
+    line-height:2;
+  }
+  .host-body strong{
+    color:var(--ink);
+    font-weight:600;
+    background:linear-gradient(180deg,transparent 58%,rgba(237,92,138,.18) 0);
+  }
+  .achievement-list{
+    display:grid;
+    gap:0;
+    margin:8px 0 0;
+    padding:0;
+    list-style:none;
+    border-top:1px solid var(--line);
+  }
+  .achievement-list li{
+    position:relative;
+    padding:15px 0 15px 28px;
+    border-bottom:1px solid var(--line);
+    color:var(--muted);
+    line-height:1.8;
+  }
+  .achievement-list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:1.4em;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+  }
+
+  .program-info{
+    background:
+      linear-gradient(180deg,rgba(255,253,247,.72),rgba(240,228,212,.74)),
+      var(--paper);
+    overflow:hidden;
+  }
+
+  .goal-grid{
+    display:grid;
+    gap:14px;
+    margin-top:34px;
+  }
+  .goal-card{
+    position:relative;
+    padding:20px;
+    border-radius:24px;
+    border:1px solid var(--line);
+    background:rgba(255,253,247,.62);
+    overflow:hidden;
+  }
+  .goal-card::before{
+    content:"";
+    position:absolute;
+    inset:0 auto auto 0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,var(--cyan),var(--pink),var(--orange));
+  }
+  .goal-card h3{
+    margin:16px 0 10px;
+    font-family:var(--serif);
+    font-size:clamp(27px,7vw,54px);
+    line-height:1;
+    letter-spacing:-.05em;
+    font-weight:400;
+  }
+  .goal-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+  }
+  .program-spread{
+    display:grid;
+    gap:30px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:28px 0;
+  }
+  .program-kicker{
+    margin:0;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .program-title{
+    margin:12px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(46px,14vw,128px);
+    line-height:.9;
+    letter-spacing:-.07em;
+    font-weight:400;
+  }
+  .program-title .zero{
+    font-family:var(--sans);
+    letter-spacing:-.12em;
+    font-weight:500;
+  }
+  .program-price{
+    margin:18px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(38px,12vw,96px);
+    line-height:.9;
+    letter-spacing:-.06em;
+    color:var(--red);
+  }
+  .program-list{
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .program-row{
+    display:grid;
+    grid-template-columns:minmax(92px,.32fr) 1fr;
+    gap:18px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .program-row dt{
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .program-row dd{
+    margin:0;
+    font-size:15px;
+    line-height:1.8;
+  }
+  .program-note{
+    margin:18px 0 0;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:13px;
+  }
+  .program-disclaimer{
+    margin:10px 0 0;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:12px;
+    opacity:0.8;
+  }
+
+  .final-cta{
+    min-height:100svh;
+    padding:100px 16px calc(40px + env(safe-area-inset-bottom));
+    display:grid;
+    align-items:end;
+    background:var(--ink);
+    color:var(--ivory);
+    overflow:hidden;
+  }
+  .final-cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg,rgba(19,17,15,.12),var(--ink)),
+      url("hero-visual.png") center 34%/cover no-repeat;
+    opacity:.44;
+    transform:scale(1.06);
+  }
+  .final-inner{
+    position:relative;
+    width:min(100%,1180px);
+    margin:0 auto;
+    display:grid;
+    gap:30px;
+  }
+  .final-cta h2{
+    margin:0;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(36px,9vw,72px);
+    line-height:1.2;
+    letter-spacing:-.02em;
+    font-weight:400;
+  }
+  .final-cta p{
+    margin:0;
+    color:rgba(255,253,247,.76);
+    line-height:1.9;
+    max-width:620px;
+  }
+  .cta-row{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .main-cta{
+    border:1px solid rgba(255,253,247,.24);
+    background:var(--ivory);
+    color:var(--ink);
+    border-radius:999px;
+    padding:17px 24px;
+    min-height:58px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  }
+  .main-cta:hover{transform:translateY(-3px);background:var(--cyan);}
+  .sub-note{
+    font-size:12px;
+    letter-spacing:.04em;
+    color:rgba(255,253,247,.62);
+  }
+
+  .entry-form{
+    display:grid;
+    gap:16px;
+    width:min(100%,620px);
+  }
+  .entry-row{
+    display:grid;
+    gap:16px;
+  }
+  .entry-field{
+    display:grid;
+    gap:8px;
+    font-size:13px;
+    letter-spacing:.02em;
+    color:rgba(255,253,247,.76);
+  }
+  .entry-field em{
+    font-style:normal;
+    font-size:11px;
+    color:var(--cyan);
+    margin-left:6px;
+  }
+  .entry-field input,.entry-field select,.entry-field textarea{
+    font:inherit;
+    background:rgba(255,253,247,.06);
+    border:1px solid rgba(255,253,247,.24);
+    border-radius:12px;
+    padding:14px 16px;
+    color:var(--ivory);
+    transition:border-color .25s var(--ease);
+  }
+  .entry-field input::placeholder,.entry-field textarea::placeholder{color:rgba(255,253,247,.4);}
+  .entry-field input:focus,.entry-field select:focus,.entry-field textarea:focus{outline:none;border-color:var(--cyan);}
+  .entry-field textarea{resize:vertical;min-height:110px;}
+  .entry-submit{
+    border:0;
+    cursor:pointer;
+    width:fit-content;
+    font:inherit;
+  }
+
+  .sticky-cta{
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom));
+    z-index:90;
+    display:flex;
+    justify-content:center;
+    pointer-events:none;
+    transform:translateY(120%);
+    transition:transform .55s var(--ease);
+  }
+  .sticky-cta.is-visible{
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .sticky-cta a{
+    width:min(100%,460px);
+    min-height:56px;
+    border-radius:999px;
+    background:rgba(19,17,15,.88);
+    color:var(--ivory);
+    backdrop-filter:blur(16px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    box-shadow:0 18px 48px rgba(19,17,15,.22);
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    padding:24px 16px 96px;
+    background:var(--ink);
+    color:rgba(255,253,247,.58);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(34px);
+  }
+  .char-reveal{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(115%) rotate(2deg);
+  }
+
+  @media (min-width:760px){
+    .entry-row{grid-template-columns:1fr 1fr;}
+    .hero{height:100svh;min-height:720px;}
+    .hero-grid{
+      min-height:100%;
+      width:100%;
+      display:block;
+    }
+    .hero-type{
+      position:absolute;
+      inset:0;
+      margin:0;
+      padding:0;
+      max-width:none;
+    }
+    .hero-bg-type{
+      left:5vw;
+      bottom:4vh;
+      font-size:clamp(170px,18vw,280px);
+      opacity:1;
+    }
+    .hero-title{
+      left:8vw;
+      top:40%;
+      transform:translateY(-50%);
+      font-size:clamp(28px,3.4vw,44px);
+      max-width:11em;
+    }
+    .hero-program-badge{
+      left:8vw;
+      top:15vh;
+    }
+    .hero-copy{
+      left:8vw;
+      right:auto;
+      bottom:7vh;
+      max-width:560px;
+      gap:16px;
+      padding:0;
+      border-top:0;
+    }
+    .hero-copy p{font-size:18px;}
+    .hero-media{
+      position:absolute;
+      inset:0;
+      height:auto;
+      min-height:100%;
+      aspect-ratio:auto;
+      border-radius:0;
+    }
+    .hero-media img{
+      min-height:100%;
+      object-fit:cover;
+      object-position:right center;
+    }
+    .scroll-cue{display:block;}
+    .section{padding:126px 28px;}
+    .statement{grid-template-columns:1.1fr .75fr;align-items:end;gap:58px;}
+    .future-grid{grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);}
+    .future-item{padding:26px 22px 28px;border-right:1px solid var(--line);border-bottom:0;}
+    .future-item:last-child{border-right:0;}
+    .photo-river-head{padding-inline:28px;}
+    .photo-river-wrap{gap:24px;margin-top:58px;}
+    .photo-track{--photo-gap:22px;}
+    .photo-lane-offset{transform:translateX(7vw) translateZ(0);}
+    .photo-card{
+      flex-basis:clamp(260px,24vw,340px);
+      width:clamp(260px,24vw,340px);
+      border-radius:30px;
+    }
+    .proposal-visual{
+      grid-column:1 / -1;
+      min-height:560px;
+      margin-top:8px;
+    }
+    .proposal-visual img{
+      min-height:560px;
+      object-position:center 48%;
+    }
+    .duo{grid-template-columns:.84fr 1fr;gap:64px;}
+    .duo.reverse{grid-template-columns:1fr .86fr;}
+    .duo.reverse .image-frame{order:2;}
+    .mini-grid{grid-template-columns:repeat(3,1fr);gap:18px;}
+    .creator-grid{grid-template-columns:1.18fr .82fr;align-items:end;gap:60px;}
+    .compare-grid{grid-template-columns:1fr 1.08fr;gap:22px;}
+    .lesson-grid{grid-template-columns:repeat(2,1fr);}
+    .lifestyle-board{grid-template-columns:1fr 1fr;grid-auto-rows:minmax(310px,auto);}
+    .life-card.image{grid-row:span 2;min-height:640px;}
+    .fit-item{grid-template-columns:64px 1fr;gap:24px;padding:28px 0;}
+    .fit-item span{width:42px;height:42px;}
+    .change-grid{grid-template-columns:repeat(3,1fr);gap:26px;}
+    .work-cycle-layout{grid-template-columns:.9fr 1.1fr;gap:62px;}
+    .work-cycle-board{padding:30px;}
+    .cycle-step{padding:20px;}
+    .flow-step{grid-template-columns:150px 1fr minmax(260px,.8fr);gap:28px;align-items:start;padding:30px 0;}
+    .host-layout{gap:120px;}
+    .host-card{grid-template-columns:.82fr 1.18fr;gap:70px;align-items:start;}
+    .host-photo{position:sticky;top:120px;min-height:620px;}
+    .host-photo img{min-height:620px;}
+    .program-spread{grid-template-columns:.9fr 1.1fr;gap:70px;padding:44px 0;}
+    .program-list{align-self:end;}
+    .goal-grid{grid-template-columns:repeat(4,1fr);gap:18px;}
+    .cta-row{flex-direction:row;align-items:center;}
+    footer{padding:28px 28px 92px;}
+  }
+
+  @media (min-width:1080px){
+    .nav-shell{padding:12px;}
+    .section{padding-block:150px;}
+    .lesson-grid{grid-template-columns:repeat(4,1fr);}
+    .lifestyle-board{grid-template-columns:1.1fr .95fr .95fr;}
+    .life-card.image{grid-row:span 2;}
+    .sticky-cta{left:auto;right:24px;bottom:24px;}
+    .sticky-cta a{width:auto;padding:0 24px;}
+  }
+
+  @media (max-width:759px){
+    .hero-program-badge{
+      left:20px;
+      top:88px;
+      right:20px;
+      max-width:none;
+      justify-content:flex-start;
+      border-radius:18px;
+      letter-spacing:.1em;
+    }
+    .hero-copy{
+      gap:12px;
+    }
+    .hero-copy .hero-support{
+      display:none;
+    }
+    .hero-cta{
+      width:calc(100vw - 44px);
+      max-width:430px;
+      min-height:68px;
+      grid-template-columns:auto minmax(0,1fr) auto;
+      grid-template-areas:
+        "limit main arrow"
+        "limit start arrow";
+      gap:4px 10px;
+      padding:9px 10px 9px 12px;
+      justify-self:start;
+    }
+    .hero-cta-limit{
+      grid-area:limit;
+      width:50px;
+      height:50px;
+      font-size:10px;
+    }
+    .hero-cta-main{
+      grid-area:main;
+      font-size:clamp(24px,7.4vw,32px);
+    }
+    .hero-cta-start{
+      grid-area:start;
+      justify-self:start;
+      padding:0;
+      border:0;
+      background:transparent;
+      font-size:13px;
+      color:rgba(255,253,247,.88);
+    }
+    .hero-cta-arrow{
+      grid-area:arrow;
+      width:38px;
+      height:38px;
+      font-size:17px;
+    }
+    .hero-cta-note{
+      font-size:11px;
+      line-height:1.6;
+    }
+    .hero-cta-note span{
+      min-height:25px;
+      padding:0 9px;
+    }
+  }
+
+  @media (max-width:430px){
+    .brand-text{max-width:178px;}
+    .pill-button.cta-top{display:none;}
+    .hero{
+      height:100svh;
+      min-height:720px;
+    }
+    .hero-grid{
+      min-height:100%;
+    }
+    .hero-type{
+      padding:0;
+    }
+    .hero-bg-type{
+      left:-12vw;
+      bottom:18vh;
+      font-size:clamp(98px,31vw,136px);
+      color:rgba(19,17,15,.06);
+    }
+    .hero-title{
+      left:22px;
+      right:22px;
+      top:40%;
+      font-size:clamp(26px,8vw,40px);
+      max-width:calc(100vw - 44px);
+    }
+    .hero-program-badge{
+      left:20px;
+      top:88px;
+      right:20px;
+      max-width:none;
+      justify-content:flex-start;
+      border-radius:18px;
+      letter-spacing:.1em;
+    }
+    .hero-copy p{font-size:15px;line-height:1.75;}
+    .hero-copy{
+      left:22px;
+      right:22px;
+      bottom:34px;
+      margin:0;
+      padding:0;
+      border-top:0;
+      background:none;
+      gap:12px;
+    }
+    .hero-copy .hero-support{
+      display:none;
+    }
+    .hero-cta-note{
+      font-size:11px;
+      line-height:1.6;
+    }
+    .hero-media{min-height:100%;}
+    .hero-media img{min-height:100%;object-position:72% center;}
+    .hero-note{
+      right:-18px;
+      bottom:92px;
+      max-width:230px;
+      font-size:10px;
+      background:rgba(255,253,247,.62);
+    }
+    .program-row{grid-template-columns:1fr;gap:8px;}
+    .menu-card{padding:22px 20px;}
+    .section{padding-block:76px;}
+    .work-cycle-board{
+      padding:20px;
+      border-radius:24px 28px 22px 26px;
+      transform:none;
+      box-shadow:10px 12px 0 rgba(19,17,15,.06),0 18px 44px rgba(54,43,29,.1);
+    }
+    .board-title{max-width:11em;}
+    .route-pill{font-size:11px;min-height:32px;padding-inline:10px;}
+    .cycle-step{padding:16px;}
+    .cycle-loop{grid-template-columns:1fr;gap:8px;}
+    .loop-arrow{transform:rotate(90deg);justify-self:center;}
+    .photo-river{padding-block:82px;}
+    .photo-river-head{padding-inline:16px;}
+    .photo-river-wrap{gap:15px;margin-top:34px;}
+    .photo-track{--photo-gap:12px;}
+    .photo-lane-offset{transform:translateX(10vw) translateZ(0);}
+    .photo-card{
+      flex-basis:clamp(152px,46vw,196px);
+      width:clamp(152px,46vw,196px);
+      border-radius:24px;
+    }
+    .recommend{padding-inline:14px;}
+    .recommend-paper{gap:26px;padding:28px 0;}
+    .recommend-title{
+      font-size:clamp(31px,8.9vw,38px);
+      letter-spacing:-.075em;
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      scroll-behavior:auto !important;
+      transition-duration:.001ms !important;
+    }
+    .loader{display:none;}
+    .split-line span,.reveal,.char-reveal{
+      opacity:1 !important;
+      transform:none !important;
+    }
+    .hero-media,.image-frame{
+      clip-path:inset(0 round 24px) !important;
+    }
+  }
+</style>
 </head>
 <body>
+<div class="noise" aria-hidden="true"></div>
 
-    <!-- HEADER -->
-    <header>
-        <div class="container header-inner">
-            <a href="#" class="logo">
-                RELEASE <span class="tag">Web×AI プロデュース</span>
-            </a>
-            <a href="#entry" class="nav-btn">
-                無料Zoom面談を予約 <i class="fa-solid fa-arrow-right"></i>
-            </a>
+<div class="loader" id="loader" aria-label="読み込み中">
+  <div class="loader-inner">
+    <div class="loader-kicker"><span>AI 集客コンサルティング</span><span>JOURNEY 01</span></div>
+    <div class="loader-word">LOADING</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a href="#top" class="brand" aria-label="Release Yourself into the World">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Release / AI集客コンサルティング</span>
+    </a>
+    <div class="nav-actions">
+      <a class="pill-button cta-top" href="#entry">無料相談 <span class="arrow">↗</span></a>
+      <button class="pill-button menu-button" type="button" id="menuButton" aria-label="メニューを開く" aria-expanded="false">
+        <span class="menu-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true">
+  <div class="menu-backdrop" data-close-menu></div>
+  <nav class="menu-card" aria-label="ページ内メニュー">
+    <p>集客の仕組み化、自由な働き方。あなたの事業を、好きな場所からでも届く形にするための小さな入口。</p>
+    <div class="menu-links">
+      <a href="#proposal">提案するもの</a>
+      <a href="#creator">Concept</a>
+      <a href="#learn">サポート内容</a>
+      <a href="#flow">伴走の流れ</a>
+      <a href="#program">0期生募集</a>
+      <a href="#entry">無料相談</a>
+    </div>
+  </nav>
+</div>
+
+<main id="top">
+  <section class="hero" aria-label="ファーストビュー">
+    <div class="hero-grid">
+      <div class="hero-type">
+        <div class="hero-program-badge reveal">
+          <span>Web×AI 集客プロデュース</span>
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>0期生募集</span>
         </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="hero-badge-group">
-                        <span class="badge">0期生 限定募集</span>
-                        <span class="badge-sub">伴走型 Web×AI 集客プロデュース</span>
-                    </div>
-                    <h1 class="hero-title">
-                        やりたいことで、<br>
-                        <span class="highlight">月10万円</span>の自立を。
-                    </h1>
-                    <p class="hero-lead">
-                        「想いはあるのに、集客の形がつくれない」<br>
-                        あなたの好きなことや強みを言語化し、AIを活用したLP・SNS・集客導線まで一貫してプロデュース。無理な営業から卒業し、ありのまま自分らしく働く仕組みを一緒に構築します。
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#entry" class="cta-btn-large">
-                            <div>
-                                まずは無料Zoomで事業・集客を相談する
-                                <span class="cta-sub">※売り込みなし・あなたの集客設計図をご提案</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </a>
-                        <div class="cta-note-tags">
-                            <span>個人事業主・フリーランス歓迎</span>
-                            <span>面談制・少人数伴走</span>
-                            <span>未経験OK</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="visual-card">
-                        <!-- 雰囲気を与えるダミービジュアル -->
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="伴走型プロデュースイメージ">
-                        <div class="visual-floating-badge">
-                            <div class="floating-icon">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            </div>
-                            <div class="floating-text">
-                                <strong>「教わる」のではなく「一緒に創る」</strong>
-                                <p>あなたのサービスの価値を最大化する伴走支援</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-bg-type" aria-hidden="true">Release Yourself<br>Into The World</div>
+        <h1 class="hero-title" aria-label="「好きなこと・やりたいこと」を商品化し、Web×AIで月+10万円の仕組みを共創する。">
+          <span class="split-line"><span class="jp">「好きなこと・やりたいこと」を商品化し、</span></span>
+          <span class="split-line"><span class="jp">Web×AIで月+10万円の仕組みを共創する。</span></span>
+        </h1>
+        <div class="hero-copy reveal">
+          <p class="hero-subcopy">想いを言語化し、<br><strong>AIを活用したLPと集客導線</strong>を形にする。</p>
+          <p class="hero-support">整えて終わりではなく、成果が出るまで伴走。<br>時間に追われる毎日から、旅するように働く側へ。</p>
+          <a class="hero-cta" href="#entry" aria-label="0期生募集 無料相談 エントリーする">
+            <span class="hero-cta-main">0期生募集<br>無料相談</span>
+            <span class="hero-cta-arrow" aria-hidden="true">↗</span>
+          </a>
+          <div class="hero-cta-note" aria-label="個人事業主・フリーランス歓迎、面談制、少人数制、0期生限定">
+            <span>個人事業主・フリーランス歓迎</span>
+            <span>面談制</span>
+            <span>少人数制</span>
+            <span>0期生限定</span>
+          </div>
         </div>
-    </section>
+      </div>
+      <figure class="hero-media">
+        <img src="hero-visual.png" alt="白い衣装をまとい、世界へ視線を向ける女性のビジュアル">
+      </figure>
+    </div>
+    <div class="scroll-cue">SCROLL TO ENTER</div>
+  </section>
 
-    <!-- PHILOSOPHY / STORY SECTION -->
-    <section style="background: linear-gradient(180deg, rgba(10,11,14,0.6) 0%, rgba(19,21,27,0.9) 100%);">
-        <div class="container">
-            <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
-                <span class="section-number">01 / PHILOSOPHY</span>
-                <h2 class="section-title">お金だけでは、人は幸せになれない。<br>目指すのは「4つのバランス」が整った人生。</h2>
-                <p class="section-subtitle" style="margin-top: 20px; line-height: 1.9;">
-                    どれだけ収入があっても、時間がなければ体験を楽しむことはできません。<br>
-                    やりたくない仕事で心身をすり減らすのではなく、好きなことで月10万〜20万円を稼ぎ、自由な時間と豊かな人間関係を手に入れる。そのための自立をプロデュースします。
-                </p>
-            </div>
-
-            <!-- 4つのバランス Card Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 50px;">
-                <!-- Health -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px;">
-                    <div style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--accent-green); font-weight: 700;">BASE 01</span>
-                    <h3 style="font-size: 1.2rem; margin: 8px 0 12px;">土台としての「健康」</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
-                        すべての原点は心と身体の健康です。無理な我慢や消耗する働き方を手放し、心穏やかに続けられるビジネスを育てます。
-                    </p>
-                </div>
-
-                <!-- Time -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px;">
-                    <div style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-hourglass-half"></i></div>
-                    <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--accent-green); font-weight: 700;">BASE 02</span>
-                    <h3 style="font-size: 1.2rem; margin: 8px 0 12px;">自由を生み出す「時間」</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
-                        集客を仕組み化し、自由な時間を生み出す。その時間で旅をし、新しい体験をして、人生の思い出をたくさん増やしていきます。
-                    </p>
-                </div>
-
-                <!-- Relationship -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px;">
-                    <div style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-people-group"></i></div>
-                    <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--accent-green); font-weight: 700;">BASE 03</span>
-                    <h3 style="font-size: 1.2rem; margin: 8px 0 12px;">共鳴する「人間関係」</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
-                        同じ価値観を持ち、困ったときに本音で相談できる仲間やメンターの存在。孤独にならず、共に高め合える環境を用意しています。
-                    </p>
-                </div>
-
-                <!-- Money / Produce -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-highlight); border-radius: 20px; padding: 32px 24px;">
-                    <div style="font-size: 1.8rem; color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-coins"></i></div>
-                    <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--accent-green); font-weight: 700;">BASE 04</span>
-                    <h3 style="font-size: 1.2rem; margin: 8px 0 12px;">好きを形にする「お金」</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
-                        無理に月100万を追うのではなく、やりたいことで「月10万〜20万円」の安定した自立を作る。そのためのWeb×AI導線を構築します。
-                    </p>
-                </div>
-            </div>
-
-            <!-- 伴走メッセージ -->
-            <div style="background: rgba(209, 243, 102, 0.04); border: 1px dashed var(--border-highlight); border-radius: 20px; padding: 32px; text-align: center; max-width: 860px; margin: 0 auto;">
-                <p style="font-size: 1.05rem; line-height: 1.9; color: var(--text-primary);">
-                    <strong>AIやWeb集客は、自由な時間と豊かな人生を取り戻すための「手段」です。</strong><br>
-                    あなたが心からやりたいサービスを形にし、お申し込みが届く状態まで、私たちが最後まで責任を持って伴走します。
-                </p>
-            </div>
+  <section class="photo-river section" aria-label="旅するように働く景色">
+    <div class="section-inner photo-river-head">
+      <div class="section-label reveal">01 / Scenes</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">旅するように、<br>働く景色。</span>Scenes from<br>the next route.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">集客に追われる毎日から、<br>選べる毎日へ。<br><br>仕組みが動いてくれるから、<br>旅も、体験も、大切な人との時間も、<br>増やしていける。</p>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- TARGET / ISSUES -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">02 / TARGET</span>
-                <h2 class="section-title">こんな想いや課題をお持ちではありませんか？</h2>
-                <p class="section-subtitle">ひとつでも当てはまるなら、このプロデュースが力になれます。</p>
-            </div>
-            <div class="target-list">
-                <div class="target-item">
-                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
-                    <div class="target-text">
-                        <p>自分のスキルや「好きなこと」で月10万円ほどの収益を作りたい</p>
-                    </div>
-                </div>
-                <div class="target-item">
-                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
-                    <div class="target-text">
-                        <p>やりたいサービスはあるが、どう魅せれば伝わるのか分からない</p>
-                    </div>
-                </div>
-                <div class="target-item">
-                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
-                    <div class="target-text">
-                        <p>インスタやSNSを更新しているのに、お申し込みにつながらない</p>
-                    </div>
-                </div>
-                <div class="target-item">
-                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
-                    <div class="target-text">
-                        <p>ガツガツした強引な営業や、終わりのないSNS追われ生活をやめたい</p>
-                    </div>
-                </div>
-                <div class="target-item">
-                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
-                    <div class="target-text">
-                        <p>AIを使ってみたいが、自分のビジネスにどう活かすべきかわからない</p>
-                    </div>
-                </div>
-                <div class="target-item">
-                    <div class="target-icon"><i class="fa-solid fa-check"></i></div>
-                    <div class="target-text">
-                        <p>PC1台で、場所に縛られずにありのまま自由に働きたい</p>
-                    </div>
-                </div>
-            </div>
+    <div class="photo-river-wrap reveal">
+      <div class="photo-lane" aria-hidden="true">
+        <div class="photo-track to-left">
+          <div class="photo-set">
+            <figure class="photo-card"><img src="slide-01.jpg" alt="コンサルティングのライフスタイルイメージ 01" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-02.jpg" alt="コンサルティングのライフスタイルイメージ 02" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-03.jpg" alt="コンサルティングのライフスタイルイメージ 03" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-04.jpg" alt="コンサルティングのライフスタイルイメージ 04" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-05.jpg" alt="コンサルティングのライフスタイルイメージ 05" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-06.jpg" alt="コンサルティングのライフスタイルイメージ 06" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-07.jpg" alt="コンサルティングのライフスタイルイメージ 07" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-08.jpg" alt="コンサルティングのライフスタイルイメージ 08" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-09.jpg" alt="コンサルティングのライフスタイルイメージ 09" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-10.jpg" alt="コンサルティングのライフスタイルイメージ 10" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-11.jpg" alt="コンサルティングのライフスタイルイメージ 11" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-12.jpg" alt="コンサルティングのライフスタイルイメージ 12" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-13.jpg" alt="コンサルティングのライフスタイルイメージ 13" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-14.jpg" alt="コンサルティングのライフスタイルイメージ 14" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-15.jpg" alt="コンサルティングのライフスタイルイメージ 15" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="photo-set">
+            <figure class="photo-card"><img src="slide-01.jpg" alt="コンサルティングのライフスタイルイメージ 01" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-02.jpg" alt="コンサルティングのライフスタイルイメージ 02" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-03.jpg" alt="コンサルティングのライフスタイルイメージ 03" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-04.jpg" alt="コンサルティングのライフスタイルイメージ 04" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-05.jpg" alt="コンサルティングのライフスタイルイメージ 05" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-06.jpg" alt="コンサルティングのライフスタイルイメージ 06" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-07.jpg" alt="コンサルティングのライフスタイルイメージ 07" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-08.jpg" alt="コンサルティングのライフスタイルイメージ 08" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-09.jpg" alt="コンサルティングのライフスタイルイメージ 09" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-10.jpg" alt="コンサルティングのライフスタイルイメージ 10" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-11.jpg" alt="コンサルティングのライフスタイルイメージ 11" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-12.jpg" alt="コンサルティングのライフスタイルイメージ 12" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-13.jpg" alt="コンサルティングのライフスタイルイメージ 13" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-14.jpg" alt="コンサルティングのライフスタイルイメージ 14" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-15.jpg" alt="コンサルティングのライフスタイルイメージ 15" loading="lazy" decoding="async"></figure>
+          </div>
         </div>
-    </section>
-
-    <!-- PRODUCE FEATURES (4 Pillars) -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">03 / SOLUTION</span>
-                <h2 class="section-title">Web×AI プロデュース 4つの伴走支援</h2>
-                <p class="section-subtitle">知識を学ぶだけでなく、「実際に仕組みが動く状態」まで一緒につくりあげます。</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div>
-                        <span class="feature-num">PILLAR 01</span>
-                        <h3 class="feature-title">コンセプト・商品言語化</h3>
-                        <p class="feature-desc">
-                            あなたの強みや体験、売っていきたいサービスを深くヒアリング。「誰のどんな悩みを解決するのか」を明確にし、選ばれる高ぶれしないコンセプトを構築します。
-                        </p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div>
-                        <span class="feature-num">PILLAR 02</span>
-                        <h3 class="feature-title">AIを活用した「伝わるLP」制作</h3>
-                        <p class="feature-desc">
-                            文章執筆やデザイン構想に最新のAIを活用。プロレベルのランディングページ（LP）をスピーディに構築し、あなたの魅力や想いを120%伝えるWebページを形にします。
-                        </p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div>
-                        <span class="feature-num">PILLAR 03</span>
-                        <h3 class="feature-title">自動でお問合せが届く「集客導線」</h3>
-                        <p class="feature-desc">
-                            Instagram（Meta）広告やSNSから、LP、LINE、予約フォームまでを一本につなぎます。見てもらうだけで終わらず、自然とお申し込みが入る導線を完成させます。
-                        </p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div>
-                        <span class="feature-num">PILLAR 04</span>
-                        <h3 class="feature-title">成果が出るまで迷わせないマンツーマン伴走</h3>
-                        <p class="feature-desc">
-                            動画教材を渡して終わりではありません。定期的なZoom面談とチャットサポートで、実際の集客・問い合わせが発生するまで二人三脚で伴走します。
-                        </p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="photo-lane photo-lane-offset" aria-hidden="true">
+        <div class="photo-track to-right">
+          <div class="photo-set">
+            <figure class="photo-card"><img src="slide-16.jpg" alt="コンサルティングのライフスタイルイメージ 16" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-17.jpg" alt="コンサルティングのライフスタイルイメージ 17" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-18.jpg" alt="コンサルティングのライフスタイルイメージ 18" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-19.jpg" alt="コンサルティングのライフスタイルイメージ 19" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-20.jpg" alt="コンサルティングのライフスタイルイメージ 20" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-21.jpg" alt="コンサルティングのライフスタイルイメージ 21" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-22.jpg" alt="コンサルティングのライフスタイルイメージ 22" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-23.jpg" alt="コンサルティングのライフスタイルイメージ 23" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-24.jpg" alt="コンサルティングのライフスタイルイメージ 24" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-25.jpg" alt="コンサルティングのライフスタイルイメージ 25" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-26.jpg" alt="コンサルティングのライフスタイルイメージ 26" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-27.jpg" alt="コンサルティングのライフスタイルイメージ 27" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-28.jpg" alt="コンサルティングのライフスタイルイメージ 28" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-29.jpg" alt="コンサルティングのライフスタイルイメージ 29" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="photo-set">
+            <figure class="photo-card"><img src="slide-16.jpg" alt="コンサルティングのライフスタイルイメージ 16" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-17.jpg" alt="コンサルティングのライフスタイルイメージ 17" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-18.jpg" alt="コンサルティングのライフスタイルイメージ 18" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-19.jpg" alt="コンサルティングのライフスタイルイメージ 19" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-20.jpg" alt="コンサルティングのライフスタイルイメージ 20" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-21.jpg" alt="コンサルティングのライフスタイルイメージ 21" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-22.jpg" alt="コンサルティングのライフスタイルイメージ 22" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-23.jpg" alt="コンサルティングのライフスタイルイメージ 23" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-24.jpg" alt="コンサルティングのライフスタイルイメージ 24" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-25.jpg" alt="コンサルティングのライフスタイルイメージ 25" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-26.jpg" alt="コンサルティングのライフスタイルイメージ 26" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-27.jpg" alt="コンサルティングのライフスタイルイメージ 27" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-28.jpg" alt="コンサルティングのライフスタイルイメージ 28" loading="lazy" decoding="async"></figure>
+            <figure class="photo-card"><img src="slide-29.jpg" alt="コンサルティングのライフスタイルイメージ 29" loading="lazy" decoding="async"></figure>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ZOOM SESSION BENEFITS -->
-    <section>
-        <div class="container">
-            <div class="zoom-box">
-                <div class="section-header" style="margin-bottom: 20px;">
-                    <span class="section-number">04 / FREE ZOOM SESSION</span>
-                    <h2 class="section-title">無料Zoom個別相談（60分）で持ち帰れること</h2>
-                    <p class="section-subtitle">強引な売り込みは一切ありません。まずはあなたの「やりたいこと」をお聞かせください。</p>
-                </div>
-                <div class="zoom-benefits-grid">
-                    <div class="zoom-benefit-card">
-                        <i class="fa-solid fa-compass"></i>
-                        <h4>サービスの言語化と診断</h4>
-                        <p>あなたの知識ややりたいことが「商品として成り立つか」「どう見せるべきか」をプロの視点でクリアにします。</p>
-                    </div>
-                    <div class="zoom-benefit-card">
-                        <i class="fa-solid fa-route"></i>
-                        <h4>オーダーメイドの集客ロードマップ</h4>
-                        <p>Meta広告やSNSからZoom面談・お申し込みへ繋げるための、あなた専用の導線設計図をご提案します。</p>
-                    </div>
-                    <div class="zoom-benefit-card">
-                        <i class="fa-solid fa-laptop-code"></i>
-                        <h4>AI活用の具体的なイメージ</h4>
-                        <p>「LP制作や発信でどのようにAIを相棒にできるか」実際のデモや事例を交えてお見せします。</p>
-                    </div>
-                </div>
-            </div>
+  <section class="section future" id="future">
+    <div class="section-inner">
+      <div class="section-label reveal">02 / Future</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">お金だけでは、<br>人は幸せになれない。</span>Not money<br>alone.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">目指すのは、健康・時間・人間関係・お金の4つが整った生き方。</p>
+          <p class="body-copy">好きなことで月10万〜20万円を稼ぎ、自由な時間と思い出をつくる。</p>
         </div>
-    </section>
+      </div>
+      <div class="future-grid">
+        <article class="future-item reveal"><span>01</span><div><h3>健康</h3><p>無理な我慢や消耗する働き方を手放す。</p></div></article>
+        <article class="future-item reveal"><span>02</span><div><h3>時間</h3><p>仕組み化で自由をつくり、旅や体験を増やす。</p></div></article>
+        <article class="future-item reveal"><span>03</span><div><h3>人間関係</h3><p>同じ価値観で相談し合える仲間とつながる。</p></div></article>
+        <article class="future-item reveal"><span>04</span><div><h3>お金</h3><p>やりたいことで「月10万〜20万」の自立をつくる。</p></div></article>
+      </div>
+    </div>
+  </section>
 
-    <!-- STEP / FLOW -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">05 / FLOW</span>
-                <h2 class="section-title">伴走スタートまでの流れ</h2>
-            </div>
-            <div class="flow-steps">
-                <div class="flow-step">
-                    <span class="step-head">STEP 01</span>
-                    <h3 class="step-title">フォームよりお申し込み</h3>
-                    <p class="step-desc">ページ下部のフォームより、簡単なアンケートと希望日時を入力してください。</p>
-                </div>
-                <div class="flow-step">
-                    <span class="step-head">STEP 02</span>
-                    <h3 class="step-title">無料Zoom個別相談（60分）</h3>
-                    <p class="step-desc">現状の課題や販売したい商品について壁打ち。具体的な集客ロードマップをお渡しします。</p>
-                </div>
-                <div class="flow-step">
-                    <span class="step-head">STEP 03</span>
-                    <h3 class="step-title">プロデュース伴走開始</h3>
-                    <p class="step-desc">方向性に納得いただけた場合のみスタート。商品・LP・集客導線を一緒に作り上げます。</p>
-                </div>
-                <div class="flow-step">
-                    <span class="step-head">STEP 04</span>
-                    <h3 class="step-title">集客・お申し込み獲得</h3>
-                    <p class="step-desc">導線をリリースし、やりたいことで月10万円の収益をあげる自立の仕組みを稼働させます。</p>
-                </div>
-            </div>
+  <section class="recommend" aria-label="こんな方におすすめ">
+    <div class="recommend-paper">
+      <div class="reveal">
+        <div class="section-label">03 / Real questions</div>
+        <h2 class="recommend-title"><span>こんな方におすすめ</span></h2>
+        <p class="scribble-note">not a perfect checklist. just a small sign.</p>
+      </div>
+      <ul class="recommend-list reveal">
+        <li><mark>自分の「好きなこと」で月10万〜20万円の収入を作りたい</mark></li>
+        <li><mark>売りたい想いはあるのに、集客の形がわからない</mark></li>
+        <li><mark>SNS更新に追われず、無理のない仕組みを作りたい</mark></li>
+        <li><mark>AIを相棒にして、自分のサービスを届けたい</mark></li>
+        <li><mark>健康と時間を大切にしながら、自分らしく自立したい</mark></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="ステートメント">
+    <div class="marquee-track">
+      <span>旅するように働く。</span><span class="accent">選べる人生をつくる。</span><span>AI / 集客 / 仕組み化 / FREEDOM</span><span>世界に、自分を解き放つ。</span>
+      <span>旅するように働く。</span><span class="accent">選べる人生をつくる。</span><span>AI / 集客 / 仕組み化 / FREEDOM</span><span>世界に、自分を解き放つ。</span>
+    </div>
+  </section>
+
+  <section class="empathy section">
+    <div class="section-inner">
+      <div class="section-label reveal">04 / Resonance</div>
+      <div class="question-list">
+        <p class="reveal">AIとパソコン1台で、集客の形を変える。</p>
+        <p class="reveal">場所に縛られず、好きな体験<br>を選べる人生へ。</p>
+        <p class="reveal">AIは手段、大事なのは<br>申し込みが生まれる仕組み</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="message-video" aria-label="コンサルティングに込めた想い">
+    <div class="message-video-wrap">
+      <div class="message-video-head">
+        <div class="section-label reveal">MESSAGE</div>
+        <h2 class="message-video-title reveal">なぜ、この<br>コンサルティングを始めたのか</h2>
+        <div class="message-video-copy reveal">
+          <p>AIを学ぶことが目的ではありません。</p>
+          <p>AIで集客の仕組みを整え、<br>自分らしい働き方を実現できる人を増やしたい。</p>
+          <p>そんな想いから、このコンサルティングは生まれました。</p>
         </div>
-    </section>
+      </div>
+      <div class="message-video-frame">
+        <video class="message-video-el" src="maruchan-lp-video.mp4" poster="maruchan-lp-video-poster.jpg" playsinline preload="metadata"></video>
+        <button type="button" class="message-video-play" aria-label="動画を再生する">
+          <span class="message-video-play-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="message-video-duration">約1分40秒</p>
+    </div>
+  </section>
 
-    <!-- ENTRY FORM SECTION -->
-    <section id="entry">
-        <div class="container">
-            <div class="entry-section">
-                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-                    <span class="section-number">ENTRY</span>
-                    <h2 class="section-title">無料Zoom個別相談に申し込む</h2>
-                    <p class="section-subtitle">あなたの「やってみたい」「売りたいサービス」について、ぜひお気軽にご相談ください。</p>
-                </div>
+  <section class="section" id="proposal">
+    <div class="section-inner statement">
+      <div>
+        <div class="section-label reveal">05 / Why now</div>
+        <h2 class="reveal"><span class="jp">なぜ今<br>AI集客なのか</span>Tools are<br>not enough.</h2>
+      </div>
+      <div class="text-stack reveal">
+        <p class="large-copy">AIは文章作成だけでなく、企画、構成、LP制作、SNS発信、顧客導線づくりまで、事業の集客そのものに使える時代になりました。</p>
+        <p class="body-copy">でも、インスタに投稿するだけ、AIを触るだけでは、集客にはつながりません。必要なのは、あなたの事業の価値を見つける力、伝わる言葉へ変える力、そして申し込みまでつなぐ仕組みです。</p>
+        <div class="accent-rule" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
 
-                <form onsubmit="event.preventDefault(); alert('お申し込みありがとうございます。確認メールをお送りいたします。');">
-                    <div class="form-group">
-                        <label class="form-label">お名前 <span class="req">必須</span></label>
-                        <input type="text" class="form-input" placeholder="山田 太郎" required>
-                    </div>
+  <section class="section">
+    <div class="section-inner duo">
+      <figure class="image-frame image-tall feeling-workstyle">
+        <img src="feeling-workstyle.png" alt="街を見渡す窓辺でパソコンに向かう女性">
+        <figcaption class="float-caption"><span>Work anywhere</span><span>Life edit</span></figcaption>
+      </figure>
+      <div class="text-stack">
+        <div class="section-label reveal">06 / Future result</div>
+        <span class="num reveal">03</span>
+        <h2 class="editorial-title reveal">You were not made for one small room.</h2>
+        <p class="large-copy reveal">あなたの事業の価値を、必要な人へ届く「申し込みが生まれる導線」に変えていく。</p>
+        <p class="body-copy reveal">LP制作はゴールではなく入口です。SNSで出会い、LPで信頼をつくり、LINEやフォームで申し込みへ進む。整えて終わりではなく、実際に集客の数字が動き出すことを目指して伴走します。</p>
+      </div>
+    </div>
+  </section>
 
-                    <div class="form-group">
-                        <label class="form-label">メールアドレス <span class="req">必須</span></label>
-                        <input type="email" class="form-input" placeholder="example@email.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">現在のお仕事・ご状況 <span class="req">必須</span></label>
-                        <select class="form-select" required>
-                            <option value="">選択してください</option>
-                            <option value="個人事業主・フリーランス">個人事業主・フリーランス</option>
-                            <option value="会社員（副業準備中・副業中）">会社員（副業準備中・副業中）</option>
-                            <option value="主婦・主夫">主婦・主夫</option>
-                            <option value="その他">その他</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">形にしたいサービスや、現在のお悩み（任意）</label>
-                        <textarea class="form-textarea" rows="4" placeholder="例：自分のヨガレッスンをオンラインで販売して月10万円目指したいが、集客方法がわからない。"></textarea>
-                    </div>
-
-                    <button type="submit" class="form-submit-btn">
-                        無料Zoom個別相談（60分）を予約する <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                    <p style="text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px;">
-                        ※送信後、自動返信メールにてZoomの日程調整リンクをお送りします。
-                    </p>
-                </form>
-            </div>
+  <section class="section creator" id="creator">
+    <div class="section-inner creator-grid">
+      <h2 class="creator-title reveal"><span class="cyan">AI</span> × <span class="pink">WEB</span><br>集客<br><span class="orange">Consulting</span></h2>
+      <div class="creator-copy reveal">
+        <div class="section-label">07 / Definition</div>
+        <p><strong>AI×WEB集客コンサルティング</strong>とは、AIであなたの事業のアイデアと言葉を拡張し、LPや導線で価値を届く形に変える伴走支援。</p>
+        <p>ただ投稿を代行するのでも、ただページを制作するのでもありません。あなたの事業の魅力を見つけ、体験として編集し、必要なお客様が自然に出会える流れを一緒につくります。</p>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <h3>Think</h3>
+            <p>AIで事業の可能性を広げ、伝わる言葉の輪郭を見つける。</p>
+          </div>
+          <div class="mini-card">
+            <h3>Make</h3>
+            <p>LPやビジュアルで、事業の世界観を見える形にする。</p>
+          </div>
+          <div class="mini-card">
+            <h3>Flow</h3>
+            <p>届けたいお客様へ届く、申し込みが生まれる導線を設計する。</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>&copy; RELEASE All Rights Reserved. | Web×AI 集客プロデュース</p>
+  <section class="section learning" id="learn">
+    <div class="section-inner">
+      <div class="section-label reveal">04 / Support</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">伴走プロデュース<br>の内容</span>Make it,<br>move it.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">サポート内容は「知識」ではなく、実際に集客が動き出す成果物をつくる順番で進みます。</p>
+          <p class="body-copy">AI初心者の事業者様でも、強みの整理からLP公開、SNS・LINE・フォーム導線、集客文まで、最初の申し込み獲得に向けて一つずつ一緒に形にします。</p>
         </div>
-    </footer>
+      </div>
+      <div class="lesson-grid">
+        <article class="lesson reveal" style="--tone:var(--cyan)">
+          <span>01</span>
+          <div><h3>言語化</h3><p>あなたの強みと想いを、選ばれるコンセプトへ。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--pink)">
+          <span>02</span>
+          <div><h3>LP制作</h3><p>AIを活用し、魅力が120%伝わるページを構築。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:var(--orange)">
+          <span>03</span>
+          <div><h3>導線設計</h3><p>SNSからお申し込みまで、自動でつながる仕組みへ。</p></div>
+        </article>
+        <article class="lesson reveal" style="--tone:#fff3b0">
+          <span>04</span>
+          <div><h3>伴走支援</h3><p>最初のお申し込みが入るまで、マンツーマンで並走。</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <section class="section difference">
+    <div class="section-inner">
+      <div class="section-label reveal">09 / Difference</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">他のAIコンサルとの違い</span>Not just<br>prompting.</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">AIの使い方の説明で終わらせず、価値を見つけ、ページにし、導線で届けるところまで。</p>
+          <p class="body-copy">これはAIスクールではなく、AIを使ってあなたの事業の集客の形を変えるための実践コンサルティングです。</p>
+        </div>
+      </div>
+      <div class="compare-grid">
+        <article class="compare-card reveal">
+          <h3>一般的な<br>AI講座</h3>
+          <ul class="compare-list">
+            <li>ツールの使い方の説明が中心</li>
+            <li>教えて終わりになりやすい</li>
+            <li>発信やLP制作は別で依頼・学習が必要</li>
+            <li>実際の集客・成果まで距離がある</li>
+          </ul>
+        </article>
+        <article class="compare-card featured reveal">
+          <h3>AI×WEB集客<br>コンサルティング<br>プログラム</h3>
+          <ul class="compare-list">
+            <li>AI活用、LP制作、SNS発信を一つの流れで整える</li>
+            <li>LINE・フォームまで申し込み導線をつくる</li>
+            <li>あなたの事業の世界観を、集客の力に変える</li>
+            <li>成果が出るまで、集客・収益化に向けて伴走する</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="ライフスタイルステートメント">
+    <div class="marquee-track">
+      <span>Work from anywhere.</span><span class="accent">Design your days.</span><span>Choose your experience.</span><span>Release yourself.</span>
+      <span>Work from anywhere.</span><span class="accent">Design your days.</span><span>Choose your experience.</span><span>Release yourself.</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">10 / Lifestyle</div>
+      <h2 class="editorial-title reveal">未来のライフスタイル提案</h2>
+      <div class="lifestyle-board">
+        <article class="life-card image reveal">
+          <img src="hero-visual.png" alt="旅と表現を選ぶライフスタイルのビジュアル">
+          <div class="life-text">
+            <span class="life-kicker">Scene 01</span>
+            <h3>朝の光で、仕事を始める。</h3>
+            <p>場所に合わせて働くのではなく、行きたい場所に合わせて働き方をつくる。</p>
+          </div>
+        </article>
+        <article class="life-card cyan-bg with-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-lp-update.png" alt="" loading="lazy" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 02</span>
+            <div><h3>旅先で、LPを更新する。</h3><p>思いついた言葉をAIで整え、その日の熱をページに残す。</p></div>
+          </div>
+        </article>
+        <article class="life-card pink-bg with-photo experience-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-experience-work.png" alt="" loading="lazy" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 03</span>
+            <div><h3>体験が、次のお客様を呼ぶ。</h3><p>旅先での出会いや発信が、あなたの事業の新しいお客様につながり始める。</p></div>
+          </div>
+        </article>
+        <article class="life-card orange-bg with-photo name-photo reveal">
+          <figure class="life-photo" aria-hidden="true">
+            <img src="lifestyle-chosen-name.png" alt="" loading="eager" decoding="async">
+          </figure>
+          <div class="life-copy">
+            <span class="life-kicker">Scene 04</span>
+            <div><h3>自分の名前で、選ばれる。</h3><p>テンプレートの言葉ではなく、あなたの事業の世界観で信頼をつくる。</p></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner duo reverse">
+      <figure class="image-frame image-wide">
+        <img src="hero-visual.png" alt="AIとウェブ制作の先にある自由を表すビジュアル">
+        <figcaption class="float-caption"><span>For whom</span><span>Life choice</span></figcaption>
+      </figure>
+      <div>
+        <div class="section-label reveal">11 / Fit</div>
+        <h2 class="editorial-title reveal">こんな人に向いています</h2>
+        <div class="fit-list">
+          <div class="fit-item reveal"><span>1</span><p>自分の事業やサービスがあるのに、集客に悩んでいる。<small>インスタはあるけど反応がない、そんな状態から抜け出したい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>2</span><p>旅や体験を諦めない働き方をつくりたい。<small>時間や場所の自由を、憧れではなく設計に変えたい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>3</span><p>AIを、自分の事業の可能性を広げるために使いたい。<small>専門用語よりも、日常の事業に使える実践から始めたい人へ。</small></p></div>
+          <div class="fit-item reveal"><span>4</span><p>自分らしい世界観で、選ばれる事業をつくりたい。<small>売り込むより、事業の世界観で自然に選ばれる流れをつくりたい人へ。</small></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">12 / After</div>
+      <div class="statement">
+        <h2 class="reveal">伴走後の<br>変化</h2>
+        <p class="large-copy reveal">事業の中にあった曖昧な想いが、言葉になり、ページになり、お客様と出会う導線になる。</p>
+      </div>
+      <div class="change-grid">
+        <article class="change-card reveal"><h3>Choice</h3><p>集客をただの悩みで終わらせず、動き出す仕組みへ変えられる。</p></article>
+        <article class="change-card reveal"><h3>Voice</h3><p>自分の事業やサービスを、借り物ではない言葉で伝えられる。</p></article>
+        <article class="change-card reveal"><h3>Flow</h3><p>SNSやLP、LINEなどをつなぎ、自然に申し込みへ進む流れが見える。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section work-cycle" id="work-cycle">
+    <div class="section-inner work-cycle-layout">
+      <div class="work-cycle-copy">
+        <div class="section-label reveal">13 / Work cycle</div>
+        <h2 class="editorial-title reveal">整えて終わりじゃない。<br>成果が育つ仕組みまで。</h2>
+        <div class="text-stack reveal">
+          <p class="large-copy">このコンサルティングは、AIやLP制作を教えて終わりのプログラムではありません。</p>
+          <p class="body-copy">AIを使ってあなたの事業の価値を形にし、必要なお客様へ届け、実際の申し込みにつなげていくところまで伴走します。</p>
+          <p class="body-copy">公開後も、集客の相談や改善ができる環境を用意し、数字を見ながら一緒に育てていく流れを作っていきます。</p>
+        </div>
+        <div class="cycle-points reveal">
+          <p class="cycle-point">事業に合わせて実践しながら、集客につなげる仕組みを育てる。</p>
+          <p class="cycle-point">集客が動き出した後も、運用や改善の相談をサポートする。</p>
+          <p class="cycle-point">成果が積み重なることで、次の展開につながる循環を作る。</p>
+        </div>
+      </div>
+
+      <div class="work-cycle-board" aria-label="AI集客コンサルティングの、成果が育つ流れ">
+        <h3 class="board-title reveal">AI×WEB集客コンサルティング</h3>
+        <div class="board-route reveal">
+          <span class="route-pill">現状を整理する</span>
+          <span class="route-arrow" aria-hidden="true">→</span>
+          <span class="route-pill">仕組みをつくる</span>
+          <span class="route-arrow" aria-hidden="true">→</span>
+          <span class="route-pill">集客を動かす</span>
+          <span class="route-arrow" aria-hidden="true">→</span>
+          <span class="route-pill">伴走で育てる</span>
+        </div>
+
+        <div class="cycle-steps">
+          <article class="cycle-step reveal">
+            <span class="cycle-step-label">STEP 1</span>
+            <h3>コンサルで現状を整理・設計する</h3>
+            <p>AI活用 / LP制作 / 集客導線づくり</p>
+          </article>
+          <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
+          <article class="cycle-step reveal">
+            <span class="cycle-step-label">STEP 2</span>
+            <h3>導線構築まで伴走</h3>
+            <p>提案・導線設計・実装サポート</p>
+          </article>
+          <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
+          <article class="cycle-step reveal">
+            <span class="cycle-step-label">STEP 3</span>
+            <h3>公開後もサポート</h3>
+            <p>運用中の相談もできるから安心</p>
+          </article>
+          <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
+          <article class="cycle-step highlight reveal">
+            <span class="cycle-step-label">STEP 4</span>
+            <h3>事業の集客が、<br>自分たちで回る仕組みへ</h3>
+            <p>整えたことを成果へ。成果を、次の自由へ。</p>
+          </article>
+        </div>
+
+        <div class="cycle-loop reveal">
+          <span class="loop-pill">成果が積み重なる</span>
+          <span class="loop-arrow" aria-hidden="true">→</span>
+          <span class="loop-pill">次の展開へ</span>
+        </div>
+
+        <div class="work-kind reveal">
+          <p class="work-kind-title">こんな仕組みが手に入る</p>
+          <div class="work-tags">
+            <span class="work-tag">LP制作</span>
+            <span class="work-tag">Lステップ構築</span>
+            <span class="work-tag">HP制作</span>
+            <span class="work-tag">SNS集客導線の構築</span>
+            <span class="work-tag">LINE導線設計</span>
+            <span class="work-tag">集客コピーライティング</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section flow" id="flow">
+    <div class="section-inner">
+      <div class="section-label reveal">14 / Program flow</div>
+      <h2 class="editorial-title reveal">伴走の流れ</h2>
+      <div class="flow-track">
+        <article class="flow-step reveal"><span class="week">Week 01</span><h3>事業をほどく</h3><p>あなたの事業の価値観、届けたいお客様、目指す働き方を言葉にする。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 02-03</span><h3>AIで編集する</h3><p>コピー、構成、企画、発信案をAIと一緒に磨く。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 04-05</span><h3>LPにする</h3><p>ファーストビュー、ストーリー、CTAを持つ、申し込みが生まれるページを制作する。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 06-07</span><h3>導線をつなぐ</h3><p>SNS、LINE、フォーム、案内までの集客導線を設計する。</p></article>
+        <article class="flow-step reveal"><span class="week">Week 08</span><h3>世界へ出す</h3><p>自分たちで運用できる形に仕上げ、次の一歩を決める。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="message section">
+    <div class="message-inner">
+      <div class="section-label reveal">15 / Last message</div>
+      <h2 class="reveal">人生は、<br>もっと<br>編集できる。</h2>
+      <p class="reveal">完璧な準備が整ってから始めるのではなく、始めながら、事業の輪郭を整えていく。AIとWEBは、そのための軽やかな翼になる。</p>
+    </div>
+  </section>
+
+  <section class="section host-profile" aria-label="主催者プロフィール・実績">
+    <div class="section-inner host-layout">
+      <div class="statement">
+        <div>
+          <div class="section-label reveal">16 / Story proof</div>
+          <h2 class="reveal"><span class="jp">数字ではなく、<br>人生そのものが証明になる。</span>Story as<br>trust.</h2>
+        </div>
+        <div class="text-stack reveal">
+          <p class="large-copy">旅、事業、表現、AI。その交差点から生まれた伴走支援。</p>
+          <p class="body-copy">派手な売上実績を並べるのではなく、実際に場所を変え、事業をつくり、人の表現を社会へつなげてきた二人の経験を、コンサルティングの土台にしています。</p>
+        </div>
+      </div>
+      <article class="host-card">
+        <figure class="host-photo reveal">
+          <img src="kunio.JPG" alt="主催者 五十嵐邦夫のプロフィール写真">
+          <figcaption><span>Host profile</span><span>Kunio Igarashi</span></figcaption>
+        </figure>
+        <div class="host-copy">
+          <div class="section-label reveal">Host / Business and life design</div>
+          <p class="host-eyebrow reveal">主催者プロフィール・実績</p>
+          <h2 class="host-name reveal">五十嵐邦夫</h2>
+          <p class="host-lead reveal">日本の建築会社で25年間、デザイン・営業に携わった後、海外へ移住。現在はバリ島・ウブドを拠点に、AIを活用したWeb戦略、オンライン教育、不動産、飲食事業を展開しています。</p>
+          <div class="reveal">
+            <div class="section-label">Main achievements</div>
+            <ul class="achievement-list">
+              <li>AIを活用し、バリ島での不動産事業およびヴィラ開発を展開</li>
+              <li>AIの活用で日本食レストランを運営し、Googleビジネスプロフィールにて高評価を獲得</li>
+              <li>Instagram構築、Googleビジネスプロフィール、Airbnb運用などをAIで仕組み化</li>
+              <li>複数の事業にAIを取り入れ、収益化を実現</li>
+              <li>バリ島ウブドにて、利用者から愛されるヴィラとしてベスト2に選出</li>
+              <li>飲食事業では、Googleビジネスプロフィールにおいて星5評価を獲得</li>
+              <li>開業から1年足らずで黒字化を達成</li>
+              <li>人間関係改善講座を主宰し、前に進むことを恐れている人たちをサポート</li>
+              <li>受講生の中から、現在第一線で活躍する人材を多数輩出</li>
+            </ul>
+          </div>
+          <p class="host-body reveal">現在はAI集客コンサルタントとして活動しています。AIを単なる便利なツールとしてではなく、事業と人生を自分らしく切り拓くための力として活用。事業者一人ひとりの可能性を広げ、集客と人生を前向きに進めるようサポートすることを大切にしています。</p>
+        </div>
+      </article>
+
+      <article class="host-card">
+        <figure class="host-photo art-photo reveal">
+          <img src="atsushi2.PNG" alt="主催者 石丸篤史のプロフィール写真">
+          <figcaption><span>AI LP Creator</span><span>Atsushi Ishimaru</span></figcaption>
+        </figure>
+        <div class="host-copy">
+          <div class="section-label reveal">Co-host / Story and LP design</div>
+          <p class="host-eyebrow reveal">AI×LP集客コンサルタント / ART for BEING代表</p>
+          <h2 class="host-name reveal">石丸 篤史</h2>
+          <p class="host-lead reveal">AIを活用したLP制作・ブランディング・集客コンサルティングを行うクリエイター。</p>
+          <p class="host-body reveal">これまで世界約30カ国を旅し、国や文化、価値観の違いに触れる中で、「人はそれぞれ異なる物語を持っている」という感覚を深めてきました。</p>
+          <p class="host-body reveal">個人事業主、サロン、スクール、アーティストなど、想いや世界観を持つ人のサービスを、<strong>「伝わる言葉」と「申し込みにつながるLP」</strong>として形にしています。</p>
+          <p class="host-body reveal">制作では、表面的なデザインだけでなく、その人の人生、価値観、事業の背景まで丁寧に掘り起こし、“なぜこの人から買うのか”が伝わる構成を重視。</p>
+          <p class="host-body reveal">また、一般社団法人 ART for BEING 代表として、「100人のアーティスト展」など、人の表現を社会につなげる活動も主催しています。</p>
+          <p class="host-body reveal">AIを使えば、経験やスキルがゼロの事業者様でも、ご自身の感性や言葉を活かしながら、集客につながるLPを持つことができる。本コンサルティングでは、AIを相棒にしながら、ヒアリング、構成、コピー、デザイン、公開までを一緒に形にし、<strong>“想いが伝わり、申し込みが生まれる事業”</strong>を育てています。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="message section">
+    <div class="message-inner">
+      <div class="section-label reveal">17 / Why zero class</div>
+      <h2 class="reveal">0期は、<br>一緒に<br>育てる期。</h2>
+      <p class="reveal">本格提供前に、少人数の事業者様と一緒にコンサルティングの内容を磨いていくための特別なご案内です。出来上がった教材を受け取るだけではなく、実際に手を動かし、自分の事業のLPと集客導線を一緒に形にする方を募集します。だからこそ、通常198,000円のところ、0期は特別価格98,000円でご案内します。</p>
+    </div>
+  </section>
+
+  <section class="section program-info" id="program" aria-label="Program Information">
+    <div class="section-inner">
+      <div class="program-spread">
+        <div class="reveal">
+          <p class="program-kicker">Program Information</p>
+          <h2 class="program-title"><span class="zero">0</span>期生募集</h2>
+          <p class="program-price">¥98,000</p>
+          <p class="program-note">通常198,000円のところ、0期特別価格。お申込み後、Zoom面談にて伴走内容とご参加方法をご案内します。</p>
+          <p class="program-disclaimer">※受講中の様子や受講生の声、成果物等を、許可をいただいた範囲で今後の告知・広報（LP・SNS等）に使用させていただく場合がございます。</p>
+        </div>
+        <dl class="program-list reveal">
+          <div class="program-row">
+            <dt>Style</dt>
+            <dd>少人数制 / 個人事業主・フリーランス歓迎・AI初心者歓迎</dd>
+          </div>
+          <div class="program-row">
+            <dt>Contents</dt>
+            <dd>AI活用 / LP制作 / WEB集客導線 / SNS発信 / LINE導線 / 自由な働き方の設計</dd>
+          </div>
+          <div class="program-row">
+            <dt>Guide</dt>
+            <dd>申込後、Zoom面談にてご案内</dd>
+          </div>
+          <div class="program-row">
+            <dt>Entry</dt>
+            <dd>Zoom面談・事前エントリー受付中</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">18 / Goals</div>
+      <div class="statement">
+        <h2 class="reveal"><span class="jp">このコンサルで<br>目指すゴール</span>Your first<br>real route.</h2>
+        <p class="large-copy reveal">相談した気がする、で終わらせない。事業の価値を届けるための仕組みを持って、次の一歩へ進む。</p>
+      </div>
+      <div class="goal-grid">
+        <article class="goal-card reveal"><h3>自分のLPを持つ</h3><p>サービスや想いが伝わるページを、自分で更新できる状態にする。</p></article>
+        <article class="goal-card reveal"><h3>SNSから申し込みまでつなぐ</h3><p>投稿、LP、LINE、フォームをつなぎ、迷わず申し込める導線を作る。</p></article>
+        <article class="goal-card reveal"><h3>AIを事業の武器にする</h3><p>企画、コピー、改善、集客文をAIと一緒に進める習慣を身につける。</p></article>
+        <article class="goal-card reveal"><h3>次のお客さんへ動き出す</h3><p>集客文やオファーを整え、申し込み・収益化に向けた行動を始める。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="entry">
+    <div class="final-inner">
+      <div class="section-label reveal">ENTRY</div>
+      <h2 class="reveal">無料Zoom<br>個別相談<br>（60分）</h2>
+      <p class="reveal">まずは、あなたの「やりたいこと」を聞かせてください。<br>売り込みはありません。あなた専用の集客設計図を一緒に描きます。</p>
+      <form class="entry-form reveal" onsubmit="event.preventDefault(); alert('お申し込みありがとうございます。確認メールをお送りいたします。');">
+        <div class="entry-row">
+          <label class="entry-field">
+            <span>お名前<em>必須</em></span>
+            <input type="text" name="name" placeholder="山田 太郎" required>
+          </label>
+          <label class="entry-field">
+            <span>メールアドレス<em>必須</em></span>
+            <input type="email" name="email" placeholder="example@email.com" required>
+          </label>
+        </div>
+        <label class="entry-field">
+          <span>現在の状況<em>必須</em></span>
+          <select name="status" required>
+            <option value="">選択してください</option>
+            <option value="個人事業主">個人事業主</option>
+            <option value="会社員・副業">会社員・副業</option>
+            <option value="準備中">準備中</option>
+          </select>
+        </label>
+        <label class="entry-field">
+          <span>やってみたいこと・ご相談内容</span>
+          <textarea name="message" rows="4" placeholder="例：好きなことを仕事にして、月10万円の収入を作りたい。"></textarea>
+        </label>
+        <button type="submit" class="main-cta entry-submit">無料Zoom相談を予約する <span>↗</span></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="#entry">まずは面談で相談する <span>↗</span></a>
+</div>
+
+<footer>
+  <span>AI×WEB集客コンサルティング</span>
+  <span>© 2026 Release Yourself into the World.</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const loader = document.getElementById("loader");
+  const menuButton = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
+  const stickyCta = document.getElementById("stickyCta");
+  const hero = document.querySelector(".hero");
+  const finalCta = document.getElementById("entry");
+
+  const closeMenu = () => {
+    document.body.classList.remove("is-locked", "menu-open");
+    menuPanel.classList.remove("is-open");
+    menuPanel.setAttribute("aria-hidden", "true");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "メニューを開く");
+  };
+
+  const openMenu = () => {
+    document.body.classList.add("is-locked", "menu-open");
+    menuPanel.classList.add("is-open");
+    menuPanel.setAttribute("aria-hidden", "false");
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "メニューを閉じる");
+  };
+
+  menuButton.addEventListener("click", () => {
+    menuPanel.classList.contains("is-open") ? closeMenu() : openMenu();
+  });
+  menuPanel.addEventListener("click", (event) => {
+    if (event.target.matches("[data-close-menu], .menu-links a")) closeMenu();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  const revealWithoutGsap = () => {
+    document.querySelectorAll(".split-line span, .reveal, .char-reveal").forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+    document.querySelectorAll(".hero-media, .image-frame").forEach((el) => {
+      el.style.clipPath = "inset(0% 0% 0% 0% round 24px)";
+      el.style.opacity = "1";
+    });
+    document.querySelectorAll(".message-video-frame").forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+  };
+
+  const hideLoader = () => {
+    loader.classList.add("is-hidden");
+    window.setTimeout(() => loader.remove(), 900);
+  };
+
+  window.addEventListener("load", () => {
+    window.setTimeout(hideLoader, reduceMotion ? 0 : 900);
+  });
+  window.setTimeout(hideLoader, 2600);
+
+  if (!reduceMotion && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroTl = gsap.timeline({defaults:{ease:"power4.out"}});
+    heroTl
+      .to(".hero-media", {autoAlpha:1, duration:1.25, delay:.25})
+      .to(".hero-media img", {scale:1, duration:1.8}, "<")
+      .from(".hero-bg-type", {autoAlpha:0, y:24, duration:1.1}, "-=.9")
+      .to(".split-line span", {y:0, duration:1.05, stagger:.12}, "-=.7")
+      .to(".hero .reveal", {autoAlpha:1, y:0, duration:.9, stagger:.16}, "-=.42");
+
+    gsap.to(".hero-bg-type", {
+      yPercent:-30,
+      ease:"none",
+      scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}
+    });
+
+    gsap.utils.toArray(".reveal").forEach((el) => {
+      if (el.closest(".hero")) return;
+      if (el.closest(".work-cycle-board")) return;
+      gsap.to(el, {
+        autoAlpha:1,
+        y:0,
+        duration:1,
+        ease:"power3.out",
+        scrollTrigger:{
+          trigger:el,
+          start:"top 84%",
+          once:true
+        }
+      });
+    });
+
+    const cycleBoard = document.querySelector(".work-cycle-board");
+    if (cycleBoard) {
+      const cycleTl = gsap.timeline({
+        scrollTrigger:{
+          trigger:cycleBoard,
+          start:"top 78%",
+          once:true
+        }
+      });
+
+      cycleTl
+        .to(cycleBoard.querySelectorAll(".board-title, .board-route"), {
+          autoAlpha:1,
+          y:0,
+          duration:.75,
+          ease:"power3.out",
+          stagger:.12
+        })
+        .to(cycleBoard.querySelectorAll(".cycle-step"), {
+          autoAlpha:1,
+          y:0,
+          duration:.7,
+          ease:"power3.out",
+          stagger:.18
+        }, "-=.22")
+        .to(cycleBoard.querySelectorAll(".cycle-arrow"), {
+          autoAlpha:1,
+          y:0,
+          duration:.45,
+          ease:"power3.out",
+          stagger:.18
+        }, "-=.54")
+        .fromTo(cycleBoard.querySelector(".cycle-step.highlight"), {
+          scale:.96
+        }, {
+          scale:1,
+          duration:.75,
+          ease:"back.out(1.4)"
+        }, "-=.44")
+        .to(cycleBoard.querySelectorAll(".cycle-loop, .work-kind"), {
+          autoAlpha:1,
+          y:0,
+          duration:.75,
+          ease:"power3.out",
+          stagger:.12
+        }, "-=.2");
+    }
+
+    gsap.utils.toArray(".image-frame").forEach((frame) => {
+      const image = frame.querySelector("img");
+      gsap.to(frame, {
+        clipPath:"inset(0% 0% 0% 0% round 24px)",
+        duration:1.1,
+        ease:"power4.out",
+        scrollTrigger:{trigger:frame,start:"top 78%",once:true}
+      });
+      gsap.to(image, {
+        yPercent:-8,
+        scale:1.03,
+        ease:"none",
+        scrollTrigger:{trigger:frame,start:"top bottom",end:"bottom top",scrub:.55}
+      });
+    });
+
+    gsap.to(".life-card.image img", {
+      yPercent:-7,
+      scale:1.03,
+      ease:"none",
+      scrollTrigger:{trigger:".lifestyle-board",start:"top bottom",end:"bottom top",scrub:.6}
+    });
+
+    const messageVideoFrame = document.querySelector(".message-video-frame");
+    if (messageVideoFrame) {
+      gsap.to(messageVideoFrame, {
+        autoAlpha:1,
+        scale:1,
+        duration:1.6,
+        ease:"power2.out",
+        scrollTrigger:{trigger:messageVideoFrame,start:"top 82%",once:true}
+      });
+    }
+  } else {
+    revealWithoutGsap();
+  }
+
+  document.querySelectorAll(".message-video-frame").forEach((frame) => {
+    const video = frame.querySelector("video");
+    const playButton = frame.querySelector(".message-video-play");
+    if (!video || !playButton) return;
+    playButton.addEventListener("click", () => {
+      video.setAttribute("controls", "");
+      video.play();
+      frame.classList.add("is-playing");
+    });
+    video.addEventListener("pause", () => {
+      frame.classList.remove("is-playing");
+    });
+    video.addEventListener("play", () => {
+      frame.classList.add("is-playing");
+    });
+  });
+
+  const stickyObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.target === hero) {
+        stickyCta.classList.toggle("is-visible", !entry.isIntersecting);
+      }
+      if (entry.target === finalCta && entry.isIntersecting) {
+        stickyCta.classList.remove("is-visible");
+      }
+    });
+  }, {threshold:.08});
+  stickyObserver.observe(hero);
+  stickyObserver.observe(finalCta);
+})();
+</script>
 </body>
 </html>
