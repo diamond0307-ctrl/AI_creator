@@ -408,12 +408,12 @@
     text-align:center;
   }
   .hero-copy .hero-cta-caption{
-    margin:-4px 0 0;
+    margin:-2px 0 0;
     max-width:560px;
     color:rgba(19,17,15,.62);
-    font-size:11px;
+    font-size:13px;
     line-height:1.6;
-    letter-spacing:.03em;
+    letter-spacing:.02em;
     text-align:center;
   }
   .hero-cta{
@@ -645,8 +645,8 @@
   .body-copy{
     margin:0;
     color:var(--muted);
-    font-size:15px;
-    line-height:2;
+    font-size:16px;
+    line-height:1.9;
   }
   .accent-rule{
     width:min(100%,520px);
@@ -1000,8 +1000,8 @@
   .mini-card p{
     margin:0;
     color:var(--muted);
-    line-height:1.9;
-    font-size:14px;
+    line-height:1.5;
+    font-size:15px;
   }
 
   .future{
@@ -1207,13 +1207,14 @@
     margin-top:34px;
   }
   .lesson{
-    min-height:220px;
+    min-height:150px;
     border:1px solid rgba(255,253,247,.17);
     border-radius:24px;
-    padding:22px;
+    padding:20px;
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    gap:12px;
+    justify-content:flex-start;
     background:
       linear-gradient(135deg,rgba(255,253,247,.08),rgba(255,253,247,.02)),
       rgba(255,255,255,.02);
@@ -1229,25 +1230,32 @@
     right:-26px;
     top:-28px;
     background:var(--tone, var(--cyan));
-    opacity:.72;
+    opacity:.5;
     filter:blur(.2px);
   }
-  .lesson span{
-    font-family:var(--serif);
-    font-size:58px;
-    letter-spacing:-.08em;
-    opacity:.42;
+  .lesson .lesson-icon{
+    position:relative;
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:rgba(255,253,247,.14);
   }
+  .lesson .lesson-icon .icon{width:20px;height:20px;stroke-width:1.6;}
   .lesson h3{
-    margin:34px 0 10px;
-    font-size:22px;
-    line-height:1.35;
+    position:relative;
+    margin:0;
+    font-size:18px;
+    line-height:1.3;
     font-weight:500;
+    letter-spacing:-.01em;
   }
   .lesson p{
+    position:relative;
     margin:0;
-    color:rgba(255,253,247,.7);
-    line-height:1.8;
+    color:rgba(255,253,247,.66);
+    line-height:1.55;
     font-size:14px;
   }
 
@@ -1941,19 +1949,19 @@
   }
   .program-row dd{
     margin:0;
-    font-size:15px;
-    line-height:1.8;
+    font-size:16px;
+    line-height:1.7;
   }
   .program-note{
-    margin:18px 0 0;
+    margin:14px 0 0;
     color:var(--muted);
-    line-height:1.9;
-    font-size:13px;
+    line-height:1.6;
+    font-size:14px;
   }
   .program-disclaimer{
-    margin:10px 0 0;
+    margin:14px 0 0;
     color:var(--muted);
-    line-height:1.8;
+    line-height:1.7;
     font-size:12px;
     opacity:0.8;
   }
@@ -2082,6 +2090,254 @@
     text-transform:uppercase;
   }
 
+  /* ---- visual / diagram components ---- */
+  .icon{
+    width:1em;height:1em;
+    stroke:currentColor;fill:none;
+    stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
+  }
+
+  .flow-diagram{
+    display:grid;
+    gap:2px;
+    margin-top:30px;
+  }
+  .flow-node{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 4px;
+  }
+  .flow-node .node-icon{
+    flex:0 0 auto;
+    width:46px;
+    height:46px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--ivory);
+  }
+  .flow-node .node-icon .icon{width:22px;height:22px;stroke-width:1.6;}
+  .flow-node .node-label{
+    font-family:var(--serif);
+    font-size:clamp(20px,6vw,30px);
+    letter-spacing:-.02em;
+  }
+  .flow-arrow-row{
+    display:flex;
+    align-items:center;
+    padding-left:23px;
+    color:var(--orange);
+    font-size:20px;
+    line-height:1;
+  }
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:28px;
+  }
+  .service-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 14px;
+    border-radius:18px;
+    border:1px solid var(--line);
+    background:rgba(255,253,247,.6);
+  }
+  .service-item .node-icon{
+    flex:0 0 auto;
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--pink),var(--orange));
+    color:var(--ivory);
+  }
+  .service-item .node-icon .icon{width:19px;height:19px;stroke-width:1.7;}
+  .service-item strong{
+    display:block;
+    font-size:16px;
+    letter-spacing:-.01em;
+    line-height:1.3;
+  }
+  .service-item span{
+    display:block;
+    margin-top:2px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.4;
+  }
+
+  .ratio-visual{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin:30px 0 14px;
+    text-align:center;
+  }
+  .ratio-visual .num{
+    font-family:var(--serif);
+    font-size:clamp(38px,12vw,84px);
+    line-height:1;
+    letter-spacing:-.04em;
+    color:inherit;
+  }
+  .ratio-visual .arrow{
+    font-size:clamp(20px,5vw,32px);
+    color:var(--orange);
+  }
+  .ratio-caption{
+    margin:0;
+    text-align:center;
+    font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN",var(--serif);
+    font-size:clamp(19px,5vw,26px);
+    letter-spacing:-.01em;
+  }
+
+  .versus{
+    display:grid;
+    gap:14px;
+    margin-top:8px;
+  }
+  .versus-col{
+    display:grid;
+    gap:10px;
+    padding:18px;
+    border-radius:20px;
+  }
+  .versus-col.solo{border:1px dashed var(--line);}
+  .versus-col.team{background:var(--ink);color:var(--ivory);}
+  .versus-col h4{
+    margin:0 0 6px;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .versus-col.team h4{color:rgba(255,253,247,.62);}
+  .versus-chain{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    font-size:16px;
+    letter-spacing:-.01em;
+  }
+  .versus-chain .arrow{color:var(--orange);font-size:15px;}
+  .versus-chain .icon{width:18px;height:18px;vertical-align:-4px;}
+  .compare-card .versus-chain{margin-top:4px;}
+
+  .before-after{
+    display:grid;
+    gap:14px;
+    margin-top:30px;
+  }
+  .ba-card{
+    padding:22px;
+    border-radius:24px;
+  }
+  .ba-card.before{border:1px dashed var(--line);color:var(--muted);}
+  .ba-card.after{background:var(--ink);color:var(--ivory);}
+  .ba-tag{
+    display:inline-block;
+    margin-bottom:12px;
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+  }
+  .ba-card.before .ba-tag{color:var(--muted);}
+  .ba-card.after .ba-tag{color:var(--cyan);}
+  .ba-card p{margin:0;font-size:18px;line-height:1.6;letter-spacing:-.01em;}
+  .ba-card.before p{font-family:var(--serif);font-size:clamp(20px,5.6vw,26px);}
+  .ba-list{display:grid;gap:8px;margin:0;padding:0;list-style:none;}
+  .ba-list li{display:flex;align-items:center;gap:10px;font-size:18px;}
+  .ba-list li::before{content:"✓";color:var(--cyan);}
+  .ba-arrow-row{display:flex;justify-content:center;color:var(--orange);font-size:22px;}
+
+  .stat-row{
+    display:grid;
+    gap:10px;
+    margin-top:22px;
+  }
+  .stat-item{
+    padding:14px 18px;
+    border-radius:16px;
+    background:rgba(255,253,247,.6);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .stat-item .num{
+    font-family:var(--serif);
+    font-size:clamp(28px,8vw,40px);
+    letter-spacing:-.03em;
+    color:var(--red);
+  }
+  .stat-item .label{font-size:14px;color:var(--muted);}
+
+  .price-figure{
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    margin:14px 0 0;
+  }
+  .price-figure .yen{
+    font-family:var(--serif);
+    font-size:clamp(46px,15vw,96px);
+    letter-spacing:-.04em;
+    color:var(--red);
+    line-height:1;
+  }
+  .price-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:16px;
+  }
+  .price-tags span{
+    padding:8px 13px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-size:13px;
+    color:rgba(19,17,15,.72);
+  }
+
+  .cta-simple{
+    margin-top:26px;
+    display:grid;
+    justify-items:start;
+    gap:10px;
+  }
+  .cta-dark{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    min-height:58px;
+    padding:0 34px;
+    border-radius:999px;
+    background:var(--ink);
+    color:var(--ivory);
+    font-size:16px;
+    letter-spacing:.02em;
+    transition:transform .35s var(--ease), background .35s var(--ease);
+  }
+  .cta-dark:hover{transform:translateY(-3px);background:var(--pink);}
+
+  @media (min-width:640px){
+    .service-grid{grid-template-columns:repeat(4,1fr);}
+    .versus{grid-template-columns:1fr 1fr;}
+    .before-after{grid-template-columns:1fr auto 1fr;align-items:center;}
+    .ba-arrow-row{font-size:30px;}
+    .stat-row{grid-template-columns:repeat(3,1fr);}
+  }
+
   .reveal{
     opacity:0;
     transform:translateY(34px);
@@ -2178,8 +2434,6 @@
     .compare-grid{grid-template-columns:1fr 1.08fr;gap:22px;}
     .lesson-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
     .lesson{padding:18px;}
-    .lesson h3{font-size:18px;}
-    .lesson p{font-size:12px;}
     .lifestyle-board{grid-template-columns:1fr 1fr;grid-auto-rows:minmax(310px,auto);}
     .life-card.image{grid-row:span 2;min-height:640px;}
     .fit-item{grid-template-columns:64px 1fr;gap:24px;padding:28px 0;}
@@ -2274,12 +2528,8 @@
       gap:8px;
     }
     .learning .large-copy{
-      font-size:15px;
-      line-height:1.55;
-    }
-    .learning .body-copy{
-      font-size:12px;
-      line-height:1.6;
+      font-size:18px;
+      line-height:1.5;
     }
     .lesson-grid{
       grid-template-columns:repeat(2,minmax(0,1fr));
@@ -2287,9 +2537,10 @@
       margin-top:22px;
     }
     .lesson{
-      min-height:128px;
-      padding:12px;
+      min-height:126px;
+      padding:14px;
       border-radius:18px;
+      gap:8px;
     }
     .lesson::after{
       width:52px;
@@ -2297,21 +2548,16 @@
       right:-16px;
       top:-17px;
     }
-    .lesson span{
-      font-size:32px;
+    .lesson .lesson-icon{
+      width:36px;
+      height:36px;
     }
     .lesson h3{
-      margin:12px 0 5px;
-      font-size:13px;
-      line-height:1.35;
+      font-size:15px;
+      line-height:1.3;
     }
     .lesson p{
-      display:-webkit-box;
-      overflow:hidden;
-      font-size:10px;
-      line-height:1.5;
-      -webkit-box-orient:vertical;
-      -webkit-line-clamp:2;
+      font-size:13px;
     }
   }
 
@@ -2432,6 +2678,32 @@
 <body>
 <div class="noise" aria-hidden="true"></div>
 
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+<defs>
+<symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 20C12 20 4 14.5 4 9.2C4 6.3 6.2 4.5 8.6 4.5C10.2 4.5 11.4 5.3 12 6.4C12.6 5.3 13.8 4.5 15.4 4.5C17.8 4.5 20 6.3 20 9.2C20 14.5 12 20 12 20Z"/></symbol>
+<symbol id="icon-spark" viewBox="0 0 24 24"><path d="M12 3L13.6 10.4L21 12L13.6 13.6L12 21L10.4 13.6L3 12L10.4 10.4Z"/></symbol>
+<symbol id="icon-sort" viewBox="0 0 24 24"><path d="M4 7H20M7 12H17M10 17H14"/></symbol>
+<symbol id="icon-box" viewBox="0 0 24 24"><path d="M4 8L12 4L20 8L12 12L4 8Z M4 8V16L12 20L20 16V8 M12 12V20"/></symbol>
+<symbol id="icon-send" viewBox="0 0 24 24"><path d="M3 11L21 4L14 21L11 13L3 11Z M11 13L21 4"/></symbol>
+<symbol id="icon-megaphone" viewBox="0 0 24 24"><path d="M3 10V14H6L14 19V5L6 10H3Z M14 8.5C15.7 9.4 15.7 14.6 14 15.5"/></symbol>
+<symbol id="icon-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 12H15M12 8.5V15.5"/></symbol>
+<symbol id="icon-bulb" viewBox="0 0 24 24"><path d="M9 18H15M10 21H14M12 3C8.5 3 6 5.7 6 9C6 11.2 7.2 12.7 8.3 13.8C8.9 14.4 9 15 9 15.5V16H15V15.5C15 15 15.1 14.4 15.7 13.8C16.8 12.7 18 11.2 18 9C18 5.7 15.5 3 12 3Z"/></symbol>
+<symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 12H12.01"/></symbol>
+<symbol id="icon-window" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9.5H21M6.3 7.2H6.31M9 7.2H9.01"/></symbol>
+<symbol id="icon-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.3L16 12L10 15.7V8.3Z"/></symbol>
+<symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12H21M12 3C9 6 9 18 12 21C15 18 15 6 12 3Z"/></symbol>
+<symbol id="icon-link" viewBox="0 0 24 24"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9.4 9.4L14.6 14.6"/></symbol>
+<symbol id="icon-trend" viewBox="0 0 24 24"><path d="M4 17L10 11L14 15L20 8M14 8H20V14"/></symbol>
+<symbol id="icon-chat" viewBox="0 0 24 24"><path d="M4 6C4 5.4 4.4 5 5 5H19C19.6 5 20 5.4 20 6V15C20 15.6 19.6 16 19 16H9L5 20V16C4.4 16 4 15.6 4 15V6Z"/></symbol>
+<symbol id="icon-check" viewBox="0 0 24 24"><path d="M4 12.5L9 17.5L20 6"/></symbol>
+<symbol id="icon-run" viewBox="0 0 24 24"><path d="M4 12H16M11 7L16 12L11 17"/></symbol>
+<symbol id="icon-loop" viewBox="0 0 24 24"><path d="M4 12C4 7.6 7.6 4 12 4C15 4 17.6 5.7 19 8.2M19 4V8.2H14.8M20 12C20 16.4 16.4 20 12 20C9 20 6.4 18.3 5 15.8M5 20V15.8H9.2"/></symbol>
+<symbol id="icon-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3C9.5 7.5 10.7 6 12.3 6C13.9 6 15 7.2 15 8.7C15 10.6 12.4 10.8 12.3 13"/><path d="M12.3 16.2H12.31"/></symbol>
+<symbol id="icon-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M6 6L18 18"/></symbol>
+<symbol id="icon-think" viewBox="0 0 24 24"><path d="M8 20V17.5C6 16 5 13.8 5 11.5C5 7.4 8.4 4 12.5 4C16.6 4 20 7.4 20 11.5C20 13.8 19 16 17 17.5V20H8Z M9.5 20H15.5"/></symbol>
+</defs>
+</svg>
+
 <div class="loader" id="loader" aria-label="読み込み中">
   <div class="loader-inner">
     <div class="loader-kicker"><span>好きを仕事にする個別プロデュース</span><span>JOURNEY 01</span></div>
@@ -2485,8 +2757,8 @@
           <span class="split-line"><span class="jp">自分を解き放て。</span></span>
         </h1>
         <div class="hero-copy reveal">
-          <p class="hero-subcopy">好きなことを仕事にしたい。<br><strong>でも、どうやって<br>収入につなげればいいかわからない。</strong></p>
-          <p class="hero-support">あなたの経験、才能、好きなことを、<br>「仕事になる形」まで一緒につくります。</p>
+          <p class="hero-subcopy">好きなことはある。<br><strong>でも、どう仕事にする？</strong></p>
+          <p class="hero-support">経験と才能を、「仕事になる形」へ。</p>
           <p class="hero-cta-eyebrow">＼ LINE登録者限定・無料 ／</p>
           <!-- TODO: hrefを公式LINE URLへ差し替えてください -->
           <a class="hero-cta" href="#" aria-label="無料で、あなたに合ったロードマップを作る 残り3名">
@@ -2494,10 +2766,9 @@
             <span class="hero-cta-main">無料ロードマップ</span>
             <span class="hero-cta-arrow" aria-hidden="true">↗</span>
           </a>
-          <p class="hero-cta-caption">回答をもとに、約1週間であなただけのロードマップを作成します</p>
-          <div class="hero-cta-note" aria-label="個人事業主、フリーランス、アーティスト、講師、セラピスト、副業歓迎、少人数制">
+          <p class="hero-cta-caption">約1週間であなただけの形をお届け</p>
+          <div class="hero-cta-note" aria-label="個人事業主、フリーランス、アーティスト、講師、セラピスト歓迎、少人数制、8週間の個別設計">
             <span>個人事業主・フリーランス歓迎</span>
-            <span>アーティスト・講師・セラピスト歓迎</span>
             <span>少人数制</span>
             <span>8週間の個別設計</span>
           </div>
@@ -2518,11 +2789,11 @@
         <p class="scribble-note">not a perfect checklist. just a small sign.</p>
       </div>
       <ul class="recommend-list reveal">
-        <li><mark>好きなことや経験を仕事にしたいが、何から始めればいいかわからない</mark></li>
-        <li><mark>商品やサービスはあり、一度売れたこともあるが、毎月の収益が安定しない</mark></li>
-        <li><mark>SNSを続けているのに、申し込みや収益につながっていない</mark></li>
-        <li><mark>一人だと行動が止まるけれど、誰かと一緒なら前へ進める</mark></li>
-        <li><mark>自分らしく働きながら、日本の外にも挑戦してみたい</mark></li>
+        <li><mark>好きなこと・経験はあるが、何から始めるかわからない</mark></li>
+        <li><mark>商品はあるが、毎月の収益が安定しない</mark></li>
+        <li><mark>SNSは続けているが、申し込みにつながらない</mark></li>
+        <li><mark>一人だと止まる。誰かと一緒なら進める</mark></li>
+        <li><mark>自分らしく働きながら、海外にも挑戦したい</mark></li>
       </ul>
     </div>
   </section>
@@ -2553,20 +2824,32 @@
       <h2 class="creator-title reveal"><span class="cyan">かたちに</span><br><span class="pink">する。</span><br><span class="orange">Produce</span></h2>
       <div class="creator-copy reveal">
         <div class="section-label">02 / Definition</div>
-        <p><strong>「かたちにする。」</strong>とは、あなたがすでに持っている経験、才能、好きなこと、技術やアイデアを整理し、仕事と収益につながる形まで一緒につくる8週間の個別プロデュース。</p>
-        <p>全員に同じことを教える講座ではありません。あなたの材料を商品にする、言葉にする、見せ方をつくる、届ける相手を決める、集客する、販売する。そのすべてを、必要な順番で同じチームとして進めます。</p>
+        <p class="large-copy"><strong>経験・才能・好きなこと</strong>を、仕事と収益につながる形まで一緒につくる、8週間の個別プロデュース。</p>
+        <div class="flow-diagram" aria-label="好き・経験から整理、商品、発信、集客を経て収益へつながる流れ">
+          <div class="flow-node"><span class="node-icon"><svg class="icon"><use href="#icon-heart"></use></svg></span><span class="node-label">好き・経験</span></div>
+          <div class="flow-arrow-row" aria-hidden="true">↓</div>
+          <div class="flow-node"><span class="node-icon"><svg class="icon"><use href="#icon-sort"></use></svg></span><span class="node-label">整理</span></div>
+          <div class="flow-arrow-row" aria-hidden="true">↓</div>
+          <div class="flow-node"><span class="node-icon"><svg class="icon"><use href="#icon-box"></use></svg></span><span class="node-label">商品</span></div>
+          <div class="flow-arrow-row" aria-hidden="true">↓</div>
+          <div class="flow-node"><span class="node-icon"><svg class="icon"><use href="#icon-send"></use></svg></span><span class="node-label">発信</span></div>
+          <div class="flow-arrow-row" aria-hidden="true">↓</div>
+          <div class="flow-node"><span class="node-icon"><svg class="icon"><use href="#icon-megaphone"></use></svg></span><span class="node-label">集客</span></div>
+          <div class="flow-arrow-row" aria-hidden="true">↓</div>
+          <div class="flow-node"><span class="node-icon"><svg class="icon"><use href="#icon-coin"></use></svg></span><span class="node-label">収益</span></div>
+        </div>
         <div class="mini-grid">
           <div class="mini-card">
             <h3>Think</h3>
-            <p>経験や好きなことを整理し、商品と届けたい相手の輪郭を見つける。</p>
+            <p>整理して、輪郭を見つける</p>
           </div>
           <div class="mini-card">
             <h3>Make</h3>
-            <p>言葉、商品、ビジュアルで、あなたの世界観を選べる形にする。</p>
+            <p>言葉と商品を、形にする</p>
           </div>
           <div class="mini-card">
             <h3>Flow</h3>
-            <p>必要な人へ届け、申し込みと収益につながる流れを実装する。</p>
+            <p>届け、収益につなげる</p>
           </div>
         </div>
       </div>
@@ -2591,28 +2874,31 @@
       <div class="statement">
         <h2 class="reveal"><span class="jp">あなたをサポートする<br>チームです。</span>Not alone.<br>Together.</h2>
         <div class="text-stack reveal">
-          <p class="large-copy">知識を渡して終わるのではなく、一緒に考え、一緒に手を動かし、世の中へ出すところまで。</p>
-          <p class="body-copy">一人だと「また今度でいいか」と止まる日があります。だから毎週、次に何をやるかを一緒に決める。迷った時には安心とアイデアを渡し、同じチームとして前へ進みます。</p>
+          <p class="large-copy">知識を渡して終わりにせず、世の中へ出すところまで一緒に。</p>
         </div>
       </div>
       <div class="compare-grid">
         <article class="compare-card reveal">
           <h3>一人で<br>進めると</h3>
-          <ul class="compare-list">
-            <li>何から始めるか決めきれない</li>
-            <li>発信や撮影を先延ばしにしてしまう</li>
-            <li>迷った時に相談相手がいない</li>
-            <li>つくっても外へ出す前に止まりやすい</li>
-          </ul>
+          <div class="versus-chain">
+            <svg class="icon"><use href="#icon-think"></use></svg><span>考える</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <svg class="icon"><use href="#icon-question"></use></svg><span>迷う</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <svg class="icon"><use href="#icon-block"></use></svg><span>止まる</span>
+          </div>
         </article>
         <article class="compare-card featured reveal">
           <h3>かたちにする。<br>個別プロデュース</h3>
-          <ul class="compare-list">
-            <li>現在地と目標に合わせて8週間を個別設計</li>
-            <li>毎週、次にやることを一緒に決める</li>
-            <li>安心して相談でき、幅広いアイデアが得られる</li>
-            <li>商品化、発信、販売、改善までチームで伴走する</li>
-          </ul>
+          <div class="versus-chain">
+            <svg class="icon"><use href="#icon-chat"></use></svg><span>話す</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <svg class="icon"><use href="#icon-check"></use></svg><span>決める</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <svg class="icon"><use href="#icon-run"></use></svg><span>動く</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <svg class="icon"><use href="#icon-loop"></use></svg><span>続ける</span>
+          </div>
         </article>
       </div>
     </div>
@@ -2624,42 +2910,43 @@
       <div class="statement">
         <h2 class="reveal">必要なことは、<br>人によって<br>違う。</h2>
         <div class="text-stack reveal">
-          <p class="large-copy">全部をやるのではなく、今のあなたに必要なものだけを選びます。</p>
-          <p class="body-copy">固定カリキュラムではありません。アーティストなら作品の売り方、セラピストならセッションの届け方、すでに事業があるなら売上の伸ばし方。現在地と目標を見て、その人に必要なものだけで8週間を設計します。</p>
+          <p class="large-copy">100人いれば、100通りの道。</p>
+          <div class="ratio-visual" aria-hidden="true"><span class="num">100</span><span class="arrow">→</span><span class="num">100</span></div>
+          <p class="ratio-caption">答えは、一人ひとり違う。</p>
         </div>
       </div>
       <div class="lesson-grid">
         <article class="lesson reveal" style="--tone:var(--cyan)">
-          <span>01</span>
-          <div><h3>商品設計・強みの整理</h3><p>経験、才能、技術を棚卸しし、お客様が選べる商品やサービスへ整える。</p></div>
+          <span class="lesson-icon"><svg class="icon"><use href="#icon-target"></use></svg></span>
+          <h3>商品設計・強み</h3><p>経験を商品に整える</p>
         </article>
         <article class="lesson reveal" style="--tone:var(--pink)">
-          <span>02</span>
-          <div><h3>コンセプト・ブランディング</h3><p>誰に何を届けるのかを決め、あなたらしい言葉、見せ方、世界観をつくる。</p></div>
+          <span class="lesson-icon"><svg class="icon"><use href="#icon-spark"></use></svg></span>
+          <h3>コンセプト・世界観</h3><p>届け方と言葉をつくる</p>
         </article>
         <article class="lesson reveal" style="--tone:var(--orange)">
-          <span>03</span>
-          <div><h3>LP・コピーライティング</h3><p>必要な人には、価値が伝わり、申し込みにつながるページと言葉をつくる。</p></div>
+          <span class="lesson-icon"><svg class="icon"><use href="#icon-window"></use></svg></span>
+          <h3>LP・コピー</h3><p>伝わるページをつくる</p>
         </article>
         <article class="lesson reveal" style="--tone:#fff3b0">
-          <span>04</span>
-          <div><h3>SNS・Instagram</h3><p>投稿するだけで終わらず、商品や相談へつながる発信とプロフィールを整える。</p></div>
+          <span class="lesson-icon"><svg class="icon"><use href="#icon-play"></use></svg></span>
+          <h3>SNS発信</h3><p>投稿から申込みへ</p>
         </article>
         <article class="lesson reveal" style="--tone:var(--cyan)">
-          <span>05</span>
-          <div><h3>YouTube・LINE・広告</h3><p>目標と相性に合わせて、必要な発信媒体と集客導線を選び、実行する。</p></div>
+          <span class="lesson-icon"><svg class="icon"><use href="#icon-megaphone"></use></svg></span>
+          <h3>集客導線</h3><p>YouTube・LINE・広告</p>
         </article>
         <article class="lesson reveal" style="--tone:var(--pink)">
-          <span>06</span>
-          <div><h3>AI活用・アイデア提供</h3><p>AIを手段の一つとして使いながら、企画、発信、改善の選択肢を広げる。</p></div>
+          <span class="lesson-icon"><svg class="icon"><use href="#icon-bulb"></use></svg></span>
+          <h3>AI活用</h3><p>企画と改善を広げる</p>
         </article>
         <article class="lesson reveal" style="--tone:var(--orange)">
-          <span>07</span>
-          <div><h3>人脈紹介・海外展開</h3><p>必要に応じて人と人をつなぎ、日本の外へ届ける方法や最初の導線を考える。</p></div>
+          <span class="lesson-icon"><svg class="icon"><use href="#icon-globe"></use></svg></span>
+          <h3>人脈・海外展開</h3><p>日本の外へ届ける</p>
         </article>
         <article class="lesson reveal" style="--tone:#fff3b0">
-          <span>08</span>
-          <div><h3>壁打ち・マインドセット</h3><p>迷いや停止も一緒に整理し、今週やることを決め、公開と販売まで進める。</p></div>
+          <span class="lesson-icon"><svg class="icon"><use href="#icon-chat"></use></svg></span>
+          <h3>壁打ち伴走</h3><p>迷いを一緒に整理</p>
         </article>
       </div>
     </div>
@@ -2669,10 +2956,10 @@
     <div class="mid-cta-inner">
       <p class="mid-cta-kicker">LINE登録者限定・無料</p>
       <h2>今の仕事、経験、<br>好きなことを教えてください。</h2>
-      <p>あなたなら何を商品にするか、どう届けるか、まず何をするか。無料の個別プロデュースの入口として、一人ひとりに合わせたロードマップに整理します。</p>
+      <p>あなただけのロードマップに整理します。</p>
       <!-- TODO: hrefを公式LINE URLへ差し替えてください -->
       <a class="main-cta" href="#"><span class="main-cta-label">私のロードマップをつくる</span><span class="main-cta-arrow" aria-hidden="true">↗</span></a>
-      <small>回答をもとに、約1週間で作成します。</small>
+      <small>約1週間でお届け</small>
     </div>
   </aside>
 
@@ -2682,14 +2969,12 @@
         <div class="section-label reveal">05 / Work cycle</div>
         <h2 class="editorial-title reveal">考えて終わりじゃない。<br>世の中に出せる形まで。</h2>
         <div class="text-stack reveal">
-          <p class="large-copy">知識を教えて終わるプログラムではありません。</p>
-          <p class="body-copy">あなたの材料を一緒に整理し、商品やサービスにする。実行し、公開し、販売し、反応を見て改善する。実際の申し込みにつながるところまで伴走します。</p>
-          <p class="body-copy">「今日は動けない」「何を発信すればいいかわからない」も、そのまま相談してください。今週やることを一緒に決め、次の形へ進みます。</p>
+          <p class="large-copy">考えるだけで終わらせない。実際に出すところまで。</p>
         </div>
         <div class="cycle-points reveal">
-          <p class="cycle-point">先生として上から教えるのではなく、同じチームとして一緒に仕事をつくる。</p>
-          <p class="cycle-point">一人ひとりに必要な方法を選び、相談、実行、公開まで伴走する。</p>
-          <p class="cycle-point">小さな販売と改善を積み重ね、次の収益や展開につながる循環をつくる。</p>
+          <p class="cycle-point">先生ではなく、同じチーム。</p>
+          <p class="cycle-point">必要な方法だけを、一緒に選ぶ。</p>
+          <p class="cycle-point">小さな販売と改善を、積み重ねる。</p>
         </div>
       </div>
 
@@ -2707,27 +2992,27 @@
 
         <div class="cycle-steps">
           <article class="cycle-step reveal">
-            <span class="cycle-step-label">STEP 1</span>
-            <h3>材料と現在地を整理する</h3>
-            <p>経験 / 才能 / 商品 / 目標 / 得意なこと</p>
+            <span class="cycle-step-label">01</span>
+            <h3>見つける</h3>
+            <p>経験・才能・得意を整理</p>
           </article>
           <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
           <article class="cycle-step reveal">
-            <span class="cycle-step-label">STEP 2</span>
-            <h3>その人に必要な形をつくる</h3>
-            <p>商品設計・言語化・見せ方・集客導線</p>
+            <span class="cycle-step-label">02</span>
+            <h3>かたちにする</h3>
+            <p>商品・見せ方・導線をつくる</p>
           </article>
           <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
           <article class="cycle-step reveal">
-            <span class="cycle-step-label">STEP 3</span>
-            <h3>実際に世の中へ出す</h3>
-            <p>発信・販売・紹介・公開までチームで実行</p>
+            <span class="cycle-step-label">03</span>
+            <h3>外に出す</h3>
+            <p>発信・販売・公開を実行</p>
           </article>
           <div class="cycle-arrow reveal" aria-hidden="true">↓</div>
           <article class="cycle-step highlight reveal">
-            <span class="cycle-step-label">STEP 4</span>
-            <h3>仕事と収益につながる<br>自分らしい形へ</h3>
-            <p>つくった形を成果へ。成果を、次の選択肢へ。</p>
+            <span class="cycle-step-label">04</span>
+            <h3>育てる</h3>
+            <p>成果を、次の展開へ</p>
           </article>
         </div>
 
@@ -2756,12 +3041,16 @@
     <div class="section-inner">
       <div class="section-label reveal">06 / Program flow</div>
       <h2 class="editorial-title reveal">8週間は、あなたに合わせて。</h2>
+      <div class="stat-row reveal">
+        <div class="stat-item"><span class="num">8</span><span class="label">週間</span></div>
+        <div class="stat-item"><span class="num">全8回</span><span class="label">週1回のセッション</span></div>
+      </div>
       <div class="flow-track">
-        <article class="flow-step reveal"><span class="week">START</span><h3>現在地を知る</h3><p>今ある材料、売上、悩み、8週間後に実現したいことを一緒に整理する。</p></article>
-        <article class="flow-step reveal"><span class="week">DESIGN</span><h3>個別ロードマップをつくる</h3><p>商品設計、発信、導線、海外展開などから、必要な順番だけを選ぶ。</p></article>
-        <article class="flow-step reveal"><span class="week">WEEKLY</span><h3>毎週、一緒に進める</h3><p>週1回の対話で次の行動を決め、迷いを壁打ちしながら形にする。</p></article>
-        <article class="flow-step reveal"><span class="week">LAUNCH</span><h3>外へ出して、販売する</h3><p>つくった商品や発信、導線を公開し、お客様の反応を確かめる。</p></article>
-        <article class="flow-step reveal"><span class="week">WEEK 08</span><h3>次の収益へつなぐ</h3><p>結果を見て改善し、自分で続けられる形と次の一歩を決める。</p></article>
+        <article class="flow-step reveal"><span class="week">START</span><h3>現在地を知る</h3><p>今の材料と目標を整理</p></article>
+        <article class="flow-step reveal"><span class="week">DESIGN</span><h3>ロードマップをつくる</h3><p>必要な順番だけを選ぶ</p></article>
+        <article class="flow-step reveal"><span class="week">WEEKLY</span><h3>毎週、一緒に進める</h3><p>週1回、次の一歩を決める</p></article>
+        <article class="flow-step reveal"><span class="week">LAUNCH</span><h3>外へ出して、販売する</h3><p>公開し、反応を確かめる</p></article>
+        <article class="flow-step reveal"><span class="week">WEEK 08</span><h3>次の収益へつなぐ</h3><p>続けられる形と次の一歩へ</p></article>
       </div>
     </div>
   </section>
@@ -2772,24 +3061,30 @@
       <div class="statement">
         <h2 class="reveal"><span class="jp">この個別プロデュースで<br>手に入る未来</span>Build your<br>next route.</h2>
         <div class="text-stack reveal">
-          <p class="large-copy">好きなことを仕事にし、収益を人生の選択肢へ変えていくために。</p>
-          <p class="body-copy">月10〜20万円の収益を目指すことも、事業を大きくすることも、旅や海外への挑戦も。その人が望む未来から、必要な道筋を一緒に設計します。</p>
+          <p class="large-copy">望む未来から、必要な道筋を一緒に設計する。</p>
+        </div>
+      </div>
+      <div class="before-after reveal" aria-label="伴走前後の変化">
+        <div class="ba-card before">
+          <span class="ba-tag">BEFORE</span>
+          <p>好きなことはある。<br>でも、どう仕事にする？</p>
+        </div>
+        <div class="ba-arrow-row" aria-hidden="true">→</div>
+        <div class="ba-card after">
+          <span class="ba-tag">AFTER</span>
+          <ul class="ba-list">
+            <li>商品がある</li>
+            <li>伝え方がある</li>
+            <li>動線がある</li>
+            <li>次にやることが分かる</li>
+          </ul>
         </div>
       </div>
       <div class="future-grid">
-        <article class="future-item reveal"><span>01</span><div><h3>好きなことが仕事になる</h3><p>経験や才能を、誰かが選び、対価を払いたくなる商品やサービスへ変える。</p></div></article>
-        <article class="future-item reveal"><span>02</span><div><h3>月10〜20万円の収益を目指す</h3><p>一度きりではなく、届け方と販売導線を整え、継続的な収益につながる土台をつくる。</p></div></article>
-        <article class="future-item reveal"><span>03</span><div><h3>事業を次の大きさへ</h3><p>今ある商品を磨く、新しい事業を始める、日本の商品を海外へ届ける。次の展開を具体化する。</p></div></article>
-        <article class="future-item reveal"><span>04</span><div><h3>人生の選択肢を増やす</h3><p>収益を最終目的にせず、旅や海外挑戦、好きな場所で働く自由につなげる。</p></div></article>
-      </div>
-      <div class="future-after reveal">
-        <p class="section-label">After the 8 weeks</p><h3>伴走後の変化</h3>
-        <p>頭の中にあった好きなことやアイデアが、商品になり、言葉になり、お客様に選んでもらえる形へ。</p>
-      </div>
-      <div class="change-grid">
-        <article class="change-card reveal"><h3>Choice</h3><p>好きなことから収益をつくり、働く場所や次の挑戦を自分で選べる。</p></article>
-        <article class="change-card reveal"><h3>Voice</h3><p>自分の経験やサービスの価値を、借り物ではない言葉で伝えられる。</p></article>
-        <article class="change-card reveal"><h3>Flow</h3><p>自分に必要な手段がつながり、発信から申し込み、販売までの流れが見える。</p></article>
+        <article class="future-item reveal"><span>01</span><div><h3>好きなことが仕事になる</h3></div></article>
+        <article class="future-item reveal"><span>02</span><div><h3>月10〜20万円の収益を目指す</h3></div></article>
+        <article class="future-item reveal"><span>03</span><div><h3>事業を次の大きさへ</h3></div></article>
+        <article class="future-item reveal"><span>04</span><div><h3>人生の選択肢を増やす</h3></div></article>
       </div>
 
     </div>
@@ -2801,7 +3096,7 @@
       <div class="statement">
         <h2 class="reveal"><span class="jp">収益化した先の、<br>選べる景色。</span>Scenes from<br>the next route.</h2>
         <div class="text-stack reveal">
-          <p class="large-copy">収益化は、人生を選び直すための手段。<br><br>好きな場所で働く。旅先で仕事を育てる。新しい出会いを、次の事業へつなげる。そんな暮らしの景色を、自分の手で増やしていく。</p>
+          <p class="large-copy">収益化は、人生を選び直す手段。</p>
         </div>
       </div>
     </div>
@@ -2897,7 +3192,7 @@
           <div class="life-text">
             <span class="life-kicker">Scene 01</span>
             <h3>朝の光で、仕事を始める。</h3>
-            <p>場所に合わせて働くのではなく、行きたい場所に合わせて働き方をつくる。</p>
+            <p>行きたい場所に、働き方を合わせる。</p>
           </div>
         </article>
         <article class="life-card cyan-bg with-photo reveal">
@@ -2906,7 +3201,7 @@
           </figure>
           <div class="life-copy">
             <span class="life-kicker">Scene 02</span>
-            <div><h3>旅先で、仕事を育てる。</h3><p>好きな場所で生まれたアイデアを、次の商品や発信へ変えていく。</p></div>
+            <div><h3>旅先で、仕事を育てる。</h3><p>生まれたアイデアを、次の商品へ。</p></div>
           </div>
         </article>
         <article class="life-card pink-bg with-photo experience-photo reveal">
@@ -2915,7 +3210,7 @@
           </figure>
           <div class="life-copy">
             <span class="life-kicker">Scene 03</span>
-            <div><h3>体験が、次のお客様を呼ぶ。</h3><p>旅先での出会いや発信が、あなたの事業の新しいお客様につながり始める。</p></div>
+            <div><h3>体験が、次のお客様を呼ぶ。</h3><p>出会いが、新しいお客様につながる。</p></div>
           </div>
         </article>
         <article class="life-card orange-bg with-photo name-photo reveal">
@@ -2924,7 +3219,7 @@
           </figure>
           <div class="life-copy">
             <span class="life-kicker">Scene 04</span>
-            <div><h3>自分の名前で、選ばれる。</h3><p>テンプレートの言葉ではなく、あなたの事業の世界観で信頼をつくる。</p></div>
+            <div><h3>自分の名前で、選ばれる。</h3><p>あなたの世界観が、信頼になる。</p></div>
           </div>
         </article>
       </div>
@@ -2939,8 +3234,7 @@
           <h2 class="reveal"><span class="jp">数字ではなく、<br>人生そのものが証明になる。</span>Story as<br>trust.</h2>
         </div>
         <div class="text-stack reveal">
-          <p class="large-copy">旅、事業、表現、海外、WEB、AI、人とのつながり。その交差点から生まれる安心とアイデア。</p>
-          <p class="body-copy">実際に場所を変え、事業をつくり、人の表現を社会へつなげてきた二人だからこそ、「こうしてみたらどう？」と一つの正解に縛られない選択肢を一緒に考えます。</p>
+          <p class="large-copy">旅、事業、表現、海外、WEB、AI。その交差点から生まれる、安心とアイデア。</p>
         </div>
       </div>
       <article class="host-card">
@@ -2952,22 +3246,19 @@
           <div class="section-label reveal">Host / Business and life design</div>
           <p class="host-eyebrow reveal">主催者プロフィール・実績</p>
           <h2 class="host-name reveal">五十嵐邦夫</h2>
-          <p class="host-lead reveal">日本の建築会社で25年間、デザイン・営業に携わった後、海外へ移住。現在はバリ島・ウブドを拠点に、Web戦略、オンライン教育、不動産、飲食など複数の事業を展開しています。</p>
+          <p class="host-lead reveal">日本の建築会社で25年間勤めた後、海外へ移住。現在はバリ島・ウブドを拠点に、Web戦略、教育、不動産、飲食など複数の事業を展開しています。</p>
           <div class="reveal">
             <div class="section-label">Main achievements</div>
             <ul class="achievement-list">
-              <li>バリ島での不動産事業およびヴィラ開発を展開</li>
-              <li>日本食レストランを運営し、Googleビジネスプロフィールにて高評価を獲得</li>
-              <li>Instagram、Googleビジネスプロフィール、Airbnbなどを活用して事業を仕組み化</li>
-              <li>複数の事業にWEBやAIを取り入れ、収益化を実現</li>
-              <li>バリ島ウブドにて、利用者から愛されるヴィラとしてベスト2に選出</li>
-              <li>飲食事業では、Googleビジネスプロフィールにおいて星5評価を獲得</li>
-              <li>開業から1年足らずで黒字化を達成</li>
-              <li>人間関係改善講座を主宰し、前に進むことを恐れている人たちをサポート</li>
-              <li>受講生の中から、現在第一線で活躍する人材を多数輩出</li>
+              <li>バリ島で不動産・ヴィラ開発、飲食など複数事業を展開</li>
+              <li>日本食レストランを運営し、Googleで星5評価を獲得</li>
+              <li>SNS・Web・AIを事業に取り入れ、仕組み化と収益化を実現</li>
+              <li>ウブドで愛されるヴィラ ベスト2に選出、開業1年未満で黒字化</li>
+              <li>人間関係改善講座を主宰し、多くの受講生をサポート</li>
+              <li>受講生から、現在第一線で活躍する人材を多数輩出</li>
             </ul>
           </div>
-          <p class="host-body reveal">建築、営業、海外移住、不動産、飲食、教育を横断してきた経験をもとに、事業と人生を自分らしく切り拓く選択肢を提案。迷った時にも安心して相談できる伴走者として、一人ひとりの可能性を広げることを大切にしています。</p>
+          <p class="host-body reveal">迷った時にも安心して相談できる伴走者として、一人ひとりの可能性を広げることを大切にしています。</p>
         </div>
       </article>
 
@@ -2980,18 +3271,10 @@
           <div class="section-label reveal">Co-host / Story and LP design</div>
           <p class="host-eyebrow reveal">ストーリー＆WEBプロデューサー / ART for BEING代表</p>
           <h2 class="host-name reveal">石丸 篤史</h2>
-          <p class="host-lead reveal">東京でヘアメイクとして活動し、有名モデルやタレントの現場を経験。</p>
-          <p class="host-body reveal">好きな世界で仕事をする一方で、「好きなことで生きていくこと」の難しさも知りました。</p>
-          <p class="host-body reveal">その後、自分自身の人生をもっと好きなこと、自分らしい選択でつくっていくために、ジャンルを決めず、さまざまなことに挑戦。</p>
-          <p class="host-body reveal">アート、イベント、WEBデザイン、ブランディング、事業づくりなど活動の領域を広げ、ユニクロ×博多織のTシャツデザインにも携わってきました。</p>
-          <p class="host-body reveal">また、世界約30カ国を旅し、さまざまな国の人たちの仕事や暮らし、価値観に触れる中で、<strong>「人生のかたちは、一つじゃない」</strong>ということを実感。</p>
-          <p class="host-body reveal">現在は、一般社団法人 ART for BEING 代表として、「100人のアーティスト展」など、人の表現を社会につなげる活動も主催しています。</p>
-          <p class="host-body reveal">旅、アート、デザイン、WEB、AI、事業づくり、人とのつながり。</p>
-          <p class="host-body reveal">これまで培ってきたさまざまな経験を掛け合わせながら、</p>
-          <p class="host-body reveal"><strong>「好きなことはある。でも、どうやって仕事にすればいいかわからない」</strong></p>
-          <p class="host-body reveal">そんな人の中にすでにある経験、才能、想いを見つけ、一緒に「仕事になる形」へと育てています。</p>
-          <p class="host-body reveal">答えを教えるのではなく、<strong>「こうしてみたらどう？」</strong>から、一緒に人生の可能性をかたちにする。</p>
-          <p class="host-body reveal">それが、このプロデュースで大切にしていることです。</p>
+          <p class="host-lead reveal">東京でヘアメイクとして活動し、有名モデルやタレントの現場を経験。<strong>「好きなことで生きていくこと」の難しさ</strong>も知りました。</p>
+          <p class="host-body reveal">ジャンルを決めず、アート・WEB・ブランディング・事業づくりへと領域を拡大。ユニクロ×博多織のTシャツデザインにも携わってきました。</p>
+          <p class="host-body reveal">世界約30カ国を旅する中で、<strong>「人生のかたちは、一つじゃない」</strong>と実感。現在は一般社団法人 ART for BEING 代表として、「100人のアーティスト展」など、人の表現を社会につなげる活動も主催しています。</p>
+          <p class="host-body reveal">旅、アート、WEB、AI、人とのつながり。培った経験を掛け合わせ、<strong>「好きなことはある。でも、どう仕事にすればいいかわからない」</strong>という人の経験と想いを見つけ、一緒に「仕事になる形」へ育てています。答えを教えるのではなく、<strong>「こうしてみたらどう？」</strong>から。</p>
         </div>
       </article>
     </div>
@@ -3000,7 +3283,7 @@
   <section class="section program-info" id="program" aria-label="Program Information">
     <div class="message program-story"><div class="message-inner">
       <div class="section-label reveal">10 / Program</div><h2 class="reveal">0期は、<br>一緒に<br>育てる期。</h2>
-      <p class="reveal">本格提供前に、少人数の方と一緒に個別プロデュースを磨いていく特別なご案内です。決まった教材を受け取るのではなく、週1回・全8回、実際に手を動かし、自分の商品やサービスを世の中へ出す方を募集します。</p>
+      <p class="reveal">少人数と一緒に、個別プロデュースを磨いていく特別なご案内です。</p>
     </div></div>
     <div class="section-inner">
       <div class="program-spread">
@@ -3008,25 +3291,29 @@
           <p class="program-kicker">Program Information</p>
           <h2 class="program-title"><span class="zero">0</span>期生募集</h2>
           <p class="program-price">¥98,000</p>
-          <p class="program-note"><strong>0期 98,000円</strong>（通常198,000円）<br>期間：2ヶ月 / 回数：週1回・全8回 / 形式：少人数制＋個別プロデュース</p>
+          <div class="price-tags" aria-hidden="true"><span>通常198,000円</span><span>8週間・全8回</span><span>個別プロデュース</span></div>
+          <div class="cta-simple">
+            <!-- TODO: hrefを公式LINE URLへ差し替えてください -->
+            <a class="cta-dark" href="#">参加・相談する <span aria-hidden="true">↗</span></a>
+          </div>
           <p class="program-disclaimer">※受講中の様子や受講生の声、成果物等を、許可をいただいた範囲で今後の告知・広報（LP・SNS等）に使用させていただく場合がございます。</p>
         </div>
         <dl class="program-list reveal">
           <div class="program-row">
             <dt>Style</dt>
-            <dd>少人数制＋個別プロデュース / 2ヶ月 / 週1回・全8回</dd>
+            <dd>少人数制＋個別プロデュース</dd>
           </div>
           <div class="program-row">
             <dt>Contents</dt>
-            <dd>現在地と目標に合わせて内容を個別設計。商品設計、発信、集客、販売、海外展開などから必要な方法を選びます。</dd>
+            <dd>商品設計・発信・集客・海外展開から、必要な方法を選択</dd>
           </div>
           <div class="program-row">
             <dt>Guide</dt>
-            <dd>個人事業主 / フリーランス / アーティスト / 講師 / セラピスト / 副業歓迎</dd>
+            <dd>個人事業主・フリーランス・アーティスト・講師・副業歓迎</dd>
           </div>
           <div class="program-row">
             <dt>Entry</dt>
-            <dd>まずは公式LINEで無料ロードマップを作成。その後、希望者へ個別相談をご案内します。</dd>
+            <dd>公式LINEで無料ロードマップ → 個別相談へ</dd>
           </div>
         </dl>
       </div>
@@ -3038,14 +3325,15 @@
       <div class="section-label reveal">11 / Goals</div>
       <div class="statement">
         <h2 class="reveal"><span class="jp">この個別プロデュースで<br>目指すゴール</span>Your first<br>real route.</h2>
-        <p class="large-copy reveal">8週間で、自分の商品やサービスを外に出し、98,000円以上の収益につながる土台をつくることを目指します。成果を保証するものではなく、一人ひとりの現在地に合わせて、公開・販売・改善を実践する目標です。</p>
+        <p class="large-copy reveal">8週間で、商品を外へ出す土台をつくる。</p>
       </div>
-      <div class="goal-grid">
-        <article class="goal-card reveal"><h3>売れる形を持つ</h3><p>好きなことや経験が、誰かに選んでもらえる商品やサービスになっている。</p></article>
-        <article class="goal-card reveal"><h3>外に出して反応を得る</h3><p>自分に必要な発信や導線を使い、実際に案内、公開、販売へ進んでいる。</p></article>
-        <article class="goal-card reveal"><h3>収益への土台をつくる</h3><p>参加費以上の収益につながる状態を目標に、販売と改善を実践する。</p></article>
-        <article class="goal-card reveal"><h3>次も自分で動ける</h3><p>8週間後も、自分の仕事を育て、次の挑戦へ進む道筋が見えている。</p></article>
+      <div class="fit-list reveal">
+        <div class="fit-item"><span aria-hidden="true"><svg class="icon"><use href="#icon-check"></use></svg></span><p>売れる形を持つ<small>誰かに選んでもらえる商品に</small></p></div>
+        <div class="fit-item"><span aria-hidden="true"><svg class="icon"><use href="#icon-check"></use></svg></span><p>外に出して反応を得る<small>発信・公開・販売へ</small></p></div>
+        <div class="fit-item"><span aria-hidden="true"><svg class="icon"><use href="#icon-check"></use></svg></span><p>収益への土台をつくる<small>参加費以上を目指す</small></p></div>
+        <div class="fit-item"><span aria-hidden="true"><svg class="icon"><use href="#icon-check"></use></svg></span><p>次も自分で動ける<small>次の挑戦へ進む道筋</small></p></div>
       </div>
+      <p class="program-disclaimer reveal">※成果を保証するものではなく、一人ひとりの現在地に合わせて実践する目標です。</p>
     </div>
   </section>
 
@@ -3053,7 +3341,7 @@
     <div class="message-inner">
       <div class="section-label reveal">12 / Last message</div>
       <h2 class="reveal">人生は、<br>もっと<br>編集できる。</h2>
-      <p class="reveal">好きなことを仕事にする。場所を変える。旅をする。海外へ出る。新しい事業を始める。収益をつくることは、自分の人生の選択肢を増やすことでもある。「かたちにする。」は、その一歩を一緒につくる個別プロデュースです。</p>
+      <p class="reveal">収益をつくることは、人生の選択肢を増やすこと。その一歩を一緒に。</p>
     </div>
   </section>
 
@@ -3061,11 +3349,11 @@
     <div class="final-inner">
       <div class="section-label reveal">13 / Invitation</div>
       <h2 class="reveal">Release<br>Yourself<br>Now.</h2>
-      <p class="reveal">無料で、あなたに合ったロードマップをつくります。今の仕事、経験、好きなことを教えてください。回答をもとに、約1週間であなただけのロードマップを作成します。</p>
+      <p class="reveal">まずは、あなたの現在地から。</p>
       <div class="cta-row">
         <!-- TODO: hrefを公式LINE URLへ差し替えてください -->
-        <a class="main-cta" href="#"><span class="main-cta-label">私のロードマップをつくる</span><span class="main-cta-arrow" aria-hidden="true">↗</span></a>
-        <span class="sub-note">LINEで回答 → 約1週間で個別ロードマップをお届け</span>
+        <a class="main-cta" href="#"><span class="main-cta-label">無料ロードマップをつくる</span><span class="main-cta-arrow" aria-hidden="true">↗</span></a>
+        <span class="sub-note">LINEで回答 → 約1週間でお届け</span>
       </div>
     </div>
   </section>
