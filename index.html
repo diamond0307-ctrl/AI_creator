@@ -2114,7 +2114,7 @@
     }
     .hero-title{
       left:8vw;
-      top:44%;
+      top:32%;
       transform:translateY(-50%);
       font-size:clamp(62px,7vw,112px);
       max-width:10.2ch;
@@ -2176,7 +2176,10 @@
     .mini-grid{grid-template-columns:repeat(3,1fr);gap:18px;}
     .creator-grid{grid-template-columns:1.18fr .82fr;align-items:end;gap:60px;}
     .compare-grid{grid-template-columns:1fr 1.08fr;gap:22px;}
-    .lesson-grid{grid-template-columns:repeat(2,1fr);}
+    .lesson-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+    .lesson{padding:18px;}
+    .lesson h3{font-size:18px;}
+    .lesson p{font-size:12px;}
     .lifestyle-board{grid-template-columns:1fr 1fr;grid-auto-rows:minmax(310px,auto);}
     .life-card.image{grid-row:span 2;min-height:640px;}
     .fit-item{grid-template-columns:64px 1fr;gap:24px;padding:28px 0;}
@@ -2256,6 +2259,60 @@
       min-height:25px;
       padding:0 9px;
     }
+    .learning.section{
+      padding-block:54px;
+    }
+    .learning .statement{
+      gap:14px;
+    }
+    .learning .statement h2{
+      font-size:clamp(34px,9vw,40px);
+      line-height:1.02;
+      letter-spacing:-.045em;
+    }
+    .learning .text-stack{
+      gap:8px;
+    }
+    .learning .large-copy{
+      font-size:15px;
+      line-height:1.55;
+    }
+    .learning .body-copy{
+      font-size:12px;
+      line-height:1.6;
+    }
+    .lesson-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+      margin-top:22px;
+    }
+    .lesson{
+      min-height:128px;
+      padding:12px;
+      border-radius:18px;
+    }
+    .lesson::after{
+      width:52px;
+      height:52px;
+      right:-16px;
+      top:-17px;
+    }
+    .lesson span{
+      font-size:32px;
+    }
+    .lesson h3{
+      margin:12px 0 5px;
+      font-size:13px;
+      line-height:1.35;
+    }
+    .lesson p{
+      display:-webkit-box;
+      overflow:hidden;
+      font-size:10px;
+      line-height:1.5;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:2;
+    }
   }
 
   @media (max-width:430px){
@@ -2280,8 +2337,10 @@
     .hero-title{
       left:22px;
       right:22px;
-      top:40%;
-      font-size:clamp(42px,11vw,72px);
+      top:31%;
+      font-size:clamp(38px,10vw,44px);
+      line-height:1.06;
+      letter-spacing:-.07em;
       max-width:calc(100vw - 44px);
     }
     .hero-program-badge{
@@ -2465,6 +2524,27 @@
         <li><mark>一人だと行動が止まるけれど、誰かと一緒なら前へ進める</mark></li>
         <li><mark>自分らしく働きながら、日本の外にも挑戦してみたい</mark></li>
       </ul>
+    </div>
+  </section>
+
+  <section class="message-video" aria-label="個別プロデュースに込めた想い">
+    <div class="message-video-wrap">
+      <div class="message-video-head">
+        <div class="section-label reveal">MESSAGE</div>
+        <h2 class="message-video-title reveal">なぜ、この<br>個別プロデュースを始めたのか</h2>
+        <div class="message-video-copy reveal">
+          <p>好きなことを、諦めてほしくない。</p>
+          <p>すでに持っている経験や才能を、<br>仕事と収益につながる形まで一緒につくりたい。</p>
+          <p>そんな想いから、「かたちにする。」は生まれました。</p>
+        </div>
+      </div>
+      <div class="message-video-frame">
+        <video class="message-video-el" src="maruchan-lp-video.mp4" poster="maruchan-lp-video-poster.jpg" playsinline preload="metadata"></video>
+        <button type="button" class="message-video-play" aria-label="動画を再生する">
+          <span class="message-video-play-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="message-video-duration">約1分40秒</p>
     </div>
   </section>
 
@@ -2852,26 +2932,6 @@
   </section>
 
   <section class="section host-profile" aria-label="主催者プロフィール・実績">
-    <div class="message-video" aria-label="個別プロデュースに込めた想い">
-    <div class="message-video-wrap">
-      <div class="message-video-head">
-        <div class="section-label reveal">MESSAGE</div>
-        <h2 class="message-video-title reveal">なぜ、この<br>個別プロデュースを始めたのか</h2>
-        <div class="message-video-copy reveal">
-          <p>好きなことを、諦めてほしくない。</p>
-          <p>すでに持っている経験や才能を、<br>仕事と収益につながる形まで一緒につくりたい。</p>
-          <p>そんな想いから、「かたちにする。」は生まれました。</p>
-        </div>
-      </div>
-      <div class="message-video-frame">
-        <video class="message-video-el" src="maruchan-lp-video.mp4" poster="maruchan-lp-video-poster.jpg" playsinline preload="metadata"></video>
-        <button type="button" class="message-video-play" aria-label="動画を再生する">
-          <span class="message-video-play-icon" aria-hidden="true"></span>
-        </button>
-      </div>
-      <p class="message-video-duration">約1分40秒</p>
-    </div>
-  </div>
     <div class="section-inner host-layout">
       <div class="statement">
         <div>
