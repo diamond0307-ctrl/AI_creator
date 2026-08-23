@@ -1472,6 +1472,14 @@
   @media (max-width:759px){
     .brand-text{display:none;}
     .cta-top{min-height:42px;padding-inline:12px;font-size:11px;white-space:nowrap;}
+    .hero-title{
+      left:50%;
+      right:auto;
+      width:calc(100% - 44px);
+      max-width:none;
+      text-align:center;
+      transform:translate(-50%,-50%);
+    }
     .recommend .section-label{
       gap:7px;
       font-size:9px;
@@ -1505,7 +1513,7 @@
   }
 
   @media (max-width:430px){
-    .hero-title{left:22px;right:22px;top:31%;font-size:clamp(38px,10vw,44px);line-height:1.06;}
+    .hero-title{top:31%;font-size:clamp(38px,10vw,44px);line-height:1.06;}
     .hero-copy p{font-size:15px;line-height:1.75;}
     .roadmap-title{font-size:clamp(34px,9.4vw,40px);}
   }
