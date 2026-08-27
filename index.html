@@ -1055,6 +1055,28 @@ alt=""
     });
   }
 
+  // Meta Pixel: official LINE CTA clicks
+  if (!window.__lineClickTrackingInitialized) {
+    window.__lineClickTrackingInitialized = true;
+
+    document.addEventListener("click", (event) => {
+      const clickedElement = event.target instanceof Element ? event.target : null;
+      const lineLink = clickedElement?.closest('a[href^="https://lin.ee/"]');
+      if (!lineLink) return;
+
+      let location = "other";
+      if (lineLink.closest(".hero")) location = "hero";
+      else if (lineLink.closest("#receive-flow")) location = "receive_flow";
+      else if (lineLink.closest("#why-free")) location = "free_reason";
+      else if (lineLink.closest("#entry")) location = "final_cta";
+      else if (lineLink.closest("#stickyCta")) location = "sticky_cta";
+
+      if (typeof window.fbq === "function") {
+        window.fbq("trackCustom", "LineClick", {location});
+      }
+    }, true);
+  }
+
   // Sticky CTA
   let heroIsVisible = true;
   let finalCtaIsVisible = false;
