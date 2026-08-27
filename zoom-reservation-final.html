@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>個別相談 Zoom予約フォーム</title>
+  <meta name="description" content="ロードマップをもとに、これからの進め方を一緒に整理するZoom個別相談の予約フォームです。" />
+  <meta name="theme-color" content="#f8f3ea" />
+  <style>
+    :root{
+      --ink:#171412;
+      --muted:#766d65;
+      --paper:#f8f3ea;
+      --ivory:#fffdf8;
+      --line:rgba(23,20,18,.12);
+      --pink:#ed5c8a;
+      --orange:#f18b3d;
+      --cyan:#12c8de;
+      --radius:24px;
+      --shadow:0 24px 70px rgba(52,42,34,.10);
+      --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN",Georgia,serif;
+      --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans","Noto Sans JP",sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    html{background:var(--paper);}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--ink);
+      font-family:var(--sans);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(18,200,222,.12), transparent 22rem),
+        radial-gradient(circle at 92% 10%, rgba(237,92,138,.11), transparent 22rem),
+        linear-gradient(180deg,var(--ivory),var(--paper));
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .page{
+      width:min(100% - 32px, 760px);
+      margin:0 auto;
+      padding:54px 0 72px;
+    }
+
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .eyebrow::before{
+      content:"";
+      width:34px;
+      height:1px;
+      background:currentColor;
+    }
+
+    h1{
+      margin:0;
+      font-family:var(--serif);
+      font-size:clamp(42px,11vw,76px);
+      line-height:1.02;
+      letter-spacing:-.06em;
+      font-weight:400;
+    }
+
+    .lead{
+      margin:22px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.95;
+    }
+
+    .info{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:24px 0 34px;
+    }
+    .info span{
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:0 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,253,248,.72);
+      color:#5f5751;
+      font-size:12px;
+    }
+
+    .card{
+      padding:clamp(22px,5vw,38px);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,253,248,.88);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+    }
+
+    .field{
+      display:grid;
+      gap:9px;
+      margin-bottom:22px;
+    }
+    .field:last-child{margin-bottom:0;}
+
+    label{
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .required{
+      margin-left:6px;
+      color:var(--pink);
+      font-size:11px;
+      font-weight:700;
+    }
+    .optional{
+      margin-left:6px;
+      color:var(--muted);
+      font-size:11px;
+      font-weight:400;
+    }
+
+    input, select, textarea{
+      width:100%;
+      border:1px solid rgba(23,20,18,.14);
+      border-radius:14px;
+      background:#fff;
+      color:var(--ink);
+      font:inherit;
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+
+    input, select{
+      min-height:52px;
+      padding:0 14px;
+    }
+
+    textarea{
+      min-height:130px;
+      padding:14px;
+      resize:vertical;
+      line-height:1.7;
+    }
+
+    input:focus, select:focus, textarea:focus{
+      border-color:rgba(237,92,138,.6);
+      box-shadow:0 0 0 4px rgba(237,92,138,.08);
+    }
+
+    .date-time{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:10px;
+    }
+
+    .choice{
+      padding:18px;
+      margin-bottom:14px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(135deg,rgba(18,200,222,.05),rgba(237,92,138,.04));
+    }
+
+    .choice-title{
+      margin:0 0 12px;
+      font-family:var(--serif);
+      font-size:21px;
+      font-weight:400;
+    }
+
+    .submit-wrap{
+      margin-top:28px;
+    }
+
+    button{
+      width:100%;
+      min-height:62px;
+      border:0;
+      border-radius:999px;
+      cursor:pointer;
+      background:linear-gradient(135deg,var(--pink),var(--orange));
+      color:white;
+      font:inherit;
+      font-size:16px;
+      font-weight:700;
+      letter-spacing:.02em;
+      box-shadow:0 18px 38px rgba(237,92,138,.24);
+      transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    button:hover{
+      transform:translateY(-2px);
+      filter:saturate(1.04);
+      box-shadow:0 22px 44px rgba(237,92,138,.29);
+    }
+    button:disabled{
+      cursor:wait;
+      opacity:.62;
+      transform:none;
+      box-shadow:none;
+    }
+
+    .note{
+      margin:15px 4px 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.8;
+      text-align:center;
+    }
+
+    .thanks{
+      display:none;
+      margin-top:22px;
+      padding:20px;
+      border:1px solid rgba(18,200,222,.24);
+      border-radius:18px;
+      background:rgba(18,200,222,.07);
+      line-height:1.8;
+    }
+    .thanks.show{display:block;}
+
+    @media (max-width:560px){
+      .page{padding-top:34px;}
+      .date-time{grid-template-columns:1fr;}
+      .card{border-radius:20px;}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="eyebrow">Zoom Consultation</div>
+    <h1>個別相談<br>予約フォーム</h1>
+    <p class="lead">
+      ロードマップをもとに、これからの進め方を一緒に整理します。<br>
+      ご都合のよい日時を、第3希望までお選びください。
+    </p>
+
+    <div class="info">
+      <span>所要時間：約60分</span>
+      <span>Zoom</span>
+      <span>参加無料</span>
+    </div>
+
+    <form class="card" id="reservationForm" name="zoom-reservation" method="POST" target="submitFrame">
+      <input type="hidden" name="submitted_at" id="submittedAt" value="">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+
+      <div class="field">
+        <label for="name">お名前 <span class="required">必須</span></label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">メールアドレス <span class="required">必須</span></label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+
+      <div class="choice">
+        <p class="choice-title">第1希望</p>
+        <div class="date-time">
+          <div class="field">
+            <label for="date1">日付 <span class="required">必須</span></label>
+            <input id="date1" name="first_date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="time1">時間 <span class="required">必須</span></label>
+            <input id="time1" name="first_time" type="time" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="choice">
+        <p class="choice-title">第2希望</p>
+        <div class="date-time">
+          <div class="field">
+            <label for="date2">日付 <span class="required">必須</span></label>
+            <input id="date2" name="second_date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="time2">時間 <span class="required">必須</span></label>
+            <input id="time2" name="second_time" type="time" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="choice">
+        <p class="choice-title">第3希望</p>
+        <div class="date-time">
+          <div class="field">
+            <label for="date3">日付 <span class="required">必須</span></label>
+            <input id="date3" name="third_date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="time3">時間 <span class="required">必須</span></label>
+            <input id="time3" name="third_time" type="time" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">相談前に伝えておきたいこと <span class="optional">任意</span></label>
+        <textarea id="message" name="message" placeholder="相談したいことや、事前に共有しておきたい内容があればご記入ください。"></textarea>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit">個別相談を申し込む</button>
+        <p class="note">
+          日程確認後、確定日時とZoom URLをメールでお送りします。
+        </p>
+      </div>
+
+      <div class="thanks" id="thanksMessage" role="status" aria-live="polite">
+        ご予約ありがとうございます。<br>
+        送信が完了しました。内容を確認のうえ、確定日時とZoom URLをご連絡します。
+      </div>
+      <div class="thanks" id="errorMessage" role="alert" aria-live="assertive"
+           style="border-color:rgba(200,23,32,.22);background:rgba(200,23,32,.06);">
+        送信できませんでした。時間をおいてもう一度お試しください。
+      </div>
+    </form>
+    <iframe name="submitFrame" id="submitFrame" title="送信結果" style="display:none;"></iframe>
+  </main>
+
+  <script>
+    (() => {
+      // 今日より前の日付を選べないようにする
+      const today = new Date();
+      const y = today.getFullYear();
+      const m = String(today.getMonth() + 1).padStart(2, "0");
+      const d = String(today.getDate()).padStart(2, "0");
+      const minDate = `${y}-${m}-${d}`;
+
+      ["date1","date2","date3"].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) input.min = minDate;
+      });
+
+      // ▼ Google Apps Scriptを「ウェブアプリ」としてデプロイしたURLをここに貼ってください。
+      const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzt_lqSEv9sjruphl1JIMNRV0vRRv1tXsD_blPV07JRoUuIR87cJS6j5LpS6mzCtsVR/exec";
+
+      const form = document.getElementById("reservationForm");
+      const thanks = document.getElementById("thanksMessage");
+      const error = document.getElementById("errorMessage");
+      const submitButton = form.querySelector('button[type="submit"]');
+      const submitFrame = document.getElementById("submitFrame");
+      let isSubmitting = false;
+      let iframeLoadedOnce = false;
+
+      form.action = GOOGLE_APPS_SCRIPT_URL;
+
+      form.addEventListener("submit", (e) => {
+        thanks.classList.remove("show");
+        error.classList.remove("show");
+
+        if (!form.checkValidity()) return;
+
+        if (!GOOGLE_APPS_SCRIPT_URL.startsWith("https://script.google.com/macros/s/")) {
+          e.preventDefault();
+          error.innerHTML = "送信先が未設定です。<br>Google Apps ScriptのウェブアプリURLをHTML内に設定してください。";
+          error.classList.add("show");
+          error.scrollIntoView({ behavior:"smooth", block:"center" });
+          return;
+        }
+
+        document.getElementById("submittedAt").value =
+          new Date().toLocaleString("ja-JP", { timeZone:"Asia/Tokyo" });
+
+        isSubmitting = true;
+        submitButton.disabled = true;
+        submitButton.textContent = "送信中…";
+      });
+
+      submitFrame.addEventListener("load", () => {
+        // iframeは初期表示時にもloadする場合があるため、送信中のみ成功表示
+        if (!isSubmitting) {
+          iframeLoadedOnce = true;
+          return;
+        }
+
+        isSubmitting = false;
+        submitButton.disabled = false;
+        submitButton.textContent = "個別相談を申し込む";
+        thanks.classList.add("show");
+        form.reset();
+        ["date1","date2","date3"].forEach(id => {
+          const input = document.getElementById(id);
+          if (input) input.min = minDate;
+        });
+        thanks.scrollIntoView({ behavior:"smooth", block:"center" });
+      });
+    })();
+  </script>
+</body>
+</html>
