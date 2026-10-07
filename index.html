@@ -29,9 +29,10 @@
     @media(max-height:700px){.screen-inner{padding-top:calc(env(safe-area-inset-top) + 18px);padding-bottom:calc(env(safe-area-inset-bottom) + 7px)}.journey-eyebrow{margin-bottom:13px}.journey-eyebrow::after{margin-top:14px}.journey-sub{margin-top:13px}.journey-emphasis{margin-top:8px}.hero-seminar-cta{min-height:48px;margin-top:16px;font-size:13px}}
     @media(prefers-reduced-motion:reduce){.journey-video{display:none}.hero-seminar-cta::before,.hero-seminar-cta::after{animation:none}}
     .course-hero{display:grid;place-items:center;background:#fff}
-    .course-hero-art{position:relative;width:min(100%,calc(100dvh * 941 / 1671));aspect-ratio:941 / 1671;container-type:inline-size}
+    .course-hero-stack{display:flex;flex-direction:column;align-items:center;width:min(100%,calc((100dvh - 96px) * 941 / 1672));container-type:inline-size}
+    .course-hero-art{position:relative;width:100%;aspect-ratio:941 / 1672}
     .course-hero-art>img{width:100%;height:100%;object-fit:contain}
-    .course-hero-cta{position:absolute;left:5%;bottom:5%;display:grid;place-items:center;width:90%;height:7.5%;min-height:48px;padding:8px 34px;border:2px solid #fff;border-radius:999px;background:linear-gradient(110deg,#0055cf 0%,#6221d6 52%,#b10c8d 100%);box-shadow:0 5px 0 #312276,0 10px 24px #6221d630;color:#fff;text-align:center;text-decoration:none;font-size:clamp(15px,4.2cqw,22px);font-weight:800;line-height:1.5;letter-spacing:0}
+    .course-hero-cta{position:relative;display:grid;place-items:center;width:90%;height:clamp(48px,7.5cqw,76px);margin-top:clamp(8px,1.8cqw,18px);padding:8px 34px;border:2px solid #fff;border-radius:999px;background:linear-gradient(110deg,#0055cf 0%,#6221d6 52%,#b10c8d 100%);box-shadow:0 5px 0 #312276,0 10px 24px #6221d630;color:#fff;text-align:center;text-decoration:none;font-size:clamp(15px,4.2cqw,22px);font-weight:800;line-height:1.5;letter-spacing:0}
     .course-hero-cta-copy span{display:inline-block}
     .course-hero-cta-arrow{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:1.3em;line-height:1}
     .course-hero-cta:hover{filter:brightness(1.08)}
@@ -41,18 +42,20 @@
 <body>
   <main class="swipe-container">
     <section class="course-hero swipe-section" id="section-01" aria-label="AI仕事改革 無料講座">
-      <div class="course-hero-art">
-        <img src="output/imagegen/mediterranean-ai-lp-v2.png" alt="LAB. AI仕事改革。好きな場所で、好きな働き方を。10/20 月曜 20:00から、1回限りのオンラインプログラム。自分の仕事を創る、今の仕事を伸ばす、世界のどこにいてもできる。" width="941" height="1671" fetchpriority="high">
+      <div class="course-hero-stack">
+        <div class="course-hero-art">
+        <img src="output/imagegen/mediterranean-ai-lp-v3-down.png" alt="LAB. AI仕事改革。好きな場所で、好きな働き方を。10/20 月曜 20:00から、1回限りのオンラインプログラム。自分の仕事を創る、今の仕事を伸ばす、世界のどこにいてもできる。" width="941" height="1672" fetchpriority="high">
+        </div>
         <a class="course-hero-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener"><span class="course-hero-cta-copy"><span>仕事改革！</span><span>無料講座を受ける</span></span><span class="course-hero-cta-arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
-    <section class="attached-media swipe-section" id="section-02" aria-label="セクション2"><img src="output/imagegen/questions-lp-v1.png" alt="こんな疑問がある方へ。AIや自動化、仕事を休んでいる間も仕事が進む状態についての問いと、具体例を交えた案内。" width="941" height="1672"></section>
-    <section class="attached-media swipe-section" id="section-03" aria-label="セクション3"><img src="output/imagegen/life-work-lp-v1.png" alt="仕事の中に人生、人生の中に仕事。人生が先にあり、そのための仕事と考えるL.A.Bの思想。" width="941" height="1672"></section>
-    <section class="attached-media swipe-section" id="section-04" aria-label="セクション4"><img src="output/imagegen/work-system-lp-v2.png" alt="SNSを毎日頑張り続けるのではなく、自分がいなくても回る仕組みを考える。" width="941" height="1672"></section>
-    <section class="attached-media swipe-section" id="section-05" aria-label="セクション5"><img src="output/imagegen/life-purpose-lp-photo-bg-v3.png" alt="AIを何のために使うのか。子どもとの時間、旅、好きな場所で働くこと、大切な人との時間。生きたい人生のために仕事をつくる。" width="941" height="1671"></section>
-    <section class="attached-media swipe-section" id="section-06" aria-label="セクション6"><img src="output/imagegen/seminar-lp-v3-black-no-subtitle.png" alt="この無料セミナーで学べること。AIっぽいデザインの原因5つ、集客に困らないSNS戦略、海外で住んで日本の仕事をしている人の体験、AIを使った自分の事業分析。" width="941" height="1672"></section>
-    <section class="attached-media swipe-section" id="section-07" aria-label="セクション7"><img src="assets/reordered-sections/section-07.png" alt="AIとSNS集客。バリ島での活動や仕事、AIと人の経験を掛け合わせる考えを紹介。" width="1080" height="1920"></section>
-    <section class="attached-media swipe-section" id="section-08" aria-label="セクション8"><img src="assets/reordered-sections/section-08.png" alt="AIデザイン。感覚を言葉にし、AIを使える表現に変えていく考えを紹介。" width="1080" height="1920"></section>
+    <section class="attached-media swipe-section" id="section-02" aria-label="セクション2"><img src="output/imagegen/questions-lp-v3-down.png" alt="AIや自動化、自分の仕事や集客に関する5つの疑問。セミナーで具体例を交えながら答えを紹介。" width="941" height="1672"></section>
+    <section class="attached-media swipe-section" id="section-03" aria-label="セクション3"><img src="output/imagegen/life-work-lp-v3-down.png" alt="仕事の中に人生？人生の中に仕事？仕事と人生の関係、人生の時間を取り戻す手段としてのAI、デザイン、SNS、仕組み化。" width="941" height="1672"></section>
+    <section class="attached-media swipe-section" id="section-04" aria-label="セクション4"><img src="output/imagegen/work-system-lp-v3-down.png" alt="SNS投稿や資料、集客を続けることで自由な時間が減ることと、自分がいなくても回る仕事の仕組み。" width="941" height="1672"></section>
+    <section class="attached-media swipe-section" id="section-05" aria-label="セクション5"><img src="output/imagegen/life-purpose-lp-v3-down.png" alt="AIやInstagramの上達自体ではなく、家族との時間、旅、好きな場所で働くこと、大切な人との時間のために仕事をつくる考え方。" width="941" height="1671"></section>
+    <section class="attached-media swipe-section" id="section-06" aria-label="セクション6"><img src="output/imagegen/seminar-lp-v5-down.png" alt="この無料セミナーで学べること。AIデザイン、SNS集客、ノマドライフ、自分の事業分析。" width="941" height="1672"></section>
+    <section class="attached-media swipe-section" id="section-07" aria-label="セクション7"><img src="output/imagegen/ai-sns-interview-lp-v1.png" alt="AI×SNS集客。バリ島に住んで仕事の価値観が変わった五十嵐邦夫さんのインタビュー。活動内容やノマドAI LABを始めた理由を紹介。" width="941" height="1672"></section>
+    <section class="attached-media swipe-section" id="section-08" aria-label="セクション8"><img src="output/imagegen/ai-design-interview-lp-v1.png" alt="AI×デザイン。感覚を言葉にしてAIで使える表現にする石丸篤史さんのインタビュー。これまでの活動とデザインで大切にしていることを紹介。" width="941" height="1672"></section>
   </main>
 </body>
 </html>
