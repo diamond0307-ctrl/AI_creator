@@ -26,9 +26,8 @@
     .course-hero{display:grid;place-items:center;background:#fff}
     .course-hero-stack{width:min(100%,calc(100dvh * 941 / 1672))}
     .course-hero-art{position:relative;width:100%;aspect-ratio:941 / 1672}
-    .course-hero-art>img{width:100%;height:100%;object-fit:contain;transform:scale(.98);transform-origin:center center}
-    .course-hero-art::after{content:"";position:absolute;z-index:3;left:0;right:0;bottom:0;height:12%;background:#fff;pointer-events:none}
-    .hero-visual-cta{position:absolute!important;z-index:4;left:50%;bottom:1.5%;width:90%!important;margin:0!important;transform:translateX(-50%);background:#fff}
+    .course-hero-art>img{width:100%;height:100%;object-fit:contain;transform:scale(.99);transform-origin:center center}
+    .hero-visual-cta{position:absolute!important;z-index:4;left:50%;bottom:1.2%;width:90%!important;margin:0!important;transform:translateX(-50%);background:#fff}
     .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
     .editorial-section{background:#fff}
@@ -61,7 +60,7 @@
     .intro-lead strong{color:var(--navy);font-size:1.2em;font-weight:950}
     .intro-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(300px,1.1fr);align-items:center;gap:clamp(16px,4vw,56px);min-height:0}
     .intro-story{display:grid;gap:clamp(8px,1.25vh,14px);align-content:center}
-    .intro-story p{margin:0;color:var(--muted);font-size:clamp(12.5px,3.1vw,17px);font-weight:650;line-height:1.5}
+    .intro-story p{margin:0;color:#303d62;font-size:clamp(13.5px,3.45vw,18.5px);font-weight:760;line-height:1.48}
     .trial-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
     .trial-strip span{display:grid;place-items:center;min-height:44px;padding:7px 4px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.9);color:var(--navy);font-size:clamp(9px,2.2vw,12px);font-weight:900;box-shadow:0 6px 16px rgba(26,102,160,.05)}
     .theory-card{position:relative;display:grid;align-content:center;min-height:clamp(210px,31vh,330px);padding:clamp(20px,3vh,34px);overflow:hidden;border:1px solid #bfe3f5;border-radius:28px;background:rgba(255,255,255,.94);box-shadow:var(--shadow)}
@@ -71,8 +70,8 @@
     .theory-card p{position:relative;margin:12px 0 0;color:var(--muted);font-size:clamp(11px,2.7vw,15px);font-weight:700;line-height:1.55}
     .theory-card{padding-right:clamp(112px,15vw,190px)}
     .theory-accent{position:absolute;z-index:1;right:8px;bottom:4px;width:clamp(92px,12vw,150px);height:auto}
-    .release-banner{display:grid;justify-items:center;gap:2px;text-align:center;font-size:clamp(19px,4.8vw,29px);font-weight:900;line-height:1.05}
-    .release-banner b{font-size:clamp(32px,8.1vw,56px);font-weight:950;line-height:1.02}
+    .release-banner{display:grid;justify-items:center;gap:1px;padding:clamp(5px,.8vh,9px) 8px;border-radius:18px;background:linear-gradient(100deg,rgba(0,207,255,.055),rgba(122,44,255,.04),rgba(236,22,140,.055));text-align:center;font-size:clamp(21px,5.5vw,33px);font-weight:950;line-height:1.02}
+    .release-banner b{font-size:clamp(38px,9.8vw,64px);font-weight:950;line-height:.98;letter-spacing:-.045em}
 
     .pain-shell{grid-template-rows:auto auto auto 1fr auto auto;align-content:stretch;gap:clamp(7px,1vh,11px)}
     .pain-title{font-size:clamp(30px,7.7vw,64px)}
@@ -84,15 +83,15 @@
     .pain-list li:first-child{padding-right:clamp(72px,10vw,112px)}
     .pain-list i{font-style:normal;font-size:clamp(23px,6.2vw,38px);font-weight:950;line-height:1;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
     .pain-list em{width:1px;height:68%;background:#bddfeb}
-    .pain-list span{font-size:clamp(11.5px,2.95vw,15px);font-weight:750;line-height:1.42}
+    .pain-list span{font-size:clamp(13px,3.35vw,17px);font-weight:800;line-height:1.38}
     .shift-message{display:grid;gap:3px;padding-top:clamp(8px,1.2vh,14px);border-top:1px solid var(--line)}
     .shift-message p{margin:0;color:var(--muted);font-size:clamp(12px,3vw,16px);font-weight:700}
     .shift-message strong{font-size:clamp(25px,6.4vw,48px);font-weight:950;line-height:1.08;letter-spacing:-.04em}
 
-    .learn-shell{grid-template-rows:auto auto auto 1fr auto}
+    .learn-shell{grid-template-rows:repeat(5,auto);align-content:center;gap:clamp(8px,1.25vh,14px)}
     .learn-heading{display:grid;gap:5px}
     .learn-sub{margin:0;color:var(--violet);font-size:clamp(13px,3.3vw,19px);font-weight:900}
-    .learn-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;gap:clamp(7px,1.2vw,14px);min-height:0}
+    .learn-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(7px,1.2vw,14px);min-height:0}
     .learn-card{position:relative;display:grid;grid-template-columns:clamp(52px,13vw,82px) 1px 1fr;align-items:start;column-gap:clamp(10px,2.4vw,16px);padding:clamp(11px,1.8vh,18px);overflow:hidden;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.95);box-shadow:var(--shadow)}
     .learn-number{font-size:clamp(30px,7.8vw,54px);font-weight:950;line-height:.92;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
     .learn-divider{width:1px;height:100%;min-height:80px;background:#bfe2ef}
@@ -103,7 +102,7 @@
     .learn-card p{margin:5px 0 0;color:var(--muted);font-size:clamp(9px,2.15vw,12px);font-weight:600;line-height:1.45}
     .learn-card.has-character .learn-copy{padding-right:clamp(52px,7vw,88px)}
     .learn-accent{position:absolute;right:4px;bottom:1px;width:clamp(54px,6.5vw,82px);height:auto}
-    .learn-shell>.visual-cta{transform:translateY(-24px)}
+    .learn-shell>.visual-cta{margin-top:clamp(3px,.7vh,8px)}
 
     .bonus-shell{grid-template-rows:repeat(5,auto);align-content:center;gap:clamp(9px,1.3vh,14px)}
     .bonus-lead{font-size:clamp(15px,3.9vw,22px);line-height:1.45}
@@ -119,17 +118,17 @@
     .bonus-card p{margin:7px 0 0;color:var(--muted);font-size:clamp(9.5px,2.35vw,13px);font-weight:650;line-height:1.48}
     .bonus-close{margin:0;text-align:center;font-size:clamp(27px,6.9vw,48px);font-weight:950;line-height:1.08}
 
-    .date-shell{grid-template-rows:auto auto auto auto auto auto 1fr auto;align-content:stretch;justify-items:center;text-align:center;gap:clamp(7px,1vh,12px)}
+    .date-shell{grid-template-rows:repeat(8,auto);align-content:center;justify-items:center;text-align:center;gap:clamp(8px,1.25vh,15px)}
     .date-title{font-size:clamp(30px,7.5vw,64px)}
     .event-date{margin:0;font-size:clamp(54px,14vw,116px);font-weight:950;line-height:.9;letter-spacing:-.065em}
     .event-date small{font-size:.37em;letter-spacing:-.01em}
     .date-rule{width:min(80%,640px)}
-    .archive-copy{display:grid;gap:4px;justify-items:center}
-    .archive-copy p{margin:0;color:var(--muted);font-size:clamp(12px,3vw,17px);font-weight:700}
+    .archive-copy{display:grid;gap:4px;justify-items:center;width:min(100%,760px);padding:clamp(10px,1.5vh,16px) clamp(12px,3vw,24px);border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,rgba(234,248,255,.78),rgba(255,255,255,.96) 48%,rgba(236,22,140,.035));box-shadow:0 10px 30px rgba(28,92,144,.06)}
+    .archive-copy p{margin:0;color:#455173;font-size:clamp(13px,3.25vw,18px);font-weight:760}
     .archive-copy strong{font-size:clamp(24px,6.3vw,49px);font-weight:950;line-height:1.1}
     .archive-copy .no-archive{color:var(--pink)}
-    .calendar-line{align-self:center;margin:0;font-size:clamp(20px,5vw,34px);font-weight:950}
-    .date-shell>.visual-cta{align-self:end;width:min(100%,560px)}
+    .calendar-line{margin:clamp(2px,.5vh,7px) 0 0;font-size:clamp(22px,5.6vw,38px);font-weight:950}
+    .date-shell>.visual-cta{width:min(100%,560px);margin-top:clamp(3px,.6vh,8px)}
 
     .steps-shell{grid-template-rows:auto auto auto 1fr auto auto;align-content:stretch;gap:clamp(7px,1vh,11px)}
     .steps-shell>.section-title{font-size:clamp(34px,8.7vw,72px)}
@@ -160,9 +159,9 @@
 
     @media(max-width:819px){
       .section-shell{width:calc(100% - 30px);padding-top:calc(env(safe-area-inset-top) + clamp(12px,1.9vh,20px));padding-bottom:calc(env(safe-area-inset-bottom) + clamp(12px,1.9vh,20px));gap:clamp(7px,1.1vh,11px)}
-      .intro-layout{grid-template-columns:1fr;gap:5px}.intro-story{gap:4px}.intro-story p{line-height:1.38}.theory-card{min-height:0;padding:13px 104px 13px 17px;border-radius:20px}.theory-card strong{font-size:clamp(31px,8vw,42px)}.theory-card p{margin-top:5px}.theory-accent{width:92px}.release-banner{gap:1px}
+      .intro-layout{grid-template-columns:1fr;gap:5px}.intro-story{gap:5px}.intro-story p{line-height:1.42}.theory-card{min-height:0;padding:10px 98px 10px 15px;border-radius:20px}.theory-card strong{font-size:clamp(29px,7.5vw,39px)}.theory-card p{margin-top:4px}.theory-accent{width:88px}.release-banner{gap:1px}
       .pain-accent{top:7px;width:64px}
-      .pain-list li{grid-template-columns:40px 1px 1fr;min-height:55px;padding:6px 10px;border-radius:14px}.pain-list li:first-child{padding-right:72px}
+      .pain-list li{grid-template-columns:40px 1px 1fr;min-height:58px;padding:7px 10px;border-radius:14px}.pain-list li:first-child{padding-right:72px}
       .learn-grid{grid-template-columns:1fr;gap:6px}.learn-card{grid-template-columns:49px 1px 1fr;padding:9px 11px;border-radius:15px}.learn-divider{min-height:60px}.learn-card p{margin-top:3px}
       .bonus-grid{grid-template-columns:1fr;gap:8px}.bonus-card{grid-template-columns:92px 1fr;min-height:138px;padding:11px 14px;border-radius:18px}.bonus-cover{max-height:124px}.bonus-card p{margin-top:5px}
       .steps-flow{grid-template-columns:1fr;grid-template-rows:1fr auto 1fr auto 1fr;align-content:stretch;gap:6px}.step-card{grid-template-columns:auto 58px 1fr;grid-template-rows:auto auto;align-items:center;column-gap:11px;min-height:0;height:100%;padding:12px 14px;border-radius:16px}.step-number{grid-column:1;grid-row:1 / 3;writing-mode:vertical-rl}.step-icon{grid-column:2;grid-row:1 / 3;width:44px;height:44px;margin:0;justify-self:center}.step-pair-accent{grid-column:2;grid-row:1 / 3;width:56px;height:auto;margin:0;justify-self:center}.step-card h3{grid-column:3;grid-row:1}.step-card p{grid-column:3;grid-row:2;margin:3px 0 0}.step-arrow{transform:rotate(90deg);font-size:20px;line-height:.75}
@@ -174,15 +173,16 @@
     @media(max-height:740px){
       .section-shell{gap:6px;padding-top:calc(env(safe-area-inset-top) + 9px);padding-bottom:calc(env(safe-area-inset-bottom) + 9px)}
       .lab-signature b{font-size:18px}.lab-signature small{display:none}.section-title{font-size:clamp(27px,6.8vw,52px)}.section-lead{font-size:clamp(11px,3vw,16px);line-height:1.42}
-      .intro-title{font-size:clamp(31px,7.7vw,54px)}.intro-story p{font-size:clamp(10.5px,2.65vw,14px);line-height:1.32}.trial-strip span{min-height:35px}.theory-card{padding:10px 96px 10px 14px}.theory-card p{margin-top:4px}.release-banner{font-size:clamp(16px,4.1vw,24px)}.release-banner b{font-size:clamp(27px,6.8vw,44px)}
-      .pain-list{gap:3px}.pain-list li{min-height:48px;padding-top:4px;padding-bottom:4px}.pain-list span{font-size:clamp(10.5px,2.6vw,13px)}
+      .intro-title{font-size:clamp(31px,7.7vw,54px)}.intro-story p{font-size:clamp(12.5px,3.15vw,15px);line-height:1.34}.trial-strip span{min-height:35px}.theory-card{padding:8px 92px 8px 13px}.theory-card p{margin-top:3px}.release-banner{font-size:clamp(19px,4.8vw,27px);padding-block:4px}.release-banner b{font-size:clamp(34px,8.6vw,50px)}
+      .pain-list{gap:3px}.pain-list li{min-height:52px;padding-top:5px;padding-bottom:5px}.pain-list span{font-size:clamp(12px,3.05vw,14.5px);line-height:1.32}
+      .date-shell{gap:5px}.date-title{font-size:clamp(27px,6.8vw,50px)}.event-date{font-size:clamp(49px,12.6vw,94px)}.archive-copy{padding:7px 10px;border-radius:17px}.archive-copy strong{font-size:clamp(22px,5.7vw,40px)}.calendar-line{font-size:clamp(20px,5vw,31px)}
       .learn-card{padding:7px 10px}.learn-card h3{margin-top:2px}.learn-card h4{margin-top:2px}.learn-card p{line-height:1.3}
       .bonus-card{padding:9px 12px}.bonus-card p{line-height:1.35}.assurance-list li{padding:4px 8px}
     }
     @media(max-width:360px){
       .section-shell{width:calc(100% - 24px)}.learn-card p{font-size:8.3px}.bonus-card{grid-template-columns:78px 1fr}.assurance-list{gap:4px}.assurance-list li{padding:4px 7px}
     }
-    @media(max-aspect-ratio:9/16){.hero-visual-cta{bottom:1.5%}}
+    @media(max-aspect-ratio:9/16){.hero-visual-cta{bottom:1.2%}}
     @media(prefers-reduced-motion:reduce){.swipe-container{scroll-behavior:auto}.visual-cta,.visual-cta::before{animation:none}}
   </style>
 </head>
@@ -191,7 +191,7 @@
     <section class="course-hero swipe-section" id="section-01" aria-label="AI仕事改革 無料講座">
       <div class="course-hero-stack">
         <div class="course-hero-art">
-        <img src="output/imagegen/ai-work-basic-lp-v4.png" alt="AI時代の準備はできていますか？AI初心者向け無料オンライン講座。AI WORK BASIC講座、事業主・フリーランス向け、10月20日月曜20時から。" width="941" height="1672" fetchpriority="high">
+        <img src="output/imagegen/ai-work-basic-lp-v5.png" alt="AI時代の準備はできていますか？AI初心者向け無料オンライン講座。10月20日月曜20時から、AI WORK BASIC講座を開催。事業主・フリーランス向け。" width="941" height="1672" fetchpriority="high">
           <a class="visual-cta hero-visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="今すぐ無料でAI WORK BASICの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770"><span class="visually-hidden">今すぐ無料でAI WORK BASICの参加案内を受け取る</span></a>
         </div>
       </div>
@@ -318,7 +318,7 @@
     <section class="course-hero swipe-section" id="section-13" aria-label="AI WORK BASIC 無料講座への参加案内">
       <div class="course-hero-stack">
         <div class="course-hero-art">
-          <img src="output/imagegen/ai-work-basic-lp-v4.png" alt="AI時代の準備はできていますか？AI初心者向け無料オンライン講座。AI WORK BASIC講座、事業主・フリーランス向け、10月20日月曜20時から。" width="941" height="1672" loading="lazy">
+          <img src="output/imagegen/ai-work-basic-lp-v5.png" alt="AI時代の準備はできていますか？AI初心者向け無料オンライン講座。10月20日月曜20時から、AI WORK BASIC講座を開催。事業主・フリーランス向け。" width="941" height="1672" loading="lazy">
           <a class="visual-cta hero-visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="今すぐ無料でAI WORK BASICの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770" loading="lazy"><span class="visually-hidden">今すぐ無料でAI WORK BASICの参加案内を受け取る</span></a>
         </div>
       </div>
