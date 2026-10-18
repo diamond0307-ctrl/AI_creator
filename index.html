@@ -90,6 +90,7 @@
     .pain-shell{grid-template-rows:auto auto auto 1fr auto auto;align-content:stretch;gap:clamp(7px,1vh,11px)}
     .pain-title{font-size:clamp(30px,7.7vw,64px)}
     .pain-title span{display:block}
+    .pain-title .mobile-break{display:none}
     .pain-list-wrap{position:relative;display:block;align-self:stretch;min-height:0}
     .pain-accent{position:absolute;z-index:2;right:8px;top:8px;width:clamp(62px,8vw,96px);height:auto}
     .pain-list{position:relative;z-index:1;display:grid;grid-template-rows:repeat(5,1fr);align-content:stretch;gap:clamp(5px,.85vh,10px);height:100%;margin:0;padding:0;list-style:none;min-height:0}
@@ -117,6 +118,7 @@
     .learn-card.has-character .learn-copy{padding-right:clamp(52px,7vw,88px)}
     .learn-accent{position:absolute;right:4px;bottom:1px;width:clamp(54px,6.5vw,82px);height:auto}
     .learn-shell>.visual-cta{margin-top:clamp(3px,.7vh,8px)}
+    .theory-title{font-size:clamp(31px,8vw,68px)}
 
     .bonus-shell{grid-template-rows:repeat(5,auto);align-content:center;gap:clamp(9px,1.3vh,14px)}
     .bonus-lead{font-size:clamp(15px,3.9vw,22px);line-height:1.45}
@@ -176,6 +178,7 @@
 
     @media(max-width:819px){
       .hero-visual-cta{bottom:calc(8% + env(safe-area-inset-bottom));width:min(82%,82vw)!important}
+      .pain-title .mobile-break{display:block}
       .section-shell{width:calc(100% - 30px);padding-top:calc(env(safe-area-inset-top) + clamp(12px,1.9vh,20px));padding-bottom:calc(env(safe-area-inset-bottom) + clamp(12px,1.9vh,20px));gap:clamp(7px,1.1vh,11px)}
       .intro-layout{grid-template-columns:1fr;gap:5px}.intro-story{gap:5px}.intro-story p{line-height:1.42}.theory-card{min-height:0;padding:10px 98px 10px 15px;border-radius:20px}.theory-card strong{font-size:clamp(29px,7.5vw,39px)}.theory-card p{margin-top:4px}.theory-accent{width:88px}.release-banner{gap:1px}
       .pain-accent{top:7px;width:64px}
@@ -228,61 +231,61 @@
       </div>
     </section>
 
-    <section class="editorial-section swipe-section" id="section-02" aria-labelledby="intro-title">
-      <div class="section-shell intro-shell">
-        <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
-        <p class="section-kicker">AI WORK BASIC / INTRODUCTION</p>
-        <h2 class="section-title intro-title" id="intro-title">AI＝<span class="gradient-text chatty">チャッピーだけ</span>では<br>ありません！</h2>
-        <div class="intro-layout">
-          <div class="intro-story">
-            <p class="section-lead">今や、AIでできることは<br><strong>圧倒的に増えています。</strong></p>
-            <p>私たちも、AIを実際の業務に取り入れるために、たくさんの時間とお金をかけてきました。</p>
-            <div class="trial-strip" aria-label="検証の過程"><span>試して</span><span>失敗して</span><span>検証して</span><span>分析して</span></div>
-            <p>たくさん遠回りをして、ようやくたどり着いたのが、<strong>「これだけできれば大丈夫。」</strong>という基準です。</p>
-          </div>
-          <div class="theory-card">
-            <small>初心者が、まず身につけるべき内容だけ。</small>
-            <strong><span class="gradient-text">AI WORK</span><br>BASIC理論</strong>
-            <p>私たちが実際に使ってきた中から、まとめました。</p>
-            <img class="asset-image theory-accent" src="output/imagegen/lab-assets/lab-guide-robot-v1.png" alt="" width="1254" height="1254" loading="lazy">
-          </div>
-        </div>
-        <div class="release-banner"><span>その全てを、</span><b class="gradient-text">大放出します！！</b></div>
-        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
-      </div>
-    </section>
-
-    <section class="editorial-section swipe-section" id="section-03" aria-labelledby="pain-title">
+    <section class="editorial-section swipe-section" id="section-02" aria-labelledby="sales-pain-title">
       <div class="section-shell pain-shell">
         <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
         <p class="section-kicker">IS THIS YOU?</p>
-        <h2 class="section-title pain-title" id="pain-title"><span>AIを使っていないわけではない。</span><span>でも、まだ<span class="gradient-text">仕事に組み込めていない。</span></span></h2>
+        <h2 class="section-title pain-title" id="sales-pain-title"><span>事業はある。<br class="mobile-break">発信もしている。</span><span>なのに、<span class="gradient-text">売上につながらない。</span></span></h2>
         <div class="pain-list-wrap">
           <img class="asset-image pain-accent" src="output/imagegen/lab-assets/lab-thinking-rabbit-v1.png" alt="" width="1254" height="1254" loading="lazy">
           <ul class="pain-list">
-            <li><i>01</i><em></em><span>「AIで自動化できる」と聞くけど、自分の仕事にどう使えばいいかわからない</span></li>
-            <li><i>02</i><em></em><span>AIツールが多すぎて、何を使えばいいかわからない</span></li>
-            <li><i>03</i><em></em><span>Canvaは使うけど、AIでデザインを作る方法はよく知らない</span></li>
-            <li><i>04</i><em></em><span>ChatGPTに文章を書かせるくらいしか使っていない</span></li>
-            <li><i>05</i><em></em><span>そもそもPC操作に苦手意識がある</span></li>
+            <li><i>01</i><em></em><span>商品やサービスには自信があるのに、必要な人へ届いていない</span></li>
+            <li><i>02</i><em></em><span>SNS投稿を続けても、問い合わせや申込みが増えない</span></li>
+            <li><i>03</i><em></em><span>広告を出したいが、何をどう伝えればいいかわからない</span></li>
+            <li><i>04</i><em></em><span>公式LINEはあるものの、登録後の導線を作れていない</span></li>
+            <li><i>05</i><em></em><span>集客・発信・改善に時間がかかり、本業に集中できない</span></li>
           </ul>
         </div>
-        <div class="shift-message"><p>今は、質問に答えてくれるAIから、</p><strong class="gradient-text">仕事そのものを任せるAIへ。</strong><p>AIは、次の段階に進み始めています。</p></div>
+        <div class="shift-message"><p>足りないのは、努力ではなく、</p><strong class="gradient-text">売上につながる導線です。</strong><p>AIで、集客から申込みまでを整えます。</p></div>
         <p class="swipe-cue swipe-cue--vertical">次へスワイプ ↓</p>
       </div>
     </section>
 
-    <section class="editorial-section swipe-section" id="section-04" aria-labelledby="learn-title">
+    <section class="editorial-section swipe-section" id="section-03" aria-labelledby="sales-learn-title">
       <div class="section-shell learn-shell">
         <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
         <p class="section-kicker">WHAT YOU WILL LEARN</p>
-        <div class="learn-heading"><h2 class="section-title" id="learn-title">AI WORK BASICで<br><span class="gradient-text">学べること</span></h2><p class="learn-sub">〜自分がやらなくていいことを増やす〜</p></div>
+        <div class="learn-heading"><h2 class="section-title" id="sales-learn-title">無料講座で<br><span class="gradient-text">学べること</span></h2><p class="learn-sub">〜AIを、売上につながる仕組みに変える〜</p></div>
         <div class="learn-grid">
-          <article class="learn-card"><span class="learn-number">01</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI LITERACY</span><h3>AIリテラシー</h3><h4>AIは道具。使うのは、あなた。</h4><p>何ができて、何ができないのか。AIに振り回されずに使うための基本を学びます。</p></div></article>
-          <article class="learn-card has-character"><span class="learn-number">02</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI AGENT</span><h3>今日から使えるAIエージェント</h3><h4>難しいことは、AIエージェントに任せる。</h4><p>AIに仕事をお願いするという考え方と使い方を学びます。</p></div><img class="asset-image learn-accent" src="output/imagegen/lab-assets/lab-agent-robot-v1.png" alt="" width="1254" height="1254" loading="lazy"></article>
-          <article class="learn-card"><span class="learn-number">03</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI × DESIGN</span><h3>AI × デザイン</h3><h4>なぜ“AIっぽい画像”になるのか？</h4><p>ありがちなAI画像から抜け、デザインに自然に取り入れる方法を学びます。</p></div></article>
-          <article class="learn-card"><span class="learn-number">04</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI × SNS</span><h3>AI × SNS</h3><h4>投稿するだけで終わらない。</h4><p>AIを使いながら、自分の事業に合ったSNS戦略を考えます。</p></div></article>
+          <article class="learn-card"><span class="learn-number">01</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">SALES FOUNDATION</span><h3>売れる強みの言語化</h3><h4>誰に、何を、なぜ選ばれるのか。</h4><p>事業の価値を整理し、お客様に伝わる言葉へ変える方法を学びます。</p></div></article>
+          <article class="learn-card has-character"><span class="learn-number">02</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI × META ADS</span><h3>メタ広告の設計</h3><h4>届けたい人に、正しく届ける。</h4><p>ターゲット、訴求、広告クリエイティブをAIと組み立てる考え方を学びます。</p></div><img class="asset-image learn-accent" src="output/imagegen/lab-assets/lab-agent-robot-v1.png" alt="" width="1254" height="1254" loading="lazy"></article>
+          <article class="learn-card"><span class="learn-number">03</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI × LANDING PAGE</span><h3>売上につながるLP</h3><h4>読まれるだけで、終わらせない。</h4><p>興味を持った人を公式LINE登録へ導く、LPの構成と伝え方を学びます。</p></div></article>
+          <article class="learn-card"><span class="learn-number">04</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI × OFFICIAL LINE</span><h3>公式LINEの導線</h3><h4>登録を、講座参加へつなげる。</h4><p>メタ広告からLP、公式LINE、無料講座までの流れを整えます。</p></div></article>
         </div>
+        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770" loading="lazy"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
+      </div>
+    </section>
+
+    <section class="editorial-section swipe-section" id="section-04" aria-labelledby="theory-title">
+      <div class="section-shell intro-shell">
+        <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
+        <p class="section-kicker">AI WORK BASIC / OUR METHOD</p>
+        <h2 class="section-title intro-title theory-title" id="theory-title">売上につなげるための<br><span class="gradient-text chatty">AI WORK BASIC理論</span></h2>
+        <div class="intro-layout">
+          <div class="intro-story">
+            <p class="section-lead">私たちも、AIを事業の成果につなげるため、<br><strong>多くのお金と時間を費やしてきました。</strong></p>
+            <p>広告、LP、公式LINE。試すだけでは成果につながらず、何度も遠回りしました。</p>
+            <div class="trial-strip" aria-label="検証の過程"><span>試して</span><span>失敗して</span><span>検証して</span><span>改善して</span></div>
+            <p>その実践から、売上につながる導線に必要な考え方だけを体系化しました。</p>
+          </div>
+          <div class="theory-card">
+            <small>集客を、申込みまでつなげる。</small>
+            <strong><span class="gradient-text">AI WORK</span><br>BASIC理論</strong>
+            <p>AIを使うことを目的にせず、事業の売上につなげるための実践体系です。</p>
+            <img class="asset-image theory-accent" src="output/imagegen/lab-assets/lab-guide-robot-v1.png" alt="" width="1254" height="1254" loading="lazy">
+          </div>
+        </div>
+        <div class="release-banner"><span>この1日で、</span><b class="gradient-text">全てお伝えします。</b></div>
         <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770" loading="lazy"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
       </div>
     </section>
