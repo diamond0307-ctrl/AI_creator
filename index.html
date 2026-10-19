@@ -129,6 +129,7 @@
     .value-message{display:grid;align-content:center;gap:clamp(10px,1.8vh,18px);padding:clamp(18px,3vh,32px);border-left:4px solid var(--cyan);background:linear-gradient(100deg,rgba(234,248,255,.85),rgba(255,255,255,.95));border-radius:0 24px 24px 0}
     .value-message p{margin:0;color:var(--navy-soft);font-size:clamp(16px,4vw,25px);font-weight:850;line-height:1.45}
     .value-message strong{display:block;font-size:clamp(27px,6.7vw,48px);font-weight:950;line-height:1.08;letter-spacing:-.045em}
+    .value-theory-card{padding-inline:clamp(20px,3vh,34px);justify-items:center;text-align:center}
     .value-theory-card small{font-size:clamp(11px,2.7vw,15px);line-height:1.45;letter-spacing:0}
     .value-theory-card strong{font-size:clamp(34px,4.1vw,50px);line-height:1.02}
 
@@ -189,11 +190,11 @@
     .attached-media img{display:block;width:100%;height:auto;max-height:100%;object-fit:contain}
 
     @media(max-width:819px){
-      .hero-visual-cta{bottom:calc(8% + env(safe-area-inset-bottom));width:min(82%,82vw)!important}
+      .hero-visual-cta{bottom:max(1.5%,env(safe-area-inset-bottom));width:min(82%,82vw)!important}
       .pain-title .mobile-break{display:block}
       .theory-title .mobile-break{display:block}
       .section-shell{width:calc(100% - 30px);padding-top:calc(env(safe-area-inset-top) + clamp(12px,1.9vh,20px));padding-bottom:calc(env(safe-area-inset-bottom) + clamp(12px,1.9vh,20px));gap:clamp(7px,1.1vh,11px)}
-      .intro-layout{grid-template-columns:1fr;gap:5px}.intro-story{gap:5px}.intro-story p{line-height:1.42}.theory-card{min-height:0;padding:10px 98px 10px 15px;border-radius:20px}.theory-card strong{font-size:clamp(29px,7.5vw,39px)}.theory-card p{margin-top:4px}.theory-accent{width:88px}.release-banner{gap:1px}.value-stack{grid-template-columns:1fr;gap:7px}.value-message{gap:6px;padding:12px 15px;border-radius:0 18px 18px 0}.value-theory-card{min-height:150px;padding:14px 96px 14px 16px}.value-theory-card strong{font-size:clamp(31px,8vw,43px)}
+      .intro-layout{grid-template-columns:1fr;gap:5px}.intro-story{gap:5px}.intro-story p{line-height:1.42}.theory-card{min-height:0;padding:10px 98px 10px 15px;border-radius:20px}.theory-card strong{font-size:clamp(29px,7.5vw,39px)}.theory-card p{margin-top:4px}.theory-accent{width:88px}.release-banner{gap:1px}.value-stack{grid-template-columns:1fr;gap:7px}.value-message{gap:6px;padding:12px 15px;border-radius:0 18px 18px 0}.value-theory-card{min-height:150px;padding:14px 16px}.value-theory-card strong{font-size:clamp(31px,8vw,43px)}
       .pain-accent{top:7px;width:64px}
       .pain-list li{grid-template-columns:40px 1px 1fr;min-height:58px;padding:7px 10px;border-radius:14px}.pain-list li:first-child{padding-right:72px}
       .learn-grid{grid-template-columns:1fr;gap:7px}.learn-card{grid-template-columns:49px 1px 1fr;min-height:clamp(77px,11.5vh,104px);padding:10px 12px;border-radius:15px}.learn-divider{min-height:44px}
@@ -223,7 +224,7 @@
       .intro-title{font-size:clamp(31px,7.7vw,54px)}.intro-story p{font-size:clamp(12.5px,3.15vw,15px);line-height:1.34}.trial-strip span{min-height:35px}.theory-card{padding:8px 92px 8px 13px}.theory-card p{margin-top:3px}.release-banner{font-size:clamp(19px,4.8vw,27px);padding-block:4px}.release-banner b{font-size:clamp(34px,8.6vw,50px)}
       .pain-list{gap:3px}.pain-list li{min-height:52px;padding-top:5px;padding-bottom:5px}.pain-list span{font-size:clamp(14px,3.55vw,16px);line-height:1.28}
       .date-shell{gap:5px}.date-title{font-size:clamp(27px,6.8vw,50px)}.event-date{font-size:clamp(49px,12.6vw,94px)}.archive-copy{padding:7px 10px;border-radius:17px}.archive-copy strong{font-size:clamp(22px,5.7vw,40px)}.calendar-line{font-size:clamp(20px,5vw,31px)}
-      .learn-card{padding:8px 10px}.learn-card h3{margin-top:0}.value-message{padding-block:9px}.value-theory-card{min-height:126px;padding-block:10px}
+      .learn-card{padding:8px 10px}.learn-card h3{margin-top:0}.value-message{padding-block:9px}.value-theory-card{min-height:126px;padding:10px 16px}.value-theory-card .theory-accent{right:4px;bottom:2px;width:52px}
       .bonus-card{min-height:clamp(238px,36vh,300px);padding:10px 13px}.bonus-card p{line-height:1.35}.bonus-count{font-size:clamp(36px,9vw,54px)}.assurance-list li{padding:4px 8px}
     }
     @media(max-width:360px){
