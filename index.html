@@ -7,6 +7,19 @@
   <meta name="description" content="AI初心者・事業主・経営者向け。AI×SNS集客をゼロから学ぶ、50名限定の無料オンラインセミナー。参加特典はプロンプトカタログ400。">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="data:,">
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+      s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1040951598718706');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
   <style>
     :root{
       --navy:#071342;--navy-soft:#29345f;--cyan:#00cfff;--blue:#1268ff;
@@ -75,43 +88,58 @@
     .release-banner b{font-size:clamp(38px,9.8vw,64px);font-weight:950;line-height:.98;letter-spacing:-.045em}
 
     .pain-shell{grid-template-rows:auto auto auto 1fr auto auto;align-content:stretch;gap:clamp(7px,1vh,11px)}
-    .pain-title{font-size:clamp(30px,7.7vw,64px)}
-    .pain-title span{display:block}
+    .pain-title{font-size:inherit;line-height:1.04}
+    .pain-title>span{display:block}
+    .pain-title .pain-context{font-size:clamp(23px,5.8vw,43px);line-height:1.18;letter-spacing:-.035em}
+    .pain-title .pain-consequence{margin-top:.18em;font-size:clamp(35px,8.8vw,72px);line-height:1.02;letter-spacing:-.055em}
+    .pain-title .gradient-text{display:inline}
+    .pain-title .mobile-break{display:none}
     .pain-list-wrap{position:relative;display:block;align-self:stretch;min-height:0}
     .pain-accent{position:absolute;z-index:2;right:8px;top:8px;width:clamp(62px,8vw,96px);height:auto}
     .pain-list{position:relative;z-index:1;display:grid;grid-template-rows:repeat(5,1fr);align-content:stretch;gap:clamp(5px,.85vh,10px);height:100%;margin:0;padding:0;list-style:none;min-height:0}
     .pain-list li{display:grid;grid-template-columns:clamp(43px,11vw,64px) 1px 1fr;align-items:center;gap:clamp(10px,2.8vw,18px);min-height:clamp(57px,8vh,76px);padding:7px clamp(10px,2.6vw,18px);border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.92);box-shadow:0 7px 22px rgba(28,92,144,.055)}
     .pain-list li:first-child{padding-right:clamp(72px,10vw,112px)}
-    .pain-list i{font-style:normal;font-size:clamp(23px,6.2vw,38px);font-weight:950;line-height:1;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .pain-list i{font-style:normal;font-size:clamp(23px,6.2vw,38px);font-weight:950;line-height:1;color:var(--navy)}
     .pain-list em{width:1px;height:68%;background:#bddfeb}
-    .pain-list span{font-size:clamp(13px,3.35vw,17px);font-weight:800;line-height:1.38}
-    .shift-message{display:grid;gap:3px;padding-top:clamp(8px,1.2vh,14px);border-top:1px solid var(--line)}
-    .shift-message p{margin:0;color:var(--muted);font-size:clamp(12px,3vw,16px);font-weight:700}
-    .shift-message strong{font-size:clamp(25px,6.4vw,48px);font-weight:950;line-height:1.08;letter-spacing:-.04em}
+    .pain-list span{font-size:clamp(15px,3.75vw,20px);font-weight:850;line-height:1.34}
+    .pain-list strong{font-weight:950}
+    .shift-message{display:grid;place-items:center;padding-top:clamp(7px,1vh,12px);border-top:1px solid var(--line);text-align:center}
+    .shift-message strong{font-size:clamp(26px,6.7vw,50px);font-weight:950;line-height:1.08;letter-spacing:-.04em}
 
     .learn-shell{grid-template-rows:repeat(5,auto);align-content:center;gap:clamp(8px,1.25vh,14px)}
     .learn-heading{display:grid;gap:5px}
     .learn-sub{margin:0;color:var(--violet);font-size:clamp(13px,3.3vw,19px);font-weight:900}
     .learn-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(7px,1.2vw,14px);min-height:0}
-    .learn-card{position:relative;display:grid;grid-template-columns:clamp(52px,13vw,82px) 1px 1fr;align-items:start;column-gap:clamp(10px,2.4vw,16px);padding:clamp(11px,1.8vh,18px);overflow:hidden;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.95);box-shadow:var(--shadow)}
+    .learn-card{position:relative;display:grid;grid-template-columns:clamp(52px,13vw,82px) 1px 1fr;align-items:center;column-gap:clamp(10px,2.4vw,16px);min-height:clamp(96px,14vh,150px);padding:clamp(13px,2vh,20px);overflow:hidden;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.95);box-shadow:var(--shadow)}
     .learn-number{font-size:clamp(30px,7.8vw,54px);font-weight:950;line-height:.92;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .learn-divider{width:1px;height:100%;min-height:80px;background:#bfe2ef}
+    .learn-divider{width:1px;height:72%;min-height:52px;background:#bfe2ef}
     .learn-copy{min-width:0}
     .learn-code{display:block;color:var(--blue);font-size:clamp(8px,1.9vw,10px);font-weight:950;letter-spacing:.12em}
-    .learn-card h3{margin:4px 0 0;font-size:clamp(14px,3.5vw,19px);font-weight:950;line-height:1.25}
+    .learn-card h3{margin:0;font-size:clamp(20px,5vw,32px);font-weight:950;line-height:1.22}
     .learn-card h4{margin:5px 0 0;font-size:clamp(10.5px,2.55vw,14px);font-weight:900;line-height:1.38}
     .learn-card p{margin:5px 0 0;color:var(--muted);font-size:clamp(9px,2.15vw,12px);font-weight:600;line-height:1.45}
     .learn-card.has-character .learn-copy{padding-right:clamp(52px,7vw,88px)}
     .learn-accent{position:absolute;right:4px;bottom:1px;width:clamp(54px,6.5vw,82px);height:auto}
     .learn-shell>.visual-cta{margin-top:clamp(3px,.7vh,8px)}
+    .theory-title{font-size:clamp(27px,6.9vw,58px);line-height:1.1}
+    .theory-title>span{display:block}
+    .theory-title .mobile-break{display:none}
+    .value-shell{grid-template-rows:auto auto auto minmax(0,1fr) auto;align-content:stretch;gap:clamp(8px,1.25vh,14px)}
+    .value-stack{display:grid;grid-template-columns:minmax(0,.86fr) minmax(300px,1.14fr);align-items:stretch;gap:clamp(12px,3vw,34px);min-height:0}
+    .value-message{display:grid;align-content:center;gap:clamp(10px,1.8vh,18px);padding:clamp(18px,3vh,32px);border-left:4px solid var(--cyan);background:linear-gradient(100deg,rgba(234,248,255,.85),rgba(255,255,255,.95));border-radius:0 24px 24px 0}
+    .value-message p{margin:0;color:var(--navy-soft);font-size:clamp(16px,4vw,25px);font-weight:850;line-height:1.45}
+    .value-message strong{display:block;font-size:clamp(27px,6.7vw,48px);font-weight:950;line-height:1.08;letter-spacing:-.045em}
+    .value-theory-card{padding-inline:clamp(20px,3vh,34px);justify-items:center;text-align:center}
+    .value-theory-card small{font-size:clamp(11px,2.7vw,15px);line-height:1.45;letter-spacing:0}
+    .value-theory-card strong{font-size:clamp(34px,4.1vw,50px);line-height:1.02}
 
-    .bonus-shell{grid-template-rows:repeat(5,auto);align-content:center;gap:clamp(9px,1.3vh,14px)}
+    .bonus-shell{grid-template-rows:auto auto auto minmax(0,1fr) auto auto;align-content:stretch;gap:clamp(8px,1.2vh,13px)}
     .bonus-lead{font-size:clamp(15px,3.9vw,22px);line-height:1.45}
     .bonus-lead strong{font-weight:950}
     .bonus-heading{display:grid;justify-items:center;gap:4px}
     .bonus-heading-badge{width:min(100%,520px);max-height:clamp(118px,18vh,164px);object-fit:contain}
-    .bonus-grid{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;align-content:center;gap:clamp(9px,1.8vw,20px);min-height:0}
-    .bonus-card{position:relative;display:grid;grid-template-columns:minmax(118px,.36fr) 1fr;align-items:center;gap:clamp(16px,3vw,30px);width:min(100%,780px);min-height:clamp(230px,34vh,340px);padding:clamp(18px,2.8vh,30px);overflow:hidden;border:1px solid var(--line);border-radius:25px;background:rgba(255,255,255,.95);box-shadow:var(--shadow)}
+    .bonus-grid{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;align-content:stretch;gap:clamp(9px,1.8vw,20px);min-height:0;height:100%}
+    .bonus-card{position:relative;display:grid;grid-template-columns:minmax(118px,.36fr) 1fr;align-items:center;gap:clamp(16px,3vw,30px);width:min(100%,860px);height:100%;min-height:0;padding:clamp(18px,2.8vh,30px);overflow:hidden;border:1px solid var(--line);border-radius:25px;background:rgba(255,255,255,.95);box-shadow:var(--shadow)}
     .bonus-card::after{content:"";position:absolute;width:160px;height:160px;right:-95px;bottom:-105px;border-radius:50%;background:var(--gradient);opacity:.08}
     .bonus-cover{position:relative;z-index:1;width:100%;height:auto;max-height:clamp(126px,20vh,190px);object-fit:contain;filter:drop-shadow(7px 10px 13px rgba(18,74,120,.12))}
     .bonus-label{margin:0;color:var(--blue);font-size:clamp(9px,2vw,11px);font-weight:950;letter-spacing:.08em}
@@ -162,15 +190,19 @@
     .attached-media img{display:block;width:100%;height:auto;max-height:100%;object-fit:contain}
 
     @media(max-width:819px){
+      .hero-visual-cta{bottom:max(1.5%,env(safe-area-inset-bottom));width:min(82%,82vw)!important}
+      .pain-title .mobile-break{display:block}
+      .theory-title .mobile-break{display:block}
       .section-shell{width:calc(100% - 30px);padding-top:calc(env(safe-area-inset-top) + clamp(12px,1.9vh,20px));padding-bottom:calc(env(safe-area-inset-bottom) + clamp(12px,1.9vh,20px));gap:clamp(7px,1.1vh,11px)}
-      .intro-layout{grid-template-columns:1fr;gap:5px}.intro-story{gap:5px}.intro-story p{line-height:1.42}.theory-card{min-height:0;padding:10px 98px 10px 15px;border-radius:20px}.theory-card strong{font-size:clamp(29px,7.5vw,39px)}.theory-card p{margin-top:4px}.theory-accent{width:88px}.release-banner{gap:1px}
+      .intro-layout{grid-template-columns:1fr;gap:5px}.intro-story{gap:5px}.intro-story p{line-height:1.42}.theory-card{min-height:0;padding:10px 98px 10px 15px;border-radius:20px}.theory-card strong{font-size:clamp(29px,7.5vw,39px)}.theory-card p{margin-top:4px}.theory-accent{width:88px}.release-banner{gap:1px}.value-stack{grid-template-columns:1fr;gap:7px}.value-message{gap:6px;padding:12px 15px;border-radius:0 18px 18px 0}.value-theory-card{min-height:150px;padding:14px 16px}.value-theory-card strong{font-size:clamp(31px,8vw,43px)}
       .pain-accent{top:7px;width:64px}
       .pain-list li{grid-template-columns:40px 1px 1fr;min-height:58px;padding:7px 10px;border-radius:14px}.pain-list li:first-child{padding-right:72px}
-      .learn-grid{grid-template-columns:1fr;gap:6px}.learn-card{grid-template-columns:49px 1px 1fr;padding:9px 11px;border-radius:15px}.learn-divider{min-height:60px}.learn-card p{margin-top:3px}
-      .bonus-grid{grid-template-columns:1fr;gap:8px}.bonus-card{grid-template-columns:112px 1fr;min-height:210px;padding:14px 16px;border-radius:18px}.bonus-cover{max-height:174px}.bonus-card p{margin-top:5px}
+      .learn-grid{grid-template-columns:1fr;gap:7px}.learn-card{grid-template-columns:49px 1px 1fr;min-height:clamp(77px,11.5vh,104px);padding:10px 12px;border-radius:15px}.learn-divider{min-height:44px}
+      .bonus-grid{grid-template-columns:1fr;align-content:center;gap:8px}.bonus-card{grid-template-columns:126px 1fr;height:auto;min-height:clamp(250px,38vh,340px);padding:14px 16px;border-radius:18px}.bonus-cover{max-height:min(190px,25vh)}.bonus-card p{margin-top:5px}
       .steps-flow{grid-template-columns:1fr;grid-template-rows:1fr auto 1fr auto 1fr;align-content:stretch;gap:6px}.step-card{grid-template-columns:auto 58px 1fr;grid-template-rows:auto auto;align-items:center;column-gap:11px;min-height:0;height:100%;padding:12px 14px;border-radius:16px}.step-number{grid-column:1;grid-row:1 / 3;writing-mode:vertical-rl}.step-icon{grid-column:2;grid-row:1 / 3;width:44px;height:44px;margin:0;justify-self:center}.step-pair-accent{grid-column:2;grid-row:1 / 3;width:56px;height:auto;margin:0;justify-self:center}.step-card h3{grid-column:3;grid-row:1}.step-card p{grid-column:3;grid-row:2;margin:3px 0 0}.step-arrow{transform:rotate(90deg);font-size:20px;line-height:.75}
       .life-list{grid-template-columns:repeat(2,minmax(0,1fr))}.life-list li:last-child{grid-column:1 / -1}
     }
+    @media(max-width:699px){.course-hero-stack{width:max(100%,calc(100dvh * 9 / 16))}}
     @media(min-width:820px){
       .pain-list{grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch}.pain-list li{grid-template-columns:1fr;align-content:start}.pain-list em{width:70%;height:1px;margin:4px 0}.pain-list i{font-size:42px}
     }
@@ -190,85 +222,131 @@
       .section-shell{gap:6px;padding-top:calc(env(safe-area-inset-top) + 9px);padding-bottom:calc(env(safe-area-inset-bottom) + 9px)}
       .lab-signature b{font-size:18px}.lab-signature small{display:none}.section-title{font-size:clamp(27px,6.8vw,52px)}.section-lead{font-size:clamp(11px,3vw,16px);line-height:1.42}
       .intro-title{font-size:clamp(31px,7.7vw,54px)}.intro-story p{font-size:clamp(12.5px,3.15vw,15px);line-height:1.34}.trial-strip span{min-height:35px}.theory-card{padding:8px 92px 8px 13px}.theory-card p{margin-top:3px}.release-banner{font-size:clamp(19px,4.8vw,27px);padding-block:4px}.release-banner b{font-size:clamp(34px,8.6vw,50px)}
-      .pain-list{gap:3px}.pain-list li{min-height:52px;padding-top:5px;padding-bottom:5px}.pain-list span{font-size:clamp(12px,3.05vw,14.5px);line-height:1.32}
+      .pain-list{gap:3px}.pain-list li{min-height:52px;padding-top:5px;padding-bottom:5px}.pain-list span{font-size:clamp(14px,3.55vw,16px);line-height:1.28}
       .date-shell{gap:5px}.date-title{font-size:clamp(27px,6.8vw,50px)}.event-date{font-size:clamp(49px,12.6vw,94px)}.archive-copy{padding:7px 10px;border-radius:17px}.archive-copy strong{font-size:clamp(22px,5.7vw,40px)}.calendar-line{font-size:clamp(20px,5vw,31px)}
-      .learn-card{padding:7px 10px}.learn-card h3{margin-top:2px}.learn-card h4{margin-top:2px}.learn-card p{line-height:1.3}
-      .bonus-card{min-height:185px;padding:10px 13px}.bonus-card p{line-height:1.35}.bonus-count{font-size:clamp(36px,9vw,54px)}.assurance-list li{padding:4px 8px}
+      .learn-card{padding:8px 10px}.learn-card h3{margin-top:0}.value-message{padding-block:9px}.value-theory-card{min-height:126px;padding:10px 16px}.value-theory-card .theory-accent{right:4px;bottom:2px;width:52px}
+      .bonus-card{min-height:clamp(238px,36vh,300px);padding:10px 13px}.bonus-card p{line-height:1.35}.bonus-count{font-size:clamp(36px,9vw,54px)}.assurance-list li{padding:4px 8px}
     }
     @media(max-width:360px){
-      .section-shell{width:calc(100% - 24px)}.learn-card p{font-size:8.3px}.bonus-card{grid-template-columns:94px 1fr}.assurance-list{gap:4px}.assurance-list li{padding:4px 7px}
+      .section-shell{width:calc(100% - 24px)}.bonus-card{grid-template-columns:104px 1fr}.assurance-list{gap:4px}.assurance-list li{padding:4px 7px}
     }
-    @media(max-aspect-ratio:9/16){.hero-visual-cta{bottom:1.2%}}
+    @media(max-width:389px){.learn-card:nth-child(4) h3{font-size:clamp(17px,4.6vw,19px)}}
     @media(prefers-reduced-motion:reduce){.swipe-container{scroll-behavior:auto}.visual-cta,.visual-cta::before{animation:none}}
+
+    /* 2026.10.31 seminar: supplied hero, LINE CTA and editorial palette. */
+    :root{--navy:#111;--navy-soft:#303030;--cyan:#e60012;--blue:#d60000;--violet:#c80000;--pink:#d90000;--coral:#e60012;--yellow:#fff500;--sky:#fff;--line:#e6dddd;--muted:#555;--gradient:linear-gradient(100deg,#d80000,#f02a1b);--shadow:0 12px 30px rgba(44,0,0,.055)}
+    .editorial-section::before{background:#fff}
+    .editorial-section::after{width:70px;height:6px;right:0;bottom:0;border-radius:0;background:#e00000}
+    .section-kicker{letter-spacing:.07em}
+    .gradient-text{background:none;color:#d60000}
+    .gradient-rule{background:#d60000;border-radius:0}
+    .section-lead,.intro-story p,.archive-copy p{color:#333}
+    .theory-card,.pain-list li,.learn-card,.bonus-card,.step-card,.life-list li{border-color:#e6dddd;border-radius:8px;box-shadow:var(--shadow)}
+    .theory-card::before{color:rgba(210,0,0,.045)}
+    .pain-list em,.learn-divider{background:#e4dada}
+    .pain-list li:first-child{padding-right:18px}
+    .pain-list li{border-left:3px solid #d60000}
+    .learn-card.has-character .learn-copy{padding-right:0}
+    .learn-number,.bonus-count{background:none;color:#d60000}
+    .value-message{background:#fff9f5;border-left-color:#d60000}
+    .value-theory-card{padding:24px!important;min-height:160px}
+    .bonus-heading-label{margin:0;padding:8px 28px;background:#fff500;border-radius:999px;color:#080808;font-size:clamp(22px,5.5vw,36px);font-weight:950;line-height:1.2}
+    .bonus-count{text-decoration:underline;text-decoration-color:#fff500;text-decoration-thickness:7px;text-underline-offset:3px}
+    .event-capacity{background:#d60000}
+    .archive-copy{background:#fff;border-color:#e6dddd}
+    .assurance-list li{border-color:#e6dddd}
+    .life-list .journey-card{padding-inline:9px}
+    .step-card:last-child::before{content:'✓';grid-column:2;grid-row:1 / 3;justify-self:center;font-size:32px;color:#d60000;font-weight:950}
+    .course-hero-stack{width:min(100%,calc(100dvh * 941 / 1672))}
+    .course-hero-art{aspect-ratio:941 / 1672}
+    .course-hero-art>img{object-fit:contain;transform:none}
+    .hero-visual-cta{position:absolute!important;z-index:4;left:2.5%;bottom:1.45%;width:95%!important;height:6.95%;margin:0!important;transform:none;border-radius:999px;background:transparent}
+    .hero-visual-cta:focus-visible{outline:4px solid #fff500;outline-offset:3px}
+    .visual-cta{display:grid;grid-template-columns:42px 1fr 18px;align-items:center;gap:10px;width:min(100%,650px);min-height:66px;aspect-ratio:auto;padding:10px 18px;border:2px solid #98fbae;border-radius:999px;background:linear-gradient(180deg,#00df3a 0%,#00b52b 47%,#008d20 52%,#00c62d 100%);color:#fff;box-shadow:inset 0 1px 3px #fff9,0 7px 18px #008e2020;text-decoration:none;animation:none}
+    .visual-cta::before,.visual-cta::after{content:none;animation:none}
+    .line-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#fff;color:#009629;font-size:12px;font-weight:950;letter-spacing:-.04em;position:relative}
+    .line-icon::after{content:'';position:absolute;bottom:-2px;left:10px;border:5px solid transparent;border-top-color:#fff;transform:rotate(20deg)}
+    .cta-copy{text-align:center;font-size:clamp(14px,2.5vw,23px);font-weight:950;line-height:1.35;letter-spacing:0}
+    .cta-arrow{font-size:36px;font-weight:500;line-height:1}
+    .cta-break{display:none}
+    .attached-media{background:linear-gradient(90deg,#d50000 0 50%,#080808 50%)}
+    @media(max-width:699px){.course-hero-stack{width:min(100%,calc(100dvh * 941 / 1672))}}
+    @media(max-width:819px){.cta-break{display:block}.visual-cta{grid-template-columns:38px 1fr 16px;gap:6px;padding:9px 13px;min-height:68px}.line-icon{width:38px;height:38px}.cta-copy{font-size:clamp(14px,3.8vw,20px)}.step-card:last-child::before{grid-column:2;grid-row:1 / 3}.value-theory-card{padding:18px!important}}
+    @media(min-width:820px){.step-card:last-child::before{grid-column:1;grid-row:auto;justify-self:start}.steps-flow{grid-template-columns:1fr 36px 1fr 36px 1fr}}
+
+    .event-date{font-size:clamp(35px,9vw,90px);line-height:1.08;letter-spacing:-.055em}
+    .event-date>span{display:inline-block;white-space:nowrap}
+    .event-date .event-time{color:#111;font-size:.88em;letter-spacing:-.035em}
+    @media(min-width:820px){.pain-list{grid-template-rows:1fr}.step-card:last-child::before{display:none}}
+
+    @media(min-width:820px) and (max-height:960px){.date-shell>.event-date{font-size:clamp(38px,4.6vw,64px)}}
+    .pain-list span{text-wrap:pretty;line-break:strict}
   </style>
 </head>
 <body>
+  <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=1040951598718706&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
   <main class="swipe-container">
     <section class="course-hero swipe-section" id="section-01" aria-label="AI×SNS集客 無料オンラインセミナー">
       <div class="course-hero-stack">
         <div class="course-hero-art">
-        <img src="output/imagegen/ai-work-basic-ad-final-fv.png" alt="AI初心者・事業主・経営者向け。ゼロから学ぶAI×SNS集客の無料オンラインセミナー。2026年10月31日土曜日20時開始、50名限定。参加特典はプロンプトカタログ400。" width="900" height="1600" fetchpriority="high">
-          <a class="visual-cta hero-visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
+        <img src="output/imagegen/seminar-20261031-hero.png" alt="AI初心者・事業主・経営者向け。ゼロから学ぶAI×SNS集客の無料オンラインセミナー。2026年10月31日土曜日20時開始、50名限定。参加特典はプロンプトカタログ400。" width="941" height="1672" fetchpriority="high">
+          <a class="hero-visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="LINEで無料セミナーの案内を受け取る"><span class="visually-hidden">LINEで無料セミナーの案内を受け取る</span></a>
         </div>
       </div>
     </section>
 
-    <section class="editorial-section swipe-section" id="section-02" aria-labelledby="intro-title">
-      <div class="section-shell intro-shell">
-        <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
-        <p class="section-kicker">AI WORK BASIC / INTRODUCTION</p>
-        <h2 class="section-title intro-title" id="intro-title">AI＝<span class="gradient-text chatty">チャッピーだけ</span>では<br>ありません！</h2>
-        <div class="intro-layout">
-          <div class="intro-story">
-            <p class="section-lead">今や、AIでできることは<br><strong>圧倒的に増えています。</strong></p>
-            <p>私たちも、AIを実際の業務に取り入れるために、たくさんの時間とお金をかけてきました。</p>
-            <div class="trial-strip" aria-label="検証の過程"><span>試して</span><span>失敗して</span><span>検証して</span><span>分析して</span></div>
-            <p>たくさん遠回りをして、ようやくたどり着いたのが、<strong>「これだけできれば大丈夫。」</strong>という基準です。</p>
-          </div>
-          <div class="theory-card">
-            <small>初心者が、まず身につけるべき内容だけ。</small>
-            <strong><span class="gradient-text">AI WORK</span><br>BASIC理論</strong>
-            <p>私たちが実際に使ってきた中から、まとめました。</p>
-            <img class="asset-image theory-accent" src="output/imagegen/lab-assets/lab-guide-robot-v1.png" alt="" width="1254" height="1254" loading="lazy">
-          </div>
-        </div>
-        <div class="release-banner"><span>その全てを、</span><b class="gradient-text">大放出します！！</b></div>
-        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
-      </div>
-    </section>
-
-    <section class="editorial-section swipe-section" id="section-03" aria-labelledby="pain-title">
+    <section class="editorial-section swipe-section" id="section-02" aria-labelledby="sales-pain-title">
       <div class="section-shell pain-shell">
         <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
         <p class="section-kicker">IS THIS YOU?</p>
-        <h2 class="section-title pain-title" id="pain-title"><span>AIを使っていないわけではない。</span><span>でも、まだ<span class="gradient-text">仕事に組み込めていない。</span></span></h2>
+        <h2 class="section-title pain-title" id="sales-pain-title"><span class="pain-context">毎日のSNS投稿、</span><span class="pain-consequence"><span class="gradient-text">時間をかけすぎて</span><br>いませんか？</span></h2>
         <div class="pain-list-wrap">
-          <img class="asset-image pain-accent" src="output/imagegen/lab-assets/lab-thinking-rabbit-v1.png" alt="" width="1254" height="1254" loading="lazy">
+
           <ul class="pain-list">
-            <li><i>01</i><em></em><span>「AIで自動化できる」と聞くけど、自分の仕事にどう使えばいいかわからない</span></li>
-            <li><i>02</i><em></em><span>AIツールが多すぎて、何を使えばいいかわからない</span></li>
-            <li><i>03</i><em></em><span>Canvaは使うけど、AIでデザインを作る方法はよく知らない</span></li>
-            <li><i>04</i><em></em><span>ChatGPTに文章を書かせるくらいしか使っていない</span></li>
-            <li><i>05</i><em></em><span>そもそもPC操作に苦手意識がある</span></li>
+            <li><i>01</i><em></em><span>投稿のネタを考えるだけで、<strong class="gradient-text">時間が過ぎてしまう</strong></span></li>
+            <li><i>02</i><em></em><span>SNS投稿を続けても、<strong class="gradient-text">問い合わせや申込みが増えない</strong></span></li>
+            <li><i>03</i><em></em><span>広告を出したいが、<strong class="gradient-text">何をどう伝えればいいかわからない</strong></span></li>
+            <li><i>04</i><em></em><span>公式LINEはあるものの、<strong class="gradient-text">登録後の導線を作れていない</strong></span></li>
+            <li><i>05</i><em></em><span>集客・発信・改善に時間がかかり、<strong class="gradient-text">本業に集中できない</strong></span></li>
           </ul>
         </div>
-        <div class="shift-message"><p>今は、質問に答えてくれるAIから、</p><strong class="gradient-text">仕事そのものを任せるAIへ。</strong><p>AIは、次の段階に進み始めています。</p></div>
+        <div class="shift-message"><strong>発信にかかる時間を見直す。<br><span class="gradient-text">AI活用の、最初の一歩。</span></strong></div>
         <p class="swipe-cue swipe-cue--vertical">次へスワイプ ↓</p>
       </div>
     </section>
 
-    <section class="editorial-section swipe-section" id="section-04" aria-labelledby="learn-title">
+    <section class="editorial-section swipe-section" id="section-03" aria-labelledby="sales-learn-title">
       <div class="section-shell learn-shell">
         <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
         <p class="section-kicker">WHAT YOU WILL LEARN</p>
-        <div class="learn-heading"><h2 class="section-title" id="learn-title">AI WORK BASICで<br><span class="gradient-text">学べること</span></h2><p class="learn-sub">〜自分がやらなくていいことを増やす〜</p></div>
+        <div class="learn-heading"><h2 class="section-title" id="sales-learn-title">ゼロから学ぶ<br><span class="gradient-text">AI×SNS集客</span></h2><p class="learn-sub">仕事に活かす、最初の一歩。</p></div>
         <div class="learn-grid">
-          <article class="learn-card"><span class="learn-number">01</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI LITERACY</span><h3>AIリテラシー</h3><h4>AIは道具。使うのは、あなた。</h4><p>何ができて、何ができないのか。AIに振り回されずに使うための基本を学びます。</p></div></article>
-          <article class="learn-card has-character"><span class="learn-number">02</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI AGENT</span><h3>今日から使えるAIエージェント</h3><h4>難しいことは、AIエージェントに任せる。</h4><p>AIに仕事をお願いするという考え方と使い方を学びます。</p></div><img class="asset-image learn-accent" src="output/imagegen/lab-assets/lab-agent-robot-v1.png" alt="" width="1254" height="1254" loading="lazy"></article>
-          <article class="learn-card"><span class="learn-number">03</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI × DESIGN</span><h3>AI × デザイン</h3><h4>なぜ“AIっぽい画像”になるのか？</h4><p>ありがちなAI画像から抜け、デザインに自然に取り入れる方法を学びます。</p></div></article>
-          <article class="learn-card"><span class="learn-number">04</span><span class="learn-divider"></span><div class="learn-copy"><span class="learn-code">AI × SNS</span><h3>AI × SNS</h3><h4>投稿するだけで終わらない。</h4><p>AIを使いながら、自分の事業に合ったSNS戦略を考えます。</p></div></article>
+          <article class="learn-card"><span class="learn-number">01</span><span class="learn-divider"></span><div class="learn-copy"><h3>売り上げに繋がるAI活用</h3></div></article>
+          <article class="learn-card has-character"><span class="learn-number">02</span><span class="learn-divider"></span><div class="learn-copy"><h3>デザインの役割とAI</h3></div></article>
+          <article class="learn-card"><span class="learn-number">03</span><span class="learn-divider"></span><div class="learn-copy"><h3>売れる導線の作り方</h3></div></article>
+          <article class="learn-card"><span class="learn-number">04</span><span class="learn-divider"></span><div class="learn-copy"><h3>人生に必要な時間を作る方法</h3></div></article>
         </div>
-        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770" loading="lazy"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
+        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="LINEで無料セミナーの案内を受け取る"><span class="line-icon" aria-hidden="true">LINE</span><span class="cta-copy">LINEで無料セミナーの<br class="cta-break">案内を受け取る</span><span class="cta-arrow" aria-hidden="true">›</span></a>
+      </div>
+    </section>
+
+    <section class="editorial-section swipe-section" id="section-04" aria-labelledby="theory-title">
+      <div class="section-shell intro-shell value-shell">
+        <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
+        <p class="section-kicker">AI WORK BASIC / OUR METHOD</p>
+        <h2 class="section-title intro-title theory-title" id="theory-title">僕たちが時間と<br class="mobile-break">お金を使って得た<span class="gradient-text">ノウハウを、できる限り<br class="mobile-break">お伝えします。</span></h2>
+        <div class="value-stack">
+          <div class="value-message">
+            <p>AI初心者の方も、ここから。</p>
+            <strong>学んで終わらず、<br>仕事に活かす。</strong>
+          </div>
+          <div class="theory-card value-theory-card">
+            <small>僕たちが作り上げた、<br>AIで売り上げに変える実践体系</small>
+            <strong>「AIライフ<br><span class="gradient-text">アルケミー理論</span>」</strong>
+
+          </div>
+        </div>
+        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="LINEで無料セミナーの案内を受け取る"><span class="line-icon" aria-hidden="true">LINE</span><span class="cta-copy">LINEで無料セミナーの<br class="cta-break">案内を受け取る</span><span class="cta-arrow" aria-hidden="true">›</span></a>
       </div>
     </section>
 
@@ -276,11 +354,11 @@
       <div class="section-shell bonus-shell">
         <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
         <p class="section-kicker">TAKE IT HOME</p>
-        <div class="bonus-heading"><h2 class="visually-hidden" id="bonus-title">参加特典</h2><img class="asset-image bonus-heading-badge" src="output/imagegen/lab-assets/lab-bonus-heading-badge-v1.png" alt="参加特典" width="1774" height="887"><p class="section-lead bonus-lead">セミナーに参加された方へ、<br><strong>実際の仕事ですぐ使える特典</strong>をご用意しています。</p></div>
+        <div class="bonus-heading"><h2 class="visually-hidden" id="bonus-title">参加特典</h2><p class="bonus-heading-label">セミナー参加特典</p><p class="section-lead bonus-lead">セミナーに参加された方へ、<br><strong>実際の仕事ですぐ使える特典</strong>をご用意しています。</p></div>
         <div class="bonus-grid">
           <article class="bonus-card"><img class="asset-image bonus-cover" src="output/imagegen/lab-assets/lab-bonus-prompt-catalog-v1.png" alt="400個のプロンプトを収録したプロンプトカタログ冊子" width="1145" height="1374" loading="lazy"><div><p class="bonus-label">SPECIAL BONUS</p><h3>プロンプトカタログ<span class="bonus-count">400</span></h3><p>思い通りのデザインができるプロンプト400を収録。文章作成、アイデア整理、SNS、デザインなどの仕事にすぐ活用できます。</p></div></article>
         </div>
-        <p class="bonus-close">無料なのに、<span class="gradient-text">ここまで。</span></p>
+        <p class="bonus-close">思い通りのデザインへ。<br><span class="gradient-text">プロンプト400。</span></p>
         <p class="swipe-cue swipe-cue--vertical">次へスワイプ ↓</p>
       </div>
     </section>
@@ -290,12 +368,12 @@
         <p class="lab-signature"><b>LAB</b><small>LIFE / ALCHEMY / BUSINESS</small></p>
         <p class="section-kicker">ONE NIGHT ONLY</p>
         <h2 class="section-title date-title" id="date-title">無料開催は、<br><span class="gradient-text">この日だけ。</span></h2>
-        <p class="event-date"><span class="gradient-text">2026.10.31 <small>(土)</small></span><br>20:00 START</p>
+        <p class="event-date"><span class="gradient-text">2026.10.31 <small>(土)</small></span><br><span class="event-time">20:00 START</span></p>
         <p class="event-capacity">50名限定</p>
         <div class="gradient-rule date-rule"></div>
         <div class="archive-copy"><p>有料級の内容のため、</p><strong class="no-archive">アーカイブは残しません。</strong><p>リアルタイム参加限定です。</p><strong class="archive-secondary">「また今度見よう」はできません。</strong></div>
         <p class="calendar-line">今すぐカレンダーに。</p>
-        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770" loading="lazy"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
+        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="LINEで無料セミナーの案内を受け取る"><span class="line-icon" aria-hidden="true">LINE</span><span class="cta-copy">LINEで無料セミナーの<br class="cta-break">案内を受け取る</span><span class="cta-arrow" aria-hidden="true">›</span></a>
       </div>
     </section>
 
@@ -309,7 +387,7 @@
           <div class="step-arrow" aria-hidden="true">→</div>
           <article class="step-card"><span class="step-number">STEP 02</span><span class="step-icon">ID</span><h3>Zoom IDをゲット</h3><p>LINEで参加案内をお送りします。</p></article>
           <div class="step-arrow" aria-hidden="true">→</div>
-          <article class="step-card"><span class="step-number">STEP 03</span><img class="asset-image step-pair-accent" src="output/imagegen/lab-assets/lab-join-pair-v1.png" alt="" width="1254" height="1254" loading="lazy"><h3>時間になったら参加</h3><p>当日はZoomからご参加ください。</p></article>
+          <article class="step-card"><span class="step-number">STEP 03</span><h3>時間になったら参加</h3><p>当日はZoomからご参加ください。</p></article>
         </div>
         <ul class="assurance-list" aria-label="参加時の安心情報"><li>顔出し不要</li><li>基本ミュートで参加</li><li>チャットOK</li><li>参加無料</li><li>50名限定</li><li>プロンプトカタログ400付き</li></ul>
         <p class="swipe-cue swipe-cue--vertical">次へスワイプ ↓</p>
@@ -322,10 +400,10 @@
         <p class="section-kicker">BEYOND AI</p>
         <h2 class="section-title purpose-title" id="purpose-title">AIを学ぶことが、<br><span class="gradient-text">目的ではありません。</span></h2>
         <div class="gradient-rule"></div>
-        <p class="purpose-copy">AIで増やしたいのは、<br><strong>仕事ではなく、時間です。</strong></p>
-        <ul class="life-list"><li>家族との時間</li><li class="journey-card">旅<img class="asset-image travel-accent" src="output/imagegen/lab-assets/lab-travel-rabbit-v1.png" alt="" width="1254" height="1254" loading="lazy"></li><li>好きな場所で働く</li><li>新しい事業</li><li>自分らしい人生</li></ul>
+        <p class="purpose-copy">SNS投稿にかける時間を見直して、<br><strong>本業と、人生のための時間を。</strong></p>
+        <ul class="life-list"><li>家族との時間</li><li class="journey-card">旅</li><li>好きな場所で働く</li><li>新しい事業</li><li>自分らしい人生</li></ul>
         <p class="purpose-close">その先にある人生のために、AIを使う。</p>
-        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770" loading="lazy"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
+        <a class="visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="LINEで無料セミナーの案内を受け取る"><span class="line-icon" aria-hidden="true">LINE</span><span class="cta-copy">LINEで無料セミナーの<br class="cta-break">案内を受け取る</span><span class="cta-arrow" aria-hidden="true">›</span></a>
       </div>
     </section>
 
@@ -334,11 +412,27 @@
     <section class="course-hero swipe-section" id="section-13" aria-label="AI WORK BASIC 無料オンラインセミナーへの参加案内">
       <div class="course-hero-stack">
         <div class="course-hero-art">
-          <img src="output/imagegen/ai-work-basic-ad-final-fv.png" alt="AI初心者・事業主・経営者向け。ゼロから学ぶAI×SNS集客の無料オンラインセミナー。2026年10月31日土曜日20時開始、50名限定。参加特典はプロンプトカタログ400。" width="900" height="1600" loading="lazy">
-          <a class="visual-cta hero-visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="AI WORK BASIC無料オンラインセミナーの参加案内を受け取る"><img src="output/imagegen/lab-assets/lab-line-cta-wide-v1.png" alt="" width="2041" height="770" loading="lazy"><span class="visually-hidden">AI WORK BASIC無料オンラインセミナーの参加案内を受け取る</span></a>
+          <img src="output/imagegen/seminar-20261031-hero.png" alt="AI初心者・事業主・経営者向け。ゼロから学ぶAI×SNS集客の無料オンラインセミナー。2026年10月31日土曜日20時開始、50名限定。参加特典はプロンプトカタログ400。" width="941" height="1672" loading="lazy">
+          <a class="hero-visual-cta" href="https://lin.ee/Q2JH9I2" target="_blank" rel="noopener" aria-label="LINEで無料セミナーの案内を受け取る"><span class="visually-hidden">LINEで無料セミナーの案内を受け取る</span></a>
         </div>
       </div>
     </section>
   </main>
+  <script>
+    document.addEventListener('click', function (event) {
+      var lineLink = event.target.closest('a[href*="lin.ee"]');
+      if (!lineLink || typeof fbq !== 'function') return;
+
+      var section = lineLink.closest('section');
+      var eventData = {
+        content_name: 'AI WORK BASIC LINE CTA',
+        content_category: 'LINE',
+        content_ids: [section && section.id ? section.id : 'unknown']
+      };
+
+      fbq('track', 'Lead', eventData);
+      fbq('trackCustom', 'LineClick', eventData);
+    });
+  </script>
 </body>
 </html>
