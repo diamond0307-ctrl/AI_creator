@@ -4,6 +4,7 @@ import { motion, useInView, useReducedMotion } from 'motion/react'
 import content from './content.html?raw'
 import HeroSection from './HeroSection.jsx'
 import InterviewSection from './InterviewSection.jsx'
+import { DEFAULT_LINE_ATTRIBUTION } from './line-routing.js'
 import './motion-lp.css'
 
 function Reveal({ rootRef, children, as = 'div', delay = 0, variant = 'shell', ...props }) {
@@ -27,8 +28,9 @@ function Reveal({ rootRef, children, as = 'div', delay = 0, variant = 'shell', .
   )
 }
 
-export default function App() {
+export default function App({ lineAttribution = DEFAULT_LINE_ATTRIBUTION }) {
   const scrollRef = useRef(null)
+
   const options = {
     replace(node) {
       if (node.type !== 'tag') return undefined
@@ -36,10 +38,13 @@ export default function App() {
       if (node.name === 'main' && props.className === 'swipe-container') {
         return <main {...props} ref={scrollRef}>{domToReact(node.children, options)}</main>
       }
-      if (node.name === 'section' && props.id === 'section-01') return <HeroSection id="section-01" scrollRef={scrollRef} />
-      if (node.name === 'section' && props.id === 'section-13') return <HeroSection id="section-13" scrollRef={scrollRef} final />
+      if (node.name === 'section' && props.id === 'section-01') return <HeroSection id="section-01" scrollRef={scrollRef} lineAttribution={lineAttribution} />
+      if (node.name === 'section' && props.id === 'section-13') return <HeroSection id="section-13" scrollRef={scrollRef} lineAttribution={lineAttribution} final />
       if (node.name === 'section' && props.id === 'section-11') return <InterviewSection kind="sns" scrollRef={scrollRef} />
       if (node.name === 'section' && props.id === 'section-12') return <InterviewSection kind="design" scrollRef={scrollRef} />
+      if (node.name === 'a' && Object.prototype.hasOwnProperty.call(node.attribs || {}, 'data-line-cta')) {
+        return <a {...props} href={lineAttribution.lineUrl} data-traffic-route={lineAttribution.trafficRoute} data-line-destination={lineAttribution.lineDestination}>{domToReact(node.children, options)}</a>
+      }
       if (node.name === 'div' && props.className?.split(' ').includes('section-shell')) {
         return <Reveal {...props} rootRef={scrollRef}>{domToReact(node.children, options)}</Reveal>
       }

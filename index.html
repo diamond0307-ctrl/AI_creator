@@ -34,22 +34,6 @@
 <body>
   <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=1040951598718706&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
   <div id="root"></div>
-  <script>
-    document.addEventListener('click', function (event) {
-      var lineLink = event.target.closest('a[href*="lin.ee"]');
-      if (!lineLink || typeof fbq !== 'function') return;
-
-      var section = lineLink.closest('section');
-      var eventData = {
-        content_name: 'AI WORK BASIC LINE CTA',
-        content_category: 'LINE',
-        content_ids: [section && section.id ? section.id : 'unknown']
-      };
-
-      fbq('track', 'Lead', eventData);
-      fbq('trackCustom', 'LineClick', eventData);
-    });
-  </script>
   <script type="module" src="./src/main.jsx"></script>
 </body>
 </html>
