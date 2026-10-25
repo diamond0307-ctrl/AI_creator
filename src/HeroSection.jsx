@@ -9,7 +9,7 @@ function Rise({ children, delay = 0, className = '', active = true, as = 'div' }
 }
 
 function AtsushiPortrait() {
-  return <div className="portrait-source-crop"><img src="output/imagegen/ai-design-interview-lp-v1.png" alt="石丸篤史さん" loading="lazy" /></div>
+  return <div className="portrait-source-crop"><img src="output/imagegen/ai-design-interview-lp-v1.png" alt="石丸篤史さん" width="941" height="1672" loading="eager" fetchPriority="high" decoding="async" /></div>
 }
 
 export default function HeroSection({ id, scrollRef, final = false }) {
@@ -38,7 +38,7 @@ export default function HeroSection({ id, scrollRef, final = false }) {
       </Rise>
       <Rise className="hero-event-title" active={active} delay={.29} as="p">無料オンラインセミナー</Rise>
       <motion.div className="hero-speakers" style={reduce ? undefined : { y: portraitY }}>
-        <Rise className="hero-speaker hero-speaker--kunio" active={active} delay={.33}><div className="hero-speaker-photo"><img src="portraits/kunio.jpg" alt="五十嵐邦夫さん" width="3265" height="4898" loading="lazy" /></div><p>AI×Web集客クリエイター養成講座 主宰</p><strong>五十嵐 邦夫</strong></Rise>
+        <Rise className="hero-speaker hero-speaker--kunio" active={active} delay={.33}><div className="hero-speaker-photo"><img src="portraits/kunio.jpg" alt="五十嵐邦夫さん" width="3265" height="4898" loading="eager" fetchPriority="high" decoding="async" /></div><p>AI×Web集客クリエイター養成講座 主宰</p><strong>五十嵐 邦夫</strong></Rise>
         <Rise className="hero-speaker hero-speaker--atsushi" active={active} delay={.42}><div className="hero-speaker-photo"><AtsushiPortrait /></div><p>AIデザイン＆クリエイティブ</p><strong>石丸 篤史</strong></Rise>
       </motion.div>
       <Rise className="hero-date" active={active} delay={.5}><strong>2026.10.31 <small>（土）</small></strong><span>20:00–22:00 <i /> <b>50名限定</b></span></Rise>
